@@ -5,6 +5,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Make sure you use single quotes
 
+Plug 'sirver/ultisnips'
+Plug 'honza/vim-snippets'
 Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-fugitive'
@@ -25,6 +27,14 @@ set mouse=a
 set ignorecase
 set smartcase
 
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsJumpForwardTrigger="<Tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
 "Turn On OmniComplete
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
@@ -33,13 +43,13 @@ set omnifunc=syntaxcomplete#Complete
 colorscheme wal
 
 "Show some Invisible Characters
-set list listchars=tab:▸\ ,trail:·,precedes:←,extends:→
+set list listchars=tab:▸\ ,trail:·,precedes:←,extends:→,nbsp:·
 "Change Invisible Character Colors
-hi Whitespace ctermbg=gray guibg=gray
-hi NonText ctermbg=gray guibg=gray
+hi Whitespace ctermbg=darkgrey guibg=darkgrey
+hi NonText ctermbg=darkgrey guibg=darkgrey
 
 "Pretty Indent Line
-let g:indentLine_char = '▸'
+let g:indentLine_char = '|'
 
 "Changes the Colorscheme to better suit a dark background
 set bg=dark
