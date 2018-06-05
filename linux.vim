@@ -21,8 +21,15 @@ set mouse=a
 set ignorecase
 set smartcase
 
+"Turn On OmniComplete
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+
 "Colorscheme and General Themes
 colorscheme wal
+
+"Changes the Colorscheme to better suit a dark background
+set bg=dark
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
@@ -36,11 +43,15 @@ inoremap jk <esc>
 inoremap kj <Esc>
 
 "Create Splits
-nnoremap <leader>\ :vsplit<CR>
-nnoremap <leader>- :split<CR>
+nnoremap <leader>\ :vnew<CR>
+nnoremap <leader>- :new<CR>
 
 "Open NERDTree
 nnoremap <leader>t :NERDTreeToggle<CR>
+
+"Open Splits to Right and Bottom
+set splitright
+set splitbelow
 
 "Split Selection, Directional
 nnoremap <leader>h <C-w>h
