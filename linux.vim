@@ -5,6 +5,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Make sure you use single quotes
 
+Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
@@ -32,13 +33,13 @@ set omnifunc=syntaxcomplete#Complete
 colorscheme wal
 
 "Show some Invisible Characters
-set list listchars=tab:▸·,trail:·,precedes:←,extends:→
+set list listchars=tab:▸\ ,trail:·,precedes:←,extends:→
 "Change Invisible Character Colors
 hi Whitespace ctermbg=gray guibg=gray
 hi NonText ctermbg=gray guibg=gray
 
 "Pretty Indent Line
-let g:indentLine_char = '│'
+let g:indentLine_char = '▸'
 
 "Changes the Colorscheme to better suit a dark background
 set bg=dark
