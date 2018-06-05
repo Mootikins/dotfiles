@@ -5,6 +5,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Make sure you use single quotes
 
+Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'dylanaraps/wal.vim'
@@ -17,6 +18,7 @@ Plug 'vim-airline/vim-airline-themes'
 " Initialize plugin system
 call plug#end()
 
+set tabstop=4 shiftwidth=4 expandtab "Use Spaces Instead of Tabs
 set showcmd
 set mouse=a
 set ignorecase
@@ -28,6 +30,15 @@ set omnifunc=syntaxcomplete#Complete
 
 "Colorscheme and General Themes
 colorscheme wal
+
+"Show some Invisible Characters
+set list listchars=tab:▸·,trail:·,precedes:←,extends:→
+"Change Invisible Character Colors
+hi Whitespace ctermbg=gray guibg=gray
+hi NonText ctermbg=gray guibg=gray
+
+"Pretty Indent Line
+let g:indentLine_char = '│'
 
 "Changes the Colorscheme to better suit a dark background
 set bg=dark
