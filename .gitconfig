@@ -1,0 +1,7 @@
+[user]
+	email = matthew.d.krohn@gmail.com
+	name = Matthew Krohn
+[push]
+	default = simple
+[core]
+	editor = nvim
