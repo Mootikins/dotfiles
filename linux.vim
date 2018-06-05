@@ -17,6 +17,7 @@ Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 set showcmd
+set mouse=a
 set ignorecase
 set smartcase
 
@@ -27,23 +28,43 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'wal'
 
-"General remaps
+"GENERAL REMAPS
 let mapleader = " "
-inoremap jk <Esc>
+
+"Leave Insert Mode
+inoremap jk <esc>
 inoremap kj <Esc>
+
+"Create Splits
 nnoremap <leader>\ :vsplit<CR>
 nnoremap <leader>- :split<CR>
+
+"Open NERDTree
 nnoremap <leader>t :NERDTreeToggle<CR>
+
+"Split Selection, Directional
 nnoremap <leader>h <C-w>h
 nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
 nnoremap <leader>l <C-w>l
 
+"Split Movement
+nnoremap <leader>H <C-w>H
+nnoremap <leader>J <C-w>J
+nnoremap <leader>K <C-w>K
+nnoremap <leader>L <C-w>L
+
+"Split Resizing
+nnoremap <leader><C-h> :vertical resize -5<CR>
+nnoremap <leader><C-j> :resize -5<CR>
+nnoremap <leader><C-k> :resize +5<CR>
+nnoremap <leader><C-l> :vertical resize +5<CR>
+
 "Snippets
 
 "Snippet Find and Change
 nnoremap <leader><BS> ?<++><CR>ca<
-inoremap <leader><Tab> <Esc>/<++><CR>ca<
+nnoremap <leader><Tab> <Esc>/<++><CR>ca<
 
 let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
 let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
