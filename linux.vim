@@ -6,7 +6,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Make sure you use single quotes
 
 Plug 'sirver/ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-fugitive'
@@ -42,13 +41,6 @@ set omnifunc=syntaxcomplete#Complete
 
 "Colorscheme and General Themes
 colorscheme wal
-
-"Show some Invisible Characters
-set list listchars=tab:»\ ,trail:·,precedes:←,extends:→,nbsp:·
-
-"Change Invisible Character Colors
-hi Whitespace ctermbg=darkgrey guibg=darkgrey
-hi NonText ctermbg=darkgrey guibg=darkgrey
 
 "Pretty Indent Line
 let g:indentLine_char = '|'
