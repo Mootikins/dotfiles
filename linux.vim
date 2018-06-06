@@ -21,6 +21,7 @@ Plug 'vim-airline/vim-airline-themes'
 " Initialize plugin system
 call plug#end()
 
+set number relativenumber
 set tabstop=4 shiftwidth=4 expandtab "Use Spaces Instead of Tabs
 set showcmd
 set mouse=a
@@ -44,6 +45,7 @@ colorscheme wal
 
 "Show some Invisible Characters
 set list listchars=tab:▸\ ,trail:·,precedes:←,extends:→,nbsp:·
+
 "Change Invisible Character Colors
 hi Whitespace ctermbg=darkgrey guibg=darkgrey
 hi NonText ctermbg=darkgrey guibg=darkgrey
@@ -103,5 +105,3 @@ nnoremap <leader><Tab> <Esc>/<++><CR>ca<
 let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
 let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
 let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-
-set number relativenumber
