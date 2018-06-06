@@ -44,7 +44,7 @@ set omnifunc=syntaxcomplete#Complete
 colorscheme wal
 
 "Show some Invisible Characters
-set list listchars=tab:▸\ ,trail:·,precedes:←,extends:→,nbsp:·
+set list listchars=tab:»\ ,trail:·,precedes:←,extends:→,nbsp:·
 
 "Change Invisible Character Colors
 hi Whitespace ctermbg=darkgrey guibg=darkgrey
