@@ -6,6 +6,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Make sure you use single quotes
 
 Plug 'sirver/ultisnips'
+Plug 'honza/vim-snippets'
 Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-fugitive'
@@ -34,6 +35,10 @@ let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+"Change Nerd Tree Directory Symbols
+let g:NERDTreeDirArrowExpandable="+"
+let g:NERDTreeDirArrowCollapsible="~"
 
 "Turn On OmniComplete
 filetype plugin on
