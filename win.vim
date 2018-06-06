@@ -40,12 +40,6 @@ set omnifunc=syntaxcomplete#Complete
 "Colorscheme and General Themes
 colorscheme murphy
 
-"Show some Invisible Characters
-set list listchars=tab:▸\ ,trail:·,precedes:←,extends:→,nbsp:·
-"Change Invisible Character Colors
-hi Whitespace ctermbg=darkgrey guibg=darkgrey
-hi NonText ctermbg=darkgrey guibg=darkgrey
-
 "Pretty Indent Line
 let g:indentLine_char = '|'
 
