@@ -22,7 +22,7 @@ Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 set number relativenumber
-set tabstop=4 shiftwidth=4 expandtab "Use Spaces Instead of Tabs
+set shiftwidth=4 softtabstop=4 expandtab "Use Spaces Instead of Tabs
 set showcmd
 set mouse=a
 set ignorecase
