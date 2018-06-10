@@ -25,8 +25,8 @@ set number relativenumber
 set shiftwidth=4 softtabstop=4 expandtab "Use Spaces Instead of Tabs
 set showcmd
 set mouse=a
-set ignorecase
-set smartcase
+set ignorecase smartcase
+set fillchars+=vert:\ 
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<Tab>"
@@ -91,10 +91,10 @@ nnoremap <leader>K <C-w>K
 nnoremap <leader>L <C-w>L
 
 "Split Resizing
-nnoremap <leader><C-h> :vertical resize -5<CR>
-nnoremap <leader><C-j> :resize -5<CR>
-nnoremap <leader><C-k> :resize +5<CR>
-nnoremap <leader><C-l> :vertical resize +5<CR>
+nnoremap <A-S-h> :vertical resize -5<CR>
+nnoremap <A-S-j> :resize -5<CR>
+nnoremap <A-S-k> :resize +5<CR>
+nnoremap <A-S-l> :vertical resize +5<CR>
 
 "Snippets
 
