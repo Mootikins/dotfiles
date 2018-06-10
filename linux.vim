@@ -40,6 +40,9 @@ let g:UltiSnipsEditSplit="vertical"
 let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="~"
 
+"Disable GitGutter bindings
+let g:gitgutter_map_keys = 0
+
 "Turn On OmniComplete
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
