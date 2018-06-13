@@ -6,7 +6,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Make sure you use single quotes
 
 Plug 'sirver/ultisnips'
-"Plug 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-fugitive'
@@ -91,10 +91,10 @@ nnoremap <leader>K <C-w>K
 nnoremap <leader>L <C-w>L
 
 "Split Resizing
-nnoremap <A-S-h> :vertical resize -5<CR>
+nnoremap <A-S-h> :vertical resize +5<CR>
 nnoremap <A-S-j> :resize -5<CR>
 nnoremap <A-S-k> :resize +5<CR>
-nnoremap <A-S-l> :vertical resize +5<CR>
+nnoremap <A-S-l> :vertical resize -5<CR>
 
 "Snippets
 
