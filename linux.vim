@@ -1,3 +1,11 @@
+"
+" __    __) _____ __     __) 
+"(, )  /   (, /  (, /|  /|   
+"   | /      /     / | / |   
+"   |/   ___/__ ) /  |/  |_  
+"   |  (__ /   (_/   '       
+"                            
+"
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
@@ -5,6 +13,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Make sure you use single quotes
 
+Plug 'mhinz/vim-startify'
 Plug 'sirver/ultisnips'
 "Plug 'honza/vim-snippets'
 Plug 'airblade/vim-gitgutter'
