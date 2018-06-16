@@ -1,3 +1,12 @@
+"
+"
+"            __    __) _____ __     __)                               
+"           (, )  /   (, /  (, /|  /|                                 
+"              | /      /     / | / |                                 
+"              |/   ___/__ ) /  |/  |_                                
+"              |  (__ /   (_/   '                                     
+"                            
+"
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
