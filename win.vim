@@ -14,6 +14,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Make sure you use single quotes
 
+Plug 'mhinz/vim-startify'
 Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-fugitive'
@@ -29,6 +30,7 @@ Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 set tabstop=4 shiftwidth=4 expandtab "Use Spaces Instead of Tabs
+set number relativenumber
 set showcmd
 set mouse=a
 set ignorecase
@@ -90,10 +92,10 @@ nnoremap <leader>K <C-w>K
 nnoremap <leader>L <C-w>L
 
 "Split Resizing
-nnoremap <leader><C-h> :vertical resize -5<CR>
-nnoremap <leader><C-j> :resize -5<CR>
-nnoremap <leader><C-k> :resize +5<CR>
-nnoremap <leader><C-l> :vertical resize +5<CR>
+nnoremap <A-S-h> :vertical resize +5<CR>
+nnoremap <A-S-j> :resize -5<CR>
+nnoremap <A-S-k> :resize +5<CR>
+nnoremap <A-S-l> :vertical resize -5<CR>
 
 "Snippets
 
@@ -101,8 +103,12 @@ nnoremap <leader><C-l> :vertical resize +5<CR>
 nnoremap <leader><BS> ?<++><CR>ca<
 nnoremap <leader><Tab> <Esc>/<++><CR>ca<
 
-let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
-let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-
-set number relativenumber
+"Startify Config
+let g:startify_files_number = 5
+let g:startify_custom_header = [
+            \ '              __    __) _____ __     __)',
+            \ '             (, )  /   (, /  (, /|  /|  ',
+            \ '                | /      /     / | / |  ',
+            \ '                |/   ___/__ ) /  |/  |_ ',
+            \ '                |  (__ /   (_/   |       ',
+            \ ]
