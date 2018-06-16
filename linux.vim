@@ -1,3 +1,11 @@
+"
+" __    __) _____ __     __) 
+"(, )  /   (, /  (, /|  /|   
+"   | /      /     / | / |   
+"   |/   ___/__ ) /  |/  |_  
+"   |  (__ /   (_/   '       
+"                            
+"
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
@@ -5,8 +13,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Make sure you use single quotes
 
+Plug 'mhinz/vim-startify'
 Plug 'sirver/ultisnips'
-"Plug 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-fugitive'
@@ -22,11 +31,11 @@ Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 set number relativenumber
-set tabstop=4 shiftwidth=4 expandtab "Use Spaces Instead of Tabs
+set shiftwidth=4 softtabstop=4 expandtab "Use Spaces Instead of Tabs
 set showcmd
 set mouse=a
-set ignorecase
-set smartcase
+set ignorecase smartcase
+set fillchars+=vert:\ 
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<Tab>"
@@ -39,6 +48,9 @@ let g:UltiSnipsEditSplit="vertical"
 "Change Nerd Tree Directory Symbols
 let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="~"
+
+"Disable GitGutter bindings
+let g:gitgutter_map_keys = 0
 
 "Turn On OmniComplete
 filetype plugin on
@@ -88,10 +100,10 @@ nnoremap <leader>K <C-w>K
 nnoremap <leader>L <C-w>L
 
 "Split Resizing
-nnoremap <leader><C-h> :vertical resize -5<CR>
-nnoremap <leader><C-j> :resize -5<CR>
-nnoremap <leader><C-k> :resize +5<CR>
-nnoremap <leader><C-l> :vertical resize +5<CR>
+nnoremap <A-S-h> :vertical resize +5<CR>
+nnoremap <A-S-j> :resize -5<CR>
+nnoremap <A-S-k> :resize +5<CR>
+nnoremap <A-S-l> :vertical resize -5<CR>
 
 "Snippets
 
@@ -102,3 +114,13 @@ nnoremap <leader><Tab> <Esc>/<++><CR>ca<
 let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
 let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
 let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+
+"Startify Config
+let g:startify_files_number = 5
+let g:startify_custom_header = [
+            \ ' __    __) _____ __     __)',
+            \ '(, )  /   (, /  (, /|  /|  ',
+            \ '   | /      /     / | / |  ',
+            \ '   |/   ___/__ ) /  |/  |_ ',
+            \ '   |  (__ /   (_/   |       ',
+            \ ]
