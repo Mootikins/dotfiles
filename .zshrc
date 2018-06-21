@@ -113,3 +113,4 @@ bindkey -v
 export KEYTIMEOUT=1
 export VISUAL=nvim
 export EDITOR="$VISUAL"
+alias tmkill='tmux kill-session'
