@@ -14,7 +14,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Make sure you use single quotes
 
 Plug 'mhinz/vim-startify'
-Plug 'honza/vim-snippets'
+Plug 'mootikins/vim-snippets'
 Plug 'sirver/ultisnips'
 Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
