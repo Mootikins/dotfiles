@@ -110,6 +110,7 @@ nnoremap <A-S-k> :resize +5<CR>
 nnoremap <A-S-l> :vertical resize -5<CR>
 
 "Snippets
+let g:UltiSnipsSnippetDirectories = ['~/dotfiles/UltiSnips/', 'UltiSnips']
 
 "Snippet Find and Change
 nnoremap <leader><BS> ?<++><CR>ca<
