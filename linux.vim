@@ -15,7 +15,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'mhinz/vim-startify'
 Plug 'sirver/ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
 Plug 'tpope/vim-fugitive'
