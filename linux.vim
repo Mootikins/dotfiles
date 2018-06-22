@@ -80,6 +80,11 @@ inoremap kj <Esc>
 nnoremap <leader>\ :vnew<CR>
 nnoremap <leader>- :new<CR>
 
+"Create Windows and move between them
+nnoremap <C-t> :tabnew<CR>
+nnoremap <C-w> :tabclose<CR>
+nnoremap <C-n> :tabnext<CR>
+
 "Open NERDTree
 nnoremap <leader>t :NERDTreeToggle<CR>
 

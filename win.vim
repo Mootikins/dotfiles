@@ -29,6 +29,12 @@ Plug 'vim-airline/vim-airline-themes'
 " Initialize plugin system
 call plug#end()
 
+"Create Windows
+nnoremap <C-t> :tabnew<CR>
+nnoremap <C-w> :tabclose<CR>
+nnoremap <C-n> :tabnext<CR>
+nnoremap <C-p> :tabprev<CR>
+
 set tabstop=4 shiftwidth=4 expandtab "Use Spaces Instead of Tabs
 set number relativenumber
 set showcmd
