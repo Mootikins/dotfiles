@@ -76,12 +76,6 @@ let mapleader = " "
 inoremap jk <esc>
 inoremap kj <Esc>
 
-"Unmap hjkl to use better motions
-nnoremap h <nop>
-nnoremap j <nop>
-nnoremap k <nop>
-nnoremap l <nop>
-
 "Create Splits
 nnoremap <leader>\ :vnew<CR>
 nnoremap <leader>- :new<CR>
