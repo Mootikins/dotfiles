@@ -76,14 +76,15 @@ let mapleader = " "
 inoremap jk <esc>
 inoremap kj <Esc>
 
+"Unmap hjkl to use better motions
+nnoremap h <nop>
+nnoremap j <nop>
+nnoremap k <nop>
+nnoremap l <nop>
+
 "Create Splits
 nnoremap <leader>\ :vnew<CR>
 nnoremap <leader>- :new<CR>
-
-"Create Windows and move between them
-nnoremap <C-t> :tabnew<CR>
-nnoremap <C-w> :tabclose<CR>
-nnoremap <C-n> :tabnext<CR>
 
 "Open NERDTree
 nnoremap <leader>t :NERDTreeToggle<CR>
