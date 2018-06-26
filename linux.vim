@@ -101,10 +101,16 @@ nnoremap <leader>K <C-w>K
 nnoremap <leader>L <C-w>L
 
 "Split Resizing
-nnoremap <A-S-h> :vertical resize +5<CR>
-nnoremap <A-S-j> :resize -5<CR>
-nnoremap <A-S-k> :resize +5<CR>
-nnoremap <A-S-l> :vertical resize -5<CR>
+nnoremap <C-S-h> :vertical resize +5<CR>
+nnoremap <C-S-j> :resize -5<CR>
+nnoremap <C-S-k> :resize +5<CR>
+nnoremap <C-S-l> :vertical resize -5<CR>
+
+"Tabs
+nnoremap <leader><C-n> :tabNext<CR>
+nnoremap <leader><C-p> :tablast<CR>
+nnoremap <leader><C-t> :tabnew<CR>
+nnoremap <leader><C-w> :tabclose<CR>
 
 "Snippets
 
