@@ -13,6 +13,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Make sure you use single quotes
 
+Plug 'ryanoasis/vim-devicons'
 Plug 'mhinz/vim-startify'
 Plug 'mootikins/vim-snippets'
 Plug 'sirver/ultisnips'
