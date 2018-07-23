@@ -114,4 +114,4 @@ export KEYTIMEOUT=1
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 alias tmkill='tmux kill-session'
-alias pissh="clear && ssh pi@192.168.74.148"
+alias pissh="clear && ssh pi@192.168.74.132"
