@@ -146,7 +146,7 @@ URxvt*saveLines:                  5000
 ! URxvt*override-redirect:         boolean
 ! URxvt*hold:                      boolean
 ! URxvt*externalBorder:            number
-! URxvt*internalBorder:            number
+URxvt*internalBorder:            10
 ! URxvt*borderLess:                true
 ! URxvt*lineSpace:                 number
 ! URxvt*letterSpace:               number
