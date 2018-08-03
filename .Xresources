@@ -40,8 +40,8 @@ XTerm*selectToClipboard:          true
 !URxvt.font:                       ProFont12,xft:TerminessTTFNerdFontMono
 !URxvt.boldFont:                   ProFont12,xft:TerminessTTFNerdFontMono
 
-URxvt.font:                       xft:ProFontWindowsNerdFontMono:size=9:antialias=false,xft:ProFontWindowsNerdFontMono:size=4:antialias=false
-URxvt.boldFont:                   xft:ProFontWindowsNerdFontMono:size=9:antialias=false,xft:ProFontWindowsNerdFontMono:size=4:antialias=false
+URxvt.font:                       xft:ProFontforPowerline:size=9:antialias=false,xft:ProFontWindowsNerdFontMono:size=4:antialias=false
+URxvt.boldFont:                   xft:ProFontforPowerline:size=9:antialias=false,xft:ProFontWindowsNerdFontMono:size=4:antialias=false
 
 ! alternative font settings with 'terminus':
 !URxvt.font:      -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1
@@ -146,7 +146,7 @@ URxvt*saveLines:                  5000
 ! URxvt*override-redirect:         boolean
 ! URxvt*hold:                      boolean
 ! URxvt*externalBorder:            number
-URxvt*internalBorder:            10
+URxvt*internalBorder:            15
 ! URxvt*borderLess:                true
 ! URxvt*lineSpace:                 number
 ! URxvt*letterSpace:               number
@@ -162,10 +162,10 @@ URxvt*internalBorder:            10
 ! URxvt*secondaryScroll:           boolean
 ! URxvt*perl-lib:                  string
 ! URxvt*perl-eval:                 perl-eval
-! URxvt*perl-ext-common:           string
+URxvt*perl-ext-common:           resize-font
 ! URxvt*perl-ext:                  string
-! URxvt*iso14755:                  boolean
-! URxvt*iso14755_52:               boolean
+URxvt*iso14755:                  false
+URxvt*iso14755_52:               false
 ! URxvt*xrm:                       string
 ! URxvt*keysym.sym:                keysym
 ! URxvt*background.border:         boolean
