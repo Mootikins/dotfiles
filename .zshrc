@@ -115,5 +115,5 @@ export VISUAL=nvim
 export EDITOR="$VISUAL"
 export PATH="${PATH}:${HOME}/.local/bin/"
 alias tmkill='tmux kill-session'
-alias pissh="clear && ssh pi@192.168.74.132"
+alias pissh="clear && ssh pi@192.168.74.121"
 alias sudo nvim="sudo -E nvim"
