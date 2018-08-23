@@ -6,4 +6,4 @@
 "             /  |  (__ /   (_/   '       
 "                                         
 "
-source ~/dotfiles/fancy.vim
+source ~/dotfiles/core.vim
