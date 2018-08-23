@@ -27,9 +27,6 @@ set mouse=a
 set ignorecase smartcase
 set fillchars+=vert:\ 
 
-" Map ESC to exit terminal mode
-tnoremap <Esc> <C-\><C-n>
-
 "Change Nerd Tree Directory Symbols
 let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="~"
