@@ -11,6 +11,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'junegunn/vim-plug'
 
 " Extras
+Plug 'altercation/vim-colors-solarized'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/goyo.vim'
 Plug 'mhinz/vim-startify'
@@ -25,3 +26,16 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Initialize plugin system
 call plug#end()
+
+"Open NERDTree
+nnoremap <leader>t :NERDTreeToggle<CR>
+
+let g:solarized_termcolors=256
+colorscheme solarized
+set background=dark
+let g:solarized_contrast = 0
+let g:solarized_italic = 0
+let g:solarized_underline = 0
+let g:solarized_termtrans = 1
+let g:airline_theme = 'solarized'
+let g:airline_solarized_bg = 'dark'

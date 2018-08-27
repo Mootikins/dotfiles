@@ -20,11 +20,8 @@ let g:gitgutter_map_keys = 0
 "Pretty Indent Line
 let g:indentLine_char = '|'
 
-" Map ESC to exit terminal mode
-tnoremap <Esc> <C-\><C-n>
-
 "Changes the Colorscheme to better suit a dark background
-set bg=dark
+set background=dark
 
 "Airline Fixes
 let g:airline#extensions#tabline#enabled = 1

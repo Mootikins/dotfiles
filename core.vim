@@ -32,9 +32,6 @@ inoremap kj <Esc>
 nnoremap <leader>\ :vnew<CR>
 nnoremap <leader>- :new<CR>
 
-"Open NERDTree
-nnoremap <leader>t :NERDTreeToggle<CR>
-
 "Open Splits to Right and Bottom
 set splitright
 set splitbelow
@@ -62,8 +59,3 @@ nnoremap <leader><C-n> :tabNext<CR>
 nnoremap <leader><C-p> :tablast<CR>
 nnoremap <leader><C-t> :tabnew<CR>
 nnoremap <leader><C-w> :tabclose<CR>
-
-"tmux cursor fix
-let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
-let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
