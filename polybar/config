@@ -27,7 +27,7 @@ xcolor15 = ${xrdb:color15}
 
 background = ${xrdb:color0}
 ;background = #222
-background-alt = #444
+background-alt = ${xrdb:color0}
 ;foreground = ${xrdb:color7:#222}
 foreground = ${xrdb:color7}
 foreground-alt = #555
