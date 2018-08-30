@@ -30,12 +30,12 @@ call plug#end()
 "Open NERDTree
 nnoremap <leader>t :NERDTreeToggle<CR>
 
-let g:solarized_termcolors=256
-colorscheme solarized
-set background=dark
+"let g:solarized_termcolors=256
 let g:solarized_contrast = 0
 let g:solarized_italic = 0
 let g:solarized_underline = 0
-let g:solarized_termtrans = 1
 let g:airline_theme = 'solarized'
 let g:airline_solarized_bg = 'dark'
+let g:solarized_termtrans = 1
+colorscheme solarized
+set background=dark
