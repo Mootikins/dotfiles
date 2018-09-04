@@ -3,7 +3,7 @@
 ||                                                                  ||
 ||                                                                  ||
 ||                    __    __) _____ __     __)                    || 
-||                   (, )  /   (, /  (, /|  /|                      || 
+||                   (  |  /   (  /  (  /|  /|                      || 
 ||                      | /      /     / | / |                      || 
 ||                      |/   ___/__ ) /  |/  |_                     || 
 ||                      |  (__ /   (_/   '                          || 
@@ -163,7 +163,6 @@ of commands to any key combination that is not already used.
 
 VIM by default puts this file in ~/.vimrc, while NeoVIM puts it in
 ~/.config/nvim/init.vim
-
 
 ======================================================================
 ------------------------------Questions?------------------------------
