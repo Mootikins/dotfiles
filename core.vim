@@ -15,7 +15,10 @@ set fillchars+=vert:\
 
 "Change Nerd Tree Directory Symbols
 let g:NERDTreeDirArrowExpandable="+"
-let g:NERDTreeDirArrowCollapsible="~"
+let g:NERDTreeDirArrowCollapsible="-"
+
+"Open NerdTree
+nnoremap <leader>t :NERDTreeToggle<CR>
 
 "Turn On OmniComplete
 filetype plugin on
