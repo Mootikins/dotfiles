@@ -17,9 +17,6 @@ set fillchars+=vert:\
 let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="-"
 
-"Open NerdTree
-nnoremap <leader>t :NERDTreeToggle<CR>
-
 "Turn On OmniComplete
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete

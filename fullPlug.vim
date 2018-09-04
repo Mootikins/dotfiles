@@ -26,6 +26,9 @@ Plug 'vim-airline/vim-airline-themes'
 " Initialize plugin system
 call plug#end()
 
+"Open NerdTree
+nnoremap <leader>t :NERDTreeToggle<CR>
+
 " Colorscheme and General Themes
 colorscheme wal
 let g:airline_theme = 'wal'

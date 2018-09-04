@@ -1,131 +1,170 @@
-==================================================
-||/                                            \||
-||                                              ||
-||                                              ||
-||                                              ||
-||          __    __) _____ __     __)          || 
-||         (, )  /   (, /  (, /|  /|            || 
-||            | /      /     / | / |            || 
-||            |/   ___/__ ) /  |/  |_           || 
-||            |  (__ /   (_/   '                || 
-||                                              ||
-||                                              ||
-||              Victory in Modes                ||
-||                                              ||
-||                                              ||
-||\                                            /||
-==================================================
----------------------Why VIM?---------------------
-==================================================
+======================================================================
+||/                                                                \||
+||                                                                  ||
+||                                                                  ||
+||                    __    __) _____ __     __)                    || 
+||                   (, )  /   (, /  (, /|  /|                      || 
+||                      | /      /     / | / |                      || 
+||                      |/   ___/__ ) /  |/  |_                     || 
+||                      |  (__ /   (_/   '                          || 
+||                                                                  ||
+||                                                                  ||
+||                                                                  ||
+||                        Victory in Modes                          ||
+||                                                                  ||
+||                                                                  ||
+||\                                                                /||
+======================================================================
+======================================================================
+-------------------------------Why VIM?-------------------------------
+======================================================================
+
+Ubiquitous - Vi, VIM's predecessor, can be found on nearly every *nix
+    system.
+
+Fast - Vi's source code was written in the 70s for much slower
+    systems, so it follows that VIM is similarly lightweight.
+
+Extensible - VIM's scripting language has spawned books and an
+    enormous community of plugin writers.
+
+Efficient - Since Vi/VIM is controlled only with the keyboard, less
+    time is spent moving your hand to your mouse.
+
+======================================================================
+-----------------------------VIM's Modes------------------------------
+======================================================================
+
+VIM has 5 modes:
+    -Normal
+        Single keys and key combinations perform specific actions
+    -Insert
+        Insertion of text
+    -Visual
+        Highlights text that can be used by Normal mode commands
+    -Command-Line
+        Allows access to more specific/advanced commands
+    -Ex-mode
+        Similar to Command-Line, but for batch processing
+
+======================================================================
+-----------------Normal Mode, Movement, and Commands------------------
+======================================================================
+Movement commands:
+    - h,j,k,l for left, down, up, right respectively
+    - Ctrl-u, Ctrl-d to move half a page up, down
+    - Ctrl-b, Ctrl-f to move a full page up, down
+    - /<text>, ?<text> to search forward/backward for <text>
+        - n and N move to next/previous results
+    - gg, G to move to top, bottom of current file
+    - 0, $ to move to beginning, end of line (^ and 
+    - w and b to move to beginning of next/prev word
+        - W and B are space-separated words
+    - t<char> and f<char> move to/find <char> in same line
+        - T and F do the same backwards
+        - , and ; move to next/prev result in line
+
+Editing commands:
+    - i, a, I, A to enter Insert mode before/after current character,
+        beginning/end of line
+    - ESC or Ctrl-[ to return to Normal mode from Insert mode
+    - v, V, Ctrl-v, enter visual, line-visual, block-visual mode
+    - c changes text, C changes until end of line
+    - y to yank (or copy) text, yy or Y to yank current line
+    - d deletes text, dd for current line (actually moves to " reg)
+    - p pastes after cursor, P pastes before cursor
+    - x to delete character under cursor
+    - u to undo, Ctrl-r to redo
+    - . to repeat last command sentence (extremely useful)
+    - gf to find file under cursor and open (eg ~/dotfiles/core.vim)
+    - <number>G to jump to line <number>
+    - ==, >>, << to auto-indent, indent, and un-indent current line
+    - : to enter Command-Line mode
+
+Basic Command-Line commands:
+    - write <directory/filename> to write the current buffer to
+        the directory under the given filename
+    - quit will quit the current buffer
+    - edit <directory/filename> will open the given file in a new buffer
+    - many more advanced commands like search and replace
+
+For Command-Line, it is important to note that you can combine commands
+and you only have to type enough characters that there are no other
+possible commands (like Huffman encoding). This means wq will write the
+current buffer to it's already given filename and quit the buffer.
+
+======================================================================
+---------------------Understanding VIM's Language---------------------
+======================================================================
+
+VIM's commands can be run in a sentence-like structure:
+    <operator><count(optional)><motion>
 
-Vim's 'father', Vi, is installed on nearly every
-*nix system, with some opting to install vim and
-alias it to vi
+An operator is almost anything referenced above: c, d, p, x, >>, etc.
 
-Extremely fast, extensible and great for editing
-files during an SSH session
+Count is the degree you want to be applied to the motion.
 
-Vim's style of editing lends itself to the mindset
-of a programmer and acts like a spoken language
+Motion is any command that moves the cursor: t, w, b, e, t/f, / and
+    some others like i (inside) and a (around).
 
-A near infinite skill ceiling. You can choose to
-never stop learning how to better use your tools
+So some full command strings could be:
+    yi3w (yanks text in the next 3 words)
+    ci" (deletes text in pair of quotes and goes into insert mode)
+    d3j (deletes current lines and two more lines down)
+    "a3p (pastes the text in register a 3 times)
+    cf. (change text to next period, inclusive)
+    dt; (delete text to next semicolon, non-inclusive)
 
-When combined with plugins and other utilities
-like tmux/screen, can be a near complete IDE
-replacement
+======================================================================
+--------------------Registers, or Multi-Clipboards--------------------
+======================================================================
 
-==================================================
--------------------VIM's Modes--------------------
-==================================================
+One of VIM's most powerful features is registers, which gives you
+access to over 30 clipboards.
 
+" is used to choose which register you want to use for the following
+register-based command.
 
+Based on this, you have a register for each alphanumeric character.
+You can also easily append text to a register
+    "ayiw will yank the current word to register a, while
+    "Ayiw will append the current word to register a
 
+There are also some important special registers:
+    . is the last inserted text
+    % is the current file's directory path VIM's initial directory
+    : is the most recently executed Command-Line command
+    # is the last edited file (the last file written out)
+    + is the system register, how you paste text from outside VIM
+        and vice versa
 
+======================================================================
+--------------------------------Macros--------------------------------
+======================================================================
+Another of VIM's coolest features is macros, though this one is more
+common.
 
+q<register> will begin recording all your keystrokes until you press q
+again, then put it into <register>.
 
+@<register> will run the macro in <register>, and @@ will execute the
+last run macro.
 
+The fact that the macros are stored in the registers means that you can 
+edit them afterwards if you make any mistakes or even record macros
+and save them in another file for later use.
 
+======================================================================
+-------------------(Re)Mapping Keys in Config Files-------------------
+======================================================================
 
+VIM supports custom config files that allow the mapping and remapping
+of commands to any key combination that is not already used.
 
-==================================================
--------Normal Mode, Movement, and Commands--------
-==================================================
+VIM by default puts this file in ~/.vimrc, while NeoVIM puts it in
+~/.config/nvim/init.vim
 
 
-
-
-
-
-
-
-
-
-==================================================
----------Entering and Leaving Insert Mode---------
-==================================================
-
-
-
-
-
-
-
-
-
-
-==================================================
------------Understanding VIM's Language-----------
-==================================================
-
-
-
-
-
-
-
-
-
-
-==================================================
-----------Registers, or Multi-Clipboards----------
-==================================================
-
-
-
-
-
-
-
-
-
-
-==================================================
-----------------------Macros----------------------
-==================================================
-
-
-
-
-
-
-
-
-
-
-==================================================
----------(Re)Mapping Keys in Config Files---------
-==================================================
-
-
-
-
-
-
-
-
-
-
-==================================================
---------------------Questions?--------------------
-==================================================
+======================================================================
+------------------------------Questions?------------------------------
+======================================================================
