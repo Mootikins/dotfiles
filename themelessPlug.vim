@@ -30,6 +30,10 @@ call plug#end()
 "Open NERDTree
 nnoremap <leader>t :NERDTreeToggle<CR>
 
+"Change Nerd Tree Directory Symbols
+let g:NERDTreeDirArrowExpandable="+"
+let g:NERDTreeDirArrowCollapsible="-"
+
 "let g:solarized_termcolors=256
 let g:solarized_contrast = 0
 let g:solarized_italic = 0

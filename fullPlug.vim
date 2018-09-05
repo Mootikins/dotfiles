@@ -22,12 +22,17 @@ Plug 'dylanaraps/wal.vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'ying17zi/vim-live-latex-preview'
 
 " Initialize plugin system
 call plug#end()
 
 "Open NerdTree
 nnoremap <leader>t :NERDTreeToggle<CR>
+
+"Change Nerd Tree Directory Symbols
+let g:NERDTreeDirArrowExpandable="+"
+let g:NERDTreeDirArrowCollapsible="-"
 
 " Colorscheme and General Themes
 colorscheme wal

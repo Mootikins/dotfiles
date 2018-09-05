@@ -13,10 +13,6 @@ set mouse=a
 set ignorecase smartcase
 set fillchars+=vert:\ 
 
-"Change Nerd Tree Directory Symbols
-let g:NERDTreeDirArrowExpandable="+"
-let g:NERDTreeDirArrowCollapsible="-"
-
 "Turn On OmniComplete
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
