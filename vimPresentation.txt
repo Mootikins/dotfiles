@@ -13,7 +13,7 @@
 ||                        Victory in Modes                          ||
 ||                                                                  ||
 ||                                                                  ||
-||\                                                                /||
+||\                   Use Ctrl-D to scroll down                    /||
 ======================================================================
 ======================================================================
 -------------------------------Why VIM?-------------------------------
@@ -167,3 +167,14 @@ VIM by default puts this file in ~/.vimrc, while NeoVIM puts it in
 ======================================================================
 ------------------------------Questions?------------------------------
 ======================================================================
+
+If you ever want a refresher, just enter "vimtutor" in your terminal
+to get a beginner-friendly tutorial, though it only really covers
+the basics.
+
+For more help, never be afraid to use VIM's built in help system. It
+can be called by entering Command-Line mode and typing:
+
+    h <search term>
+
+where the search term can be almost anything you are curious about.
