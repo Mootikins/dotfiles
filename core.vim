@@ -12,6 +12,8 @@ set showcmd
 set mouse=a
 set ignorecase smartcase
 set fillchars+=vert:\ 
+call matchadd('ColorColumn', '\%81v', 100)
+call matchadd('ColorColumn', '\%101v', 100)
 
 "Turn On OmniComplete
 filetype plugin on
