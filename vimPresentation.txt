@@ -91,7 +91,7 @@ Basic Command-Line commands:
 For Command-Line, it is important to note that you can combine commands
 and you only have to type enough characters that there are no other
 possible commands (like Huffman encoding). This means wq will write the
-current buffer to it's already given filename and quit the buffer.
+current buffer to its already given filename and quit the buffer.
 
 ======================================================================
 ---------------------Understanding VIM's Language---------------------
