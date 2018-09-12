@@ -71,6 +71,12 @@ bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 bindsym $mod+Control+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
+# Rotate display
+bindsym $Ctrl+Left exec xrandr --display eDP1 --rotate left
+bindsym $Ctrl+Up exec xrandr --display eDP1 --rotate up
+bindsym $Ctrl+Right exec xrandr --display eDP1 --rotate right
+bindsym $Ctrl+Down exec xrandr --display eDP1 --rotate normal
+
 # focus_follows_mouse no
 
 # change focus
