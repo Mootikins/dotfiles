@@ -72,10 +72,10 @@ bindsym $mod+Control+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # Rotate display
-bindsym $Ctrl+Left exec xrandr --display eDP1 --rotate left
-bindsym $Ctrl+Up exec xrandr --display eDP1 --rotate up
-bindsym $Ctrl+Right exec xrandr --display eDP1 --rotate right
-bindsym $Ctrl+Down exec xrandr --display eDP1 --rotate normal
+bindsym $mod+Ctrl+Left exec xrandr --output eDP1 --rotate left
+bindsym $mod+Ctrl+Up exec xrandr --output eDP1 --rotate inverted
+bindsym $mod+Ctrl+Right exec xrandr --output eDP1 --rotate right
+bindsym $mod+Ctrl+Down exec xrandr --output eDP1 --rotate normal
 
 # focus_follows_mouse no
 
