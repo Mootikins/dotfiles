@@ -7,6 +7,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
+Plug 'xuyuanp/nerdtree-git-plugin'
 Plug 'junegunn/vim-plug'
 
 " Extras
