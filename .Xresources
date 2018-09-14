@@ -11,7 +11,6 @@ XTerm*foreground: #e7e7e7
 XTerm*pointerColor: #16A085
 XTerm*faceName: Fixed
 XTerm*faceSize: 11
-
 !ROFI
 rofi.color-window: argb:c82d303b, #7c8389, #1d1f21
 rofi.color-normal: argb:31d1f21, #c4cbd4, argb:96404552, #4084d6, #f9f9f9
@@ -40,13 +39,12 @@ XTerm*selectToClipboard:          true
 !URxvt.font:                       ProFont12,xft:TerminessTTFNerdFontMono
 !URxvt.boldFont:                   ProFont12,xft:TerminessTTFNerdFontMono
 
-URxvt.font:                       xft:ProFontWindowsNerdFontMono:size=9:antialias=false,xft:ProFontWindowsNerdFontMono:size=8:antialias=true,xft:ProFontWindowsNerdFontMono:size=3:antialias=true
+URxvt.font:                       xft:ProFontWindowsNerdFontMono:size=9:antialias=false,xft:ProFontWindowsNerdFontMono:size=8:antialias=true,xft:ProFontWindowsNerdFontMono:size=3:antialias=true,xft:Unifont:pixelsize:8
+URxvt.boldFont:                   xft:ProFontWindowsNerdFontMono:size=9:antialias=false,xft:ProFontWindowsNerdFontMono:size=8:antialias=true,xft:ProFontWindowsNerdFontMono:size=3:antialias=true,xft:Unifont:pixelsize:8
 
-URxvt.boldFont:                   xft:ProFontWindowsNerdFontMono:size=9:antialias=false,xft:ProFontWindowsNerdFontMono:size=8:antialias=true,xft:ProFontWindowsNerdFontMono:size=3:antialias=true
 
-
-!URxvt.font:                       xft:FuraCode Nerd Font Mono:size=10:antialias=true,xft:FuraCode Nerd Font Mono Bold:size=8:antialias=true
-!URxvt.boldFont:                   xft:FuraCode Nerd Font Mono:size=10:antialias=true,xft:FuraCode Nerd Font Mono Bold:size=8:antialias=true
+!URxvt.font:                       xft:FuraCode Nerd Font Mono:size=10:antialias=true,xft:FuraCode Nerd Font Mono Bold:size=8:antialias=true,xft:Unifont:pixelsize:8
+!URxvt.boldFont:                   xft:FuraCode Nerd Font Mono:size=10:antialias=true,xft:FuraCode Nerd Font Mono Bold:size=8:antialias=true,xft:Unifont:pixelsize:8
 
 ! alternative font settings with 'terminus':
 !URxvt.font:      -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1

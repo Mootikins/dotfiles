@@ -16,26 +16,26 @@
 ||\                   Use Ctrl-D to scroll down                    /||
 ======================================================================
 ======================================================================
--------------------------------Why VIM?-------------------------------
+-------------------------------Why Vim?-------------------------------
 ======================================================================
 
-Ubiquitous - Vi, VIM's predecessor, can be found on nearly every *nix
+Ubiquitous - Vi, Vim's predecessor, can be found on nearly every *nix
     system.
 
 Fast - Vi's source code was written in the 70s for much slower
-    systems, so it follows that VIM is similarly lightweight.
+    systems, so it follows that Vim is similarly lightweight.
 
-Extensible - VIM's scripting language has spawned books and an
+Extensible - Vim's scripting language has spawned books and an
     enormous community of plugin writers.
 
-Efficient - Since Vi/VIM is controlled only with the keyboard, less
+Efficient - Since Vi/Vim is controlled only with the keyboard, less
     time is spent moving your hand to your mouse.
 
 ======================================================================
------------------------------VIM's Modes------------------------------
+-----------------------------Vim's Modes------------------------------
 ======================================================================
 
-VIM has 5 modes:
+Vim has 5 modes:
     -Normal
         Single keys and key combinations perform specific actions
     -Insert
@@ -66,7 +66,6 @@ Movement commands:
 
 Editing commands:
     - i, a, I, A to enter Insert mode before/after current character,
-        beginning/end of line
     - ESC or Ctrl-[ to return to Normal mode from Insert mode
     - v, V, Ctrl-v, enter visual, line-visual, block-visual mode
     - c changes text, C changes until end of line
@@ -94,10 +93,10 @@ possible commands (like Huffman encoding). This means wq will write the
 current buffer to its already given filename and quit the buffer.
 
 ======================================================================
----------------------Understanding VIM's Language---------------------
+---------------------Understanding Vim's Language---------------------
 ======================================================================
 
-VIM's commands can be run in a sentence-like structure:
+Vim's commands can be run in a sentence-like structure:
     <operator><count(optional)><motion>
 
 An operator is almost anything referenced above: c, d, p, x, >>, etc.
@@ -119,7 +118,7 @@ So some full command strings could be:
 --------------------Registers, or Multi-Clipboards--------------------
 ======================================================================
 
-One of VIM's most powerful features is registers, which gives you
+One of Vim's most powerful features is registers, which gives you
 access to over 30 clipboards.
 
 " is used to choose which register you want to use for the following
@@ -132,16 +131,16 @@ You can also easily append text to a register
 
 There are also some important special registers:
     . is the last inserted text
-    % is the current file's directory path VIM's initial directory
+    % is the current file's directory path Vim's initial directory
     : is the most recently executed Command-Line command
     # is the last edited file (the last file written out)
-    + is the system register, how you paste text from outside VIM
+    + is the system register, how you paste text from outside Vim
         and vice versa
 
 ======================================================================
 --------------------------------Macros--------------------------------
 ======================================================================
-Another of VIM's coolest features is macros, though this one is more
+Another of Vim's coolest features is macros, though this one is more
 common.
 
 q<register> will begin recording all your keystrokes until you press q
@@ -158,10 +157,10 @@ and save them in another file for later use.
 -------------------(Re)Mapping Keys in Config Files-------------------
 ======================================================================
 
-VIM supports custom config files that allow the mapping and remapping
+Vim supports custom config files that allow the mapping and remapping
 of commands to any key combination that is not already used.
 
-VIM by default puts this file in ~/.vimrc, while NeoVIM puts it in
+Vim by default puts this file in ~/.vimrc, while NeoVim puts it in
 ~/.config/nvim/init.vim
 
 ======================================================================
@@ -172,7 +171,7 @@ If you ever want a refresher, just enter "vimtutor" in your terminal
 to get a beginner-friendly tutorial, though it only really covers
 the basics.
 
-For more help, never be afraid to use VIM's built in help system. It
+For more help, never be afraid to use Vim's built in help system. It
 can be called by entering Command-Line mode and typing:
 
     h <search term>

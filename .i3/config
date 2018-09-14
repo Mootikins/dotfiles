@@ -28,7 +28,7 @@ font xft:URWGothic-Book 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminal
+bindsym $mod+Return exec termite
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -72,9 +72,9 @@ bindsym $mod+Control+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # Rotate display
-bindsym $mod+Ctrl+Left exec xrandr --output eDP1 --rotate left
+bindsym $mod+Ctrl+Right exec xrandr --output eDP1 --rotate left
 bindsym $mod+Ctrl+Up exec xrandr --output eDP1 --rotate inverted
-bindsym $mod+Ctrl+Right exec xrandr --output eDP1 --rotate right
+bindsym $mod+Ctrl+Left exec xrandr --output eDP1 --rotate right
 bindsym $mod+Ctrl+Down exec xrandr --output eDP1 --rotate normal
 
 # focus_follows_mouse no
