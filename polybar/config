@@ -38,7 +38,7 @@ alert = #bd2c40
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 24
+height = 18
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0.0
@@ -47,21 +47,21 @@ fixed-center = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 3
+line-size = 1
 line-color = #f00
 
 border-size = 0
 border-color = #00000000
 
 padding-left = 0
-padding-right = 2
+padding-right = 1
 
 module-margin-left = 1
 module-margin-right = 2
 
 font-0 = ProFontWindows Nerd Font:pixelsize=9;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = ProFontWindows Nerd Font:pixelsize=10;1
+font-2 = ProFontWindows Nerd Font:pixelsize=9;1
 
 modules-left = bspwm i3
 modules-center = date
@@ -71,7 +71,7 @@ enable-ipc = true
 
 tray-position = right
 tray-padding = 2
-;tray-transparent = true
+!tray-transparent = true
 ;tray-background = #0063ff
 
 ;wm-restack = bspwm
