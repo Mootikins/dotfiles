@@ -38,7 +38,7 @@ alert = #bd2c40
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 18
+height = 24
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0.0
@@ -63,9 +63,9 @@ font-0 = ProFontWindows Nerd Font:pixelsize=9;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = ProFontWindows Nerd Font:pixelsize=9;1
 
-modules-left = bspwm i3
-modules-center = date
-modules-right = volume cpu wlan battery temperature
+modules-left = i3
+modules-center = mpd
+modules-right = volume cpu date wlan battery
 
 enable-ipc = true
 
@@ -145,23 +145,64 @@ label-urgent = %icon%
 label-urgent-background = ${module/bspwm.label-urgent-background}
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-
 ws-icon-0 = 1;
 ws-icon-1 = 2;
+ws-icon-2 = 3;ﱘ
 ws-icon-default = 
 
-label-song-maxlen = 25
+[module/mpd]
+type = internal/mpd
+
+; Host where mpd is running (either ip or domain name)
+; Can also be the full path to a unix socket where mpd is running.
+host = 127.0.0.1
+port = 6600
+
+; Seconds to sleep between progressbar/song timer sync
+; Default: 1
+interval = 2
+
+;icon-play = ⏵
+;icon-pause = ⏸
+;icon-stop = ⏹
+;icon-prev = ⏮
+;icon-next = ⏭
+;icon-seekb = ⏪
+;icon-seekf = ⏩
+;icon-random = 🔀
+;icon-repeat = 🔁
+;icon-repeatone = 🔂
+;icon-single = 🔂
+;icon-consume = ✀
+
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+
+;format-online = <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <icon-repeat> <icon-random>  <bar-progress> <label-time>  <label-song>
+format-online = <icon-prev> <toggle> <icon-next> <label-song> 
+format-playing = ${self.format-online}
+format-paused = ${self.format-online}
+format-stopped = No Media Playing
+
+label-song = %artist% - %title%
+label-song-maxlen = 125
 label-song-ellipsis = true
+label-artist = %artist%
+
+bar-progress-width = 20
+bar-progress-indicator = |
+bar-progress-fill = ─
+bar-progress-empty = ─
+
+format-underline = ${xrdb:color7}
 
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${xrdb:color7}
 label = %percentage:2%%
@@ -192,11 +233,11 @@ ramp-signal-foreground = ${colors.foreground-alt}
 type = internal/date
 interval = 1
 
-date = "%A, %h %d"
-date-alt = " %Y-%m-%d"
+date = "%m-%d-%Y"
+date-alt = "%A, %h %d"
 
-time = %I:%M:%S
-time-alt = %H:%M:%S
+time = %I.%M.%S
+time-alt = %H.%M.%S
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
@@ -258,25 +299,6 @@ animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-foreground = ${colors.foreground-alt}
 animation-charging-framerate = 750
-
-[module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
-
-format = <ramp> <label>
-format-underline = ${xrdb:color10}
-format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
-
-label = %temperature%
-label-warn = %temperature%
-label-warn-foreground = ${colors.secondary}
-
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.foreground-alt}
 
 [settings]
 screenchange-reload = true

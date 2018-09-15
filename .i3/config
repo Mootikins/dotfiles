@@ -54,6 +54,10 @@ exec_always --no-startup-id killall volumeicon; volumeicon
 # Screen brightness controls
 # bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+bindsym $mod+Ctrl+Right exec mpc next
+bindsym $mod+Ctrl+Left exec mpc prev
+bindsym $mod+Ctrl+Down exec mpc toggle
+bindsym $mod+Ctrl+Up exec mpc stop
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal 'bmenu'
@@ -72,10 +76,10 @@ bindsym $mod+Control+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # Rotate display
-bindsym $mod+Ctrl+Right exec xrandr --output eDP1 --rotate left
-bindsym $mod+Ctrl+Up exec xrandr --output eDP1 --rotate inverted
-bindsym $mod+Ctrl+Left exec xrandr --output eDP1 --rotate right
-bindsym $mod+Ctrl+Down exec xrandr --output eDP1 --rotate normal
+# bindsym $mod+Ctrl+Right exec xrandr --output eDP1 --rotate left
+# bindsym $mod+Ctrl+Up exec xrandr --output eDP1 --rotate inverted
+# bindsym $mod+Ctrl+Left exec xrandr --output eDP1 --rotate right
+# bindsym $mod+Ctrl+Down exec xrandr --output eDP1 --rotate normal
 
 # focus_follows_mouse no
 
