@@ -24,6 +24,7 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ying17zi/vim-live-latex-preview'
+Plug 'vim-syntastic/syntastic'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -37,6 +38,8 @@ endif
 call plug#end()
 
 let g:deoplete#enable_at_startup = 1
+
+let g:syntastic_cpp_checkers = ['gcc']
 
 "Open NerdTree
 nnoremap <leader>t :NERDTreeToggle<CR>
