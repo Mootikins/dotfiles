@@ -82,7 +82,7 @@ prompt_timestamp() {
 rprompt_agnoster_vi() {
   prompt_vi_mode
   # prompt_timestamp
-  echo -n " "  # rprompt looks awful without a space at the end
+  echo -n ""  # rprompt looks awful without a space at the end
 }
 
 if [[ "$RPS1" == "" && "$RPROMPT" == "" ]]; then
