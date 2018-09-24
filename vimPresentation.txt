@@ -2,6 +2,7 @@
 ||/                                                                \||
 ||                                                                  ||
 ||                                                                  ||
+||                                                                  ||
 ||                    __    __) _____ __     __)                    || 
 ||                   (  |  /   (  /  (  /|  /|                      || 
 ||                      | /      /     / | / |                      || 
@@ -9,8 +10,8 @@
 ||                      |  (__ /   (_/   '                          || 
 ||                                                                  ||
 ||                                                                  ||
-||                                                                  ||
 ||                        Victory in Modes                          ||
+||                                                                  ||
 ||                                                                  ||
 ||                                                                  ||
 ||\                   Use Ctrl-D to scroll down                    /||
@@ -23,28 +24,31 @@ Ubiquitous - Vi, Vim's predecessor, can be found on nearly every *nix
     system.
 
 Fast - Vi's source code was written in the 70s for much slower
-    systems, so it follows that Vim is similarly lightweight.
+    systems, so Vim is, naturally, lightweight.
 
 Extensible - Vim's scripting language has spawned books and an
-    enormous community of plugin writers.
+    enormous community of plugin writers. If another editor or IDE
+    has something that Vim doesn't, you can probably find a plugin
+    for it.
 
 Efficient - Since Vi/Vim is controlled only with the keyboard, less
-    time is spent moving your hand to your mouse.
+    time is spent moving your hand to your mouse. Is also more
+    ergonomic than Emacs' RSI inducing key combinations.
 
 ======================================================================
 -----------------------------Vim's Modes------------------------------
 ======================================================================
 
 Vim has 5 modes:
-    -Normal
-        Single keys and key combinations perform specific actions
-    -Insert
+    -Normal (Esc to leave any other mode)
+        Single keys and serial key combinations perform actions
+    -Insert (Many ways to enter, mostly i, a, and Normal's c)
         Insertion of text
-    -Visual
+    -Visual (Standard (v), Line (V) and Block (Ctrl-v))
         Highlights text that can be used by Normal mode commands
-    -Command-Line
+    -Command-Line (: when in normal mode)
         Allows access to more specific/advanced commands
-    -Ex-mode
+    -Ex-mode (Advanced and not relevant)
         Similar to Command-Line, but for batch processing
 
 ======================================================================
@@ -65,9 +69,9 @@ Movement commands:
         - , and ; move to next/prev result in line
 
 Editing commands:
-    - i, a, I, A to enter Insert mode before/after current character,
+    - i, a, I, A to enter Insert mode before/after current
+        character/line
     - ESC or Ctrl-[ to return to Normal mode from Insert mode
-    - v, V, Ctrl-v, enter visual, line-visual, block-visual mode
     - c changes text, C changes until end of line
     - y to yank (or copy) text, yy or Y to yank current line
     - d deletes text, dd for current line (actually moves to " reg)
