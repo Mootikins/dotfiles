@@ -7,13 +7,33 @@
 "
 "
 set number relativenumber
-set shiftwidth=4 softtabstop=4 expandtab "Use Spaces Instead of Tabs
+set shiftwidth=2 softtabstop=2 expandtab shiftround"Use Spaces Instead of Tabs
 set showcmd
 set mouse=a
 set ignorecase smartcase
 set fillchars+=vert:\ 
 call matchadd('ColorColumn', '\%81v', 100)
 call matchadd('ColorColumn', '\%101v', 100)
+
+" Delete trailing whitespace
+func! DeleteTrailingWS()
+    exe "normal mz"
+    %s/\s\+$//ge
+    exe "normal `z"
+endfunc
+autocmd BufWrite *.cpp :call DeleteTrailingWS()
+autocmd BufWrite *.h :call DeleteTrailingWS()
+autocmd BufWrite *.py :call DeleteTrailingWS()
+autocmd BufWrite *.sql :call DeleteTrailingWS()
+
+set foldmethod=indent
+set foldlevel=20
+
+" No more annoying files
+set nobackup
+set noswapfile
+set noundofile
+set nowritebackup
 
 "Turn On OmniComplete
 filetype plugin on
