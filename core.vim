@@ -15,6 +15,9 @@ set fillchars+=vert:\
 call matchadd('ColorColumn', '\%81v', 100)
 call matchadd('ColorColumn', '\%101v', 100)
 
+" Assembly local whitespace settings
+autocmd Filetype asm setlocal shiftwidth=8 softtabstop=8
+
 " Delete trailing whitespace
 func! DeleteTrailingWS()
     exe "normal mz"
