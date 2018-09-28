@@ -35,6 +35,9 @@ set noswapfile
 set noundofile
 set nowritebackup
 
+" Change asm comment char
+autocmd Filetype asm setlocal commentstring=@ shiftwidth=8 softtabstop=8
+
 "Turn On OmniComplete
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
@@ -43,7 +46,6 @@ set omnifunc=syntaxcomplete#Complete
 let mapleader = " "
 
 "Leave Insert Mode
-inoremap jk <esc>
 inoremap kj <Esc>
 
 "Create Splits
@@ -67,10 +69,10 @@ nnoremap <leader>K <C-w>K
 nnoremap <leader>L <C-w>L
 
 "Split Resizing
-nnoremap <C-S-h> :vertical resize +5<CR>
-nnoremap <C-S-j> :resize -5<CR>
-nnoremap <C-S-k> :resize +5<CR>
-nnoremap <C-S-l> :vertical resize -5<CR>
+nnoremap <C-h> :vertical resize +10<CR>
+nnoremap <C-j> :resize -10<CR>
+nnoremap <C-k> :resize +10<CR>
+nnoremap <C-l> :vertical resize -10<CR>
 
 "Tabs
 nnoremap <leader><C-n> :tabNext<CR>
