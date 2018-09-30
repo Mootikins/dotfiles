@@ -81,4 +81,4 @@ nnoremap <C-l> :vertical resize -10<CR>
 nnoremap <leader><C-n> :tabNext<CR>
 nnoremap <leader><C-p> :tablast<CR>
 nnoremap <leader><C-t> :tabnew<CR>
-nnoremap <leader><C-w> :tabclose<CR>
+nnoremap <leader><C-q> :tabclose<CR>
