@@ -20,9 +20,9 @@ autocmd Filetype asm setlocal shiftwidth=8 softtabstop=8
 
 " Delete trailing whitespace
 func! DeleteTrailingWS()
-    exe "normal mz"
-    %s/\s\+$//ge
-    exe "normal `z"
+  exe "normal mz"
+  %s/\s\+$//ge
+  exe "normal `z"
 endfunc
 autocmd BufWrite *.cpp :call DeleteTrailingWS()
 autocmd BufWrite *.h :call DeleteTrailingWS()
@@ -82,3 +82,4 @@ nnoremap <leader><C-n> :tabNext<CR>
 nnoremap <leader><C-p> :tablast<CR>
 nnoremap <leader><C-t> :tabnew<CR>
 nnoremap <leader><C-q> :tabclose<CR>
+nnoremap <CR> :noh<CR>
