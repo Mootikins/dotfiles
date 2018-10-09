@@ -72,10 +72,10 @@ nnoremap <leader>K <C-w>K
 nnoremap <leader>L <C-w>L
 
 "Split Resizing
-nnoremap <C-h> :vertical resize +10<CR>
-nnoremap <C-j> :resize -10<CR>
-nnoremap <C-k> :resize +10<CR>
-nnoremap <C-l> :vertical resize -10<CR>
+nnoremap <leader><C-h> :vertical resize +10<CR>
+nnoremap <leader><C-j> :resize -10<CR>
+nnoremap <leader><C-k> :resize +10<CR>
+nnoremap <leader><C-l> :vertical resize -10<CR>
 
 "Tabs
 nnoremap <leader><C-n> :tabNext<CR>

@@ -42,6 +42,8 @@ let g:deoplete#enable_at_startup = 1
 
 " Syntastic changes
 let g:syntastic_cpp_checkers = ['gcc']
+let g:syntastic_cpp_compiler = 'gcc'
+let g:syntastic_cpp_compiler_options = ' -std=c++11'
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
