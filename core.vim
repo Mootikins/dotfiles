@@ -7,13 +7,21 @@
 "
 "
 set number relativenumber
-set shiftwidth=2 softtabstop=2 expandtab shiftround"Use Spaces Instead of Tabs
+set shiftwidth=2 softtabstop=2 expandtab shiftround
 set showcmd
 set mouse=a
-set ignorecase smartcase
+set ignorecase smartcase incsearch showmatch hlsearch
+set autoread
+set virtualedit+=block
 set fillchars+=vert:\ 
+
+"Highlight columns 81 and 101 on lines with that many characters
 call matchadd('ColorColumn', '\%81v', 100)
 call matchadd('ColorColumn', '\%101v', 100)
+
+"Shows pairs of braces, parens etc
+set showmatch
+set matchpairs+=<:>
 
 " Assembly local whitespace settings
 autocmd Filetype asm setlocal shiftwidth=8 softtabstop=8
@@ -39,7 +47,7 @@ set noundofile
 set nowritebackup
 
 " Change asm comment char
-autocmd Filetype asm setlocal commentstring=@ shiftwidth=8 softtabstop=8
+autocmd Filetype asm setlocal commentstring=@%s shiftwidth=8 softtabstop=8
 
 "Turn On OmniComplete
 filetype plugin on
@@ -83,3 +91,15 @@ nnoremap <leader><C-p> :tablast<CR>
 nnoremap <leader><C-t> :tabnew<CR>
 nnoremap <leader><C-q> :tabclose<CR>
 nnoremap <CR> :noh<CR>
+
+" Disable Arrow keys in Escape mode
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+
+" Disable Arrow keys in Insert mode
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
