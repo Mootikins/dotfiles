@@ -103,3 +103,10 @@ imap <up> <nop>
 imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
+
+" Map ESC to exit terminal mode
+tnoremap <Esc> <C-\><C-n>
+
+" Use C-n and C-p to move buffers
+nnoremap <C-n> :bnext<CR>
+nnoremap <C-p> :bprevious<CR>
