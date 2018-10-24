@@ -26,16 +26,15 @@ set matchpairs+=<:>
 " Assembly local whitespace settings
 autocmd Filetype asm setlocal shiftwidth=8 softtabstop=8
 
-" Delete trailing whitespace
-func! DeleteTrailingWS()
-  exe "normal mz"
-  %s/\s\+$//ge
-  exe "normal `z"
-endfunc
-autocmd BufWrite *.cpp :call DeleteTrailingWS()
-autocmd BufWrite *.h :call DeleteTrailingWS()
-autocmd BufWrite *.py :call DeleteTrailingWS()
-autocmd BufWrite *.sql :call DeleteTrailingWS()
+function! RemoveTrailingSpaces()
+  silent! execute '%s/\s\+$//ge'
+  silent! execute 'g/\v^$\n*%$/norm! dd'
+endfunction
+
+autocmd BufWrite *.cpp :call RemoveTrailingSpaces()
+autocmd BufWrite *.h :call RemoveTrailingSpaces()
+autocmd BufWrite *.py :call RemoveTrailingSpaces()
+autocmd BufWrite *.sql :call RemoveTrailingSpaces()
 
 set foldmethod=indent
 set foldlevel=20
@@ -92,7 +91,7 @@ nnoremap <leader><C-t> :tabnew<CR>
 nnoremap <leader><C-q> :tabclose<CR>
 nnoremap <CR> :noh<CR>
 
-" Disable Arrow keys in Escape mode
+" Disable Arrow keys in Normal mode
 map <up> <nop>
 map <down> <nop>
 map <left> <nop>
@@ -109,4 +108,3 @@ tnoremap <Esc> <C-\><C-n>
 
 " Use C-n and C-p to move buffers
 nnoremap <C-n> :bnext<CR>
-nnoremap <C-p> :bprevious<CR>

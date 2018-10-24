@@ -25,6 +25,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ying17zi/vim-live-latex-preview'
 Plug 'vim-syntastic/syntastic'
+Plug 'ctrlpvim/ctrlp.vim'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -55,6 +56,32 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+function! Format()
+  silent! execute 'norm! mz'
+
+  if &ft ==? 'c' || &ft ==? 'cpp' || &ft ==? 'php'
+    set formatprg=astyle\ --mode=c
+    silent! execute 'norm! gggqG'
+  elseif &ft ==? 'java'
+    set formatprg=astyle\ --mode=java
+    silent! execute 'norm! gggqG'
+  endif
+
+  silent! call RemoveTrailingSpaces()
+  silent! execute 'retab'
+  silent! execute 'gg=G'
+  silent! execute 'norm! `z'
+  set formatprg=
+endfunction
+
+nnoremap g= :call Format()<CR>
+
+" CtrlP changes
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 "Open NerdTree
 nnoremap <leader>t :NERDTreeToggle<CR>
