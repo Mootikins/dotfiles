@@ -108,6 +108,7 @@ prompt_context() {}
 # To add support for TTYs this line can be optionally added.
 source ~/.cache/wal/colors-tty.sh
 clear
+task list
 
 bindkey -v
 export KEYTIMEOUT=1

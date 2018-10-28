@@ -34,7 +34,7 @@ bindsym $mod+Return exec termite
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+space exec rofi -show run -font "ProFontWindows Nerd Font 9" -opacity 75 
+bindsym $mod+space exec rofi -show run -font "ProFontWindows Nerd Font 9" -opacity 95 -config ~/.config/rofi/config
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
@@ -46,7 +46,6 @@ bindsym $mod+z exec --no-startup-id morc_menu
 #bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 exec --no-startup-id pulseaudio
 exec --no-startup-id pa-applet
-exec_always --no-startup-id killall volumeicon; volumeicon
 #bindsym $mod+Ctrl+m exec pavucontrol
 
 ################################################################################################
