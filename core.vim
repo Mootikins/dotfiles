@@ -7,7 +7,7 @@
 "
 "
 set number relativenumber
-set shiftwidth=2 softtabstop=2 expandtab shiftround
+set shiftwidth=2 softtabstop=2 shiftround
 set showcmd
 set mouse=a
 set ignorecase smartcase incsearch showmatch hlsearch
