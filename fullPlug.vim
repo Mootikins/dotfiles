@@ -64,26 +64,6 @@ let g:ale_linters = {
 
 let g:ale_c_parse_makefile = 1
 
-function! Format()
-	silent! execute 'norm! mz'
-
-	if &ft ==? 'c' || &ft ==? 'cpp' || &ft ==? 'php'
-		set formatprg=astyle\ --mode=c
-		silent! execute 'norm! gggqG'
-	elseif &ft ==? 'java'
-		set formatprg=astyle\ --mode=java
-		silent! execute 'norm! gggqG'
-	endif
-
-	silent! call RemoveTrailingSpaces()
-	silent! execute 'retab'
-	silent! execute 'gg=G'
-	silent! execute 'norm! `z'
-	set formatprg=
-endfunction
-
-nnoremap g= :call Format()<CR>
-
 " CtrlP changes
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -106,3 +86,7 @@ let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 
 " Map ESC to exit terminal mode
 tnoremap <Esc> <C-\><C-n>
+
+hi LineNr ctermfg=8
+hi CursorLineNr ctermfg=5
+hi NonText ctermfg=8

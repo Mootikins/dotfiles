@@ -17,9 +17,6 @@ set virtualedit+=block
 "Set fill characters for tabs and other highlights
 set fillchars+=vert:\ 
 set list listchars=tab:\|\ 
-hi LineNr ctermfg=8
-hi CursorLineNr ctermfg=5
-hi NonText ctermfg=8
 
 "Highlight columns 81 and 101 on lines with that many characters
 call matchadd('ColorColumn', '\%81v', 100)
@@ -36,6 +33,26 @@ function! RemoveTrailingSpaces()
   silent! execute '%s/\s\+$//ge'
   silent! execute 'g/\v^$\n*%$/norm! dd'
 endfunction
+
+function! Format()
+	silent! execute 'norm! mz'
+
+	if &ft ==? 'c' || &ft ==? 'cpp' || &ft ==? 'php'
+		set formatprg=astyle\ --mode=c
+		silent! execute 'norm! gggqG'
+	elseif &ft ==? 'java'
+		set formatprg=astyle\ --mode=java
+		silent! execute 'norm! gggqG'
+	endif
+
+	silent! call RemoveTrailingSpaces()
+	silent! execute 'retab'
+	silent! execute 'gg=G'
+	silent! execute 'norm! `z'
+	set formatprg=
+endfunction
+
+nnoremap g= :call Format()<CR>
 
 autocmd BufWrite *.cpp :call RemoveTrailingSpaces()
 autocmd BufWrite *.h :call RemoveTrailingSpaces()

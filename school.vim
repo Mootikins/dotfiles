@@ -6,6 +6,6 @@
 "              |  (__ /   (_/   '       
 "                            
 "
-source ~/dotfiles/core.vim
 source ~/dotfiles/fancy.vim
 source ~/dotfiles/themelessPlug.vim
+source ~/dotfiles/core.vim
