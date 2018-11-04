@@ -7,13 +7,19 @@
 "
 "
 set number relativenumber
-set shiftwidth=2 softtabstop=2 shiftround
+set tabstop=2 softtabstop=2 shiftwidth=2 shiftround noexpandtab
 set showcmd
 set mouse=a
 set ignorecase smartcase incsearch showmatch hlsearch
 set autoread
 set virtualedit+=block
+
+"Set fill characters for tabs and other highlights
 set fillchars+=vert:\ 
+set list listchars=tab:\|\ 
+hi LineNr ctermfg=8
+hi CursorLineNr ctermfg=5
+hi NonText ctermfg=8
 
 "Highlight columns 81 and 101 on lines with that many characters
 call matchadd('ColorColumn', '\%81v', 100)
@@ -105,3 +111,6 @@ imap <right> <nop>
 
 " Use C-n and C-p to move buffers
 nnoremap <C-n> :bnext<CR>
+
+"Open NerdTree
+nnoremap <leader>t :NERDTreeToggle<CR>

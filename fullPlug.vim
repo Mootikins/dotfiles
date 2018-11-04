@@ -24,55 +24,62 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ying17zi/vim-live-latex-preview'
-Plug 'vim-syntastic/syntastic'
+Plug 'w0rp/ale'
+"Plug 'vim-syntastic/syntastic'
 Plug 'ctrlpvim/ctrlp.vim'
 
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+" if has('nvim')
+" 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+" 	Plug 'Shougo/deoplete.nvim'
+" 	Plug 'roxma/nvim-yarp'
+" 	Plug 'roxma/vim-hug-neovim-rpc'
+" endif
 
 " Initialize plugin system
 call plug#end()
 
 " Deoplete enable
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
 
 " Syntastic changes
-let g:syntastic_cpp_checkers = ['gcc']
-let g:syntastic_cpp_compiler = 'gcc'
-let g:syntastic_cpp_compiler_options = ' -std=c++11'
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_mode_map = {
-      \ "mode": "active",
-      \ "passive_filetypes": ["asm"] }
+" let g:syntastic_cpp_checkers = ['gcc']
+" let g:syntastic_cpp_compiler = 'gcc'
+" let g:syntastic_cpp_compiler_options = ' -std=c++11'
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" let g:syntastic_mode_map = {
+" 			\ "mode": "active",
+" 			\ "passive_filetypes": ["asm"] }
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 0
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+
+let g:ale_linters = {
+\   'cpp': ['gcc'],
+\}
+
+let g:ale_c_parse_makefile = 1
 
 function! Format()
-  silent! execute 'norm! mz'
+	silent! execute 'norm! mz'
 
-  if &ft ==? 'c' || &ft ==? 'cpp' || &ft ==? 'php'
-    set formatprg=astyle\ --mode=c
-    silent! execute 'norm! gggqG'
-  elseif &ft ==? 'java'
-    set formatprg=astyle\ --mode=java
-    silent! execute 'norm! gggqG'
-  endif
+	if &ft ==? 'c' || &ft ==? 'cpp' || &ft ==? 'php'
+		set formatprg=astyle\ --mode=c
+		silent! execute 'norm! gggqG'
+	elseif &ft ==? 'java'
+		set formatprg=astyle\ --mode=java
+		silent! execute 'norm! gggqG'
+	endif
 
-  silent! call RemoveTrailingSpaces()
-  silent! execute 'retab'
-  silent! execute 'gg=G'
-  silent! execute 'norm! `z'
-  set formatprg=
+	silent! call RemoveTrailingSpaces()
+	silent! execute 'retab'
+	silent! execute 'gg=G'
+	silent! execute 'norm! `z'
+	set formatprg=
 endfunction
 
 nnoremap g= :call Format()<CR>
@@ -83,9 +90,6 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
-"Open NerdTree
-nnoremap <leader>t :NERDTreeToggle<CR>
-
 "Change Nerd Tree Directory Symbols
 let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="-"
@@ -93,6 +97,7 @@ let g:NERDTreeDirArrowCollapsible="-"
 " Colorscheme and General Themes
 colorscheme wal
 let g:airline_theme = 'wal'
+let g:airline#extensions#ale#enabled = 1
 
 "tmux cursor fix
 let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
