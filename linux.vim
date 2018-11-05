@@ -6,6 +6,6 @@
 "              |  (__ /   (_/   '       
 "                            
 "
-source ~/dotfiles/fullPlug.vim
-source ~/dotfiles/fancy.vim
-source ~/dotfiles/core.vim
+source ~/dotfiles/vim/fancy.vim
+source ~/dotfiles/vim/core.vim
+source ~/dotfiles/vim/fullPlug.vim
