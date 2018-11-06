@@ -11,7 +11,7 @@ set tabstop=2 softtabstop=2 shiftwidth=2 shiftround noexpandtab
 set showcmd mouse=a
 set ignorecase smartcase incsearch showmatch hlsearch
 set autoread virtualedit+=block lazyredraw
-set scrolloff=10
+set scrolloff=10 icm=split
 
 "Set fill characters for tabs and other highlights
 set fillchars+=vert:\ 
@@ -126,7 +126,8 @@ imap <left> <nop>
 imap <right> <nop>
 
 " Use C-n and C-p to move buffers
-nnoremap <C-n> :bnext<CR>
+nnoremap <leader>n :bnext<CR>
+nnoremap <leader>p :bprev<CR>
 
 "Open NerdTree
 nnoremap <leader>t :NERDTreeToggle<CR>

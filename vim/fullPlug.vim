@@ -24,51 +24,60 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ying17zi/vim-live-latex-preview'
-Plug 'w0rp/ale'
-"Plug 'vim-syntastic/syntastic'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
-" if has('nvim')
-" 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" else
-" 	Plug 'Shougo/deoplete.nvim'
-" 	Plug 'roxma/nvim-yarp'
-" 	Plug 'roxma/vim-hug-neovim-rpc'
-" endif
+if has('nvim')
+	Plug 'w0rp/ale'
+	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+	Plug 'vim-syntastic/syntastic'
+	Plug 'Shougo/deoplete.nvim'
+	Plug 'roxma/nvim-yarp'
+	Plug 'roxma/vim-hug-neovim-rpc'
+endif
 
 " Initialize plugin system
 call plug#end()
 
 " Deoplete enable
-" let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
 
-" Syntastic changes
-" let g:syntastic_cpp_checkers = ['gcc']
-" let g:syntastic_cpp_compiler = 'gcc'
-" let g:syntastic_cpp_compiler_options = ' -std=c++11'
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-" let g:syntastic_mode_map = {
-" 			\ "mode": "active",
-" 			\ "passive_filetypes": ["asm"] }
+nnoremap <leader>fg :GFiles<CR>
+nnoremap <leader>ff :Files<CR>
+nnoremap <leader>fl :Lines<CR>
+nnoremap <leader>fal :BLines<CR>
+nnoremap <leader>ft :Tags<CR>
+nnoremap <leader>fc :Commits<CR>
 
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 0
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
+if has('nvim')
+	" ALE changes
+	let g:ale_linters = {
+	\   'cpp': ['gcc'],
+	\   'typescript': ['tsserver'],
+	\}
 
-let g:ale_linters = {
-\   'cpp': ['gcc'],
-\}
+	let g:ale_completion_enabled = 1
+	let g:ale_use_global_executables = 1
+	let g:ale_typescript_tsserver_executable = 1
+	let g:ale_c_parse_makefile = 1
+else
+	" Syntastic changes
+	let g:syntastic_cpp_checkers = ['gcc']
+	let g:syntastic_cpp_compiler = 'gcc'
+	let g:syntastic_cpp_compiler_options = ' -std=c++11'
+	set statusline+=%#warningmsg#
+	set statusline+=%{SyntasticStatuslineFlag()}
+	set statusline+=%*
+	let g:syntastic_mode_map = {
+				\ "mode": "active",
+				\ "passive_filetypes": ["asm"] }
 
-let g:ale_c_parse_makefile = 1
-
-" CtrlP changes
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+	let g:syntastic_always_populate_loc_list = 1
+	let g:syntastic_auto_loc_list = 0
+	let g:syntastic_check_on_open = 1
+	let g:syntastic_check_on_wq = 0
+endif
 
 "Change Nerd Tree Directory Symbols
 let g:NERDTreeDirArrowExpandable="+"
