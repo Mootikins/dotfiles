@@ -7,7 +7,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Make sure you use single quotes
 
 Plug 'tpope/vim-surround'
-Plug 'scrooloose/nerdtree'
 Plug 'junegunn/vim-plug'
 
 " Extras
@@ -23,11 +22,25 @@ Plug 'tpope/vim-fugitive'
 Plug 'edkolev/tmuxline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'vim-syntastic/syntastic'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Initialize plugin system
 call plug#end()
+
+" --column: Show column number
+" --line-number: Show line number
+" --no-heading: Do not show file headings in results
+" --fixed-strings: Search term as a literal string
+" --ignore-case: Case insensitive search
+" --no-ignore: Do not respect .gitignore, etc...
+" --hidden: Search hidden files and folders
+" --follow: Follow symlinks
+" --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
+" --color: Search color options
+command! -bang -nargs=* Find call fzf#vim#grep(
+			\'rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '
+			\.shellescape(<q-args>), 1, <bang>0)
 
 " Syntastic changes
 let g:syntastic_cpp_checkers = ['gcc']
@@ -44,15 +57,6 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
-" CtrlP changes
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-
-"Open NERDTree
-nnoremap <leader>t :NERDTreeToggle<CR>
 
 "Change Nerd Tree Directory Symbols
 let g:NERDTreeDirArrowExpandable="+"

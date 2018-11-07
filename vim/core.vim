@@ -6,16 +6,16 @@
 "                           
 "
 "
-set number relativenumber
+set number relativenumber 
 set tabstop=2 softtabstop=2 shiftwidth=2 shiftround noexpandtab
 set showcmd mouse=a
 set ignorecase smartcase incsearch showmatch hlsearch
 set autoread virtualedit+=block lazyredraw
 set scrolloff=10 icm=split
+filetype plugin indent on
 
 "Set fill characters for tabs and other highlights
 set fillchars+=vert:\ 
-set list listchars=tab:\|\ 
 
 "Highlight columns 81 and 101 on lines with that many characters
 call matchadd('ColorColumn', '\%81v', 100)
@@ -23,7 +23,6 @@ call matchadd('ColorColumn', '\%101v', 100)
 
 "Shows pairs of braces, parens etc
 set showmatch
-set matchpairs+=<:>
 
 " Assembly local whitespace settings
 autocmd Filetype asm setlocal shiftwidth=8 softtabstop=8
@@ -71,7 +70,6 @@ set nowritebackup
 autocmd Filetype asm setlocal commentstring=@%s shiftwidth=8 softtabstop=8
 
 "Turn On OmniComplete
-filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
 "GENERAL REMAPS
@@ -80,37 +78,20 @@ let mapleader = " "
 "Leave Insert Mode
 inoremap kj <Esc>
 
-"Create Splits
-nnoremap <leader>\ :vnew<CR>
-nnoremap <leader>- :new<CR>
-
 "Open Splits to Right and Bottom
 set splitright
 set splitbelow
 
-"Split Selection, Directional
-nnoremap <leader>h <C-w>h
-nnoremap <leader>j <C-w>j
-nnoremap <leader>k <C-w>k
-nnoremap <leader>l <C-w>l
-
-"Split Movement
-nnoremap <leader>H <C-w>H
-nnoremap <leader>J <C-w>J
-nnoremap <leader>K <C-w>K
-nnoremap <leader>L <C-w>L
+"Alternate Split Creation
+nnoremap <C-w>\ :vnew<CR>
+nnoremap <C-w>- :new<CR>
 
 "Split Resizing
-nnoremap <leader><C-h> :vertical resize +10<CR>
-nnoremap <leader><C-j> :resize -10<CR>
-nnoremap <leader><C-k> :resize +10<CR>
-nnoremap <leader><C-l> :vertical resize -10<CR>
+nnoremap <C-w><C-h> :vertical resize +5<CR>
+nnoremap <C-w><C-j> :resize +5<CR>
+nnoremap <C-w><C-k> :resize -5<CR>
+nnoremap <C-w><C-l> :vertical resize -5<CR>
 
-"Tabs
-nnoremap <leader><C-n> :tabNext<CR>
-nnoremap <leader><C-p> :tablast<CR>
-nnoremap <leader><C-t> :tabnew<CR>
-nnoremap <leader><C-q> :tabclose<CR>
 nnoremap <CR> :noh<CR>
 
 " Disable Arrow keys in Normal mode
@@ -124,10 +105,3 @@ imap <up> <nop>
 imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
-
-" Use C-n and C-p to move buffers
-nnoremap <leader>n :bnext<CR>
-nnoremap <leader>p :bprev<CR>
-
-"Open NerdTree
-nnoremap <leader>t :NERDTreeToggle<CR>
