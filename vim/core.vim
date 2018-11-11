@@ -58,7 +58,9 @@ autocmd BufWrite *.py :call RemoveTrailingSpaces()
 autocmd BufWrite *.sql :call RemoveTrailingSpaces()
 
 "Fold Settings
-set foldmethod=syntax foldnestmax=1
+set foldmethod=syntax nofoldenable
+nnoremap za zA
+nnoremap zA za
 
 " No more annoying files
 set nobackup
@@ -74,6 +76,32 @@ set omnifunc=syntaxcomplete#Complete
 
 "GENERAL REMAPS
 let mapleader = " "
+
+"Splits
+nnoremap <leader>h <C-w>h
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>l <C-w>l
+
+nnoremap <leader>H <C-w>H
+nnoremap <leader>J <C-w>J
+nnoremap <leader>K <C-w>K
+nnoremap <leader>L <C-w>L
+
+nnoremap <leader><C-h> :vertical resize +5<CR>
+nnoremap <leader><C-j> :resize +5<CR>
+nnoremap <leader><C-k> :resize -5<CR>
+nnoremap <leader><C-l> :vertical resize -5<CR>
+
+nnoremap <leader>\ :vnew<CR>
+nnoremap <leader>- :new<CR>
+
+nnoremap <leader>wq :wq<CR>
+nnoremap <leader>q :q<CR>
+
+nnoremap <leader>n :bnext<CR>
+nnoremap <leader>p :bprevious<CR>
+nnoremap <leader>bd :bdelete<CR>
 
 "Leave Insert Mode
 inoremap kj <Esc>
@@ -99,9 +127,3 @@ map <up> <nop>
 map <down> <nop>
 map <left> <nop>
 map <right> <nop>
-
-" Disable Arrow keys in Insert mode
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>

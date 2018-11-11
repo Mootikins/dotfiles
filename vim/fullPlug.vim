@@ -10,7 +10,6 @@ Plug 'tpope/vim-surround'
 Plug 'valloric/youcompleteme'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/goyo.vim'
-Plug 'mhinz/vim-startify'
 Plug 'honza/vim-snippets'
 Plug 'sirver/ultisnips'
 Plug 'airblade/vim-gitgutter'
@@ -20,6 +19,7 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ying17zi/vim-live-latex-preview'
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -42,14 +42,17 @@ let g:ycm_confirm_extra_conf=0
 " turn on tag completion
 let g:ycm_collect_identifiers_from_tags_files=1
 " start completion from the first character
-let g:ycm_min_num_of_chars_for_completion=2
+let g:ycm_min_num_of_chars_for_completion=1
 "Youcompleteme fix
-let g:ycm_global_ycm_extra_conf = '~/.local/share/nvim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.local/share/nvim/plugged/youcompleteme/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+"Use extra conf
+set completeopt-=preview
 
 " Deoplete enable
 let g:deoplete#enable_at_startup = 1
 
 nnoremap <leader>ff :Files<CR>
+nnoremap <leader>fh :Files ~/<CR>
 nnoremap <leader>fg :GFiles<CR>
 nnoremap <leader>rg :Rg<CR>
 nnoremap <leader>fl :Lines<CR>
@@ -69,10 +72,7 @@ if has('nvim')
 				\'typescript': 'prettier',
 				\}
 
-	"ALE completion
 	let g:ale_completion_enabled = 1
-
-	"ALE parses makefiles in parent dirs
 	let g:ale_c_parse_makefile = 1
 
 	"Filetype fix for TS
@@ -116,3 +116,6 @@ tnoremap <Esc> <C-\><C-n>
 set list
 set listchars=tab:\|\ 
 hi NonText ctermfg=8
+
+nnoremap <leader>ed :vnew ~/.config/nvim/init.vim<CR>
+nnoremap <leader>so :source ~/.config/nvim/init.vim<CR>
