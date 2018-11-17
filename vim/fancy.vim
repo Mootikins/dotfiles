@@ -1,4 +1,5 @@
 "
+"
 "             ________)            
 "            (, /                  
 "              /___, _  __   _     
@@ -6,28 +7,28 @@
 "          (_/                .-/  
 "                            (_/   
 "
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+"{{{ULTISNIPS TRIGGER/ETC
 let g:UltiSnipsExpandTrigger="<C-l>"
 let g:UltiSnipsJumpForwardTrigger="<C-l>"
 let g:UltiSnipsJumpBackwardTrigger="<C-h>"
 
-" If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+"}}}
 
-"Disable GitGutter bindings
+"{{{DISABLE GITGUTTER BINDINGS
 let g:gitgutter_map_keys = 0
-
-"Pretty Indent Line
-let g:indentLine_char = '|'
-
-"Changes the Colorscheme to better suit a dark background
+"}}}
+"
+"{{{DARK BACKGROUND
 set background=dark
+"}}}
 
-"Airline Fixes
+"{{{AIRLINE FIXES
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+"}}}
 
-"Startify Config
+"{{{STARTIFY CONFIG
 let g:startify_files_number = 5
 let g:startify_custom_header = [
             \ '              __    __) _____ __     __)',
@@ -36,3 +37,4 @@ let g:startify_custom_header = [
             \ '                |/   ___/__ ) /  |/  |_ ',
             \ '                |  (__ /   (_/   |       ',
             \ ]
+"}}}

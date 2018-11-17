@@ -8,8 +8,10 @@
 "
 if exists("g:gui_oni")
     source ~/dotfiles/vim/core.vim
+    source ~/dotfiles/vim/highlights.vim
 else
     source ~/dotfiles/vim/core.vim
     source ~/dotfiles/vim/fancy.vim
     source ~/dotfiles/vim/fullPlug.vim
+    source ~/dotfiles/vim/highlights.vim
 endif

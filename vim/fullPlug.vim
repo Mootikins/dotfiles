@@ -1,6 +1,17 @@
-" Specify a directory for plugins
-" - For Neovim: ~/.local/share/nvim/plugged
-" - Avoid using standard Vim directory names like 'plugin'
+"    
+"          ___           ___       ___           ___     
+"         /\  \         /\__\     /\__\         /\  \    
+"        /::\  \       /:/  /    /:/  /        /::\  \   
+"       /:/\:\  \     /:/  /    /:/  /        /:/\:\  \  
+"      /::\~\:\  \   /:/  /    /:/  /  ___   /:/  \:\  \ 
+"     /:/\:\ \:\__\ /:/__/    /:/__/  /\__\ /:/__/_\:\__\
+"     \/__\:\/:/  / \:\  \    \:\  \ /:/  / \:\  /\ \/__/
+"          \::/  /   \:\  \    \:\  /:/  /   \:\ \:\__\  
+"           \/__/     \:\  \    \:\/:/  /     \:\/:/  /  
+"                      \:\__\    \::/  /       \::/  /   
+"                       \/__/     \/__/         \/__/    
+"    
+"{{{PLUGINS
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Make sure you use single quotes
@@ -17,6 +28,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'dylanaraps/wal.vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'vim-airline/vim-airline'
+Plug 'easymotion/vim-easymotion'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ying17zi/vim-live-latex-preview'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
@@ -34,7 +46,9 @@ endif
 
 " Initialize plugin system
 call plug#end()
+"}}}
 
+"{{{YOUCOMPLETEME SETTINGS
 " turn on completion in comments
 let g:ycm_complete_in_comments=1
 " load ycm conf by default
@@ -45,12 +59,9 @@ let g:ycm_collect_identifiers_from_tags_files=1
 let g:ycm_min_num_of_chars_for_completion=1
 "Youcompleteme fix
 let g:ycm_global_ycm_extra_conf = '~/.local/share/nvim/plugged/youcompleteme/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-"Use extra conf
-set completeopt-=preview
+"}}}
 
-" Deoplete enable
-let g:deoplete#enable_at_startup = 1
-
+"{{{FZF BINDINGS
 nnoremap <leader>ff :Files<CR>
 nnoremap <leader>fh :Files ~/<CR>
 nnoremap <leader>fg :GFiles<CR>
@@ -59,7 +70,11 @@ nnoremap <leader>fl :Lines<CR>
 nnoremap <leader>fal :BLines<CR>
 nnoremap <leader>ft :Tags<CR>
 nnoremap <leader>fc :Commits<CR>
+"}}}
 
+"{{{ALE/SYNTASTIC CONFIG
+
+"{{{ALE
 if has('nvim')
 	" ALE changes
 	let g:ale_linters = {
@@ -81,7 +96,9 @@ if has('nvim')
 		" .ts is a Typescript file
 		au BufNewFile,BufRead *.ts set filetype=typescript
 	augroup END
+"}}}
 
+"{{{SYNTASTIC
 else
 	" Syntastic changes
 	let g:syntastic_cpp_checkers = ['gcc']
@@ -99,23 +116,27 @@ else
 	let g:syntastic_check_on_open = 1
 	let g:syntastic_check_on_wq = 0
 endif
+"}}}
+"
+"}}}
 
-" Colorscheme and General Themes
+"{{{COLORSCHEME AND GENERAL THEMES
 colorscheme wal
 let g:airline_theme = 'wal'
 let g:airline#extensions#ale#enabled = 1
+"}}}
 
-"tmux cursor fix
+"{{{TMUX CURSOR FIX
 let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
 let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
 let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+"}}}
 
-" Map ESC to exit terminal mode
+"{{{MAP ESC TO EXIT TERMINAL MODE
 tnoremap <Esc> <C-\><C-n>
+"}}}
 
-set list
-set listchars=tab:\|\ 
-hi NonText ctermfg=8
-
+"{{{EDIT/SOURCE DOTFILE
 nnoremap <leader>ed :vnew ~/.config/nvim/init.vim<CR>
 nnoremap <leader>so :source ~/.config/nvim/init.vim<CR>
+"}}}
