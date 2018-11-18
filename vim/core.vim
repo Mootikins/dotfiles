@@ -12,7 +12,6 @@ set tabstop=2 softtabstop=2 shiftwidth=2 shiftround noexpandtab
 set showcmd mouse=a
 set ignorecase smartcase incsearch showmatch hlsearch
 set autoread virtualedit+=block lazyredraw
-set icm=split
 set showmatch
 filetype plugin indent on
 "Turn On OmniComplete
@@ -21,27 +20,34 @@ set omnifunc=syntaxcomplete#Complete
 
 "{{{ FORMATTING
 function! RemoveTrailingSpaces()
-  silent! execute '%s/\s\+$//ge'
-  silent! execute 'g/\v^$\n*%$/norm! dd'
+	silent! execute '%s/\s\+$//ge'
+	silent! execute 'g/\v^$\n*%$/norm! dd'
 endfunction
 
 function! Format()
-  silent! execute 'norm! mz'
+	silent! execute 'norm! mz'
 
-  if &ft ==? 'c' || &ft ==? 'cpp' || &ft ==? 'php'
-    set formatprg=astyle\ --mode=c
-    silent! execute 'norm! gggqG'
-  elseif &ft ==? 'java'
-    set formatprg=astyle\ --mode=java
-    silent! execute 'norm! gggqG'
-  endif
+	if &ft ==? 'c' || &ft ==? 'cpp' || &ft ==? 'php'
+		set formatprg=astyle\ --mode=c
+		silent! execute 'norm! gggqG'
+	elseif &ft ==? 'java'
+		set formatprg=astyle\ --mode=java
+		silent! execute 'norm! gggqG'
+	endif
 
-  silent! call RemoveTrailingSpaces()
-  silent! execute 'retab'
-  silent! execute 'gg=G'
-  silent! execute 'norm! `z'
-  set formatprg=
+	silent! call RemoveTrailingSpaces()
+	silent! execute 'retab'
+	silent! execute 'gg=G'
+	silent! execute 'norm! `z'
+	set formatprg=
 endfunction
+
+"Filetype fix for TS
+augroup FiletypeGroup
+	autocmd!
+	" .ts is a Typescript file
+	au BufNewFile,BufRead *.ts set filetype=typescript
+augroup END
 
 nnoremap g= :call Format()<CR>
 

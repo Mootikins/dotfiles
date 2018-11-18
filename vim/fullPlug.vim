@@ -18,7 +18,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'junegunn/vim-plug'
 Plug 'tpope/vim-surround'
-Plug 'valloric/youcompleteme'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/goyo.vim'
 Plug 'honza/vim-snippets'
@@ -31,6 +30,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ying17zi/vim-live-latex-preview'
+Plug 'valloric/youcompleteme'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -89,13 +89,6 @@ if has('nvim')
 
 	let g:ale_completion_enabled = 1
 	let g:ale_c_parse_makefile = 1
-
-	"Filetype fix for TS
-	augroup FiletypeGroup
-		autocmd!
-		" .ts is a Typescript file
-		au BufNewFile,BufRead *.ts set filetype=typescript
-	augroup END
 "}}}
 
 "{{{SYNTASTIC
@@ -132,7 +125,8 @@ let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
 let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 "}}}
 
-"{{{MAP ESC TO EXIT TERMINAL MODE
+"{{{NEOVIM SPECIFICS
+set inccommand=split
 tnoremap <Esc> <C-\><C-n>
 "}}}
 
