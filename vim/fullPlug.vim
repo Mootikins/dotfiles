@@ -34,6 +34,10 @@ Plug 'valloric/youcompleteme'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'jreybert/vimagit'
+Plug 'edkolev/tmuxline.vim'
+Plug 'gko/vim-coloresque'
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 if has('nvim')
@@ -123,11 +127,6 @@ let g:airline#extensions#ale#enabled = 1
 let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
 let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
 let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-"}}}
-
-"{{{NEOVIM SPECIFICS
-set inccommand=split
-tnoremap <Esc> <C-\><C-n>
 "}}}
 
 "{{{EDIT/SOURCE DOTFILE

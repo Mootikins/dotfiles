@@ -107,6 +107,11 @@ nnoremap <C-w><C-h> :vertical resize +5<CR>
 nnoremap <C-w><C-j> :resize +5<CR>
 nnoremap <C-w><C-k> :resize -5<CR>
 nnoremap <C-w><C-l> :vertical resize -5<CR>
+
+if has('nvim')
+	set inccommand=split
+	tnoremap <Esc> <C-\><C-n>
+endif
 "}}}
 
 "{{{BUFFERS
