@@ -14,8 +14,6 @@
 "{{{PLUGINS
 call plug#begin('~/.local/share/nvim/plugged')
 
-" Make sure you use single quotes
-
 Plug 'junegunn/vim-plug'
 Plug 'tpope/vim-surround'
 Plug 'ryanoasis/vim-devicons'

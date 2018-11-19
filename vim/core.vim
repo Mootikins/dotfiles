@@ -13,9 +13,17 @@ set showcmd mouse=a
 set ignorecase smartcase incsearch showmatch hlsearch
 set autoread virtualedit+=block lazyredraw
 set showmatch
+set wildmenu
+set wildmode=full
+set undofile undodir="$HOME/.vim_undo"
 filetype plugin indent on
+syntax on
 "Turn On OmniComplete
 set omnifunc=syntaxcomplete#Complete
+
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+set clipboard+=unnamedplus
 "}}}
 
 "{{{ FORMATTING
@@ -76,7 +84,15 @@ map <down> <nop>
 map <left> <nop>
 map <right> <nop>
 
-nnoremap <CR> :noh<CR>
+nnoremap ; :
+
+nnoremap <silent> H ^
+nnoremap <silent> L g_
+
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+
+nnoremap <silent> <CR> :noh<CR>
 
 inoremap kj <Esc>
 "}}}
@@ -125,4 +141,11 @@ nnoremap <leader>x :close<CR>
 
 set splitright
 set splitbelow
+"}}}
+
+"{{{ VIM SPECIFIC
+if has('vim')
+	set background=dark
+	colorscheme darkblue
+endif
 "}}}
