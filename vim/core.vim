@@ -84,8 +84,6 @@ map <down> <nop>
 map <left> <nop>
 map <right> <nop>
 
-nnoremap ; :
-
 nnoremap <silent> H ^
 nnoremap <silent> L g_
 
