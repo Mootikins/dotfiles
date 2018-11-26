@@ -74,6 +74,7 @@ nnoremap zA za
 " {{{FILETYPE SPECIFIC SETTINGS
 autocmd Filetype asm setlocal shiftwidth=8 softtabstop=8
 autocmd Filetype vim setlocal foldmethod=marker
+autocmd Filetype tmux setlocal foldmethod=marker
 "}}}
 
 "{{{GENERAL REMAPS
@@ -96,31 +97,31 @@ inoremap kj <Esc>
 "}}}
 
 "{{{SPLITS
-nnoremap <leader>h <C-w>h
-nnoremap <leader>j <C-w>j
-nnoremap <leader>k <C-w>k
-nnoremap <leader>l <C-w>l
+nnoremap <silent> <leader>h <C-w>h
+nnoremap <silent> <leader>j <C-w>j
+nnoremap <silent> <leader>k <C-w>k
+nnoremap <silent> <leader>l <C-w>l
 
-nnoremap <leader>H <C-w>H
-nnoremap <leader>J <C-w>J
-nnoremap <leader>K <C-w>K
-nnoremap <leader>L <C-w>L
+nnoremap <silent> <leader>H <C-w>H
+nnoremap <silent> <leader>J <C-w>J
+nnoremap <silent> <leader>K <C-w>K
+nnoremap <silent> <leader>L <C-w>L
 
-nnoremap <leader><C-h> :vertical resize +5<CR>
-nnoremap <leader><C-j> :resize +5<CR>
-nnoremap <leader><C-k> :resize -5<CR>
-nnoremap <leader><C-l> :vertical resize -5<CR>
+nnoremap <silent> <leader><C-h> :vertical resize +5<CR>
+nnoremap <silent> <leader><C-j> :resize +5<CR>
+nnoremap <silent> <leader><C-k> :resize -5<CR>
+nnoremap <silent> <leader><C-l> :vertical resize -5<CR>
 
-nnoremap <leader>\ :vnew<CR>
-nnoremap <leader>- :new<CR>
+nnoremap <silent> <leader>\ :vnew<CR>
+nnoremap <silent> <leader>- :new<CR>
 "
-nnoremap <C-w>\ :vnew<CR>
-nnoremap <C-w>- :new<CR>
+nnoremap <silent> <C-w>\ :vnew<CR>
+nnoremap <silent> <C-w>- :new<CR>
 
-nnoremap <C-w><C-h> :vertical resize +5<CR>
-nnoremap <C-w><C-j> :resize +5<CR>
-nnoremap <C-w><C-k> :resize -5<CR>
-nnoremap <C-w><C-l> :vertical resize -5<CR>
+nnoremap <silent> <C-w><C-h> :vertical resize +5<CR>
+nnoremap <silent> <C-w><C-j> :resize +5<CR>
+nnoremap <silent> <C-w><C-k> :resize -5<CR>
+nnoremap <silent> <C-w><C-l> :vertical resize -5<CR>
 
 if has('nvim')
 	set inccommand=split
