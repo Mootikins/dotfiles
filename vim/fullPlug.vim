@@ -33,8 +33,10 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'jreybert/vimagit'
-"Plug 'edkolev/tmuxline.vim'
 Plug 'gko/vim-coloresque'
+Plug 'tpope/vim-obsession'
+Plug 'tmux-plugins/vim-tmux'
+Plug 'christoomey/vim-tmux-navigator'
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 if has('nvim')

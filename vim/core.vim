@@ -97,15 +97,18 @@ inoremap kj <Esc>
 "}}}
 
 "{{{SPLITS
-nnoremap <silent> <leader>h <C-w>h
-nnoremap <silent> <leader>j <C-w>j
-nnoremap <silent> <leader>k <C-w>k
-nnoremap <silent> <leader>l <C-w>l
 
-nnoremap <silent> <leader>H <C-w>H
-nnoremap <silent> <leader>J <C-w>J
-nnoremap <silent> <leader>K <C-w>K
-nnoremap <silent> <leader>L <C-w>L
+"These are left for posterity so people can see how I used
+"to navigate splits, but I now use vim-tmux-navigator (see fullPlug)
+"nnoremap <silent> <leader>h <C-w>h
+"nnoremap <silent> <leader>j <C-w>j
+"nnoremap <silent> <leader>k <C-w>k
+"nnoremap <silent> <leader>l <C-w>l
+"
+"nnoremap <silent> <leader>H <C-w>H
+"nnoremap <silent> <leader>J <C-w>J
+"nnoremap <silent> <leader>K <C-w>K
+"nnoremap <silent> <leader>L <C-w>L
 
 nnoremap <silent> <leader><C-h> :vertical resize +5<CR>
 nnoremap <silent> <leader><C-j> :resize +5<CR>

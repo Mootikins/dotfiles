@@ -1,5 +1,6 @@
 set list
 set listchars=tab:\|\ 
+set fillchars+=vert:\ 
 hi NonText ctermfg=237
 "
 "Highlight columns 81 and 101 on lines with that many characters
