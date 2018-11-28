@@ -35,6 +35,17 @@ Plug 'roxma/vim-hug-neovim-rpc'
 call plug#end()
 "}}}
 
+"{{{FZF BINDINGS
+"nnoremap <leader>ff :Files<CR>
+"nnoremap <leader>fh :Files ~/<CR>
+"nnoremap <leader>fg :GFiles<CR>
+"nnoremap <leader>rg :Rg<CR>
+"nnoremap <leader>fl :Lines<CR>
+"nnoremap <leader>fal :BLines<CR>
+"nnoremap <leader>ft :Tags<CR>
+"nnoremap <leader>fc :Commits<CR>
+""}}}
+
 "{{{ SYNTASTIC CHANGES
 let g:syntastic_cpp_checkers = ['gcc']
 let g:syntastic_cpp_compiler = 'gcc'
