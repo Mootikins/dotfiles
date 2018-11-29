@@ -6,7 +6,9 @@
 "        \/_/  \/_/   \/_/   \/_/ \/_/   \/_/ 
 "                                             
 "      
+"====================================================
 "{{{PLUGINS
+"====================================================
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Make sure you use single quotes
@@ -34,20 +36,29 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " Initialize plugin system
 call plug#end()
+"====================================================
 "}}}
+"====================================================
 
+"====================================================
 "{{{FZF BINDINGS
-"nnoremap <leader>ff :Files<CR>
-"nnoremap <leader>fh :Files ~/<CR>
-"nnoremap <leader>fg :GFiles<CR>
-"nnoremap <leader>rg :Rg<CR>
-"nnoremap <leader>fl :Lines<CR>
-"nnoremap <leader>fal :BLines<CR>
-"nnoremap <leader>ft :Tags<CR>
-"nnoremap <leader>fc :Commits<CR>
-""}}}
+"====================================================
+nnoremap <leader>ff :Files<CR>
+nnoremap <leader>fh :Files ~/<CR>
+nnoremap <leader>fg :GFiles<CR>
+nnoremap <leader>rg :Rg<CR>
+nnoremap <leader>fl :Lines<CR>
+nnoremap <leader>fal :BLines<CR>
+nnoremap <leader>ft :Tags<CR>
+nnoremap <leader>fc :Commits<CR>
+nnoremap <leader>ht :Helptags<CR>
+"====================================================
+"}}}
+"====================================================
 
+"====================================================
 "{{{ SYNTASTIC CHANGES
+"====================================================
 let g:syntastic_cpp_checkers = ['gcc']
 let g:syntastic_cpp_compiler = 'gcc'
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
@@ -62,9 +73,13 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+"====================================================
 "}}}
+"====================================================
 
+"====================================================
 "{{{SOLARIZED
+"====================================================
 let g:solarized_contrast = 0
 let g:solarized_italic = 0
 let g:solarized_underline = 0
@@ -73,4 +88,6 @@ let g:airline_solarized_bg = 'dark'
 let g:solarized_termtrans = 1
 colorscheme solarized
 set background=dark
+"====================================================
 "}}}
+"====================================================

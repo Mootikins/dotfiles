@@ -11,7 +11,9 @@
 "                      \:\__\    \::/  /       \::/  /   
 "                       \/__/     \/__/         \/__/    
 "    
+"====================================================
 "{{{PLUGINS
+"====================================================
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'junegunn/vim-plug'
@@ -26,7 +28,7 @@ Plug 'dylanaraps/wal.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'ying17zi/vim-live-latex-preview'
+Plug 'ying17zi/vim-live-latex-preview', { 'for': 'tex' }
 Plug 'valloric/youcompleteme'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -49,9 +51,13 @@ endif
 
 " Initialize plugin system
 call plug#end()
+"====================================================
 "}}}
+"====================================================
 
+"====================================================
 "{{{YOUCOMPLETEME SETTINGS
+"====================================================
 " turn on completion in comments
 let g:ycm_complete_in_comments=1
 " load ycm conf by default
@@ -62,9 +68,13 @@ let g:ycm_collect_identifiers_from_tags_files=1
 let g:ycm_min_num_of_chars_for_completion=1
 "Youcompleteme fix
 let g:ycm_global_ycm_extra_conf = '~/.local/share/nvim/plugged/youcompleteme/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+"====================================================
 "}}}
+"====================================================
 
+"====================================================
 "{{{FZF BINDINGS
+"====================================================
 nnoremap <leader>ff :Files<CR>
 nnoremap <leader>fh :Files ~/<CR>
 nnoremap <leader>fg :GFiles<CR>
@@ -73,11 +83,18 @@ nnoremap <leader>fl :Lines<CR>
 nnoremap <leader>fal :BLines<CR>
 nnoremap <leader>ft :Tags<CR>
 nnoremap <leader>fc :Commits<CR>
+nnoremap <leader>ht :Helptags<CR>
+"====================================================
 "}}}
+"====================================================
 
+"====================================================
 "{{{ALE/SYNTASTIC CONFIG
+"====================================================
 
+"====================================================
 "{{{ALE
+"====================================================
 if has('nvim')
 	" ALE changes
 	let g:ale_linters = {
@@ -92,9 +109,13 @@ if has('nvim')
 
 	let g:ale_completion_enabled = 1
 	let g:ale_c_parse_makefile = 1
+"====================================================
 "}}}
+"====================================================
 
+"====================================================
 "{{{SYNTASTIC
+"====================================================
 else
 	" Syntastic changes
 	let g:syntastic_cpp_checkers = ['gcc']
@@ -112,23 +133,39 @@ else
 	let g:syntastic_check_on_open = 1
 	let g:syntastic_check_on_wq = 0
 endif
+"====================================================
 "}}}
-"
-"}}}
+"====================================================
 
+"====================================================
+"}}}
+"====================================================
+
+"====================================================
 "{{{COLORSCHEME AND GENERAL THEMES
+"====================================================
 colorscheme wal
 let g:airline_theme = 'wal'
 let g:airline#extensions#ale#enabled = 1
+"====================================================
 "}}}
+"====================================================
 
+"====================================================
 "{{{TMUX CURSOR FIX
+"====================================================
 let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
 let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
 let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+"====================================================
 "}}}
+"====================================================
 
+"====================================================
 "{{{EDIT/SOURCE DOTFILE
+"====================================================
 nnoremap <leader>ed :vnew ~/.config/nvim/init.vim<CR>
 nnoremap <leader>so :source ~/.config/nvim/init.vim<CR>
+"====================================================
 "}}}
+"====================================================

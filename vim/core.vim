@@ -6,7 +6,9 @@
 "        \____/\____/_/ |_/_____/
 "
 "
+"====================================================
 "{{{BASIC VARIABLE SETTINGS
+"====================================================
 set number relativenumber
 set tabstop=2 softtabstop=2 shiftwidth=2 shiftround noexpandtab
 set showcmd mouse=a
@@ -24,9 +26,13 @@ set omnifunc=syntaxcomplete#Complete
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 set clipboard+=unnamedplus
+"====================================================
 "}}}
+"====================================================
 
+"====================================================
 "{{{ FORMATTING
+"====================================================
 function! RemoveTrailingSpaces()
 	silent! execute '%s/\s\+$//ge'
 	silent! execute 'g/\v^$\n*%$/norm! dd'
@@ -63,21 +69,33 @@ autocmd BufWrite *.cpp :call RemoveTrailingSpaces()
 autocmd BufWrite *.h :call RemoveTrailingSpaces()
 autocmd BufWrite *.py :call RemoveTrailingSpaces()
 autocmd BufWrite *.sql :call RemoveTrailingSpaces()
+"====================================================
 "}}}
+"====================================================
 
-" {{{FOLD SETTINGS
+"====================================================
+"{{{FOLD SETTINGS
+"====================================================
 set foldmethod=syntax
 nnoremap za zA
 nnoremap zA za
+"====================================================
 "}}}
+"====================================================
 
-" {{{FILETYPE SPECIFIC SETTINGS
+"====================================================
+"{{{FILETYPE SPECIFIC SETTINGS
+"====================================================
 autocmd Filetype asm setlocal shiftwidth=8 softtabstop=8
 autocmd Filetype vim setlocal foldmethod=marker
 autocmd Filetype tmux setlocal foldmethod=marker
+"====================================================
 "}}}
+"====================================================
 
+"====================================================
 "{{{GENERAL REMAPS
+"====================================================
 let mapleader = " "
 
 map <up> <nop>
@@ -94,21 +112,22 @@ vnoremap <leader>d "_d
 nnoremap <silent> <CR> :noh<CR>
 
 inoremap kj <Esc>
+"====================================================
 "}}}
+"====================================================
 
+"====================================================
 "{{{SPLITS
+"====================================================
+nnoremap <silent> <leader>h <C-w>h
+nnoremap <silent> <leader>j <C-w>j
+nnoremap <silent> <leader>k <C-w>k
+nnoremap <silent> <leader>l <C-w>l
 
-"These are left for posterity so people can see how I used
-"to navigate splits, but I now use vim-tmux-navigator (see fullPlug)
-"nnoremap <silent> <leader>h <C-w>h
-"nnoremap <silent> <leader>j <C-w>j
-"nnoremap <silent> <leader>k <C-w>k
-"nnoremap <silent> <leader>l <C-w>l
-"
-"nnoremap <silent> <leader>H <C-w>H
-"nnoremap <silent> <leader>J <C-w>J
-"nnoremap <silent> <leader>K <C-w>K
-"nnoremap <silent> <leader>L <C-w>L
+nnoremap <silent> <leader>H <C-w>H
+nnoremap <silent> <leader>J <C-w>J
+nnoremap <silent> <leader>K <C-w>K
+nnoremap <silent> <leader>L <C-w>L
 
 nnoremap <silent> <leader><C-h> :vertical resize +5<CR>
 nnoremap <silent> <leader><C-j> :resize +5<CR>
@@ -130,9 +149,13 @@ if has('nvim')
 	set inccommand=split
 	tnoremap <Esc> <C-\><C-n>
 endif
+"====================================================
 "}}}
+"====================================================
 
+"====================================================
 "{{{BUFFERS
+"====================================================
 nnoremap <leader>n :bnext<CR>
 nnoremap <leader>p :bprevious<CR>
 nnoremap <leader>bd :bdelete<CR>
@@ -143,11 +166,17 @@ nnoremap <leader>x :close<CR>
 
 set splitright
 set splitbelow
+"====================================================
 "}}}
+"====================================================
 
+"====================================================
 "{{{ VIM SPECIFIC
+"====================================================
 if has('vim')
 	set background=dark
 	colorscheme darkblue
 endif
+"====================================================
 "}}}
+"====================================================
