@@ -15,13 +15,14 @@ set showcmd mouse=a
 set ignorecase smartcase incsearch showmatch hlsearch
 set autoread virtualedit+=block lazyredraw
 set showmatch
-set wildmenu
-set wildmode=full
+set wildmenu wildmode=full
 set undofile undodir="$HOME/.vim_undo"
 filetype plugin indent on
 syntax on
 "Turn On OmniComplete
 set omnifunc=syntaxcomplete#Complete
+set textwidth=79
+let &showbreak='↳ '
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1

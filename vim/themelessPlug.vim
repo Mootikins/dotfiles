@@ -51,7 +51,7 @@ nnoremap <leader>fl :Lines<CR>
 nnoremap <leader>fal :BLines<CR>
 nnoremap <leader>ft :Tags<CR>
 nnoremap <leader>fc :Commits<CR>
-nnoremap <leader>ht :Helptags<CR>
+nnoremap <leader>fH :Helptags<CR>
 "====================================================
 "}}}
 "====================================================
