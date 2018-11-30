@@ -251,12 +251,12 @@ format-volume = <label-volume> <bar-volume>
 label-volume = 
 label-volume-foreground = ${root.foreground}
 
-format-muted-prefix = " "
+format-muted-prefix = " "
 ;format-underline = ${xrdb:color4}
 format-muted-foreground = ${colors.foreground-alt}
-label-muted = MUTED
+label-muted = VOLUME MUTED
 
-bar-volume-width = 10
+bar-volume-width = 12
 bar-volume-foreground-0 = ${colors.foreground}
 bar-volume-foreground-1 = ${colors.foreground}
 bar-volume-foreground-2 = ${colors.foreground}

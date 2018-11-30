@@ -28,8 +28,8 @@ font xft:URWGothic-Book 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
-bindsym $mod+Shift+Return exec urxvt -name floating
+bindsym $mod+Return exec termite
+bindsym $mod+Shift+Return exec termite --class=life
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -45,9 +45,8 @@ bindsym $mod+z exec --no-startup-id morc_menu
 ################################################################################################
 
 #bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
-exec --no-startup-id pulseaudio
 exec --no-startup-id pa-applet
-#bindsym $mod+Ctrl+m exec pavucontrol
+bindsym $mod+Ctrl+m exec pavucontrol
 
 ################################################################################################
 
@@ -60,8 +59,9 @@ bindsym $mod+Ctrl+Down exec mpc toggle
 bindsym $mod+Ctrl+Up exec mpc stop
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+ #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%- #decrease sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Media player controls
 bindsym XF86AudioPlay exec mpc toggle
@@ -222,7 +222,7 @@ for_window [class="Thus"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
-for_window [class="URxvt" instance="floating"] floating enable
+for_window [class="termite" class="life"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -415,4 +415,5 @@ mode "$mode_gaps_outer" {
 }
 
 exec_always --no-startup-id ~/.config/polybar/launch.sh
-exec mpd
+exec --no-startup-id mpd
+exec --no-startup-id pulseaudio
