@@ -65,7 +65,7 @@ prompt_vi_mode() {
     color=blue
     mode="$VIINS_INDICATOR"
   fi
-  rprompt_segment $color white $mode
+  rprompt_segment $color 232 $mode
 }
 
 # Timestamp

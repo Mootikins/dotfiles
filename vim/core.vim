@@ -21,7 +21,6 @@ filetype plugin indent on
 syntax on
 "Turn On OmniComplete
 set omnifunc=syntaxcomplete#Complete
-set textwidth=79
 let &showbreak='↳ '
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -90,6 +89,7 @@ nnoremap zA za
 autocmd Filetype asm setlocal shiftwidth=8 softtabstop=8
 autocmd Filetype vim setlocal foldmethod=marker
 autocmd Filetype tmux setlocal foldmethod=marker
+autocmd Filetype xdefaults setlocal foldmethod=marker
 "====================================================
 "}}}
 "====================================================

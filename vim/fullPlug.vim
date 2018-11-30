@@ -164,7 +164,7 @@ let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 "====================================================
 "{{{EDIT/SOURCE DOTFILE
 "====================================================
-nnoremap <leader>ed :vnew ~/.config/nvim/init.vim<CR>
+nnoremap <leader>ed :edit ~/.config/nvim/init.vim<CR>
 nnoremap <leader>so :source ~/.config/nvim/init.vim<CR>
 "====================================================
 "}}}
