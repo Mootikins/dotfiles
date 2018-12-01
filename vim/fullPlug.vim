@@ -17,32 +17,42 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'junegunn/vim-plug'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
-Plug 'ryanoasis/vim-devicons'
-Plug 'junegunn/goyo.vim'
-Plug 'honza/vim-snippets'
-Plug 'sirver/ultisnips'
+
 Plug 'vim-scripts/sudo.vim'
 Plug 'vim-scripts/nextval'
-Plug 'airblade/vim-gitgutter'
-Plug 'dylanaraps/wal.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'easymotion/vim-easymotion'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'ying17zi/vim-live-latex-preview', { 'for': 'tex' }
-Plug 'valloric/youcompleteme'
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'jiangmiao/auto-pairs'
-Plug 'jreybert/vimagit'
-Plug 'gko/vim-coloresque'
+
 Plug 'tmux-plugins/vim-tmux'
 Plug 'christoomey/vim-tmux-navigator'
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+Plug 'jreybert/vimagit'
+
+Plug 'sirver/ultisnips'
+Plug 'honza/vim-snippets'
+
+Plug 'easymotion/vim-easymotion'
+Plug 'jiangmiao/auto-pairs'
+Plug 'ying17zi/vim-live-latex-preview', { 'for': 'tex' }
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+Plug 'ryanoasis/vim-devicons'
+Plug 'airblade/vim-gitgutter'
+Plug 'gko/vim-coloresque'
+
+Plug 'dylanaraps/wal.vim'
+
+Plug 'valloric/youcompleteme'
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 
 if has('nvim')
 	Plug 'w0rp/ale'
@@ -80,7 +90,7 @@ let g:ycm_global_ycm_extra_conf = '~/.local/share/nvim/plugged/youcompleteme/thi
 "====================================================
 nnoremap <leader>ff :Files<CR>
 nnoremap <leader>fh :Files ~/<CR>
-nnoremap <leader>fg :GFiles<CR>
+nnoremap <leader>gf :GFiles<CR>
 nnoremap <leader>rg :Rg<CR>
 nnoremap <leader>fl :Lines<CR>
 nnoremap <leader>fal :BLines<CR>

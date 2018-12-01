@@ -14,25 +14,39 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Make sure you use single quotes
 
 Plug 'junegunn/vim-plug'
-Plug 'tpope/vim-surround'
-Plug 'altercation/vim-colors-solarized'
-Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/goyo.vim'
-Plug 'honza/vim-snippets'
-Plug 'sirver/ultisnips'
-Plug 'airblade/vim-gitgutter'
-Plug 'Yggdroot/indentLine'
-Plug 'tpope/vim-fugitive'
-Plug 'edkolev/tmuxline.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'vim-syntastic/syntastic'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
+
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-repeat'
+
+Plug 'vim-scripts/sudo.vim'
+Plug 'vim-scripts/nextval'
+
 Plug 'tmux-plugins/vim-tmux'
 Plug 'christoomey/vim-tmux-navigator'
+
+Plug 'jreybert/vimagit'
+
+Plug 'sirver/ultisnips'
+Plug 'honza/vim-snippets'
+
+Plug 'easymotion/vim-easymotion'
+Plug 'jiangmiao/auto-pairs'
+Plug 'ying17zi/vim-live-latex-preview', { 'for': 'tex' }
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+Plug 'ryanoasis/vim-devicons'
+Plug 'airblade/vim-gitgutter'
+Plug 'gko/vim-coloresque'
+
+Plug 'vim-syntastic/syntastic'
 
 " Initialize plugin system
 call plug#end()
@@ -45,7 +59,7 @@ call plug#end()
 "====================================================
 nnoremap <leader>ff :Files<CR>
 nnoremap <leader>fh :Files ~/<CR>
-nnoremap <leader>fg :GFiles<CR>
+nnoremap <leader>gf :GFiles<CR>
 nnoremap <leader>rg :Rg<CR>
 nnoremap <leader>fl :Lines<CR>
 nnoremap <leader>fal :BLines<CR>
