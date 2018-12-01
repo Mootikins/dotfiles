@@ -110,18 +110,5 @@ fi
 clear
 
 bindkey -v
-export KEYTIMEOUT=1
-if [ type nvim &> /dev/null ]; then
-	export VISUAL=nvim
-else
-	export VISUAL=vim
-fi
-alias tma="tmux attach"
-alias tmat="tmux attach -t "
-alias tmks="tmux kill-server"
-alias tmk="tmux kill-session -t "
-export EDITOR="$VISUAL"
-export PATH="${PATH}:${HOME}/.local/bin/"
-export PATH="${PATH}:${HOME}/.local/share/nvim/plugged/vim-live-latex-preview/bin/"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
