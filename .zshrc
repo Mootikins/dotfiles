@@ -111,4 +111,6 @@ clear
 
 bindkey -v
 
+source ~/dotfiles/exports.exp
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

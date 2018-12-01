@@ -10,7 +10,6 @@ if has('nvim')
 	hi IncSearch ctermbg=0 ctermfg=1
 endif
 
-"
 "Highlight columns 81 and 101 on lines with that many characters
 call matchadd('ColorColumn', '\%81v', 100)
 call matchadd('ColorColumn', '\%101v', 100)
