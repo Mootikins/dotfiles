@@ -28,8 +28,8 @@ font xft:URWGothic-Book 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec termite
-bindsym $mod+Shift+Return exec termite --class=life
+bindsym $mod+Return exec urxvt
+bindsym $mod+Shift+Return exec urxvt -name life
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -224,7 +224,7 @@ for_window [class="Thus"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
-for_window [class="termite" class="life"] floating enable
+for_window [class="URxvt" instance="life"] floating enable move scratchpad scratchpad show
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus

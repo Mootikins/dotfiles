@@ -52,7 +52,7 @@ URxvt.boldFont:                   xft:ProFontWindowsNerdFontMono:size=9:antialia
 !! terminus names see end of file!
 
 URxvt.depth:                      32
-URxvt.background:                 base00
+URxvt.background:                 black
 URxvt*scrollBar:                  false
 URxvt*mouseWheelScrollPage:       false
 URxvt*cursorBlink:                true
