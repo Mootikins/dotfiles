@@ -92,8 +92,9 @@ nnoremap <leader>ff :Files<CR>
 nnoremap <leader>fh :Files ~/<CR>
 nnoremap <leader>gf :GFiles<CR>
 nnoremap <leader>rg :Rg<CR>
-nnoremap <leader>fl :Lines<CR>
-nnoremap <leader>fal :BLines<CR>
+nnoremap <leader>fl :BLines<CR>
+nnoremap <leader>fal :Lines<CR>
+nnoremap <leader>fb :Buffers<CR>
 nnoremap <leader>ft :Tags<CR>
 nnoremap <leader>fc :Commits<CR>
 nnoremap <leader>fH :Helptags<CR>
