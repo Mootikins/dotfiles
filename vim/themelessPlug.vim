@@ -57,15 +57,16 @@ call plug#end()
 "====================================================
 "{{{FZF BINDINGS
 "====================================================
-nnoremap <leader>ff :Files<CR>
-nnoremap <leader>fh :Files ~/<CR>
-nnoremap <leader>gf :GFiles<CR>
-nnoremap <leader>rg :Rg<CR>
-nnoremap <leader>fl :Lines<CR>
-nnoremap <leader>fal :BLines<CR>
-nnoremap <leader>ft :Tags<CR>
-nnoremap <leader>fc :Commits<CR>
-nnoremap <leader>fH :Helptags<CR>
+nnoremap <silent> <leader>ff :Files<CR>
+nnoremap <silent> <leader>fh :Files ~/<CR>
+nnoremap <silent> <leader>gf :GFiles<CR>
+nnoremap <silent> <leader>rg :Rg<CR>
+nnoremap <silent> <leader>fl :BLines<CR>
+nnoremap <silent> <leader>fal :Lines<CR>
+nnoremap <silent> <leader>fb :Buffers<CR>
+nnoremap <silent> <leader>ft :Tags<CR>
+nnoremap <silent> <leader>fc :Commits<CR>
+nnoremap <silent> <leader>fH :Helptags<CR>
 "====================================================
 "}}}
 "====================================================

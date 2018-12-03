@@ -88,16 +88,16 @@ let g:ycm_global_ycm_extra_conf = '~/.local/share/nvim/plugged/youcompleteme/thi
 "====================================================
 "{{{FZF BINDINGS
 "====================================================
-nnoremap <leader>ff :Files<CR>
-nnoremap <leader>fh :Files ~/<CR>
-nnoremap <leader>gf :GFiles<CR>
-nnoremap <leader>rg :Rg<CR>
-nnoremap <leader>fl :BLines<CR>
-nnoremap <leader>fal :Lines<CR>
-nnoremap <leader>fb :Buffers<CR>
-nnoremap <leader>ft :Tags<CR>
-nnoremap <leader>fc :Commits<CR>
-nnoremap <leader>fH :Helptags<CR>
+nnoremap <silent> <leader>ff :Files<CR>
+nnoremap <silent> <leader>fh :Files ~/<CR>
+nnoremap <silent> <leader>gf :GFiles<CR>
+nnoremap <silent> <leader>rg :Rg<CR>
+nnoremap <silent> <leader>fl :BLines<CR>
+nnoremap <silent> <leader>fal :Lines<CR>
+nnoremap <silent> <leader>fb :Buffers<CR>
+nnoremap <silent> <leader>ft :Tags<CR>
+nnoremap <silent> <leader>fc :Commits<CR>
+nnoremap <silent> <leader>fH :Helptags<CR>
 "====================================================
 "}}}
 "====================================================
@@ -179,8 +179,8 @@ let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 "====================================================
 "{{{EDIT/SOURCE DOTFILE
 "====================================================
-nnoremap <leader>ed :edit ~/.config/nvim/init.vim<CR>
-nnoremap <leader>so :source ~/.config/nvim/init.vim<CR>
+nnoremap <silent> <leader>ed :edit ~/.config/nvim/init.vim<CR>
+nnoremap <silent> <leader>so :source ~/.config/nvim/init.vim<CR>
 "====================================================
 "}}}
 "====================================================

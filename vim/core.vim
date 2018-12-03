@@ -63,7 +63,7 @@ augroup FiletypeGroup
 	au BufNewFile,BufRead *.ts set filetype=typescript
 augroup END
 
-nnoremap g= :call Format()<CR>
+nnoremap <silent> g= :call Format()<CR>
 
 autocmd BufWrite *.cpp :call RemoveTrailingSpaces()
 autocmd BufWrite *.h :call RemoveTrailingSpaces()
@@ -95,7 +95,7 @@ autocmd Filetype xdefaults setlocal foldmethod=marker
 "====================================================
 
 "====================================================
-"{{{GENERAL REMAPS
+"{{{GENERAL RE-MAPS
 "====================================================
 let mapleader = " "
 
@@ -107,12 +107,12 @@ map <right> <nop>
 nnoremap <silent> H ^
 nnoremap <silent> L g_
 
-nnoremap <leader>d "_d
-vnoremap <leader>d "_d
+nnoremap <silent> <leader>d "_d
+vnoremap <silent> <leader>d "_d
 
 nnoremap <silent> <CR> :noh<CR>
 
-inoremap kj <Esc>
+inoremap <silent> kj <Esc>
 "====================================================
 "}}}
 "====================================================
@@ -148,7 +148,7 @@ nnoremap <silent> <C-w><C-l> :vertical resize -5<CR>
 
 if has('nvim')
 	set inccommand=split
-	tnoremap <Esc> <C-\><C-n>
+	tnoremap <silent> <Esc> <C-\><C-n>
 endif
 "====================================================
 "}}}
@@ -157,13 +157,13 @@ endif
 "====================================================
 "{{{BUFFERS
 "====================================================
-nnoremap <leader>n :bnext<CR>
-nnoremap <leader>p :bprevious<CR>
-nnoremap <leader>bd :bdelete<CR>
+nnoremap <silent> <leader>n :bnext<CR>
+nnoremap <silent> <leader>p :bprevious<CR>
+nnoremap <silent> <leader>bd :bdelete<CR>
 
-nnoremap <leader>w :w<CR>
-nnoremap <leader>q :q<CR>
-nnoremap <leader>x :close<CR>
+nnoremap <silent> <leader>w :w<CR>
+nnoremap <silent> <leader>q :q<CR>
+nnoremap <silent> <leader>x :close<CR>
 
 set splitright
 set splitbelow
