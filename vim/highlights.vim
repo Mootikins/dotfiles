@@ -11,5 +11,5 @@ if has('nvim')
 endif
 
 "Highlight columns 81 and 101 on lines with that many characters
-call matchadd('ColorColumn', '\%81v', 100)
-call matchadd('ColorColumn', '\%101v', 100)
+autocmd Filetype cpp call matchadd('ColorColumn', '\%81v', 100)
+autocmd Filetype cpp call matchadd('ColorColumn', '\%101v', 100)

@@ -106,6 +106,8 @@ map <right> <nop>
 
 nnoremap <silent> H ^
 nnoremap <silent> L g_
+xnoremap <silent> H ^
+xnoremap <silent> L g_
 
 nnoremap <silent> <leader>d "_d
 vnoremap <silent> <leader>d "_d
