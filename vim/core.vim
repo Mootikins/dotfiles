@@ -109,6 +109,10 @@ nnoremap <silent> L g_
 xnoremap <silent> H ^
 xnoremap <silent> L g_
 
+"move visual selection up/down line at a time
+xnoremap <silent> K <Esc>'<kdd'>pgv
+xnoremap <silent> J <Esc>'>jdd'<Pgv
+
 nnoremap <silent> <leader>d "_d
 vnoremap <silent> <leader>d "_d
 
