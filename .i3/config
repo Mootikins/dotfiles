@@ -31,6 +31,9 @@ floating_modifier $mod
 bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+Return exec urxvt -name life
 
+#open current window in sticky float, 463 for bottom right
+bindsym $mod+Shift+y fullscreen disable; floating enable; resize set 400 300; sticky enable; move window to position 838 29 
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
