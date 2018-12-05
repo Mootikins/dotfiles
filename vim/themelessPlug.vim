@@ -45,6 +45,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 Plug 'gko/vim-coloresque'
+Plug 'altercation/vim-colors-solarized'
 
 Plug 'vim-syntastic/syntastic'
 
