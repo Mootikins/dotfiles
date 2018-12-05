@@ -69,6 +69,7 @@ autocmd BufWrite *.cpp :call RemoveTrailingSpaces()
 autocmd BufWrite *.h :call RemoveTrailingSpaces()
 autocmd BufWrite *.py :call RemoveTrailingSpaces()
 autocmd BufWrite *.sql :call RemoveTrailingSpaces()
+autocmd BufWrite *.txt :call RemoveTrailingSpaces()
 "====================================================
 "}}}
 "====================================================
