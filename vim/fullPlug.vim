@@ -64,6 +64,7 @@ endif
 
 " Initialize plugin system
 call plug#end()
+let g:deoplete#enable_at_startup = 1
 "====================================================
 "}}}
 "====================================================
@@ -73,12 +74,16 @@ call plug#end()
 "====================================================
 " turn on completion in comments
 let g:ycm_complete_in_comments=1
+
 " load ycm conf by default
 let g:ycm_confirm_extra_conf=0
+
 " turn on tag completion
 let g:ycm_collect_identifiers_from_tags_files=1
+
 " start completion from the first character
 let g:ycm_min_num_of_chars_for_completion=1
+
 "Youcompleteme fix
 let g:ycm_global_ycm_extra_conf = '~/.local/share/nvim/plugged/youcompleteme/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 "====================================================
