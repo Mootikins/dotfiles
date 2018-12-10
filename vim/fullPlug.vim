@@ -101,6 +101,9 @@ nnoremap <silent> <leader>fb :Buffers<CR>
 nnoremap <silent> <leader>ft :Tags<CR>
 nnoremap <silent> <leader>fc :Commits<CR>
 nnoremap <silent> <leader>fH :Helptags<CR>
+
+nnoremap <leader>mg :Magit<CR>
+nnoremap <leader>mo :MagitOnly<CR>
 "====================================================
 "}}}
 "====================================================

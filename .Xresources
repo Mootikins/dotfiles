@@ -39,9 +39,13 @@ XTerm*selectToClipboard:          true
 !URxvt.font:                       ProFont12,xft:TerminessTTFNerdFontMono
 !URxvt.boldFont:                   ProFont12,xft:TerminessTTFNerdFontMono
 
-URxvt.font:                       xft:ProFontWindowsNerdFontMono:size=9:antialias=false,xft:ProFontWindowsNerdFontMono:size=8:antialias=true,xft:ProFontWindowsNerdFontMono:size=3:antialias=true,xft:Unifont:pixelsize:8
-URxvt.boldFont:                   xft:ProFontWindowsNerdFontMono:size=9:antialias=false,xft:ProFontWindowsNerdFontMono:size=8:antialias=true,xft:ProFontWindowsNerdFontMono:size=3:antialias=true,xft:Unifont:pixelsize:8
+!URxvt.font:                       xft:ProFontWindowsNerdFontMono:size=9:antialias=false,xft:ProFontWindowsNerdFontMono:size=8:antialias=true,xft:ProFontWindowsNerdFontMono:size=3:antialias=true,xft:Unifont:pixelsize:8
+!URxvt.boldFont:                   xft:ProFontWindowsNerdFontMono:size=9:antialias=false,xft:ProFontWindowsNerdFontMono:size=8:antialias=true,xft:ProFontWindowsNerdFontMono:size=3:antialias=true,xft:Unifont:pixelsize:8
 
+URxvt.font:                       xft:scientifica:pixelsize=11:antialias=false,xft:Unifont:pixelsize:9
+URxvt.boldFont:                   xft:scientifica:pixelsize=11:antialias=false,xft:Unifont:pixelsize:9
+! Needed to make scientifica padded correctly
+URxvt*letterSpace:               1
 
 !URxvt.font:                       xft:FuraCode Nerd Font Mono:size=10:antialias=true,xft:FuraCode Nerd Font Mono Bold:size=8:antialias=true,xft:Unifont:pixelsize:8
 !URxvt.boldFont:                   xft:FuraCode Nerd Font Mono:size=10:antialias=true,xft:FuraCode Nerd Font Mono Bold:size=8:antialias=true,xft:Unifont:pixelsize:8
@@ -152,7 +156,6 @@ URxvt*saveLines:                  5000
 URxvt*internalBorder:            15
 ! URxvt*borderLess:                true
 ! URxvt*lineSpace:                 number
-! URxvt*letterSpace:               number
 ! URxvt*skipBuiltinGlyphs:         boolean
 ! URxvt*pointerBlankDelay:         number
 ! URxvt*backspacekey:              string

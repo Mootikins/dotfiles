@@ -59,9 +59,9 @@ padding-right = 1
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = ProFontWindows Nerd Font:pixelsize=9;1
+font-0 = scientifica:pixelsize=11;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = ProFontWindows Nerd Font:pixelsize=18;1
+font-2 = ProFontWindows Nerd Font:pixelsize=9;1
 
 modules-left = volume mpd
 modules-center = i3
