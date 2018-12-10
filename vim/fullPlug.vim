@@ -45,7 +45,6 @@ Plug 'ying17zi/vim-live-latex-preview', { 'for': 'tex' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 Plug 'gko/vim-coloresque'
 
@@ -64,7 +63,6 @@ endif
 
 " Initialize plugin system
 call plug#end()
-let g:deoplete#enable_at_startup = 1
 "====================================================
 "}}}
 "====================================================
@@ -91,7 +89,7 @@ let g:ycm_global_ycm_extra_conf = '~/.local/share/nvim/plugged/youcompleteme/thi
 "====================================================
 
 "====================================================
-"{{{FZF BINDINGS
+"{{{PLUGIN BINDINGS
 "====================================================
 nnoremap <silent> <leader>ff :Files<CR>
 nnoremap <silent> <leader>fh :Files ~/<CR>
