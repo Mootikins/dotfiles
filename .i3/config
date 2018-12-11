@@ -28,8 +28,8 @@ font xft:URWGothic-Book 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
-bindsym $mod+Shift+Return exec urxvt -name life
+bindsym $mod+Return exec st
+bindsym $mod+Shift+Return exec st -c "life"
 
 #open current window in sticky float, 463 for bottom right
 bindsym $mod+Shift+y fullscreen disable; floating enable; resize set 400 300; sticky enable; move window to position 838 29 
@@ -38,7 +38,7 @@ bindsym $mod+Shift+y fullscreen disable; floating enable; resize set 400 300; st
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+space exec rofi -show run -font "ProFontWindows Nerd Font 9" -opacity 95 -config ~/.config/rofi/config
+bindsym $mod+space exec rofi -show run -font "scientifica 11" -opacity 95 -config ~/.config/rofi/config
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
@@ -226,7 +226,7 @@ for_window [class="Thus"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
-for_window [class="URxvt" instance="life"] floating enable move scratchpad scratchpad show
+for_window [class="st" class="life"] floating enable move scratchpad scratchpad show
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
