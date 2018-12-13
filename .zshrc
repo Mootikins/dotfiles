@@ -7,6 +7,10 @@ export ZSH=~/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+
+# These can be used if using high resolution displays (looks bad with bitmap fonts)
+# POWERLEVEL9K_MODE='awesome-fontconfig'
+# POWERLEVEL9K_MODE='awesome-patched'
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Set list of themes to load
@@ -97,6 +101,8 @@ source $ZSH/oh-my-zsh.sh
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vi_mode)
 
+bindkey kj vi-cmd-mode
+
 if [ -d ~/.cache/wal ]; then
 	# Import colorscheme from 'wal' asynchronously
 	# &   # Run the process in the background.
@@ -107,8 +113,6 @@ if [ -d ~/.cache/wal ]; then
 	source ~/.cache/wal/colors-tty.sh
 fi
 clear
-
-bindkey -v
 
 source ~/dotfiles/exports.exp
 

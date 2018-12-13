@@ -8,7 +8,8 @@ export PATH="$NPM_PACKAGES/bin:$PATH"
 unset MANPATH  # delete if you already modified MANPATH elsewhere in your config
 export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 
-export KEYTIMEOUT=1
+export KEYTIMEOUT=15
+
 if [ type nvim &> /dev/null ]; then
 	export VISUAL=nvim
 else
