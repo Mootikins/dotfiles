@@ -1,4 +1,4 @@
-export FZF_DEFAULT_OPTS="-m --height 25% --layout=reverse --preview 'head -100 {}'"
+export FZF_DEFAULT_OPTS="-m --height 25% --layout=reverse --preview 'head -50 {}'"
 
 export NPM_PACKAGES="/home/moot/.npm-packages"
 export NODE_PATH="$NPM_PACKAGES/lib/node_modules${NODE_PATH:+:$NODE_PATH}"
