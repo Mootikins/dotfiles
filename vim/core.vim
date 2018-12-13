@@ -7,7 +7,7 @@
 "
 "
 "====================================================
-"{{{BASIC VARIABLE SETTINGS
+"{{{ BASIC VARIABLE SETTINGS
 "====================================================
 set number relativenumber
 set tabstop=2 softtabstop=2 shiftwidth=2 shiftround noexpandtab
@@ -19,7 +19,7 @@ set wildmenu wildmode=full
 set undofile undodir="$HOME/.vim_undo"
 filetype plugin indent on
 syntax on
-"Turn On OmniComplete
+" Turn On OmniComplete
 set omnifunc=syntaxcomplete#Complete
 let &showbreak='-> '
 
@@ -55,7 +55,7 @@ function! Format()
 	set formatprg=
 endfunction
 
-"Filetype fix for TS
+" Filetype fix for TS
 augroup FiletypeGroup
 	autocmd!
 	" .ts is a Typescript file
@@ -74,7 +74,7 @@ autocmd BufWrite *.txt :call RemoveTrailingSpaces()
 "====================================================
 
 "====================================================
-"{{{FOLD SETTINGS
+"{{{ FOLD SETTINGS
 "====================================================
 set foldmethod=syntax
 nnoremap za zA
@@ -84,7 +84,7 @@ nnoremap zA za
 "====================================================
 
 "====================================================
-"{{{FILETYPE SPECIFIC SETTINGS
+"{{{ FILETYPE SPECIFIC SETTINGS
 "====================================================
 autocmd Filetype asm setlocal shiftwidth=8 softtabstop=8
 autocmd Filetype vim setlocal foldmethod=marker
@@ -95,7 +95,7 @@ autocmd Filetype xdefaults setlocal foldmethod=marker
 "====================================================
 
 "====================================================
-"{{{GENERAL RE-MAPS
+"{{{ GENERAL RE-MAPS
 "====================================================
 let mapleader = " "
 
@@ -109,9 +109,14 @@ nnoremap <silent> L g_
 xnoremap <silent> H ^
 xnoremap <silent> L g_
 
-"move visual selection up/down line at a time
+" move visual selection up/down line at a time
 xnoremap <silent> K <Esc>'<kdd'>pgv
 xnoremap <silent> J <Esc>'>jdd'<Pgv
+
+" Show highlight group of character/word under cursor
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+			\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+			\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 nnoremap <silent> <leader>d "_d
 vnoremap <silent> <leader>d "_d
@@ -124,7 +129,7 @@ inoremap <silent> kj <Esc>
 "====================================================
 
 "====================================================
-"{{{SPLITS
+"{{{ SPLITS
 "====================================================
 nnoremap <silent> <leader>h <C-w>h
 nnoremap <silent> <leader>j <C-w>j
@@ -161,7 +166,7 @@ endif
 "====================================================
 
 "====================================================
-"{{{BUFFERS
+"{{{ BUFFERS
 "====================================================
 nnoremap <silent> <leader>n :bnext<CR>
 nnoremap <silent> <leader>p :bprevious<CR>

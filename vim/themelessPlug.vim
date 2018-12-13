@@ -56,7 +56,7 @@ call plug#end()
 "====================================================
 
 "====================================================
-"{{{FZF BINDINGS
+"{{{ PLUGIN BINDINGS
 "====================================================
 nnoremap <silent> <leader>ff :Files<CR>
 nnoremap <silent> <leader>fh :Files ~/<CR>
