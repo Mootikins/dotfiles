@@ -91,12 +91,36 @@ let g:ycm_global_ycm_extra_conf = '~/.local/share/nvim/plugged/youcompleteme/thi
 "====================================================
 "{{{PLUGIN BINDINGS
 "====================================================
+autocmd! FileType fzf
+autocmd  FileType fzf set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+
+command! -bang -nargs=* Rg
+			\ call fzf#vim#grep(
+			\   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+			\   <bang>0 ? fzf#vim#with_preview('right:60%')
+			\           : fzf#vim#with_preview('right:60%'),
+			\   <bang>0)
+
+command! -bang -nargs=* GGrep
+			\ call fzf#vim#grep(
+			\   'git grep --line-number '.shellescape(<q-args>), 0,
+			\   { 'dir': systemlist('git rev-parse --show-toplevel')[0] }, <bang>0)
+
+command! -bang -nargs=? -complete=dir Files
+			\ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+let g:fzf_lines_options = '--layout=reverse'
+
+autocmd Filetype fzf tmap <silent> <C-g> <Esc>:q<CR>
+
 nnoremap <silent> <leader>ff :Files<CR>
 nnoremap <silent> <leader>fh :Files ~/<CR>
+nnoremap <silent> <leader>gg :GGrep<CR>
 nnoremap <silent> <leader>gf :GFiles<CR>
 nnoremap <silent> <leader>rg :Rg<CR>
 nnoremap <silent> <leader>fl :BLines<CR>
-nnoremap <silent> <leader>fal :Lines<CR>
+nnoremap <silent> <leader>fal :Lines!<CR>
 nnoremap <silent> <leader>fb :Buffers<CR>
 nnoremap <silent> <leader>ft :Tags<CR>
 nnoremap <silent> <leader>fc :Commits<CR>

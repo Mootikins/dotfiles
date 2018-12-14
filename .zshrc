@@ -114,6 +114,6 @@ if [ -d ~/.cache/wal ]; then
 fi
 clear
 
-source ~/dotfiles/exports.exp
+source ~/dotfiles/exports.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

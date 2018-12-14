@@ -3,7 +3,6 @@ set listchars=tab:\|\
 set fillchars=vert:│,stlnc:=
 hi VertSplit ctermbg=white ctermfg=black
 hi NonText ctermfg=8
-hi Comment cterm=italic
 
 if has('nvim')
 	hi DiffAdd ctermbg=6 ctermfg=232

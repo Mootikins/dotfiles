@@ -1,4 +1,12 @@
-export FZF_DEFAULT_OPTS="-m --height 25% --layout=reverse --preview 'head -50 {}'"
+export FZF_COMPLETION_TRIGGER='...'
+export FZF_DEFAULT_OPTS="-m --height 40% --layout=reverse"
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --no-hidden --follow --glob "!.git/*"'
+export FZF_COMPLETION_OPTS="--preview-window 'right:60%' --preview 'bat --decorations=always --color=always --style=header,grid --line-range :50 {}'"
+
+# Use fd to generate the list for directory completion
+_fzf_compgen_dir() {
+	fd --type d --hidden --follow --exclude ".git" . "$1"
+}
 
 export NPM_PACKAGES="/home/moot/.npm-packages"
 export NODE_PATH="$NPM_PACKAGES/lib/node_modules${NODE_PATH:+:$NODE_PATH}"
