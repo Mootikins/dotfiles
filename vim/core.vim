@@ -14,7 +14,7 @@ set tabstop=2 softtabstop=2 shiftwidth=2 shiftround noexpandtab
 set showcmd mouse=a
 set ignorecase smartcase incsearch showmatch hlsearch
 set autoread virtualedit+=block lazyredraw
-set showmatch
+set showmatch noshowmode
 set wildmenu wildmode=full
 set undofile undodir="$HOME/.vim_undo"
 filetype plugin indent on
