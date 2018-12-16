@@ -110,6 +110,8 @@ command! -bang -nargs=? -complete=dir Files
 			\ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
 autocmd Filetype fzf tmap <silent> <C-g> <Esc>:q<CR>
+autocmd Filetype fzf tmap <silent> <C-d> <Esc>:q<CR>
+autocmd Filetype fzf tmap <silent> <C-c> <Esc>:q<CR>
 
 nnoremap <silent> <leader>ff :Files<CR>
 nnoremap <silent> <leader>fh :Files ~/<CR>
