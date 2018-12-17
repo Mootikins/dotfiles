@@ -64,7 +64,6 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 z
-zsh-autosuggestions
 git
 vi-mode
 history-substring-search
@@ -106,6 +105,8 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vi_mode)
 bindkey kj vi-cmd-mode
 bindkey '^f' forward-word
 bindkey '^b' backward-delete-word
+bindkey -M viins '^p' history-substring-search-up
+bindkey -M viins '^n' history-substring-search-down
 
 if [ -d ~/.cache/wal ]; then
 	# Import colorscheme from 'wal' asynchronously
