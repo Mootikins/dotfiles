@@ -48,6 +48,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'gko/vim-coloresque'
 
+Plug 'dag/vim-fish'
+
 Plug 'dylanaraps/wal.vim'
 
 Plug 'valloric/youcompleteme'
