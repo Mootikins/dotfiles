@@ -1,5 +1,5 @@
 export FZF_COMPLETION_TRIGGER='...'
-export FZF_DEFAULT_OPTS="-m --height 40% --layout=reverse"
+export FZF_DEFAULT_OPTS="-m --height 25% --layout=reverse"
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --no-hidden --follow --glob "!.git/*"'
 export FZF_COMPLETION_OPTS="--preview 'bat --decorations=always --color=always --style=header,grid --line-range :50 {}'"
 
