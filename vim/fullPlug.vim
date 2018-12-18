@@ -27,19 +27,25 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
 
+Plug 'jreybert/vimagit'
+
 Plug 'simnalamburt/vim-mundo'
+Plug 'majutsushi/tagbar'
+
+Plug 'sheerun/vim-polyglot'
+
+Plug 'wellle/targets.vim'
+
 Plug 'vim-scripts/sudo.vim'
 Plug 'vim-scripts/nextval'
 
 Plug 'tmux-plugins/vim-tmux'
+Plug 'wincent/terminus'
 Plug 'christoomey/vim-tmux-navigator'
-
-Plug 'jreybert/vimagit'
 
 Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
 
-Plug 'easymotion/vim-easymotion'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ying17zi/vim-live-latex-preview', { 'for': 'tex' }
 
@@ -49,9 +55,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'gko/vim-coloresque'
 
-Plug 'dag/vim-fish'
-
 Plug 'dylanaraps/wal.vim'
+Plug 'patstockwell/vim-monokai-tasty'
 
 Plug 'valloric/youcompleteme'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
@@ -132,6 +137,8 @@ nnoremap <leader>mg :Magit<CR>
 nnoremap <leader>mo :MagitOnly<CR>
 
 nnoremap <leader>u :MundoToggle<CR>
+
+nnoremap <leader>t :TagbarToggle<CR>
 "====================================================
 "}}}
 "====================================================
@@ -155,7 +162,6 @@ if has('nvim')
 				\'typescript': 'prettier',
 				\}
 
-	let g:ale_completion_enabled = 1
 	let g:ale_c_parse_makefile = 1
 	"====================================================
 	"}}}
