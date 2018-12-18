@@ -16,7 +16,8 @@ set ignorecase smartcase incsearch showmatch hlsearch
 set autoread virtualedit+=block lazyredraw
 set showmatch noshowmode
 set wildmenu wildmode=full
-set undofile undodir="$HOME/.vim_undo"
+set undofile
+set undodir=$HOME/.vim/undo
 filetype plugin indent on
 syntax on
 " Turn On OmniComplete

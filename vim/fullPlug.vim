@@ -27,6 +27,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
 
+Plug 'simnalamburt/vim-mundo'
 Plug 'vim-scripts/sudo.vim'
 Plug 'vim-scripts/nextval'
 
@@ -129,6 +130,8 @@ nnoremap <silent> <leader>fH :Helptags<CR>
 
 nnoremap <leader>mg :Magit<CR>
 nnoremap <leader>mo :MagitOnly<CR>
+
+nnoremap <leader>u :MundoToggle<CR>
 "====================================================
 "}}}
 "====================================================
