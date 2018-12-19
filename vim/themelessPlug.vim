@@ -24,25 +24,22 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
 
+Plug 'jreybert/vimagit'
+
 Plug 'vim-scripts/sudo.vim'
 Plug 'vim-scripts/nextval'
 
 Plug 'tmux-plugins/vim-tmux'
 Plug 'christoomey/vim-tmux-navigator'
 
-Plug 'jreybert/vimagit'
-
 Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
 
-Plug 'easymotion/vim-easymotion'
 Plug 'jiangmiao/auto-pairs'
-Plug 'ying17zi/vim-live-latex-preview', { 'for': 'tex' }
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 Plug 'gko/vim-coloresque'
 Plug 'altercation/vim-colors-solarized'
@@ -58,8 +55,17 @@ call plug#end()
 "====================================================
 "{{{ PLUGIN BINDINGS
 "====================================================
+autocmd! FileType fzf
+autocmd  FileType fzf set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+
+autocmd Filetype fzf tmap <silent> <C-g> <Esc>:q<CR>
+autocmd Filetype fzf tmap <silent> <C-d> <Esc>:q<CR>
+autocmd Filetype fzf tmap <silent> <C-c> <Esc>:q<CR>
+
 nnoremap <silent> <leader>ff :Files<CR>
 nnoremap <silent> <leader>fh :Files ~/<CR>
+nnoremap <silent> <leader>gg :GGrep<CR>
 nnoremap <silent> <leader>gf :GFiles<CR>
 nnoremap <silent> <leader>rg :Rg<CR>
 nnoremap <silent> <leader>fl :BLines<CR>
@@ -68,6 +74,9 @@ nnoremap <silent> <leader>fb :Buffers<CR>
 nnoremap <silent> <leader>ft :Tags<CR>
 nnoremap <silent> <leader>fc :Commits<CR>
 nnoremap <silent> <leader>fH :Helptags<CR>
+
+nnoremap <leader>mg :Magit<CR>
+nnoremap <leader>mo :MagitOnly<CR>
 "====================================================
 "}}}
 "====================================================
