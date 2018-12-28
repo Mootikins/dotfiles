@@ -133,12 +133,12 @@ nnoremap <silent> <leader>ft :Tags<CR>
 nnoremap <silent> <leader>fc :Commits<CR>
 nnoremap <silent> <leader>fH :Helptags<CR>
 
-nnoremap <leader>mg :Magit<CR>
-nnoremap <leader>mo :MagitOnly<CR>
+nnoremap <silent> <leader>mg :Magit<CR>
+nnoremap <silent> <leader>mo :MagitOnly<CR>
 
-nnoremap <leader>u :MundoToggle<CR>
+nnoremap <silent> <leader>u :MundoToggle<CR>
 
-nnoremap <leader>t :TagbarToggle<CR>
+nnoremap <silent> <leader>t :TagbarToggle<CR>
 "====================================================
 "}}}
 "====================================================
