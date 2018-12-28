@@ -18,6 +18,7 @@ fi
 
 eval "$(hub alias -s)"
 
+export VISUAL=nvim
 export EDITOR="$VISUAL"
 alias tma="tmux attach"
 alias tmat="tmux attach -t "
