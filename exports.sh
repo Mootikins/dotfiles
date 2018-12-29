@@ -10,22 +10,21 @@ _fzf_compgen_dir() {
 
 export KEYTIMEOUT=15
 
-if [ type nvim &> /dev/null ]; then
+if type nvim &> /dev/null; then
 	export VISUAL=nvim
+	alias magit="nvim -c 'MagitOnly'"
 else
 	export VISUAL=vim
+	alias magit="vim -c 'MagitOnly'"
 fi
 
 eval "$(hub alias -s)"
 
-export VISUAL=nvim
 export EDITOR="$VISUAL"
 alias tma="tmux attach"
 alias tmat="tmux attach -t "
 alias tmks="tmux kill-server"
 alias tmk="tmux kill-session -t "
-alias magit="vim -c 'MagitOnly'"
-alias magit="nvim -c 'MagitOnly'"
 export PATH="${PATH}:${HOME}/.local/bin/"
 export PATH="${PATH}:${HOME}/.local/share/nvim/plugged/vim-live-latex-preview/bin/"
 export PATH="${PATH}:${HOME}/.gem/ruby/2.5.0/bin/:/usr/lib/ruby/gems/2.5.0/b"
