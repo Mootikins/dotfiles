@@ -99,6 +99,8 @@ autocmd Filetype xdefaults setlocal foldmethod=marker
 "{{{ GENERAL RE-MAPS
 "====================================================
 let mapleader = " "
+nnoremap ; :
+nnoremap : ;
 
 map <up> <nop>
 map <down> <nop>
