@@ -100,8 +100,9 @@ let g:ycm_global_ycm_extra_conf = '~/.local/share/nvim/plugged/youcompleteme/thi
 "{{{PLUGIN BINDINGS
 "===============================================================
 autocmd! FileType fzf
-autocmd  FileType fzf set laststatus=0 noshowmode noruler
-  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+autocmd FileType fzf setlocal nonumber norelativenumber
+autocmd FileType fzf set laststatus=0 noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 ruler
 
 command! -bang -nargs=* Rg
 			\ call fzf#vim#grep(
