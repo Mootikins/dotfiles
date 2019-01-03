@@ -38,7 +38,7 @@ bindsym $mod+Shift+y fullscreen disable; floating enable; resize set 400 300; st
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+space exec rofi -show run -font "scientifica 11" -opacity 95 -config ~/.config/rofi/config
+bindsym $mod+space exec rofi -modi drun -show run -columns 3 -font "scientifica 11" -opacity 95 -config ~/.config/rofi/config
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
