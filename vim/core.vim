@@ -61,6 +61,7 @@ augroup FiletypeGroup
 	autocmd!
 	" .ts is a Typescript file
 	au BufNewFile,BufRead *.ts set filetype=typescript
+	au BufNewFile,BufRead *.rasi set filetype=css
 augroup END
 
 nnoremap <silent> g= :call Format()<CR>
