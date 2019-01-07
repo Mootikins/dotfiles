@@ -56,14 +56,6 @@ function! Format()
 	set formatprg=
 endfunction
 
-" Filetype fix for TS
-augroup FiletypeGroup
-	autocmd!
-	" .ts is a Typescript file
-	au BufNewFile,BufRead *.ts set filetype=typescript
-	au BufNewFile,BufRead *.rasi set filetype=css
-augroup END
-
 nnoremap <silent> g= :call Format()<CR>
 
 autocmd BufWrite *.cpp :call RemoveTrailingSpaces()
@@ -88,10 +80,18 @@ nnoremap zA za
 "====================================================
 "{{{ FILETYPE SPECIFIC SETTINGS
 "====================================================
-autocmd Filetype asm setlocal shiftwidth=8 softtabstop=8
-autocmd Filetype vim setlocal foldmethod=marker
-autocmd Filetype tmux setlocal foldmethod=marker
-autocmd Filetype xdefaults setlocal foldmethod=marker
+augroup FiletypeGroup
+	autocmd!
+	" .ts is a Typescript file
+	autocmd BufNewFile,BufRead *.ts set filetype=typescript
+	autocmd BufNewFile,BufRead *.rasi set filetype=css
+
+	autocmd Filetype asm setlocal shiftwidth=8 softtabstop=8
+	autocmd Filetype vim setlocal foldmethod=marker
+	autocmd Filetype tmux setlocal foldmethod=marker
+	autocmd Filetype xdefaults setlocal foldmethod=marker
+	autocmd Filetype python setlocal shiftwidth=4 softtabstop expandtab
+augroup END
 "====================================================
 "}}}
 "====================================================
@@ -103,15 +103,17 @@ let mapleader = " "
 nnoremap ; :
 nnoremap : ;
 
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-
 nnoremap <silent> H ^
 nnoremap <silent> L g_
 xnoremap <silent> H ^
 xnoremap <silent> L g_
+
+nnoremap <silent> <CR> :noh<CR>
+
+inoremap <silent> kj <Esc>
+
+nnoremap <silent> <leader>d "_d
+vnoremap <silent> <leader>d "_d
 
 " move visual selection up/down line at a time
 xnoremap <silent> K <Esc>'<kdd'>pgv
@@ -121,13 +123,6 @@ xnoremap <silent> J <Esc>'>jdd'<Pgv
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 			\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 			\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
-
-nnoremap <silent> <leader>d "_d
-vnoremap <silent> <leader>d "_d
-
-nnoremap <silent> <CR> :noh<CR>
-
-inoremap <silent> kj <Esc>
 "====================================================
 "}}}
 "====================================================

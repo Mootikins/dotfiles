@@ -32,6 +32,8 @@ Plug 'jreybert/vimagit'
 Plug 'simnalamburt/vim-mundo'
 Plug 'majutsushi/tagbar'
 
+Plug 'mattn/emmet-vim'
+
 Plug 'sheerun/vim-polyglot'
 
 Plug 'wellle/targets.vim'
@@ -89,6 +91,9 @@ let g:ycm_collect_identifiers_from_tags_files=1
 
 " start completion from the first character
 let g:ycm_min_num_of_chars_for_completion=1
+
+" close preview window after completion
+let g:ycm_autoclose_preview_window_after_completion=1
 
 "Youcompleteme fix
 let g:ycm_global_ycm_extra_conf = '~/.local/share/nvim/plugged/youcompleteme/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
