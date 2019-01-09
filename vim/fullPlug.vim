@@ -28,6 +28,7 @@ Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
 
 Plug 'jreybert/vimagit'
+Plug 'vimwiki/vimwiki'
 
 Plug 'simnalamburt/vim-mundo'
 Plug 'majutsushi/tagbar'
@@ -37,6 +38,7 @@ Plug 'mattn/emmet-vim'
 Plug 'sheerun/vim-polyglot'
 
 Plug 'wellle/targets.vim'
+Plug 'machakann/vim-sandwich'
 
 Plug 'vim-scripts/sudo.vim'
 Plug 'vim-scripts/nextval'
@@ -73,36 +75,46 @@ endif
 
 " Initialize plugin system
 call plug#end()
+let g:vimwiki_folding='expr'
 "===============================================================
 "}}}
 "===============================================================
 
 "===============================================================
-"{{{YOUCOMPLETEME SETTINGS
+"{{{ PLUGIN SETTINGS
+"===============================================================
+"===============================================================
+"{{{ YOUCOMPLETEME
 "===============================================================
 " turn on completion in comments
 let g:ycm_complete_in_comments=1
-
 " load ycm conf by default
 let g:ycm_confirm_extra_conf=0
-
 " turn on tag completion
 let g:ycm_collect_identifiers_from_tags_files=1
-
 " start completion from the first character
 let g:ycm_min_num_of_chars_for_completion=1
-
 " close preview window after completion
 let g:ycm_autoclose_preview_window_after_completion=1
-
-"Youcompleteme fix
+" Youcompleteme fix
 let g:ycm_global_ycm_extra_conf = '~/.local/share/nvim/plugged/youcompleteme/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 "===============================================================
 "}}}
 "===============================================================
+"===============================================================
+"{{{ VIMWIKI
+"===============================================================
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                       \ 'syntax': 'markdown', 'ext': '.md'}]
+"===============================================================
+"}}}
+"===============================================================
+"===============================================================
+"}}}
+"===============================================================
 
 "===============================================================
-"{{{PLUGIN BINDINGS
+"{{{ PLUGIN BINDINGS
 "===============================================================
 autocmd! FileType fzf
 autocmd FileType fzf setlocal nonumber norelativenumber

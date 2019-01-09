@@ -91,6 +91,7 @@ augroup FiletypeGroup
 	autocmd Filetype tmux setlocal foldmethod=marker
 	autocmd Filetype xdefaults setlocal foldmethod=marker
 	autocmd Filetype python setlocal shiftwidth=4 softtabstop expandtab
+	autocmd Filetype vimwiki setlocal foldlevel=10
 augroup END
 "====================================================
 "}}}
@@ -118,6 +119,11 @@ vnoremap <silent> <leader>d "_d
 " move visual selection up/down line at a time
 xnoremap <silent> K <Esc>'<kdd'>pgv
 xnoremap <silent> J <Esc>'>jdd'<Pgv
+
+nnoremap <silent> zl zo
+nnoremap <silent> zh zc
+nnoremap <silent> zL zO
+nnoremap <silent> zH zC
 
 " Show highlight group of character/word under cursor
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
@@ -171,7 +177,6 @@ nnoremap <silent> <leader>n :bnext<CR>
 nnoremap <silent> <leader>p :bprevious<CR>
 nnoremap <silent> <leader>bd :bdelete<CR>
 
-nnoremap <silent> <leader>w :w<CR>
 nnoremap <silent> <leader>q :q<CR>
 nnoremap <silent> <leader>x :close<CR>
 

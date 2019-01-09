@@ -1,7 +1,7 @@
 set list
 set listchars=tab:\|\ 
 set fillchars=vert:│,stlnc:=
-highlight VertSplit ctermbg=white ctermfg=black
+highlight VertSplit ctermbg=black ctermfg=white cterm=none
 highlight NonText ctermfg=8
 highlight CursorLineNr ctermfg=9
 
