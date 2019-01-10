@@ -104,8 +104,8 @@ let g:ycm_global_ycm_extra_conf = '~/.local/share/nvim/plugged/youcompleteme/thi
 "===============================================================
 "{{{ VIMWIKI
 "===============================================================
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-                       \ 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{ 'path': '~/Diary/', 'syntax': 'markdown', 'ext': '.md' },
+                     \{ 'path': '~/SDSMT/', 'syntax': 'markdown', 'ext': '.md' }]
 "===============================================================
 "}}}
 "===============================================================
