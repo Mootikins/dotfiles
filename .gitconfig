@@ -5,4 +5,4 @@
 	default = simple
 [core]
 	editor = nvim
-	excludesfile = /home/moot/.gitignore
+	excludesfile = ~/.gitignore
