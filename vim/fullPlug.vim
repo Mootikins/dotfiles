@@ -36,6 +36,7 @@ Plug 'majutsushi/tagbar'
 Plug 'mattn/emmet-vim'
 
 Plug 'sheerun/vim-polyglot'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 
 Plug 'wellle/targets.vim'
 Plug 'machakann/vim-sandwich'
