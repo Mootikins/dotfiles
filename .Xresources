@@ -47,8 +47,8 @@ XTerm*selectToClipboard:          true
 ! ! Needed to make scientifica padded correctly
 ! URxvt*letterSpace:               1
 
-URxvt.font:                       xft:FuraCode Nerd Font Mono:size=10:antialias=true,xft:FuraCode Nerd Font Mono:size=8:antialias=true,xft:Unifont:pixelsize:8
-URxvt.boldFont:                   xft:FuraCode Nerd Font Mono Bold:size=10:antialias=true,xft:FuraCode Nerd Font Mono Bold:size=8:antialias=true,xft:Unifont:pixelsize:8
+URxvt.font:                       xft:FuraMono Nerd Font:size=10:antialias=true,xft:FuraMono Nerd Font:size=8:antialias=true,xft:Unifont:pixelsize:8
+URxvt.boldFont:                   xft:FuraMono Nerd Font, Bold:size=10:antialias=true,xft:FuraMono Nerd Font, Bold:size=8:antialias=true,xft:Unifont:pixelsize:8
 
 ! alternative font settings with 'terminus':
 !URxvt.font:      -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1

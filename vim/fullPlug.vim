@@ -48,6 +48,7 @@ Plug 'tmux-plugins/vim-tmux'
 Plug 'wincent/terminus'
 Plug 'christoomey/vim-tmux-navigator'
 
+Plug 'ervandew/supertab'
 Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
 
@@ -87,6 +88,9 @@ let g:vimwiki_folding='expr'
 "===============================================================
 "{{{ YOUCOMPLETEME
 "===============================================================
+" Supertab/Ultisnips setup
+let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion=['<C-n>', '<Down>']
 " turn on completion in comments
 let g:ycm_complete_in_comments=1
 " load ycm conf by default
@@ -99,6 +103,13 @@ let g:ycm_min_num_of_chars_for_completion=1
 let g:ycm_autoclose_preview_window_after_completion=1
 " Youcompleteme fix
 let g:ycm_global_ycm_extra_conf = '~/.local/share/nvim/plugged/youcompleteme/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+"===============================================================
+"}}}
+"===============================================================
+"===============================================================
+"{{{ SUPERTAB
+"===============================================================
+let g:SuperTabDefaultCompletionType = '<C-n>'
 "===============================================================
 "}}}
 "===============================================================

@@ -132,6 +132,7 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 
 nnoremap <silent> <leader>pd "=strftime("%m-%d-%Y")<CR>p
 
+iabbrev shebang #!/bin/bash
 "====================================================
 "}}}
 "====================================================

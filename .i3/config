@@ -285,7 +285,7 @@ assign [class="chromium"] ws1
 assign [class="spotify"] ws3
 
 # Lock screen
-bindsym $mod+9 exec --no-startup-id blurlock
+bindsym $mod+9 exec --no-startup-id i3exit suspend
 
 # Hide Polybar
 bindsym $mod+m exec polybar-msg cmd toggle

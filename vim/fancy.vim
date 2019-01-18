@@ -10,9 +10,9 @@
 "====================================================
 "{{{ULTISNIPS TRIGGER/ETC
 "====================================================
-let g:UltiSnipsExpandTrigger="<C-l>"
-let g:UltiSnipsJumpForwardTrigger="<C-l>"
-let g:UltiSnipsJumpBackwardTrigger="<C-h>"
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsJumpForwardTrigger="<Tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 
 let g:UltiSnipsEditSplit="vertical"
 "====================================================
