@@ -103,6 +103,8 @@ augroup END
 let mapleader = " "
 nnoremap ; :
 nnoremap : ;
+vnoremap ; :
+vnoremap : ;
 
 nnoremap <silent> H ^
 nnoremap <silent> L g_
@@ -131,8 +133,6 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 			\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 nnoremap <silent> <leader>pd "=strftime("%m-%d-%Y")<CR>p
-
-iabbrev shebang #!/bin/bash
 "====================================================
 "}}}
 "====================================================
@@ -179,10 +179,6 @@ endif
 "====================================================
 nnoremap <silent> <leader>n :bnext<CR>
 nnoremap <silent> <leader>p :bprevious<CR>
-nnoremap <silent> <leader>bd :bdelete<CR>
-
-nnoremap <silent> <leader>q :q<CR>
-nnoremap <silent> <leader>x :close<CR>
 
 set splitright
 set splitbelow

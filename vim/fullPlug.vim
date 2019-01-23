@@ -33,6 +33,8 @@ Plug 'vimwiki/vimwiki'
 Plug 'simnalamburt/vim-mundo'
 Plug 'majutsushi/tagbar'
 
+Plug 'vim-scripts/doxygentoolkit.vim'
+
 Plug 'mattn/emmet-vim'
 
 Plug 'sheerun/vim-polyglot'
