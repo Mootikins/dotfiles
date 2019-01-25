@@ -147,6 +147,8 @@ bindsym $mod+minus scratchpad show
 #navigate workspaces next / previous
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
+bindsym $mod+Control+Tab move container to workspace next; workspace next
+bindsym $mod+Shift+Control+Tab move container to workspace prev; workspace prev
 
 # Workspace names
 # to display names or symbols instead of plain workspace numbers you can use
