@@ -67,6 +67,7 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(
 z
 git
+git-flow
 vi-mode
 history-substring-search
 zsh-autosuggestions
