@@ -73,7 +73,6 @@ bindsym XF86AudioNext exec mpc next
 bindsym XF86AudioPrev exec mpc prev
 
 # Start Applications
-bindsym $mod+Ctrl+b exec terminal 'bmenu'
 bindsym $mod+F2 exec chromium
 # bindsym $mod+F3 exec pcmanfm
 bindsym $mod+F3 exec ranger
@@ -111,7 +110,7 @@ bindsym $mod+Shift+l move right 30
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth yes
 bindsym $mod+b workspace back_and_forth
-bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
+bindsym $mod+Control+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
 bindsym $mod+q split toggle
