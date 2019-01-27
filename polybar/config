@@ -68,11 +68,11 @@ font-2 = ProFontWindows Nerd Font:pixelsize=9;1
 
 modules-left = volume mpd
 modules-center = i3
-modules-right = date wlan battery1 battery2
+modules-right = wlan battery1 battery2
 
 enable-ipc = true
 
-tray-position =
+tray-position = right
 tray-padding = 2
 tray-transparent = false
 tray-background = ${xrdb:color0}
