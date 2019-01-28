@@ -39,9 +39,9 @@ secondary = ${xrdb:color10}
 alert = ${xrdb:color6}
 
 [bar/example]
-; monitor = ${env:MONITOR:HDMI-1}
+monitor = eDP1
 width = 100%
-height = 20
+height = 24
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0.0
@@ -263,6 +263,19 @@ format-muted-prefix = " "
 ;format-underline = ${xrdb:color4}
 format-muted-foreground = ${colors.foreground-alt}
 label-muted = VOLUME MUTED
+
+; bar-volume-indicator = 
+; bar-volume-indicator-background = ${colors.background}
+; bar-volume-indicator-foreground = ${colors.foreground}
+; ;bar-volume-indicator-font = 
+; 
+; bar-volume-fill = 
+; bar-volume-fill-background = ${colors.background}
+; bar-volume-fill-foreground = ${colors.foreground}
+; 
+; bar-volume-empty = 
+; bar-volume-empty-background = ${colors.background}
+; bar-volume-empty-foreground = ${colors.foreground-alt}
 
 bar-volume-width = 12
 bar-volume-foreground-0 = ${colors.foreground}
