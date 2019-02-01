@@ -23,7 +23,9 @@ else
 	alias magit="vim -c 'MagitOnly'"
 fi
 
-eval "$(hub alias -s)"
+if type hub &> /dev/null; then
+	eval "$(hub alias -s)"
+fi
 
 export EDITOR="$VISUAL"
 alias tma="tmux attach"
