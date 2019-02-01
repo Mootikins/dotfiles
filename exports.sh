@@ -1,7 +1,12 @@
 export FZF_COMPLETION_TRIGGER='**'
 export FZF_DEFAULT_OPTS="-m --height 25% --layout=reverse --color fg:7,bg:0,hl:1,fg+:232,bg+:1,hl+:255 --color info:7,prompt:2,spinner:1,pointer:232,marker:1"
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --no-hidden --follow --glob "!.git/*"'
-export FZF_COMPLETION_OPTS="--preview 'bat --decorations=always --color=always --style=header,grid --line-range :50 {}'"
+if type rg &> /dev/null; then
+	export FZF_DEFAULT_COMMAND='rg --files --no-ignore --no-hidden --follow --glob "!.git/*"'
+fi
+
+if type bat &> /dev/null; then
+	export FZF_COMPLETION_OPTS="--preview 'bat --decorations=always --color=always --style=header,grid --line-range :50 {}'"
+fi
 
 # Use fd to generate the list for directory completion
 _fzf_compgen_dir() {
