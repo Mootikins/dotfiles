@@ -26,8 +26,15 @@ Plug 'tpope/vim-repeat'
 
 Plug 'jreybert/vimagit'
 
+Plug 'mattn/emmet-vim'
+Plug 'sheerun/vim-polyglot'
+
+Plug 'wellle/targets.vim'
+Plug 'machakann/vim-sandwich'
+
 Plug 'vim-scripts/sudo.vim'
 Plug 'vim-scripts/nextval'
+Plug 'vim-scripts/autocomplpop'
 
 Plug 'tmux-plugins/vim-tmux'
 Plug 'christoomey/vim-tmux-navigator'
@@ -43,6 +50,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'gko/vim-coloresque'
 Plug 'altercation/vim-colors-solarized'
+Plug 'patstockwell/vim-monokai-tasty'
 
 Plug 'vim-syntastic/syntastic'
 
@@ -103,15 +111,15 @@ let g:syntastic_check_on_wq = 0
 "====================================================
 
 "====================================================
-"{{{SOLARIZED
+"{{{COLORSCHEMES
 "====================================================
 let g:solarized_contrast = 0
 let g:solarized_italic = 0
 let g:solarized_underline = 0
-let g:airline_theme = 'solarized'
+let g:airline_theme = 'monokai_tasty'
 let g:airline_solarized_bg = 'dark'
 let g:solarized_termtrans = 1
-colorscheme solarized
+colorscheme vim-monokai-tasty
 set background=dark
 "====================================================
 "}}}
