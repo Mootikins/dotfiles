@@ -29,9 +29,7 @@ fi
 
 export EDITOR="$VISUAL"
 alias tma="tmux attach"
-alias tmat="tmux attach -t "
-alias tmks="tmux kill-server"
-alias tmk="tmux kill-session -t "
+alias nv="nvim"
 export PATH="${PATH}:${HOME}/.local/bin/"
 export PATH="${PATH}:${HOME}/.local/share/nvim/plugged/vim-live-latex-preview/bin/"
 export PATH="${PATH}:${HOME}/.gem/ruby/2.5.0/bin/:/usr/lib/ruby/gems/2.5.0/b"

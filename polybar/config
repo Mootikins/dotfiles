@@ -41,7 +41,7 @@ alert = ${xrdb:color6}
 [bar/example]
 monitor = eDP1
 width = 100%
-height = 24
+height = 20
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0.0
@@ -153,9 +153,9 @@ label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
 ; ws-icon-0 = 1;
 ; ws-icon-1 = 2;
-ws-icon-default = 
-ws-icon-unfocused = 
-ws-icon-focused = 
+ws-icon-default = 
+ws-icon-unfocused = 
+ws-icon-focused = 
 
 [module/mpd]
 type = internal/mpd
@@ -295,7 +295,7 @@ format-charging = <animation-charging> <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
 ;format-discharging-underline = ${self.format-charging-underline}
 
-format-full-prefix = " "
+format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground}
 ;format-full-underline = ${self.format-charging-underline}
 
@@ -308,8 +308,6 @@ animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-5 = 
 animation-charging-foreground = ${colors.foreground}
 animation-charging-framerate = 750
 
@@ -325,7 +323,7 @@ format-charging = <animation-charging> <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
 ;format-discharging-underline = ${self.format-charging-underline}
 
-format-full-prefix = " "
+format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground}
 ;format-full-underline = ${self.format-charging-underline}
 
@@ -338,8 +336,6 @@ animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-5 = 
 animation-charging-foreground = ${colors.foreground}
 animation-charging-framerate = 750
 

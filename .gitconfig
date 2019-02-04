@@ -6,3 +6,18 @@
 [core]
 	editor = nvim
 	excludesfile = ~/.gitignore
+	pager = /usr/share/git/diff-highlight/diff-highlight | less
+[color]
+	ui = always
+[clor "diff"]
+	commit = green
+	meta = yellow
+	frag = cyan
+	old = red
+	new = green
+	whitespace = red reverse
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
