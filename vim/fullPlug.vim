@@ -66,6 +66,7 @@ Plug 'gko/vim-coloresque'
 Plug 'dylanaraps/wal.vim'
 Plug 'patstockwell/vim-monokai-tasty'
 
+Plug 'omnisharp/omnisharp-vim'
 Plug 'valloric/youcompleteme'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 
@@ -127,6 +128,14 @@ let g:vimwiki_list = [{ 'path': '~/Diary/', 'syntax': 'markdown', 'ext': '.md' }
 "{{{ DOXYGEN TOOLKIT
 "===============================================================
 let g:DoxygenToolkit_authorName="Matthew Krohn"
+"===============================================================
+"}}}
+"===============================================================
+"===============================================================
+"{{{ GITGUTTER
+"===============================================================
+nmap ]h <Plug>GitGutterNextHunk
+nmap [h <Plug>GitGutterPrevHunk
 "===============================================================
 "}}}
 "===============================================================
@@ -193,7 +202,8 @@ if has('nvim')
 	" ALE changes
 	let g:ale_linters = {
 				\'cpp': ['gcc'],
-				\'typescript': ['tsserver']
+				\'typescript': ['tsserver'],
+				\'cs': ['OmniSharp']
 				\}
 
 	let g:ale_fixers = {

@@ -111,6 +111,8 @@ nnoremap <silent> L g_
 xnoremap <silent> H ^
 xnoremap <silent> L g_
 
+nnoremap gC :tabnew<CR>
+
 nnoremap <silent> <CR> :noh<CR>
 
 inoremap <silent> kj <Esc>
