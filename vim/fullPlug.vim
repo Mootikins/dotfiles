@@ -27,7 +27,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
 
-Plug 'jreybert/vimagit'
 Plug 'vimwiki/vimwiki'
 
 Plug 'simnalamburt/vim-mundo'
@@ -87,6 +86,25 @@ let g:vimwiki_folding='expr'
 
 "===============================================================
 "{{{ PLUGIN SETTINGS
+"===============================================================
+"===============================================================
+"{{{ULTISNIPS TRIGGER/ETC
+"===============================================================
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsJumpForwardTrigger="<Tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+
+let g:UltiSnipsEditSplit="vertical"
+"===============================================================
+"}}}
+"===============================================================
+"===============================================================
+"{{{AIRLINE FIXES
+"===============================================================
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+"===============================================================
+"}}}
 "===============================================================
 "===============================================================
 "{{{ YOUCOMPLETEME
@@ -180,9 +198,6 @@ nnoremap <silent> <leader>fb :Buffers<CR>
 nnoremap <silent> <leader>ft :Tags<CR>
 nnoremap <silent> <leader>fc :Commits<CR>
 nnoremap <silent> <leader>fH :Helptags<CR>
-
-nnoremap <silent> <leader>mg :Magit<CR>
-nnoremap <silent> <leader>mo :MagitOnly<CR>
 
 nnoremap <silent> <leader>u :MundoToggle<CR>
 

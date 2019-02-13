@@ -9,9 +9,9 @@
 	editor = nvim
 	excludesfile = ~/.gitignore
 	pager = /usr/share/git/diff-highlight/diff-highlight | less
-[color]
-	ui = always
-[clor "diff"]
+#[color]
+#	ui = always
+[color "diff"]
 	commit = green
 	meta = yellow
 	frag = cyan
@@ -23,3 +23,5 @@
 	oldHighlight = red bold 52
 	newNormal = green bold
 	newHighlight = green bold 22
+[diff]
+	submodule = diff
