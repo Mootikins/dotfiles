@@ -202,6 +202,9 @@ nnoremap <silent> <leader>fH :Helptags<CR>
 nnoremap <silent> <leader>u :MundoToggle<CR>
 
 nnoremap <silent> <leader>t :TagbarToggle<CR>
+
+cnoreabbrev gp Gpush
+cnoreabbrev gl Gpull
 "===============================================================
 "}}}
 "===============================================================

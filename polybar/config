@@ -67,7 +67,7 @@ font-1 = Wuncon Siji:pixelsize=10;1
 
 modules-left = volume mpd
 modules-center = i3
-modules-right = date wlan battery1 battery2
+modules-right = date pub-ip battery1 battery2
 
 enable-ipc = true
 
@@ -218,6 +218,18 @@ format-prefix =
 format-prefix-foreground = ${colors.foreground-alt}
 ;format-underline = ${xrdb:color7}
 label = %percentage:2%
+
+[module/pub-ip]
+;https://linuxconfig.org/polybar-a-better-wm-panel-for-your-linux-system
+type = custom/script
+exec = ~/.config/polybar/scripts/pub-ip.sh
+interval = 100
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+;format-underline = #FFBB00
+label = %output%
+format-prefix = "  "
+format-prefix-foreground = ${colors.foreground}
 
 [module/wlan]
 type = internal/network
