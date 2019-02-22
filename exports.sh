@@ -29,6 +29,7 @@ fi
 
 export EDITOR="$VISUAL"
 alias tma="tmux attach"
+alias tmat="tmux attach -t"
 alias nv="nvim"
 export PATH="${PATH}:${HOME}/.local/bin/"
 export PATH="${PATH}:${HOME}/.local/share/nvim/plugged/vim-live-latex-preview/bin/"
