@@ -79,7 +79,6 @@ endif
 
 " Initialize plugin system
 call plug#end()
-let g:vimwiki_folding='expr'
 "===============================================================
 "}}}
 "===============================================================
@@ -137,8 +136,10 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 "===============================================================
 "{{{ VIMWIKI
 "===============================================================
+let g:vimwiki_folding='expr'
 let g:vimwiki_list = [{ 'path': '~/Diary/', 'syntax': 'markdown', 'ext': '.md' },
-                     \{ 'path': '~/SDSMT/', 'syntax': 'markdown', 'ext': '.md' }]
+                     \{ 'path': '~/SDSMT/', 'syntax': 'markdown', 'ext': '.md' },
+                     \{ 'path': '~/databaseP1/', 'syntax': 'markdown', 'ext': '.md' }]
 "===============================================================
 "}}}
 "===============================================================
