@@ -222,7 +222,8 @@ label = %percentage:2%
 [module/pub-ip]
 ;https://linuxconfig.org/polybar-a-better-wm-panel-for-your-linux-system
 type = custom/script
-exec = ~/.config/polybar/scripts/pub-ip.sh
+exec = curl -s https://www.icanhazip.com
+;exec = ~/.config/polybar/scripts/pub-ip.sh
 interval = 100
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
