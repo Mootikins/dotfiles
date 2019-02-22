@@ -13,6 +13,7 @@ export ZSH=~/.oh-my-zsh
 # These can be used if using high resolution displays (looks bad with bitmap fonts)
 # POWERLEVEL9K_MODE='awesome-fontconfig'
 # POWERLEVEL9K_MODE='awesome-patched'
+export POWERLEVEL9K_VCS_ACTIONFORMAT_FOREGROUND=black
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Set list of themes to load
