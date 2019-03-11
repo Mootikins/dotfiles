@@ -224,6 +224,7 @@ if has('nvim')
 				\'typescript': ['tsserver'],
 				\'cs': ['OmniSharp']
 				\}
+"				\'sql': ['sqlint'],
 
 	let g:ale_fixers = {
 				\'javascript': 'prettier',
