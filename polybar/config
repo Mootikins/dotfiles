@@ -404,6 +404,10 @@ format-discharging-margin = 0
 format-discharging-foreground = ${colors.xcolor0}
 format-discharging-background = ${colors.xcolor5}
 
+label-full = " 100%"
+label-full-foreground = ${colors.xcolor0}
+label-full-background = ${colors.xcolor5}
+
 format-full-prefix = " "
 format-full-prefix-foreground = ${colors.xcolor0}
 format-full-prefix-background = ${colors.xcolor5}
