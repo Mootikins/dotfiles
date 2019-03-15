@@ -56,25 +56,27 @@ line-color = #f00
 border-size = 0
 border-color = #00000000
 
-padding-left = 1
-padding-right = 1
+padding = 0
+padding-left = 0
+padding-right = 0
 
-module-margin-left = 1
-module-margin-right = 1
+module-margin-left = 0
+module-margin-right = 0
 
 font-0 = scientifica:pixelsize=11;1
 font-1 = Wuncon Siji:pixelsize=10;1
+font-2 = Anonymice Nerd Font:style=Medium:size=14;3
 
-modules-left = volume mpd
+modules-left = volume left1 mpd left2
 modules-center = i3
-modules-right = date pub-ip battery1 battery2
+modules-right = right1 date right2 pub-ip right3 battery1 battery2 right4
 
 enable-ipc = true
 
 tray-position = right
-tray-padding = 2
-tray-transparent = false
-tray-background = ${colors.background}
+tray-padding = 0
+tray-transparent = true
+tray-background = ${colors.xcolor4}
 
 ;wm-restack = bspwm
 ;wm-restack = i3
@@ -89,6 +91,63 @@ tray-background = ${colors.background}
 
 cursor-click = pointer
 cursor-scroll = ns-resize
+
+;
+[module/left1]
+type = custom/text
+content-background = ${colors.xcolor5}
+content-foreground = ${colors.xcolor4}
+content = "%{T3}%{T-}"
+
+[module/left2]
+type = custom/text
+content-background = ${colors.xcolor0}
+content-foreground = ${colors.xcolor5}
+content = "%{T3}%{T-}"
+
+#+++++++++++++++++++++++++++++++++++++++
+
+[module/right1]
+type = custom/text
+content-background = ${colors.xcolor0}
+content-foreground = ${colors.xcolor3}
+content = "%{T3}%{T-}"
+
+[module/right2]
+type = custom/text
+content-background = ${colors.xcolor3}
+content-foreground = ${colors.xcolor6}
+content = "%{T3}%{T-}"
+
+[module/right3]
+type = custom/text
+content-background = ${colors.xcolor6}
+content-foreground = ${colors.xcolor5}
+content = "%{T3}%{T-}"
+
+[module/right4]
+type = custom/text
+content-background = ${colors.xcolor5}
+content-foreground = ${colors.xcolor4}
+content = "%{T3}%{T-}"
+
+[module/right5]
+type = custom/text
+content-background = ${colors.xcolor0}
+content-foreground = ${colors.xcolor1}
+content = "%{T3}%{T-}"
+
+[module/right6]
+type = custom/text
+content-background = ${colors.xcolor0}
+content-foreground = ${colors.xcolor1}
+content = "%{T3}%{T-}"
+
+[module/right7]
+type = custom/text
+content-background = ${colors.xcolor0}
+content-foreground = ${colors.xcolor1}
+content = "%{T3}%{T-}"
 
 [module/xwindow]
 type = internal/xwindow
@@ -122,7 +181,7 @@ wrapping-scroll = false
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
 
-label-mode-padding = 3
+label-mode-padding = 0
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
@@ -130,7 +189,7 @@ label-mode-background = ${colors.primary}
 ; label-focused = %icon%
 label-focused = 
 label-focused-background = ${colors.background}
-label-focused-foreground = ${colors.foreground}
+label-focused-foreground = ${colors.xcolor4}
 ; label-focused-underline = ${xrdb:color3}
 label-focused-padding = ${module/bspwm.label-focused-padding}
 
@@ -199,6 +258,9 @@ format-online =  <icon-prev> <toggle> <icon-next> <label-song>
 format-playing = ${self.format-online}
 format-paused = ${self.format-online}
 format-stopped = No Media Playing
+format-online-padding = 1
+format-online-foreground = ${colors.xcolor0}
+format-online-background = ${colors.xcolor5}
 
 label-song-start = %artist% - %title%
 label-song-maxlen = 75
@@ -225,12 +287,13 @@ type = custom/script
 exec = curl -s https://www.icanhazip.com
 ;exec = ~/.config/polybar/scripts/pub-ip.sh
 interval = 100
-format-foreground = ${colors.foreground}
-format-background = ${colors.background}
+format-foreground = ${colors.xcolor0}
+format-background = ${colors.xcolor6}
+format-padding = 2
 ;format-underline = #FFBB00
 label = %output%
 format-prefix = "  "
-format-prefix-foreground = ${colors.foreground}
+format-prefix-foreground = ${colors.xcolor0}
 
 [module/wlan]
 type = internal/network
@@ -257,12 +320,14 @@ type = internal/date
 interval = 1
 
 ; Time
-date = " %I.%M.%S"
+date = " %I:%M:%S"
 ; Date
 date-alt = " %m-%d-%Y"
 
 format-prefix = 
-format-prefix-foreground = ${colors.foreground}
+format-padding = 2
+format-foreground = ${colors.xcolor0}
+format-background = ${colors.xcolor3}
 ;format-underline = ${xrdb:color3}
 
 label = %date%
@@ -270,31 +335,44 @@ label = %date%
 [module/volume]
 type = internal/alsa
 
-format-volume = <label-volume> <bar-volume>
-label-volume = 
-label-volume-foreground = ${root.foreground}
+format-volume = <ramp-volume> <label-volume>
+format-volume-background = ${colors.xcolor4}
+format-volume-foreground = ${colors.xcolor0}
+format-volume-padding = 1
 
-format-muted-prefix = " "
-;format-underline = ${xrdb:color4}
-format-muted-foreground = ${colors.foreground-alt}
-label-muted = VOLUME MUTED
+label-volume = %percentage%%
 
-bar-volume-width = 12
-bar-volume-foreground-0 = ${colors.foreground}
-bar-volume-foreground-1 = ${colors.foreground}
-bar-volume-foreground-2 = ${colors.foreground}
-bar-volume-foreground-3 = ${colors.foreground}
-bar-volume-foreground-4 = ${colors.foreground}
-bar-volume-foreground-5 = ${colors.foreground}
-bar-volume-foreground-6 = ${colors.foreground}
-bar-volume-gradient = true
-bar-volume-indicator = +
-bar-volume-indicator-font = 1
-bar-volume-fill = -
-bar-volume-fill-font = 1
-bar-volume-empty = -
-bar-volume-empty-font = 1
-bar-volume-empty-foreground = ${colors.foreground-alt}
+format-muted-prefix = 
+label-muted = " Muted"
+format-muted-background = ${colors.xcolor4}
+format-muted-foreground = ${colors.xcolor0}
+format-muted-padding = 1
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+ramp-volume-4 = 
+
+;format-volume = <label-volume> <label-volume>
+;label-volume = 
+;label-volume-foreground = ${root.foreground}
+;
+;format-muted-prefix = " "
+;;format-underline = ${xrdb:color4}
+;format-muted-foreground = ${colors.foreground-alt}
+;label-muted = VOLUME MUTED
+;
+;bar-volume-width = 12
+;bar-volume-foreground = ${colors.foreground}
+;bar-volume-gradient = false
+;bar-volume-indicator = +
+;bar-volume-indicator-font = 1
+;bar-volume-fill = -
+;bar-volume-fill-font = 1
+;bar-volume-empty = -
+;bar-volume-empty-font = 1
+;bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/battery1]
 type = internal/battery
@@ -302,27 +380,46 @@ battery = CMB1
 adapter = AC
 full-at = 95
 
-format-charging = <animation-charging> <label-charging>
-;format-charging-underline = ${xrdb:color10}
+label-charging = %percentage%%
+label-charging-padding = 1
+label-charging-margin = 0
+label-charging-foreground = ${colors.xcolor0}
+label-charging-background = ${colors.xcolor5}
 
-format-discharging = <ramp-capacity> <label-discharging>
-;format-discharging-underline = ${self.format-charging-underline}
+label-discharging = %percentage%%
+label-discharging-padding = 1
+label-discharging-margin = 0
+label-discharging-foreground = ${colors.xcolor0}
+label-discharging-background = ${colors.xcolor5}
 
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground}
-;format-full-underline = ${self.format-charging-underline}
+format-charging = <animation-charging><label-charging>
+format-charging-padding = 0
+format-charging-margin = 0
+format-charging-foreground = ${colors.xcolor0}
+format-charging-background = ${colors.xcolor5}
+
+format-discharging = <ramp-capacity><label-discharging>
+format-discharging-padding = 0
+format-discharging-margin = 0
+format-discharging-foreground = ${colors.xcolor0}
+format-discharging-background = ${colors.xcolor5}
+
+format-full-prefix = 
+format-full-prefix-foreground = ${colors.xcolor0}
+format-full-prefix-background = ${colors.xcolor5}
+
+animation-charging-framerate = 750
+animation-charging-foreground = ${colors.xcolor0}
+animation-charging-background = ${colors.xcolor5}
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground}
 
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
-animation-charging-foreground = ${colors.foreground}
-animation-charging-framerate = 750
 
 [module/battery2]
 type = internal/battery
@@ -330,27 +427,46 @@ battery = CMB2
 adapter = AC
 full-at = 95
 
-format-charging = <animation-charging> <label-charging>
-;format-charging-underline = ${xrdb:color13}
+label-charging = %percentage%%
+label-charging-padding = 1
+label-charging-margin = 0
+label-charging-foreground = ${colors.xcolor0}
+label-charging-background = ${colors.xcolor5}
 
-format-discharging = <ramp-capacity> <label-discharging>
-;format-discharging-underline = ${self.format-charging-underline}
+label-discharging = %percentage%%
+label-discharging-padding = 1
+label-discharging-margin = 0
+label-discharging-foreground = ${colors.xcolor0}
+label-discharging-background = ${colors.xcolor5}
 
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground}
-;format-full-underline = ${self.format-charging-underline}
+format-charging = <animation-charging><label-charging>
+format-charging-padding = 0
+format-charging-margin = 0
+format-charging-foreground = ${colors.xcolor0}
+format-charging-background = ${colors.xcolor5}
+
+format-discharging = <ramp-capacity><label-discharging>
+format-discharging-padding = 0
+format-discharging-margin = 0
+format-discharging-foreground = ${colors.xcolor0}
+format-discharging-background = ${colors.xcolor5}
+
+format-full-prefix = 
+format-full-prefix-foreground = ${colors.xcolor0}
+format-full-prefix-background = ${colors.xcolor5}
+
+animation-charging-framerate = 750
+animation-charging-foreground = ${colors.xcolor0}
+animation-charging-background = ${colors.xcolor5}
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground}
 
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
-animation-charging-foreground = ${colors.foreground}
-animation-charging-framerate = 750
 
 [settings]
 screenchange-reload = true
