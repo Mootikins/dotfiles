@@ -95,14 +95,14 @@ cursor-scroll = ns-resize
 ;
 [module/left1]
 type = custom/text
-content-background = ${colors.xcolor5}
+content-background = ${colors.xcolor2}
 content-foreground = ${colors.xcolor4}
 content = "%{T3}%{T-}"
 
 [module/left2]
 type = custom/text
 content-background = ${colors.xcolor0}
-content-foreground = ${colors.xcolor5}
+content-foreground = ${colors.xcolor2}
 content = "%{T3}%{T-}"
 
 #+++++++++++++++++++++++++++++++++++++++
@@ -122,12 +122,12 @@ content = "%{T3}%{T-}"
 [module/right3]
 type = custom/text
 content-background = ${colors.xcolor6}
-content-foreground = ${colors.xcolor5}
+content-foreground = ${colors.xcolor2}
 content = "%{T3}%{T-}"
 
 [module/right4]
 type = custom/text
-content-background = ${colors.xcolor5}
+content-background = ${colors.xcolor2}
 content-foreground = ${colors.xcolor4}
 content = "%{T3} %{T-}"
 
@@ -260,7 +260,7 @@ format-paused = ${self.format-online}
 format-stopped = No Media Playing
 format-online-padding = 1
 format-online-foreground = ${colors.xcolor0}
-format-online-background = ${colors.xcolor5}
+format-online-background = ${colors.xcolor2}
 
 label-song-start = %artist% - %title%
 label-song-maxlen = 75
@@ -384,38 +384,38 @@ label-charging = %percentage%%
 label-charging-padding = 0
 label-charging-margin = 0
 label-charging-foreground = ${colors.xcolor0}
-label-charging-background = ${colors.xcolor5}
+label-charging-background = ${colors.xcolor2}
 
 label-discharging = %percentage%%
 label-discharging-padding = 0
 label-discharging-margin = 0
 label-discharging-foreground = ${colors.xcolor0}
-label-discharging-background = ${colors.xcolor5}
+label-discharging-background = ${colors.xcolor2}
 
 format-charging = <animation-charging><label-charging>
 format-charging-padding = 0
 format-charging-margin = 0
 format-charging-foreground = ${colors.xcolor0}
-format-charging-background = ${colors.xcolor5}
+format-charging-background = ${colors.xcolor2}
 
 format-discharging = <ramp-capacity><label-discharging>
 format-discharging-padding = 0
 format-discharging-margin = 0
 format-discharging-foreground = ${colors.xcolor0}
-format-discharging-background = ${colors.xcolor5}
+format-discharging-background = ${colors.xcolor2}
 
 label-full = " 100%"
 label-full-foreground = ${colors.xcolor0}
-label-full-background = ${colors.xcolor5}
+label-full-background = ${colors.xcolor2}
 
 format-full-prefix = " "
 format-full-prefix-foreground = ${colors.xcolor0}
-format-full-prefix-background = ${colors.xcolor5}
+format-full-prefix-background = ${colors.xcolor2}
 
 animation-charging-framerate = 750
 animation-charging-padding = 1
 animation-charging-foreground = ${colors.xcolor0}
-animation-charging-background = ${colors.xcolor5}
+animation-charging-background = ${colors.xcolor2}
 
 ramp-capacity-0 = " "
 ramp-capacity-1 = " "
@@ -436,34 +436,34 @@ label-charging = %percentage%%
 label-charging-padding = 0
 label-charging-margin = 0
 label-charging-foreground = ${colors.xcolor0}
-label-charging-background = ${colors.xcolor5}
+label-charging-background = ${colors.xcolor2}
 
 label-discharging = %percentage%%
 label-discharging-padding = 0
 label-discharging-margin = 0
 label-discharging-foreground = ${colors.xcolor0}
-label-discharging-background = ${colors.xcolor5}
+label-discharging-background = ${colors.xcolor2}
 
 format-charging = <animation-charging><label-charging>
 format-charging-padding = 0
 format-charging-margin = 0
 format-charging-foreground = ${colors.xcolor0}
-format-charging-background = ${colors.xcolor5}
+format-charging-background = ${colors.xcolor2}
 
 format-discharging = <ramp-capacity><label-discharging>
 format-discharging-padding = 0
 format-discharging-margin = 0
 format-discharging-foreground = ${colors.xcolor0}
-format-discharging-background = ${colors.xcolor5}
+format-discharging-background = ${colors.xcolor2}
 
 format-full-prefix = " "
 format-full-prefix-foreground = ${colors.xcolor0}
-format-full-prefix-background = ${colors.xcolor5}
+format-full-prefix-background = ${colors.xcolor2}
 
 animation-charging-framerate = 750
 animation-charging-padding = 1
 animation-charging-foreground = ${colors.xcolor0}
-animation-charging-background = ${colors.xcolor5}
+animation-charging-background = ${colors.xcolor2}
 
 ramp-capacity-0 = " "
 ramp-capacity-1 = " "
