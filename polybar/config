@@ -41,7 +41,7 @@ alert = ${xrdb:color6}
 [bar/example]
 monitor = eDP1
 width = 100%
-height = 20
+height = 18
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0.0
@@ -64,8 +64,8 @@ module-margin-left = 0
 module-margin-right = 0
 
 font-0 = scientifica:pixelsize=11;1
-font-1 = Wuncon Siji:pixelsize=10;1
-font-2 = Anonymice Nerd Font:style=Medium:size=14;3
+font-1 = Wuncon Siji:pixelsize=10;2
+font-2 = TerminessTTF Nerd Font:style=Medium:size=14;3
 
 modules-left = volume left1 mpd left2
 modules-center = i3
@@ -129,7 +129,7 @@ content = "%{T3}%{T-}"
 type = custom/text
 content-background = ${colors.xcolor5}
 content-foreground = ${colors.xcolor4}
-content = "%{T3}%{T-}"
+content = "%{T3} %{T-}"
 
 [module/right5]
 type = custom/text
@@ -381,13 +381,13 @@ adapter = AC
 full-at = 95
 
 label-charging = %percentage%%
-label-charging-padding = 1
+label-charging-padding = 0
 label-charging-margin = 0
 label-charging-foreground = ${colors.xcolor0}
 label-charging-background = ${colors.xcolor5}
 
 label-discharging = %percentage%%
-label-discharging-padding = 1
+label-discharging-padding = 0
 label-discharging-margin = 0
 label-discharging-foreground = ${colors.xcolor0}
 label-discharging-background = ${colors.xcolor5}
@@ -404,22 +404,23 @@ format-discharging-margin = 0
 format-discharging-foreground = ${colors.xcolor0}
 format-discharging-background = ${colors.xcolor5}
 
-format-full-prefix = 
+format-full-prefix = " "
 format-full-prefix-foreground = ${colors.xcolor0}
 format-full-prefix-background = ${colors.xcolor5}
 
 animation-charging-framerate = 750
+animation-charging-padding = 1
 animation-charging-foreground = ${colors.xcolor0}
 animation-charging-background = ${colors.xcolor5}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
+ramp-capacity-0 = " "
+ramp-capacity-1 = " "
+ramp-capacity-2 = " "
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
+animation-charging-0 = " "
+animation-charging-1 = " "
+animation-charging-2 = " "
+animation-charging-3 = " "
 
 [module/battery2]
 type = internal/battery
@@ -428,13 +429,13 @@ adapter = AC
 full-at = 95
 
 label-charging = %percentage%%
-label-charging-padding = 1
+label-charging-padding = 0
 label-charging-margin = 0
 label-charging-foreground = ${colors.xcolor0}
 label-charging-background = ${colors.xcolor5}
 
 label-discharging = %percentage%%
-label-discharging-padding = 1
+label-discharging-padding = 0
 label-discharging-margin = 0
 label-discharging-foreground = ${colors.xcolor0}
 label-discharging-background = ${colors.xcolor5}
@@ -451,22 +452,23 @@ format-discharging-margin = 0
 format-discharging-foreground = ${colors.xcolor0}
 format-discharging-background = ${colors.xcolor5}
 
-format-full-prefix = 
+format-full-prefix = " "
 format-full-prefix-foreground = ${colors.xcolor0}
 format-full-prefix-background = ${colors.xcolor5}
 
 animation-charging-framerate = 750
+animation-charging-padding = 1
 animation-charging-foreground = ${colors.xcolor0}
 animation-charging-background = ${colors.xcolor5}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
+ramp-capacity-0 = " "
+ramp-capacity-1 = " "
+ramp-capacity-2 = " "
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
+animation-charging-0 = " "
+animation-charging-1 = " "
+animation-charging-2 = " "
+animation-charging-3 = " "
 
 [settings]
 screenchange-reload = true
