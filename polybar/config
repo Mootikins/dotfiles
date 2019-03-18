@@ -69,7 +69,7 @@ font-2 = TerminessTTF Nerd Font:style=Medium:size=16;3
 
 modules-left = date left1 volume left2 mpd left3
 modules-center = i3
-modules-right = right1 pub-ip right2 battery1 battery2 right3
+modules-right = right1 pub-ip right2 battery1 right3 battery2 right4
 
 enable-ipc = true
 
@@ -129,13 +129,13 @@ content = "%{T3}%{T-}"
 type = custom/text
 content-background = ${colors.xcolor2}
 content-foreground = ${colors.xcolor4}
-content = "%{T3}%{T-}"
+content = " %{T3}%{T-}"
 
 [module/right4]
 type = custom/text
 content-background = ${colors.xcolor2}
 content-foreground = ${colors.xcolor4}
-content = "%{T3} %{T-}"
+content = " %{T3}%{T-}"
 
 [module/right5]
 type = custom/text
@@ -386,13 +386,13 @@ battery = CMB1
 adapter = AC
 full-at = 95
 
-label-charging = "%percentage%% "
+label-charging = %percentage%%
 label-charging-padding = 0
 label-charging-margin = 0
 label-charging-foreground = ${colors.xcolor0}
 label-charging-background = ${colors.xcolor2}
 
-label-discharging = "%percentage%% "
+label-discharging = %percentage%%
 label-discharging-padding = 0
 label-discharging-margin = 0
 label-discharging-foreground = ${colors.xcolor0}
@@ -410,11 +410,11 @@ format-discharging-margin = 0
 format-discharging-foreground = ${colors.xcolor0}
 format-discharging-background = ${colors.xcolor2}
 
-label-full = " 100%"
+label-full = 100%
 label-full-foreground = ${colors.xcolor0}
 label-full-background = ${colors.xcolor2}
 
-format-full-prefix = "  "
+format-full-prefix = " "
 format-full-prefix-foreground = ${colors.xcolor0}
 format-full-prefix-background = ${colors.xcolor2}
 
@@ -423,14 +423,14 @@ animation-charging-padding = 0
 animation-charging-foreground = ${colors.xcolor0}
 animation-charging-background = ${colors.xcolor2}
 
-ramp-capacity-0 = "  "
-ramp-capacity-1 = "  "
-ramp-capacity-2 = "  "
+ramp-capacity-0 = " "
+ramp-capacity-1 = " "
+ramp-capacity-2 = " "
 
-animation-charging-0 = "  "
-animation-charging-1 = "  "
-animation-charging-2 = "  "
-animation-charging-3 = "  "
+animation-charging-0 = " "
+animation-charging-1 = " "
+animation-charging-2 = " "
+animation-charging-3 = " "
 
 [module/battery2]
 type = internal/battery
@@ -438,13 +438,13 @@ battery = CMB2
 adapter = AC
 full-at = 95
 
-label-charging = "%percentage%% "
+label-charging = %percentage%%
 label-charging-padding = 0
 label-charging-margin = 0
 label-charging-foreground = ${colors.xcolor0}
 label-charging-background = ${colors.xcolor2}
 
-label-discharging = "%percentage%% "
+label-discharging = %percentage%%
 label-discharging-padding = 0
 label-discharging-margin = 0
 label-discharging-foreground = ${colors.xcolor0}
@@ -462,27 +462,28 @@ format-discharging-margin = 0
 format-discharging-foreground = ${colors.xcolor0}
 format-discharging-background = ${colors.xcolor2}
 
-label-full = " 100%"
+label-full = 100%
 label-full-foreground = ${colors.xcolor0}
 label-full-background = ${colors.xcolor2}
 
-format-full-prefix = "  "
+format-full-prefix = " "
 format-full-prefix-foreground = ${colors.xcolor0}
 format-full-prefix-background = ${colors.xcolor2}
 
 animation-charging-framerate = 750
-animation-charging-padding = 1
+animation-charging-padding = 0
 animation-charging-foreground = ${colors.xcolor0}
 animation-charging-background = ${colors.xcolor2}
 
-ramp-capacity-0 = "  "
-ramp-capacity-1 = "  "
-ramp-capacity-2 = "  "
+ramp-capacity-0 = " "
+ramp-capacity-1 = " "
+ramp-capacity-2 = " "
 
-animation-charging-0 = "  "
-animation-charging-1 = "  "
-animation-charging-2 = "  "
-animation-charging-3 = "  "
+animation-charging-0 = " "
+animation-charging-1 = " "
+animation-charging-2 = " "
+animation-charging-3 = " "
+
 [settings]
 screenchange-reload = true
 ;compositing-background = over
