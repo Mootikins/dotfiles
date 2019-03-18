@@ -101,14 +101,14 @@ content = "%{T3}%{T-}"
 
 [module/left2]
 type = custom/text
-content-background = ${colors.xcolor6}
+content-background = ${colors.xcolor3}
 content-foreground = ${colors.xcolor2}
 content = "%{T3}%{T-}"
 
 [module/left3]
 type = custom/text
 content-background = ${colors.xcolor0}
-content-foreground = ${colors.xcolor6}
+content-foreground = ${colors.xcolor3}
 content = "%{T3}%{T-}"
 
 #+++++++++++++++++++++++++++++++++++++++
@@ -116,12 +116,12 @@ content = "%{T3}%{T-}"
 [module/right1]
 type = custom/text
 content-background = ${colors.xcolor0}
-content-foreground = ${colors.xcolor6}
+content-foreground = ${colors.xcolor3}
 content = "%{T3}%{T-}"
 
 [module/right2]
 type = custom/text
-content-background = ${colors.xcolor6}
+content-background = ${colors.xcolor3}
 content-foreground = ${colors.xcolor2}
 content = "%{T3}%{T-}"
 
@@ -266,7 +266,7 @@ format-paused = ${self.format-online}
 format-stopped = No Media Playing
 format-online-padding = 1
 format-online-foreground = ${colors.xcolor0}
-format-online-background = ${colors.xcolor6}
+format-online-background = ${colors.xcolor3}
 
 label-song-start = %artist% - %title%
 label-song-maxlen = 75
@@ -294,7 +294,7 @@ exec = curl -s https://www.icanhazip.com
 ;exec = ~/.config/polybar/scripts/pub-ip.sh
 interval = 100
 format-foreground = ${colors.xcolor0}
-format-background = ${colors.xcolor6}
+format-background = ${colors.xcolor3}
 format-padding = 1
 ;format-underline = #FFBB00
 label = %output%
