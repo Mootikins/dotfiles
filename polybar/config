@@ -195,7 +195,7 @@ label-mode-background = ${colors.primary}
 ; label-focused = %icon%
 label-focused = 
 label-focused-background = ${colors.background}
-label-focused-foreground = ${colors.xcolor3}
+label-focused-foreground = ${colors.xcolor5}
 ; label-focused-underline = ${xrdb:color3}
 label-focused-padding = ${module/bspwm.label-focused-padding}
 
