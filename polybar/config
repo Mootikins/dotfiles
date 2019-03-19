@@ -335,7 +335,7 @@ date-alt = " %m-%d-%Y"
 
 format-prefix = 
 format-padding = 1
-format-foreground = ${colors.xcolor7}
+format-foreground = ${colors.xcolor0}
 format-background = ${colors.xcolor4}
 ;format-underline = ${xrdb:color3}
 
