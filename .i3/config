@@ -7,6 +7,9 @@ set $mod Mod4
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
 
+# set title alignment
+title_align center
+
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 default_border pixel 5
 default_floating_border pixel 5
@@ -22,7 +25,7 @@ bindsym $mod+y border pixel 5
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font xft:URWGothic-Book 11
+font xft:scientifica 11
 
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
@@ -286,9 +289,6 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-assign [class="chromium"] ws1
-assign [class="spotify"] ws3
-
 # Lock screen
 bindsym $mod+9 exec --no-startup-id i3exit suspend
 
@@ -356,7 +356,7 @@ client.focused_inactive $bg     $bg     $fg  $term_color0 $term_color0
 client.unfocused        $bg     $bg     $fg  $term_color0 $term_color0
 client.urgent           $bg     $bg     $fg  $bg          $term_color1
 client.placeholder      $bg     $bg     $fg  $bg          $bg
-  client.background       #2B2C2B
+client.background       #2B2C2B
 
 #############################
 ### settings for i3-gaps: ###
