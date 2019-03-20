@@ -32,8 +32,6 @@ Plug 'vimwiki/vimwiki'
 Plug 'simnalamburt/vim-mundo'
 Plug 'majutsushi/tagbar'
 
-Plug 'vim-scripts/doxygentoolkit.vim'
-
 Plug 'mattn/emmet-vim'
 
 Plug 'sheerun/vim-polyglot'
@@ -55,6 +53,7 @@ Plug 'honza/vim-snippets'
 
 Plug 'jiangmiao/auto-pairs'
 Plug 'ying17zi/vim-live-latex-preview', { 'for': 'tex' }
+Plug 'lervag/vimtex'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
