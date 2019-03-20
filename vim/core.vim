@@ -91,7 +91,7 @@ augroup FiletypeGroup
 	autocmd Filetype tmux setlocal foldmethod=marker
 	autocmd Filetype xdefaults setlocal foldmethod=marker
 	autocmd Filetype python setlocal shiftwidth=4 softtabstop expandtab
-	autocmd Filetype vimwiki setlocal foldlevel=10 expandtab tabstop=2 softtabstop=2
+	autocmd Filetype vimwiki setlocal foldlevel=10 expandtab tabstop=2 softtabstop=2 spell spelllang=en_us
 augroup END
 "====================================================
 "}}}
