@@ -107,20 +107,20 @@ let g:polyglot_disabled = ['latex']
 "===============================================================
 
 "===============================================================
-"{{{ULTISNIPS TRIGGER/ETC
+"{{{ULTISNIPS
 "===============================================================
-let g:UltiSnipsSnippetDirectories = ['~/dotfiles/snippets']
 let g:UltiSnipsExpandTrigger="<Tab>"
 let g:UltiSnipsJumpForwardTrigger="<Tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 
+let g:UltiSnipsSnippetDirectories = [$HOME.'/dotfiles/snippets', 'Ultisnips']
 let g:UltiSnipsEditSplit="vertical"
 "===============================================================
 "}}}
 "===============================================================
 
 "===============================================================
-"{{{AIRLINE FIXES
+"{{{AIRLINE
 "===============================================================
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
