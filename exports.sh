@@ -17,10 +17,8 @@ export KEYTIMEOUT=15
 
 if type nvim &> /dev/null; then
 	export VISUAL=nvim
-	alias magit="nvim -c 'MagitOnly'"
 else
 	export VISUAL=vim
-	alias magit="vim -c 'MagitOnly'"
 fi
 
 if type hub &> /dev/null; then
