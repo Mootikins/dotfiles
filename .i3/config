@@ -363,7 +363,7 @@ client.background       #2B2C2B
 #############################
 
 # Set inner/outer gaps
-gaps inner 10
+gaps inner 0
 gaps outer 0
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
