@@ -28,6 +28,7 @@ fi
 export EDITOR="$VISUAL"
 alias tma="tmux attach"
 alias tmat="tmux attach -t"
+alias glotags="git log --graph --oneline --date=short $(git describe --tags --candidates=1 | cut -d'-' -f1)..HEAD"
 alias nv=$VISUAL
 export PATH="${PATH}:${HOME}/.local/bin/"
 export PATH="${PATH}:${HOME}/.local/share/nvim/plugged/vim-live-latex-preview/bin/"
