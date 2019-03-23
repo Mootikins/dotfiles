@@ -34,19 +34,18 @@
     
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
-    alignment = left
+    alignment = center
     
     # The frequency with wich text that is longer than the notification
     # window allows bounces back and forth.
     # This option conflicts with "word_wrap".
     # Set to 0 to disable.
     bounce_freq = 5
-
     
     # Show age of message if message is older than show_age_threshold
     # seconds.
     # Set to -1 to disable.
-    show_age_threshold = 60
+    show_age_threshold = 15
     
     # Split notifications into multiple lines if they don't fit into
     # geometry.
@@ -83,7 +82,7 @@
     # for longer than idle_threshold seconds.
     # Set to 0 to disable.
     # default 120
-    idle_threshold = 120 
+    idle_threshold = 0 
     
     # Which monitor should the notifications be displayed on.
     monitor = 0
@@ -271,23 +270,23 @@
 #    background = "#A8EB41"
 #    foreground = "#FFFFFF"
 #
-[irc]
-        appname = weechat
-        timeout = 0
-        background = "#0033bb"
-        foreground = "#dddddd"
+#[irc]
+#        appname = weechat
+#        timeout = 0
+#        background = "#0033bb"
+#        foreground = "#dddddd"
 #
-[weechat hl]
-     appname = weechat
-     category = weechat.HL
-     background = "#FF5C47"
-     foreground = "#FFFFFF"
+#[weechat hl]
+#     appname = weechat
+#     category = weechat.HL
+#     background = "#FF5C47"
+#     foreground = "#FFFFFF"
 #
-[weechat pn]
-     appname = weechat
-     category = weechat.PM
-     background = "#D53B84"
-     foreground = "#FFFFFF"
+#[weechat pn]
+#     appname = weechat
+#     category = weechat.PM
+#     background = "#D53B84"
+#     foreground = "#FFFFFF"
 #
 #[CMUS]
 #    appname = CMUS
