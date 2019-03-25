@@ -204,7 +204,7 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 # assign [class="Pale moon"] $ws2
 # assign [class="Pcmanfm"] $ws3
 # assign [class="Skype"] $ws5
-# assign [class="chromium"] $ws1
+assign [class="google-chrome"] $ws2
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable
