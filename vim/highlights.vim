@@ -3,13 +3,14 @@ highlight VertSplit ctermbg=black ctermfg=white cterm=none
 highlight NonText ctermfg=8
 highlight CursorLineNr ctermfg=9
 
-if has('nvim')
-	highlight DiffAdd ctermbg=6 ctermfg=232
-	highlight DiffText ctermbg=1 ctermfg=232
-	highlight IncSearch ctermbg=0 ctermfg=1
-	set list
-	set listchars=tab:\|\ 
-endif
+highlight DiffAdd ctermbg=22 ctermfg=7
+highlight DiffText ctermbg=0 ctermfg=7
+highlight DiffDelete ctermbg=52 ctermfg=7
+highlight DiffChange ctermbg=61 ctermfg=7
+highlight IncSearch ctermbg=0 ctermfg=6
+highlight Search ctermbg=5 ctermfg=0
+set list
+set listchars=tab:\|\ 
 
 "Highlight columns 81 and 101 on lines with that many characters
 autocmd Filetype cpp call matchadd('ColorColumn', '\%81v', 100)
