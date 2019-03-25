@@ -18,6 +18,7 @@ set showmatch noshowmode
 set wildmenu wildmode=full
 set undofile
 set undodir=$HOME/.vim/undo
+set spelllang=en_us
 filetype plugin indent on
 syntax on
 " Turn On OmniComplete
@@ -91,7 +92,7 @@ augroup FiletypeGroup
 	autocmd Filetype tmux setlocal foldmethod=marker
 	autocmd Filetype xdefaults setlocal foldmethod=marker
 	autocmd Filetype python setlocal shiftwidth=4 softtabstop expandtab
-	autocmd Filetype vimwiki setlocal foldlevel=10 expandtab tabstop=2 softtabstop=2 spell spelllang=en_us
+	autocmd Filetype vimwiki setlocal foldlevel=10 expandtab tabstop=2 softtabstop=2
 augroup END
 "====================================================
 "}}}
