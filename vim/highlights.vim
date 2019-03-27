@@ -3,7 +3,7 @@ highlight VertSplit ctermbg=black ctermfg=white cterm=none
 highlight NonText ctermfg=8
 highlight CursorLineNr ctermfg=9
 
-set cursorline cursorcolumn
+"set cursorline cursorcolumn
 highlight CursorLine ctermbg=236 ctermfg=none cterm=none
 highlight CursorColumn ctermbg=236 ctermfg=none
 
@@ -11,8 +11,10 @@ highlight DiffAdd ctermbg=22 ctermfg=7
 highlight DiffText ctermbg=0 ctermfg=7
 highlight DiffDelete ctermbg=52 ctermfg=7
 highlight DiffChange ctermbg=61 ctermfg=7
+
 highlight IncSearch ctermbg=0 ctermfg=6
 highlight Search ctermbg=5 ctermfg=0
+
 if has ('nvim')
 	set list
 end
