@@ -73,8 +73,14 @@ autocmd BufWrite *.txt :call RemoveTrailingSpaces()
 "{{{ FOLD SETTINGS
 "====================================================
 set foldmethod=syntax
+
 nnoremap za zA
 nnoremap zA za
+
+nnoremap <silent> zl zo
+nnoremap <silent> zh zc
+nnoremap <silent> zL zO
+nnoremap <silent> zH zC
 "====================================================
 "}}}
 "====================================================
@@ -126,15 +132,15 @@ vnoremap <silent> <leader>d "_d
 xnoremap <silent> K <Esc>'<kdd'>pgv
 xnoremap <silent> J <Esc>'>jdd'<Pgv
 
-nnoremap <silent> zl zo
-nnoremap <silent> zh zc
-nnoremap <silent> zL zO
-nnoremap <silent> zH zC
-
 " Show highlight group of character/word under cursor
-map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-			\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-			\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+function! SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
+nnoremap <silent> <F10> :call SynStack()<CR>
 
 nnoremap <silent> <leader>pd "=strftime("%m-%d-%Y")<CR>p
 "====================================================
