@@ -19,6 +19,7 @@ set wildmenu wildmode=full
 set undofile
 set undodir=$HOME/.vim/undo
 set spelllang=en_us
+set signcolumn=yes
 filetype plugin indent on
 syntax on
 " Turn On OmniComplete
