@@ -114,14 +114,14 @@ bindkey '^b' backward-delete-word
 bindkey -M viins '^p' history-substring-search-up
 bindkey -M viins '^n' history-substring-search-down
 
-if [ -d ~/.cache/wal ]; then
+if [ -d ~/.config/wpg ]; then
 	# Import colorscheme from 'wal' asynchronously
 	# &   # Run the process in the background.
 	# ( ) # Hide shell job control messages.
-	(cat ~/.cache/wal/sequences &)
+	(cat ~/.config/wpg/sequences &)
 
 	# To add support for TTYs this line can be optionally added.
-	source ~/.cache/wal/colors-tty.sh
+	# source ~/.cache/wal/colors-tty.sh
 fi
 clear
 

@@ -1,4 +1,4 @@
-set fillchars=vert:│,stlnc:=
+set fillchars=vert:│
 highlight VertSplit ctermbg=black ctermfg=white cterm=none
 highlight NonText ctermfg=8
 highlight CursorLineNr ctermfg=9

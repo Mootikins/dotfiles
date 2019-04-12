@@ -41,7 +41,7 @@ bindsym $mod+Shift+y fullscreen disable; floating enable; resize set 400 300; st
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+space exec rofi -modi drun -show run -columns 3 -font "scientifica 11" -opacity 95 -config ~/.config/rofi/config
+bindsym $mod+space exec rofi -show run -opacity 95 -theme wpgtk.rasi -font "scientifica 11" -columns 3
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
@@ -310,7 +310,7 @@ exec --no-startup-id clipit
 # exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
-exec --no-startup-id wal -R
+exec --no-startup-id wpg -s $(wpg -c)
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:

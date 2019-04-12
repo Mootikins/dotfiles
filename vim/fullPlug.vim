@@ -12,7 +12,7 @@
 "                       \/__/     \/__/         \/__/    
 "    
 "===============================================================
-"{{{PLUGINS
+"{{{ PLUGINS
 "===============================================================
 call plug#begin('~/.local/share/nvim/plugged')
 
@@ -54,6 +54,7 @@ Plug 'honza/vim-snippets'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ying17zi/vim-live-latex-preview', { 'for': 'tex' }
 Plug 'lervag/vimtex'
+Plug 'godlygeek/tabular'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -62,6 +63,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'gko/vim-coloresque'
 
 Plug 'dylanaraps/wal.vim'
+Plug 'deviantfero/wpgtk.vim'
 Plug 'patstockwell/vim-monokai-tasty'
 
 Plug 'omnisharp/omnisharp-vim'
@@ -107,20 +109,13 @@ let g:vimtex_view_method='mupdf'
 let g:vimtex_quickfix_mode=0
 set conceallevel=1
 let g:tex_conceal='abdmg'
-"===============================================================
-"}}}
-"===============================================================
-
-"===============================================================
-"{{{ POLYGLOT
-"===============================================================
 let g:polyglot_disabled = ['latex']
 "===============================================================
 "}}}
 "===============================================================
 
 "===============================================================
-"{{{ULTISNIPS
+"{{{ ULTISNIPS
 "===============================================================
 let g:UltiSnipsExpandTrigger="<Tab>"
 let g:UltiSnipsJumpForwardTrigger="<Tab>"
@@ -133,7 +128,7 @@ let g:UltiSnipsEditSplit="vertical"
 "===============================================================
 
 "===============================================================
-"{{{AIRLINE
+"{{{ AIRLINE
 "===============================================================
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
@@ -191,15 +186,6 @@ let g:DoxygenToolkit_authorName="Matthew Krohn"
 "===============================================================
 
 "===============================================================
-"{{{ GITGUTTER
-"===============================================================
-nmap ]h <Plug>GitGutterNextHunk
-nmap [h <Plug>GitGutterPrevHunk
-"===============================================================
-"}}}
-"===============================================================
-
-"===============================================================
 "}}}
 "===============================================================
 
@@ -245,6 +231,11 @@ nnoremap <silent> <leader>u :MundoToggle<CR>
 
 nnoremap <silent> <leader>t :TagbarToggle<CR>
 
+nmap ]h <Plug>GitGutterNextHunk
+nmap [h <Plug>GitGutterPrevHunk
+
+nnoremap <silent> <leader>] :YcmCompleter GoTo<CR>
+
 cnoreabbrev gp Gpush
 cnoreabbrev gl Gpull
 "===============================================================
@@ -252,25 +243,30 @@ cnoreabbrev gl Gpull
 "===============================================================
 
 "===============================================================
-"{{{ALE/SYNTASTIC CONFIG
+"{{{ ALE/SYNTASTIC CONFIG
 "===============================================================
 
 "===============================================================
-"{{{ALE
+"{{{ ALE
 "===============================================================
 if has('nvim')
 	" ALE changes
 	let g:ale_linters = {
 				\'cpp': ['gcc'],
 				\'typescript': ['tsserver'],
+				\'rust': ['rls'],
 				\'cs': ['OmniSharp']
 				\}
 "				\'sql': ['sqlint'],
 
 	let g:ale_fixers = {
 				\'javascript': 'prettier',
-				\'typescript': 'prettier',
+				\'typescript': 'prettier'
 				\}
+
+	let g:ale_fix_on_save = 1
+	let g:ale_rust_rustfmt_options = '--force'
+	let g:ale_rust_rls_toolchain = 'stable'
 
 	let g:ale_c_parse_makefile = 1
 	"===============================================================
@@ -278,7 +274,7 @@ if has('nvim')
 	"===============================================================
 
 	"===============================================================
-	"{{{SYNTASTIC
+	"{{{n SYNTASTIC
 	"===============================================================
 else
 	" Syntastic changes
@@ -306,7 +302,7 @@ endif
 "===============================================================
 
 "===============================================================
-"{{{COLORSCHEME AND GENERAL THEMES
+"{{{ COLORSCHEME AND GENERAL THEMES
 "===============================================================
 colorscheme wal
 let g:airline_theme = 'wal'
@@ -316,7 +312,7 @@ let g:airline#extensions#ale#enabled = 1
 "===============================================================
 
 "===============================================================
-"{{{TMUX CURSOR FIX
+"{{{ TMUX CURSOR FIX
 "===============================================================
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
 let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
@@ -327,7 +323,7 @@ let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 "===============================================================
 
 "===============================================================
-"{{{EDIT/SOURCE DOTFILE
+"{{{ EDIT/SOURCE DOTFILE
 "===============================================================
 nnoremap <silent> <leader>ed :edit ~/.config/nvim/init.vim<CR>
 nnoremap <silent> <leader>so :source ~/.config/nvim/init.vim<CR>
