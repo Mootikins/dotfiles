@@ -2,10 +2,18 @@ set fillchars=vert:│
 highlight VertSplit ctermbg=black ctermfg=white cterm=none
 highlight NonText ctermfg=8
 highlight CursorLineNr ctermfg=9
+highlight LineNr ctermfg=4
 
 "set cursorline cursorcolumn
-highlight CursorLine ctermbg=236 ctermfg=none cterm=none
-highlight CursorColumn ctermbg=236 ctermfg=none
+highlight CursorLine ctermbg=8 ctermfg=15 cterm=none
+
+augroup CursorLine
+    au!
+    au VimEnter * setlocal cursorline
+    au WinEnter * setlocal cursorline
+    au BufWinEnter * setlocal cursorline
+    au WinLeave * setlocal nocursorline
+augroup END
 
 highlight DiffAdd ctermbg=22 ctermfg=7
 highlight DiffText ctermbg=0 ctermfg=7

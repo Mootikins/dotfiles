@@ -26,6 +26,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-eunuch'
 
 Plug 'vimwiki/vimwiki'
 
@@ -40,7 +41,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 Plug 'wellle/targets.vim'
 Plug 'machakann/vim-sandwich'
 
-Plug 'vim-scripts/sudo.vim'
 Plug 'vim-scripts/nextval'
 
 Plug 'tmux-plugins/vim-tmux'
@@ -307,17 +307,6 @@ endif
 colorscheme wal
 let g:airline_theme = 'wal'
 let g:airline#extensions#ale#enabled = 1
-"===============================================================
-"}}}
-"===============================================================
-
-"===============================================================
-"{{{ TMUX CURSOR FIX
-"===============================================================
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
-let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
-let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 "===============================================================
 "}}}
 "===============================================================
