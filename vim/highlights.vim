@@ -1,7 +1,7 @@
 set fillchars=vert:│
 highlight VertSplit ctermbg=black ctermfg=white cterm=none
 highlight NonText ctermfg=8
-highlight CursorLineNr ctermfg=9
+highlight CursorLineNr ctermfg=15
 highlight LineNr ctermfg=4
 
 "set cursorline cursorcolumn

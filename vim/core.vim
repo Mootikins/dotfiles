@@ -202,6 +202,7 @@ set splitbelow
 if has('vim')
 	set background=dark
 	colorscheme darkblue
+	highlight signcolumn ctermbg=0
 endif
 "====================================================
 "}}}
