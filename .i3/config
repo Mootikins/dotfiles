@@ -41,7 +41,7 @@ bindsym $mod+Shift+y fullscreen disable; floating enable; resize set 400 300; st
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+space exec rofi -show run -opacity 95 -theme wpgtk.rasi -font "scientifica 11" -columns 3
+bindsym $mod+space exec rofi -show drun -opacity 95 -theme wpgtk.rasi -font "scientifica 11" -columns 2
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
@@ -350,16 +350,16 @@ set_from_resource $term_color15    color15
 # from the generated scheme.
 # NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
 # it fails to get colors from Xresources.
-set_from_resource $fg i3wm.color1 #f0f0f0
-set_from_resource $bg i3wm.color0 #f0f0f0
+set_from_resource $fg i3wm.color15 #f0f0f0
+set_from_resource $bg i3wm.color8 #f0f0f0
 
-# class                 border  backgr. text indicator    child_border
-client.focused          $bg     $bg     $fg  $term_color7 $term_color4
-client.focused_inactive $bg     $bg     $fg  $term_color0 $term_color0
-client.unfocused        $bg     $bg     $fg  $term_color0 $term_color0
-client.urgent           $bg     $bg     $fg  $bg          $term_color1
-client.placeholder      $bg     $bg     $fg  $bg          $bg
-client.background       #2B2C2B
+# class                    border  backgr.        text          indicator    child_border
+client.focused             $bg     $term_color12  $bg           $term_color7 $term_color4
+client.focused_inactive    $bg     $term_color4   $bg           $term_color0 $term_color0
+client.unfocused           $bg     $bg            $fg           $term_color0 $term_color0
+client.urgent              $bg     $bg            $fg           $bg          $term_color1
+client.placeholder         $bg     $bg            $fg           $bg          $bg
+client.background          $term_background
 
 #############################
 ### settings for i3-gaps: ###
@@ -375,7 +375,7 @@ gaps outer 0
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
+# smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace) 
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)

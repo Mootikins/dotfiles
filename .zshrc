@@ -14,7 +14,7 @@ export ZSH=~/.oh-my-zsh
 # POWERLEVEL9K_MODE='awesome-fontconfig'
 # POWERLEVEL9K_MODE='awesome-patched'
 export POWERLEVEL9K_VCS_ACTIONFORMAT_FOREGROUND=black
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random

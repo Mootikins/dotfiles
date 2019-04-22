@@ -26,6 +26,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-eunuch'
 
 Plug 'vimwiki/vimwiki'
 
@@ -40,7 +41,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 Plug 'wellle/targets.vim'
 Plug 'machakann/vim-sandwich'
 
-Plug 'vim-scripts/sudo.vim'
 Plug 'vim-scripts/nextval'
 
 Plug 'tmux-plugins/vim-tmux'
@@ -70,6 +70,8 @@ Plug 'omnisharp/omnisharp-vim'
 Plug 'valloric/youcompleteme'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 
+Plug 'romainl/vim-devdocs'
+
 if has('nvim')
 	Plug 'w0rp/ale'
 else
@@ -86,6 +88,73 @@ call plug#end()
 
 "===============================================================
 "{{{ PLUGIN SETTINGS
+"===============================================================
+
+"===============================================================
+"{{{ VIM-DEVDOCS
+"===============================================================
+set keywordprg=:DD
+"===============================================================
+"}}}
+"===============================================================
+
+"===============================================================
+"{{{ ALE/SYNTASTIC CONFIG
+"===============================================================
+
+"===============================================================
+"{{{ ALE
+"===============================================================
+if has('nvim')
+	" ALE changes
+	let g:ale_linters = {
+				\'cpp': ['gcc'],
+				\'typescript': ['tsserver'],
+				\'rust': ['rls'],
+				\'cs': ['OmniSharp']
+				\}
+"				\'sql': ['sqlint'],
+
+	let g:ale_fixers = {
+				\'javascript': 'prettier',
+				\'typescript': 'prettier'
+				\}
+
+	let g:ale_fix_on_save = 1
+	let g:ale_rust_rustfmt_options = '--force'
+	let g:ale_rust_rls_toolchain = 'stable'
+
+	let g:ale_c_parse_makefile = 1
+	"===============================================================
+	"}}}
+	"===============================================================
+
+	"===============================================================
+	"{{{n SYNTASTIC
+	"===============================================================
+else
+	" Syntastic changes
+	let g:syntastic_cpp_checkers = ['gcc']
+	let g:syntastic_cpp_compiler = 'gcc'
+	let g:syntastic_cpp_compiler_options = ' -std=c++11'
+	set statusline+=%#warningmsg#
+	set statusline+=%{SyntasticStatuslineFlag()}
+	set statusline+=%*
+	let g:syntastic_mode_map = {
+				\ "mode": "active",
+				\ "passive_filetypes": ["asm"] }
+
+	let g:syntastic_always_populate_loc_list = 1
+	let g:syntastic_auto_loc_list = 0
+	let g:syntastic_check_on_open = 1
+	let g:syntastic_check_on_wq = 0
+endif
+"===============================================================
+"}}}
+"===============================================================
+
+"===============================================================
+"}}}
 "===============================================================
 
 "===============================================================
@@ -243,81 +312,11 @@ cnoreabbrev gl Gpull
 "===============================================================
 
 "===============================================================
-"{{{ ALE/SYNTASTIC CONFIG
-"===============================================================
-
-"===============================================================
-"{{{ ALE
-"===============================================================
-if has('nvim')
-	" ALE changes
-	let g:ale_linters = {
-				\'cpp': ['gcc'],
-				\'typescript': ['tsserver'],
-				\'rust': ['rls'],
-				\'cs': ['OmniSharp']
-				\}
-"				\'sql': ['sqlint'],
-
-	let g:ale_fixers = {
-				\'javascript': 'prettier',
-				\'typescript': 'prettier'
-				\}
-
-	let g:ale_fix_on_save = 1
-	let g:ale_rust_rustfmt_options = '--force'
-	let g:ale_rust_rls_toolchain = 'stable'
-
-	let g:ale_c_parse_makefile = 1
-	"===============================================================
-	"}}}
-	"===============================================================
-
-	"===============================================================
-	"{{{n SYNTASTIC
-	"===============================================================
-else
-	" Syntastic changes
-	let g:syntastic_cpp_checkers = ['gcc']
-	let g:syntastic_cpp_compiler = 'gcc'
-	let g:syntastic_cpp_compiler_options = ' -std=c++11'
-	set statusline+=%#warningmsg#
-	set statusline+=%{SyntasticStatuslineFlag()}
-	set statusline+=%*
-	let g:syntastic_mode_map = {
-				\ "mode": "active",
-				\ "passive_filetypes": ["asm"] }
-
-	let g:syntastic_always_populate_loc_list = 1
-	let g:syntastic_auto_loc_list = 0
-	let g:syntastic_check_on_open = 1
-	let g:syntastic_check_on_wq = 0
-endif
-"===============================================================
-"}}}
-"===============================================================
-
-"===============================================================
-"}}}
-"===============================================================
-
-"===============================================================
 "{{{ COLORSCHEME AND GENERAL THEMES
 "===============================================================
 colorscheme wal
 let g:airline_theme = 'wal'
 let g:airline#extensions#ale#enabled = 1
-"===============================================================
-"}}}
-"===============================================================
-
-"===============================================================
-"{{{ TMUX CURSOR FIX
-"===============================================================
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
-let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
-let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 "===============================================================
 "}}}
 "===============================================================
