@@ -354,7 +354,7 @@ set_from_resource $fg i3wm.color15 #f0f0f0
 set_from_resource $bg i3wm.color8 #f0f0f0
 
 # class                    border  backgr.        text          indicator    child_border
-client.focused             $bg     $term_color12  $bg           $term_color7 $term_color4
+client.focused             $bg     $term_color12  $bg           $term_color7 $term_color12
 client.focused_inactive    $bg     $term_color4   $bg           $term_color0 $term_color0
 client.unfocused           $bg     $bg            $fg           $term_color0 $term_color0
 client.urgent              $bg     $bg            $fg           $bg          $term_color1
