@@ -76,7 +76,7 @@ enable-ipc = true
 tray-position = right
 tray-padding = 0
 tray-transparent = true
-tray-background = ${colors.xcolor4}
+tray-background = ${colors.xcolor12}
 
 ;wm-restack = bspwm
 ;wm-restack = i3
@@ -95,20 +95,20 @@ cursor-scroll = ns-resize
 ;
 [module/left1]
 type = custom/text
-content-background = ${colors.xcolor2}
-content-foreground = ${colors.xcolor4}
+content-background = ${colors.xcolor10}
+content-foreground = ${colors.xcolor12}
 content = "%{T3}%{T-}"
 
 [module/left2]
 type = custom/text
-content-background = ${colors.xcolor3}
-content-foreground = ${colors.xcolor2}
+content-background = ${colors.xcolor11}
+content-foreground = ${colors.xcolor10}
 content = "%{T3}%{T-}"
 
 [module/left3]
 type = custom/text
 content-background = ${colors.xcolor0}
-content-foreground = ${colors.xcolor3}
+content-foreground = ${colors.xcolor11}
 content = "%{T3}%{T-}"
 
 #+++++++++++++++++++++++++++++++++++++++
@@ -116,43 +116,43 @@ content = "%{T3}%{T-}"
 [module/right1]
 type = custom/text
 content-background = ${colors.xcolor0}
-content-foreground = ${colors.xcolor3}
+content-foreground = ${colors.xcolor11}
 content = "%{T3}%{T-}"
 
 [module/right2]
 type = custom/text
-content-background = ${colors.xcolor3}
-content-foreground = ${colors.xcolor2}
+content-background = ${colors.xcolor11}
+content-foreground = ${colors.xcolor10}
 content = "%{T3}%{T-}"
 
 [module/right3]
 type = custom/text
-content-background = ${colors.xcolor2}
-content-foreground = ${colors.xcolor4}
+content-background = ${colors.xcolor10}
+content-foreground = ${colors.xcolor12}
 content = " %{T3}%{T-}"
 
 [module/right4]
 type = custom/text
-content-background = ${colors.xcolor2}
-content-foreground = ${colors.xcolor4}
+content-background = ${colors.xcolor10}
+content-foreground = ${colors.xcolor12}
 content = " %{T3}%{T-}"
 
 [module/right5]
 type = custom/text
 content-background = ${colors.xcolor0}
-content-foreground = ${colors.xcolor1}
+content-foreground = ${colors.xcolor9}
 content = "%{T3}%{T-}"
 
 [module/right6]
 type = custom/text
 content-background = ${colors.xcolor0}
-content-foreground = ${colors.xcolor1}
+content-foreground = ${colors.xcolor9}
 content = "%{T3}%{T-}"
 
 [module/right7]
 type = custom/text
 content-background = ${colors.xcolor0}
-content-foreground = ${colors.xcolor1}
+content-foreground = ${colors.xcolor9}
 content = "%{T3}%{T-}"
 
 [module/xwindow]
@@ -195,7 +195,7 @@ label-mode-background = ${colors.primary}
 ; label-focused = %icon%
 label-focused = 
 label-focused-background = ${colors.background}
-label-focused-foreground = ${colors.xcolor5}
+label-focused-foreground = ${colors.xcolor13}
 ; label-focused-underline = ${xrdb:color3}
 label-focused-padding = ${module/bspwm.label-focused-padding}
 
@@ -267,7 +267,7 @@ format-paused = ${self.format-online}
 format-stopped = No Media Playing
 format-online-padding = 1
 format-online-foreground = ${colors.xcolor0}
-format-online-background = ${colors.xcolor3}
+format-online-background = ${colors.xcolor11}
 
 label-offline = MPD Not Running
 
@@ -297,7 +297,7 @@ exec = curl -s https://www.icanhazip.com
 ;exec = ~/.config/polybar/scripts/pub-ip.sh
 interval = 100
 format-foreground = ${colors.xcolor0}
-format-background = ${colors.xcolor3}
+format-background = ${colors.xcolor11}
 format-padding = 1
 ;format-underline = #FFBB00
 label = %output%
@@ -336,7 +336,7 @@ date-alt = " %m-%d-%Y"
 format-prefix = 
 format-padding = 1
 format-foreground = ${colors.xcolor0}
-format-background = ${colors.xcolor4}
+format-background = ${colors.xcolor12}
 ;format-underline = ${xrdb:color3}
 
 label = %date%
@@ -345,7 +345,7 @@ label = %date%
 type = internal/alsa
 
 format-volume = <ramp-volume> <label-volume>
-format-volume-background = ${colors.xcolor2}
+format-volume-background = ${colors.xcolor10}
 format-volume-foreground = ${colors.xcolor0}
 format-volume-padding = 1
 
@@ -353,7 +353,7 @@ label-volume = %percentage%%
 
 format-muted-prefix = 
 label-muted = " Muted"
-format-muted-background = ${colors.xcolor2}
+format-muted-background = ${colors.xcolor10}
 format-muted-foreground = ${colors.xcolor0}
 format-muted-padding = 1
 
@@ -393,38 +393,38 @@ label-charging = %percentage%%
 label-charging-padding = 0
 label-charging-margin = 0
 label-charging-foreground = ${colors.xcolor0}
-label-charging-background = ${colors.xcolor2}
+label-charging-background = ${colors.xcolor10}
 
 label-discharging = %percentage%%
 label-discharging-padding = 0
 label-discharging-margin = 0
 label-discharging-foreground = ${colors.xcolor0}
-label-discharging-background = ${colors.xcolor2}
+label-discharging-background = ${colors.xcolor10}
 
 format-charging = <animation-charging><label-charging>
 format-charging-padding = 0
 format-charging-margin = 0
 format-charging-foreground = ${colors.xcolor0}
-format-charging-background = ${colors.xcolor2}
+format-charging-background = ${colors.xcolor10}
 
 format-discharging = <ramp-capacity><label-discharging>
 format-discharging-padding = 0
 format-discharging-margin = 0
 format-discharging-foreground = ${colors.xcolor0}
-format-discharging-background = ${colors.xcolor2}
+format-discharging-background = ${colors.xcolor10}
 
 label-full = 100%
 label-full-foreground = ${colors.xcolor0}
-label-full-background = ${colors.xcolor2}
+label-full-background = ${colors.xcolor10}
 
 format-full-prefix = " "
 format-full-prefix-foreground = ${colors.xcolor0}
-format-full-prefix-background = ${colors.xcolor2}
+format-full-prefix-background = ${colors.xcolor10}
 
 animation-charging-framerate = 750
 animation-charging-padding = 0
 animation-charging-foreground = ${colors.xcolor0}
-animation-charging-background = ${colors.xcolor2}
+animation-charging-background = ${colors.xcolor10}
 
 ramp-capacity-0 = " "
 ramp-capacity-1 = " "
@@ -445,38 +445,38 @@ label-charging = %percentage%%
 label-charging-padding = 0
 label-charging-margin = 0
 label-charging-foreground = ${colors.xcolor0}
-label-charging-background = ${colors.xcolor2}
+label-charging-background = ${colors.xcolor10}
 
 label-discharging = %percentage%%
 label-discharging-padding = 0
 label-discharging-margin = 0
 label-discharging-foreground = ${colors.xcolor0}
-label-discharging-background = ${colors.xcolor2}
+label-discharging-background = ${colors.xcolor10}
 
 format-charging = <animation-charging><label-charging>
 format-charging-padding = 0
 format-charging-margin = 0
 format-charging-foreground = ${colors.xcolor0}
-format-charging-background = ${colors.xcolor2}
+format-charging-background = ${colors.xcolor10}
 
 format-discharging = <ramp-capacity><label-discharging>
 format-discharging-padding = 0
 format-discharging-margin = 0
 format-discharging-foreground = ${colors.xcolor0}
-format-discharging-background = ${colors.xcolor2}
+format-discharging-background = ${colors.xcolor10}
 
 label-full = 100%
 label-full-foreground = ${colors.xcolor0}
-label-full-background = ${colors.xcolor2}
+label-full-background = ${colors.xcolor10}
 
 format-full-prefix = " "
 format-full-prefix-foreground = ${colors.xcolor0}
-format-full-prefix-background = ${colors.xcolor2}
+format-full-prefix-background = ${colors.xcolor10}
 
 animation-charging-framerate = 750
 animation-charging-padding = 0
 animation-charging-foreground = ${colors.xcolor0}
-animation-charging-background = ${colors.xcolor2}
+animation-charging-background = ${colors.xcolor10}
 
 ramp-capacity-0 = " "
 ramp-capacity-1 = " "
