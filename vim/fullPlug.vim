@@ -111,13 +111,15 @@ if has('nvim')
 				\'cpp': ['gcc'],
 				\'typescript': ['tsserver'],
 				\'rust': ['rls'],
+				\'php': ['phpcs'],
 				\'cs': ['OmniSharp']
 				\}
 "				\'sql': ['sqlint'],
 
 	let g:ale_fixers = {
 				\'javascript': 'prettier',
-				\'typescript': 'prettier'
+				\'typescript': 'prettier',
+				\'rust': 'rustfmt'
 				\}
 
 	let g:ale_fix_on_save = 1
