@@ -47,7 +47,6 @@ Plug 'tmux-plugins/vim-tmux'
 Plug 'wincent/terminus'
 Plug 'christoomey/vim-tmux-navigator'
 
-Plug 'ervandew/supertab'
 Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
 
@@ -186,19 +185,6 @@ let g:polyglot_disabled = ['latex']
 "===============================================================
 
 "===============================================================
-"{{{ ULTISNIPS
-"===============================================================
-let g:UltiSnipsExpandTrigger="<Tab>"
-let g:UltiSnipsJumpForwardTrigger="<Tab>"
-let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
-
-let g:UltiSnipsSnippetDirectories = [$HOME.'/dotfiles/snippets', 'Ultisnips']
-let g:UltiSnipsEditSplit="vertical"
-"===============================================================
-"}}}
-"===============================================================
-
-"===============================================================
 "{{{ AIRLINE
 "===============================================================
 let g:airline#extensions#tabline#enabled = 1
@@ -208,11 +194,21 @@ let g:airline_powerline_fonts = 1
 "===============================================================
 
 "===============================================================
+"{{{ ULTISNIPS
+"===============================================================
+let g:UltiSnipsExpandTrigger="<C-l>"
+let g:UltiSnipsJumpForwardTrigger="<C-l>"
+let g:UltiSnipsJumpBackwardTrigger="<C-h>"
+
+let g:UltiSnipsSnippetDirectories = [$HOME.'/dotfiles/snippets', 'Ultisnips']
+let g:UltiSnipsEditSplit="vertical"
+"===============================================================
+"}}}
+"===============================================================
+
+"===============================================================
 "{{{ YOUCOMPLETEME
 "===============================================================
-" Supertab/Ultisnips setup
-let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion=['<C-n>', '<Down>']
 " turn on completion in comments
 let g:ycm_complete_in_comments=1
 " load ycm conf by default
@@ -225,14 +221,6 @@ let g:ycm_min_num_of_chars_for_completion=1
 let g:ycm_autoclose_preview_window_after_completion=1
 " Youcompleteme fix
 let g:ycm_global_ycm_extra_conf = '~/.local/share/nvim/plugged/youcompleteme/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-"===============================================================
-"}}}
-"===============================================================
-
-"===============================================================
-"{{{ SUPERTAB
-"===============================================================
-let g:SuperTabDefaultCompletionType = '<C-n>'
 "===============================================================
 "}}}
 "===============================================================
@@ -316,18 +304,9 @@ cnoreabbrev gl Gpull
 "===============================================================
 "{{{ COLORSCHEME AND GENERAL THEMES
 "===============================================================
-colorscheme wal
-let g:airline_theme = 'wal'
+colorscheme wpgtkAlt
+let g:airline_theme = 'wpgtk'
 let g:airline#extensions#ale#enabled = 1
-"===============================================================
-"}}}
-"===============================================================
-
-"===============================================================
-"{{{ EDIT/SOURCE DOTFILE
-"===============================================================
-nnoremap <silent> <leader>ed :edit ~/.config/nvim/init.vim<CR>
-nnoremap <silent> <leader>so :source ~/.config/nvim/init.vim<CR>
 "===============================================================
 "}}}
 "===============================================================
