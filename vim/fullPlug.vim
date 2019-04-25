@@ -59,7 +59,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'airblade/vim-gitgutter'
-Plug 'RRethy/vim-hexokinase'
+Plug 'gko/vim-coloresque'
 
 Plug 'dylanaraps/wal.vim'
 Plug 'deviantfero/wpgtk.vim'
@@ -87,17 +87,6 @@ call plug#end()
 
 "===============================================================
 "{{{ PLUGIN SETTINGS
-"===============================================================
-
-"===============================================================
-"{{{ HEXOKINASE
-"===============================================================
-let g:Hexokinase_highlighters = ['virtual']
-let g:Hexokinase_optInPatterns = ['full_hex', 'triple_hex', 'rgb', 'rgba', 'colour_names']
-let g:Hexokinase_ftAutoload = ['css', 'xml', 'html', 'php']
-let g:Hexokinase_refreshEvents = ['TextChanged', 'TextChangedI']
-"===============================================================
-"}}}
 "===============================================================
 
 "===============================================================
