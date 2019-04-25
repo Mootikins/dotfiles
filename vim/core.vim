@@ -20,8 +20,11 @@ set undofile
 set undodir=$HOME/.vim/undo
 set spelllang=en_us
 set signcolumn=yes
+set splitright splitbelow
+
 filetype plugin indent on
 syntax on
+
 " Turn On OmniComplete
 set omnifunc=syntaxcomplete#Complete
 let &showbreak='-> '
@@ -37,7 +40,7 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 "====================================================
 function! RemoveTrailingSpaces()
 	silent! execute '%s/\s\+$//ge'
-	silent! execute 'g/\v^$\n*%$/norm! dd'
+	silent! execute 'g/\v^$\n*$/norm! dd'
 endfunction
 
 function! Format()
@@ -167,9 +170,6 @@ nnoremap <silent> <leader><C-l> :vertical resize -5<CR>
 
 nnoremap <silent> <leader>\ :vnew<CR>
 nnoremap <silent> <leader>- :new<CR>
-"
-nnoremap <silent> <C-w>\ :vnew<CR>
-nnoremap <silent> <C-w>- :new<CR>
 
 nnoremap <silent> <C-w><C-h> :vertical resize +5<CR>
 nnoremap <silent> <C-w><C-j> :resize +5<CR>
@@ -180,18 +180,6 @@ if has('nvim')
 	set inccommand=split
 	tnoremap <silent> <Esc> <C-\><C-n>
 endif
-"====================================================
-"}}}
-"====================================================
-
-"====================================================
-"{{{ BUFFERS
-"====================================================
-nnoremap <silent> <leader>n :bnext<CR>
-nnoremap <silent> <leader>p :bprevious<CR>
-
-set splitright
-set splitbelow
 "====================================================
 "}}}
 "====================================================
