@@ -124,6 +124,7 @@ bindsym $mod+q split toggle
 
 # toggle fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
+bindsym $mod+p exec "polybar-msg cmd toggle"
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
