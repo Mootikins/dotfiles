@@ -40,7 +40,6 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 "====================================================
 function! RemoveTrailingSpaces()
 	silent! execute '%s/\s\+$//ge'
-	silent! execute 'g/\v^$\n*$/norm! dd'
 endfunction
 
 function! Format()
@@ -190,7 +189,6 @@ endif
 if has('vim')
 	set background=dark
 	colorscheme darkblue
-	highlight signcolumn ctermbg=0
 endif
 "====================================================
 "}}}

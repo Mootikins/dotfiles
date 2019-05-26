@@ -24,6 +24,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-eunuch'
@@ -123,7 +124,7 @@ if has('nvim')
 
 	let g:ale_fix_on_save = 1
 	let g:ale_rust_rustfmt_options = '--force'
-	let g:ale_rust_rls_toolchain = 'nightly'
+	let g:ale_rust_rls_toolchain = 'stable'
 
 	let g:ale_c_parse_makefile = 1
 	"===============================================================
@@ -229,9 +230,7 @@ let g:ycm_global_ycm_extra_conf = '~/.local/share/nvim/plugged/youcompleteme/thi
 "{{{ VIMWIKI
 "===============================================================
 let g:vimwiki_folding='expr'
-let g:vimwiki_list = [{ 'path': '~/Diary/', 'syntax': 'markdown', 'ext': '.md' },
-                     \{ 'path': '~/SDSMT/', 'syntax': 'markdown', 'ext': '.md' },
-                     \{ 'path': '~/databaseP1/', 'syntax': 'markdown', 'ext': '.md' }]
+let g:vimwiki_list = [{ 'path': '~/SDSMT/', 'syntax': 'markdown', 'ext': '.md' }]
 "===============================================================
 "}}}
 "===============================================================

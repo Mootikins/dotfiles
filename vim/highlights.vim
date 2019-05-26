@@ -4,7 +4,7 @@ highlight MatchParen ctermfg=12 ctermbg=none cterm=reverse
 highlight NonText ctermfg=8
 highlight CursorLineNr ctermfg=15
 highlight LineNr ctermfg=4
-highlight Folded cterm=italic
+highlight Folded cterm=italic ctermbg=0
 
 "set cursorline cursorcolumn
 highlight CursorLine ctermbg=8 cterm=none
@@ -33,7 +33,10 @@ highlight Search ctermbg=5 ctermfg=0
 if has ('nvim')
 	set list
 	set listchars=tab:\|\ 
+else
+	highlight signcolumn ctermbg=0
 end
+
 
 augroup LineLengths
 	autocmd Filetype cpp call matchadd('ColorColumn', '\%81v.\{0,19\}', 100)
