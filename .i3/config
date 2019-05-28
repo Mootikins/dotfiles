@@ -33,6 +33,7 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec st
 bindsym $mod+Shift+Return exec st -c "life"
+bindsym $mod+Shift+v exec st -c "life" -e nvim '+au BufWriteCmd vimclippy %y+ | set nomodified' vimclippy
 
 #open current window in sticky float, 463 for bottom right
 bindsym $mod+Shift+y fullscreen disable; floating enable; resize set 400 300; sticky enable; move window to position 838 29 
