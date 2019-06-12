@@ -27,7 +27,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-eunuch'
 
 Plug 'vimwiki/vimwiki'
 
