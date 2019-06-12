@@ -125,6 +125,7 @@ bindkey kj vi-cmd-mode
 bindkey '^f' forward-word
 bindkey '^g' autosuggest-accept
 bindkey '^b' backward-delete-word
+bindkey '^e' edit-command-line
 bindkey -M viins '^p' history-substring-search-up
 bindkey -M viins '^n' history-substring-search-down
 
