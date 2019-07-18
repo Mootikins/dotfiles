@@ -25,6 +25,7 @@ if type hub &> /dev/null; then
 	eval "$(hub alias -s)"
 fi
 
+export TERM=xterm-256color
 export EDITOR="$VISUAL"
 alias tma="tmux attach"
 alias tmat="tmux attach -t"

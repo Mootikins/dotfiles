@@ -5,12 +5,13 @@ highlight NonText ctermfg=8
 highlight CursorLineNr ctermfg=15
 highlight LineNr ctermfg=4
 highlight Folded cterm=italic ctermbg=0
+highlight FoldColumn ctermbg=0
 
 "set cursorline cursorcolumn
 highlight CursorLine ctermbg=8 cterm=none
 
 augroup CursorLine
-    autocmd!
+		autocmd!
 		autocmd VimEnter * setlocal cursorline
 		autocmd WinEnter * setlocal cursorline
 		autocmd BufWinEnter * setlocal cursorline

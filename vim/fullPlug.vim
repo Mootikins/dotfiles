@@ -61,6 +61,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'gko/vim-coloresque'
 
+Plug 'yggdroot/indentline'
+
 Plug 'dylanaraps/wal.vim'
 Plug 'deviantfero/wpgtk.vim'
 Plug 'patstockwell/vim-monokai-tasty'
@@ -87,6 +89,16 @@ call plug#end()
 
 "===============================================================
 "{{{ PLUGIN SETTINGS
+"===============================================================
+
+"===============================================================
+"{{{ INDENT LINE
+"===============================================================
+let g:indentLine_char='│'
+let g:indentLine_color_term=7
+let g:indentLine_bgcolor_term=0
+"===============================================================
+"}}}
 "===============================================================
 
 "===============================================================
