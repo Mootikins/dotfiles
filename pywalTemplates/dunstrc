@@ -1,6 +1,6 @@
 [global]
     frame_width = 5
-    frame_color = "{color4}"
+    frame_color = "{color12}"
     
     font = scientifica 11
     
@@ -67,7 +67,7 @@
     # the top and down respectevly.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "0x4--10+28"
+    geometry = "0x4-10+28"
     
     # Shrink window if it's smaller than the width.  Will be ignored if
     # width is 0.
@@ -133,7 +133,7 @@
     #  * foreground: use the same color as the foreground;
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
-    separator_color = {color2}
+    separator_color = {color10}
     
     # Print a notification on startup.
     # This is mainly for error detection, since dbus (re-)starts dunst
@@ -181,17 +181,17 @@
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
     background = "{color0}"
-    foreground = "{color7}"
+    foreground = "{color15}"
     timeout = 5
 
 [urgency_normal]
     background = "{color0}"
-    foreground = "{color7}"
+    foreground = "{color15}"
     timeout = 5
 
 [urgency_critical]
-    background = "{color1}"
-    foreground = "{color8}"
+    background = "{color0}"
+    foreground = "{color15}"
     timeout = 0
 
 

@@ -72,6 +72,7 @@ Plug 'valloric/youcompleteme'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 
 Plug 'romainl/vim-devdocs'
+Plug 'kkoomen/vim-doge'
 
 if has('nvim')
 	Plug 'w0rp/ale'
@@ -97,6 +98,7 @@ call plug#end()
 let g:indentLine_char='│'
 let g:indentLine_color_term=7
 let g:indentLine_bgcolor_term=0
+let g:indentLine_fileTypeExclude = ['fzf']
 "===============================================================
 "}}}
 "===============================================================

@@ -28,9 +28,6 @@ syntax on
 " Turn On OmniComplete
 set omnifunc=syntaxcomplete#Complete
 let &showbreak='-> '
-
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 "====================================================
 "}}}
 "====================================================
@@ -126,9 +123,6 @@ nnoremap gC :tabnew<CR>
 nnoremap <silent> g<CR> :noh<CR>
 
 inoremap <silent> kj <Esc>
-
-nnoremap <silent> <leader>d "_d
-vnoremap <silent> <leader>d "_d
 
 " move visual selection up/down line at a time
 xnoremap <silent> K <Esc>'<kdd'>pgv
