@@ -95,10 +95,11 @@ call plug#end()
 "===============================================================
 "{{{ INDENT LINE
 "===============================================================
-let g:indentLine_char='│'
-let g:indentLine_color_term=7
+let g:indentLine_char='⎸'
+let g:indentLine_color_term=8
 let g:indentLine_bgcolor_term=0
 let g:indentLine_fileTypeExclude = ['fzf']
+let g:indentLine_enabled = 0
 "===============================================================
 "}}}
 "===============================================================
@@ -125,6 +126,7 @@ if has('nvim')
 				\'typescript': ['tsserver'],
 				\'rust': ['rls'],
 				\'php': ['phpcs'],
+				\'java': ['javac'],
 				\'cs': ['OmniSharp']
 				\}
 "				\'sql': ['sqlint'],
@@ -132,7 +134,8 @@ if has('nvim')
 	let g:ale_fixers = {
 				\'javascript': 'prettier',
 				\'typescript': 'prettier',
-				\'rust': 'rustfmt'
+				\'rust': 'rustfmt',
+				\'python': 'black'
 				\}
 
 	let g:ale_fix_on_save = 1
@@ -233,6 +236,8 @@ let g:ycm_collect_identifiers_from_tags_files=1
 let g:ycm_min_num_of_chars_for_completion=1
 " close preview window after completion
 let g:ycm_autoclose_preview_window_after_completion=1
+" enable preview window
+let g:ycm_add_preview_to_completeopt = 1
 " Youcompleteme fix
 let g:ycm_global_ycm_extra_conf = '~/.local/share/nvim/plugged/youcompleteme/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 "===============================================================
