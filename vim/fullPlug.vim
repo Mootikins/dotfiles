@@ -66,6 +66,7 @@ Plug 'yggdroot/indentline'
 Plug 'dylanaraps/wal.vim'
 Plug 'deviantfero/wpgtk.vim'
 Plug 'patstockwell/vim-monokai-tasty'
+Plug 'segeljakt/vim-silicon'
 
 Plug 'omnisharp/omnisharp-vim'
 Plug 'valloric/youcompleteme'
@@ -127,9 +128,9 @@ if has('nvim')
 				\'rust': ['rls'],
 				\'php': ['phpcs'],
 				\'java': ['javac'],
-				\'cs': ['OmniSharp']
+				\'cs': ['OmniSharp'],
+				\'python': ['pyflakes']
 				\}
-"				\'sql': ['sqlint'],
 
 	let g:ale_fixers = {
 				\'javascript': 'prettier',
@@ -180,10 +181,10 @@ endif
 "===============================================================
 let g:sandwich#recipes = g:sandwich#default_recipes
 let g:sandwich#recipes += [
-	\ {'buns': ["( ", " )"], 'nesting': 1, 'match_syntax': 1, 'input': ['('] },
-	\ {'buns': ["[ ", " ]"], 'nesting': 1, 'match_syntax': 1, 'input': ['['] },
-	\ {'buns': ["{ ", " }"], 'nesting': 1, 'match_syntax': 1, 'input': ['{'] },
-	\ ]
+			\ {'buns': ["( ", " )"], 'nesting': 1, 'match_syntax': 1, 'input': ['('] },
+			\ {'buns': ["[ ", " ]"], 'nesting': 1, 'match_syntax': 1, 'input': ['['] },
+			\ {'buns': ["{ ", " }"], 'nesting': 1, 'match_syntax': 1, 'input': ['{'] },
+			\ ]
 "===============================================================
 "}}}
 "===============================================================
@@ -262,6 +263,29 @@ let g:DoxygenToolkit_authorName="Matthew Krohn"
 "===============================================================
 
 "===============================================================
+"{{{ SILICON
+"===============================================================
+let g:silicon = {
+			\ 'theme':     'Monokai Extended',
+			\ 'font':                  'Hack',
+			\ 'background':         '#151515',
+			\ 'shadow-color':       '#555555',
+			\ 'line-pad':                   2,
+			\ 'pad-horiz':                 80,
+			\ 'pad-vert':                 100,
+			\ 'shadow-blur-radius':         0,
+			\ 'shadow-offset-x':            0,
+			\ 'shadow-offset-y':            0,
+			\ 'line-number':           v:true,
+			\ 'round-corner':          v:true,
+			\ 'window-controls':       v:true,
+			\ 'default-file-pattern':      '',
+			\ }
+"===============================================================
+"}}}
+"===============================================================
+
+"===============================================================
 "}}}
 "===============================================================
 
@@ -271,7 +295,7 @@ let g:DoxygenToolkit_authorName="Matthew Krohn"
 autocmd! FileType fzf
 autocmd FileType fzf setlocal nonumber norelativenumber
 autocmd FileType fzf set laststatus=0 noruler
-  \| autocmd BufLeave <buffer> set laststatus=2 ruler
+			\| autocmd BufLeave <buffer> set laststatus=2 ruler
 
 command! -bang -nargs=* Rg
 			\ call fzf#vim#grep(
