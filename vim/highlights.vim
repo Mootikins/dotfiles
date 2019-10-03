@@ -1,7 +1,7 @@
 set fillchars=vert:│
 highlight VertSplit ctermbg=0 ctermfg=15 cterm=none
 highlight MatchParen ctermfg=12 ctermbg=none cterm=reverse
-highlight NonText ctermfg=8 ctermbg=0
+highlight NonText ctermfg=8
 highlight CursorLineNr ctermfg=15 cterm=bold
 highlight LineNr ctermfg=4
 highlight Folded cterm=italic ctermbg=0

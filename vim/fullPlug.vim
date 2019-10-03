@@ -51,7 +51,6 @@ Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
 
 Plug 'jiangmiao/auto-pairs'
-Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'lervag/vimtex'
 Plug 'godlygeek/tabular'
 
@@ -91,6 +90,22 @@ call plug#end()
 
 "===============================================================
 "{{{ PLUGIN SETTINGS
+"===============================================================
+
+"===============================================================
+"{{{ GITGUTTER
+"===============================================================
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
+omap ic <Plug>(GitGutterTextObjectInnerPending)
+omap ac <Plug>(GitGutterTextObjectOuterPending)
+xmap ic <Plug>(GitGutterTextObjectInnerVisual)
+xmap ac <Plug>(GitGutterTextObjectOuterVisual)
+nnoremap <silent> <leader>hh :GitGutterLineHighlightsToggle<CR>
+
+set updatetime=500
+"===============================================================
+"}}}
 "===============================================================
 
 "===============================================================
@@ -330,9 +345,6 @@ nnoremap <silent> <leader>fH :Helptags<CR>
 nnoremap <silent> <leader>u :MundoToggle<CR>
 
 nnoremap <silent> <leader>t :TagbarToggle<CR>
-
-nmap ]h <Plug>(GitGutterNextHunk)
-nmap [h <Plug>(GitGutterPrevHunk)
 
 nnoremap <silent> <leader>] :YcmCompleter GoTo<CR>
 
