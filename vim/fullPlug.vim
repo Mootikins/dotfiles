@@ -51,7 +51,7 @@ Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
 
 Plug 'jiangmiao/auto-pairs'
-Plug 'ying17zi/vim-live-latex-preview', { 'for': 'tex' }
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 Plug 'lervag/vimtex'
 Plug 'godlygeek/tabular'
 
@@ -331,8 +331,8 @@ nnoremap <silent> <leader>u :MundoToggle<CR>
 
 nnoremap <silent> <leader>t :TagbarToggle<CR>
 
-nmap ]h <Plug>GitGutterNextHunk
-nmap [h <Plug>GitGutterPrevHunk
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
 
 nnoremap <silent> <leader>] :YcmCompleter GoTo<CR>
 
