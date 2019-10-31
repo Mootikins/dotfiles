@@ -21,6 +21,7 @@ set undodir=$HOME/.vim/undo
 set spelllang=en_us
 set signcolumn=yes
 set splitright splitbelow
+set exrc
 
 filetype plugin indent on
 syntax on
@@ -99,6 +100,7 @@ augroup FiletypeGroup
 	autocmd Filetype xdefaults setlocal foldmethod=marker
 	autocmd Filetype python setlocal shiftwidth=4 softtabstop expandtab
 	autocmd Filetype vimwiki setlocal foldlevel=10 expandtab tabstop=2 softtabstop=2
+	autocmd Filetype tex setlocal textwidth=80
 augroup END
 "====================================================
 "}}}

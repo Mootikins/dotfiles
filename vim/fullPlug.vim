@@ -22,11 +22,14 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
+
+Plug 'rbong/vim-flog'
 
 Plug 'vimwiki/vimwiki'
 
@@ -138,25 +141,28 @@ set keywordprg=:DD
 if has('nvim')
 	" ALE changes
 	let g:ale_linters = {
-				\'cpp': ['gcc'],
+				\'cpp': ['clangd'],
 				\'typescript': ['tsserver'],
 				\'rust': ['rls'],
 				\'php': ['phpcs'],
 				\'java': ['javac'],
 				\'cs': ['OmniSharp'],
-				\'python': ['pyflakes']
+				\'python': ['pylint']
 				\}
 
 	let g:ale_fixers = {
 				\'javascript': 'prettier',
 				\'typescript': 'prettier',
 				\'rust': 'rustfmt',
+				\'cpp': 'clang-format',
 				\'python': 'black'
 				\}
 
 	let g:ale_fix_on_save = 1
-	let g:ale_rust_rustfmt_options = '--force'
 	let g:ale_rust_rls_toolchain = 'stable'
+	let g:ale_pattern_options_enabled = 1
+	let g:ale_python_auto_pipenv = 1
+	let g:ale_c_clangformat_options = '-style=file'
 
 	let g:ale_c_parse_makefile = 1
 	"===============================================================
@@ -256,6 +262,8 @@ let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_add_preview_to_completeopt = 1
 " Youcompleteme fix
 let g:ycm_global_ycm_extra_conf = '~/.local/share/nvim/plugged/youcompleteme/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_python_binary_path = 'python'
+let g:python3_host_prog = '/usr/bin/python'
 "===============================================================
 "}}}
 "===============================================================
@@ -347,6 +355,8 @@ nnoremap <silent> <leader>u :MundoToggle<CR>
 nnoremap <silent> <leader>t :TagbarToggle<CR>
 
 nnoremap <silent> <leader>] :YcmCompleter GoTo<CR>
+
+nnoremap <silent> <leader>i :IndentLinesToggle<CR>
 
 cnoreabbrev gp Gpush
 cnoreabbrev gl Gpull

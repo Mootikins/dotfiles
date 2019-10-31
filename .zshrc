@@ -104,7 +104,7 @@ source $ZSH/oh-my-zsh.sh
 # Remove hostname@comp 
 # prompt_context() {}
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs virtualenv )
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vi_mode)
 
 POWERLEVEL9K_DIR_HOME_BACKGROUND='012'
@@ -136,7 +136,7 @@ if [ -d ~/.config/wpg ]; then
 	(cat ~/.config/wpg/sequences &)
 
 	# To add support for TTYs this line can be optionally added.
-	# source ~/.cache/wal/colors-tty.sh
+	source ~/.cache/wal/colors-tty.sh
 fi
 clear
 
