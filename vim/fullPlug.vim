@@ -44,8 +44,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 Plug 'wellle/targets.vim'
 Plug 'machakann/vim-sandwich'
 
-Plug 'vim-scripts/nextval'
-
 Plug 'tmux-plugins/vim-tmux'
 Plug 'wincent/terminus'
 Plug 'christoomey/vim-tmux-navigator'
@@ -69,6 +67,7 @@ Plug 'dylanaraps/wal.vim'
 Plug 'deviantfero/wpgtk.vim'
 Plug 'patstockwell/vim-monokai-tasty'
 Plug 'segeljakt/vim-silicon'
+Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 
 Plug 'omnisharp/omnisharp-vim'
 Plug 'valloric/youcompleteme'
@@ -160,6 +159,7 @@ if has('nvim')
 
 	let g:ale_fix_on_save = 1
 	let g:ale_rust_rls_toolchain = 'stable'
+	let g:ale_rust_rls_config = { 'rust': { 'clippy_preference': 'on' } }
 	let g:ale_pattern_options_enabled = 1
 	let g:ale_python_auto_pipenv = 1
 	let g:ale_c_clangformat_options = '-style=file'
