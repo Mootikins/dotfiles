@@ -100,7 +100,7 @@ augroup FiletypeGroup
 	autocmd Filetype xdefaults setlocal foldmethod=marker
 	autocmd Filetype python setlocal shiftwidth=4 softtabstop expandtab
 	autocmd Filetype vimwiki setlocal foldlevel=10 expandtab tabstop=2 softtabstop=2
-	autocmd Filetype tex setlocal textwidth=80
+	"autocmd Filetype tex setlocal textwidth=80
 augroup END
 "====================================================
 "}}}
@@ -114,13 +114,17 @@ nnoremap ; :
 nnoremap : ;
 vnoremap ; :
 vnoremap : ;
+xnoremap ; :
+xnoremap : ;
 
 nnoremap <silent> H ^
 nnoremap <silent> L g_
+vnoremap <silent> H ^
+vnoremap <silent> L g_
 xnoremap <silent> H ^
 xnoremap <silent> L g_
 
-nnoremap gC :tabnew<CR>
+nnoremap <silent> gC :tabnew<CR>
 
 nnoremap <silent> g<CR> :noh<CR>
 
@@ -132,10 +136,10 @@ xnoremap <silent> J <Esc>'>jdd'<Pgv
 
 " Show highlight group of character/word under cursor
 function! SynStack()
-  if !exists("*synstack")
-    return
-  endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+	if !exists("*synstack")
+		return
+	endif
+	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
 nnoremap <silent> <F10> :call SynStack()<CR>
@@ -166,10 +170,10 @@ nnoremap <silent> <leader><C-l> :vertical resize -5<CR>
 nnoremap <silent> <leader>\ :vnew<CR>
 nnoremap <silent> <leader>- :new<CR>
 
-nnoremap <silent> <C-w><C-h> :vertical resize +5<CR>
-nnoremap <silent> <C-w><C-j> :resize +5<CR>
-nnoremap <silent> <C-w><C-k> :resize -5<CR>
-nnoremap <silent> <C-w><C-l> :vertical resize -5<CR>
+nnoremap <silent> <C-w><C-h> :vertical resize -5<CR>
+nnoremap <silent> <C-w><C-j> :resize -5<CR>
+nnoremap <silent> <C-w><C-k> :resize +5<CR>
+nnoremap <silent> <C-w><C-l> :vertical resize +5<CR>
 
 if has('nvim')
 	set inccommand=split

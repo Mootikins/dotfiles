@@ -6,19 +6,20 @@ highlight CursorLineNr ctermfg=15 cterm=bold
 highlight LineNr ctermfg=4
 highlight Folded cterm=italic ctermbg=0
 highlight FoldColumn ctermbg=0
+highlight Conceal ctermfg=15
 
 "set cursorline cursorcolumn
 highlight CursorLine ctermbg=8 cterm=none
 
 augroup CursorLine
-		autocmd!
-		autocmd VimEnter * setlocal cursorline
-		autocmd WinEnter * setlocal cursorline
-		autocmd BufWinEnter * setlocal cursorline
-		autocmd FocusGained * setlocal cursorline
-		autocmd WinLeave * setlocal nocursorline
-		autocmd BufWinLeave * setlocal nocursorline
-		autocmd FocusLost * setlocal nocursorline
+	autocmd!
+	autocmd VimEnter * setlocal cursorline
+	autocmd WinEnter * setlocal cursorline
+	autocmd BufWinEnter * setlocal cursorline
+	autocmd FocusGained * setlocal cursorline
+	autocmd WinLeave * setlocal nocursorline
+	autocmd BufWinLeave * setlocal nocursorline
+	autocmd FocusLost * setlocal nocursorline
 augroup END
 
 highlight ColorColumn ctermfg=none ctermbg=none cterm=underline
@@ -37,7 +38,6 @@ if has ('nvim')
 else
 	highlight signcolumn ctermbg=0
 end
-
 
 augroup LineLengths
 	autocmd Filetype cpp call matchadd('ColorColumn', '\%81v.\{0,19\}', 100)

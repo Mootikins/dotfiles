@@ -30,6 +30,9 @@ Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
 
 Plug 'rbong/vim-flog'
+Plug 'lambdalisue/gina.vim'
+
+Plug 'psliwka/vim-smoothie'
 
 Plug 'vimwiki/vimwiki'
 
@@ -44,8 +47,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 Plug 'wellle/targets.vim'
 Plug 'machakann/vim-sandwich'
 
-Plug 'tmux-plugins/vim-tmux'
 Plug 'wincent/terminus'
+Plug 'tmux-plugins/vim-tmux'
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'sirver/ultisnips'
@@ -72,17 +75,10 @@ Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 Plug 'omnisharp/omnisharp-vim'
 Plug 'valloric/youcompleteme'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+Plug 'w0rp/ale'
 
 Plug 'romainl/vim-devdocs'
 Plug 'kkoomen/vim-doge'
-
-if has('nvim')
-	Plug 'w0rp/ale'
-else
-	Plug 'vim-syntastic/syntastic'
-	Plug 'roxma/nvim-yarp'
-	Plug 'roxma/vim-hug-neovim-rpc'
-endif
 
 " Initialize plugin system
 call plug#end()
@@ -92,6 +88,14 @@ call plug#end()
 
 "===============================================================
 "{{{ PLUGIN SETTINGS
+"===============================================================
+
+"===============================================================
+"{{{ VIM-DOGE
+"===============================================================
+let g:doge_mapping = '<leader><S-d>'
+"===============================================================
+"}}}
 "===============================================================
 
 "===============================================================
@@ -140,7 +144,7 @@ set keywordprg=:DD
 if has('nvim')
 	" ALE changes
 	let g:ale_linters = {
-				\'cpp': ['clangd'],
+				\'cpp': ['gcc'],
 				\'typescript': ['tsserver'],
 				\'rust': ['rls'],
 				\'php': ['phpcs'],
@@ -216,7 +220,7 @@ let g:sandwich#recipes += [
 let g:tex_flavor='latex'
 let g:vimtex_view_method='mupdf'
 let g:vimtex_quickfix_mode=0
-set conceallevel=1
+set conceallevel=2
 let g:tex_conceal='abdmg'
 let g:polyglot_disabled = ['latex']
 "===============================================================
@@ -290,15 +294,15 @@ let g:DoxygenToolkit_authorName="Matthew Krohn"
 "===============================================================
 let g:silicon = {
 			\ 'theme':     'Monokai Extended',
-			\ 'font':                  'Hack',
-			\ 'background':         '#151515',
-			\ 'shadow-color':       '#555555',
+			\ 'font':           'Victor Mono',
+			\ 'background':         '#252525',
+			\ 'shadow-color':       '#000000',
 			\ 'line-pad':                   2,
 			\ 'pad-horiz':                 80,
 			\ 'pad-vert':                 100,
-			\ 'shadow-blur-radius':         0,
-			\ 'shadow-offset-x':            0,
-			\ 'shadow-offset-y':            0,
+			\ 'shadow-blur-radius':         5,
+			\ 'shadow-offset-x':           10,
+			\ 'shadow-offset-y':           10,
 			\ 'line-number':           v:true,
 			\ 'round-corner':          v:true,
 			\ 'window-controls':       v:true,
@@ -334,12 +338,17 @@ command! -bang -nargs=* GGrep
 command! -bang -nargs=? -complete=dir Files
 			\ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
+command! -bang -nargs=? -complete=dir HFiles
+			\ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'source': 'fd --type file --hidden --no-ignore --exclude ".git/*"'}), <bang>0)
+
 autocmd Filetype fzf tmap <silent> <C-g> <Esc>;q<CR>
 autocmd Filetype fzf tmap <silent> <C-d> <Esc>;q<CR>
 autocmd Filetype fzf tmap <silent> <C-c> <Esc>;q<CR>
 
 nnoremap <silent> <leader>ff :Files<CR>
-nnoremap <silent> <leader>fh :Files ~/<CR>
+nnoremap <silent> <leader>fho :Files ~/<CR>
+nnoremap <silent> <leader>fhi :HFiles<CR>
+nnoremap <silent> <leader>fhh :HFiles ~/<CR>
 nnoremap <silent> <leader>gg :GGrep<CR>
 nnoremap <silent> <leader>gf :GFiles<CR>
 nnoremap <silent> <leader>rg :Rg<CR>
@@ -348,7 +357,7 @@ nnoremap <silent> <leader>fal :Lines<CR>
 nnoremap <silent> <leader>fb :Buffers<CR>
 nnoremap <silent> <leader>ft :Tags<CR>
 nnoremap <silent> <leader>fc :Commits<CR>
-nnoremap <silent> <leader>fH :Helptags<CR>
+nnoremap <silent> <leader>fhe :Helptags<CR>
 
 nnoremap <silent> <leader>u :MundoToggle<CR>
 

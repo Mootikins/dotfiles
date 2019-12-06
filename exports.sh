@@ -1,5 +1,5 @@
 export FZF_COMPLETION_TRIGGER='**'
-export FZF_DEFAULT_OPTS="-m --height 25% --layout=reverse --color fg:7,bg:0,hl:1,fg+:232,bg+:1,hl+:255 --color info:7,prompt:2,spinner:1,pointer:232,marker:1"
+export FZF_DEFAULT_OPTS="-m --height 25% --layout=reverse --color fg:7,bg:0,hl:4,fg+:7,bg+:8,hl+:12 --color info:9,prompt:12,spinner:12,pointer:12,marker:10"
 if type rg &> /dev/null; then
 	export FZF_DEFAULT_COMMAND='rg --files --no-ignore --no-hidden --follow --glob "!.git/*"'
 fi
