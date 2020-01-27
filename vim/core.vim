@@ -99,7 +99,10 @@ augroup FiletypeGroup
 	autocmd Filetype tmux setlocal foldmethod=marker
 	autocmd Filetype xdefaults setlocal foldmethod=marker
 	autocmd Filetype python setlocal shiftwidth=4 softtabstop expandtab
-	autocmd Filetype vimwiki setlocal foldlevel=10 expandtab tabstop=2 softtabstop=2
+	autocmd Filetype markdown setlocal foldlevel=10 expandtab tabstop=2 softtabstop=2 textwidth=100
+	autocmd Filetype vim let b:autoformat_remove_trailing_spaces=0
+	autocmd Filetype typescript setlocal expandtab
+	autocmd Filetype javascript setlocal expandtab
 	"autocmd Filetype tex setlocal textwidth=80
 augroup END
 "====================================================
