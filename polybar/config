@@ -65,7 +65,7 @@ module-margin-right = 0
 
 font-0 = scientifica:pixelsize=11;1
 font-1 = Siji:pixelsize=10;2
-font-2 = TerminessTTF Nerd Font:style=Medium:size=16;4
+font-2 = Tamzen for Powerline:style=Medium:pixelsize=20;2
 
 modules-left = date left1 volume left2 mpd left3
 modules-center = i3
@@ -491,7 +491,7 @@ animation-charging-2 = " "
 animation-charging-3 = " "
 
 [settings]
-screenchange-reload = true
+screenchange-reload = false
 ;compositing-background = over
 ;compositing-background = screen
 ;compositing-foreground = source
