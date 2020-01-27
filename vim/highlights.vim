@@ -41,10 +41,6 @@ if has ('nvim')
 
 	highlight CocFloating ctermbg=8
 	highlight CocHighlightText cterm=reverse
-
-	highlight Sneak cterm=reverse ctermfg=none ctermbg=none
-	highlight SneakLabel cterm=reverse ctermfg=none ctermbg=none
-	highlight SneakScope cterm=none ctermbg=8 ctermfg=none
 else
 	highlight signcolumn ctermbg=0
 end
