@@ -31,19 +31,21 @@ font xft:scientifica 9
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec st
+bindsym $mod+Return exec st -f "curie:style=normal:pixelsize=12:antialias=false:autohint=true"
 bindsym $mod+Shift+Return exec st -c "life"
+bindsym $mod+Ctrl+Return exec st -f "Victor Mono:style=normal:pixelsize=13:antialias=true:autohint=true"
+bindsym $mod+Ctrl+Shift+Return exec st -f "Victor Mono:style=normal:pixelsize=13:antialias=true:autohint=true" -c "life"
 bindsym $mod+v exec st -c "life" -e nvim '+au BufWriteCmd vimclippy %y+ | set nomodified' '+set nonumber norelativenumber signcolumn=no laststatus=0 showtabline=0 noruler' vimclippy
 bindsym $mod+Shift+p exec st -c "life" -e 'bpython'
 
 #open current window in sticky float, 463 for bottom right
-bindsym $mod+Shift+y fullscreen disable; floating enable; resize set 400 300; sticky enable; move window to position 838 29 
+bindsym $mod+Shift+y fullscreen disable; floating enable; resize set 400 300; sticky enable; move window to position 1510 18
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+space exec rofi -show combi -opacity 95 -theme ~/.config/rofi/colors-rofi-dark.rasi -font "scientifica 9" -columns 3
+bindsym $mod+space exec rofi -show combi -opacity 95 -theme ~/.config/rofi/colors-rofi-dark.rasi -font "curie 10" -columns 3
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
@@ -240,7 +242,8 @@ for_window [class="Thus"] floating enable
 for_window [class="Timeset-gui"] floating enable
 for_window [class="(?i)virtualbox"] floating enable
 for_window [class="Xfburn"] floating enable
-for_window [class="st" class="life"] floating enable move scratchpad scratchpad show move window to position 956 18
+for_window [class="st" class="life"] floating enable move scratchpad scratchpad show move window to position 1510 18
+for_window [class=Nautilus] border pixel 5
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -381,7 +384,7 @@ gaps outer 0
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-# smart_gaps on
+smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace) 
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
