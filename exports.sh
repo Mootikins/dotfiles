@@ -15,9 +15,11 @@ if type exa &> /dev/null; then
 fi
 
 # Use fd to generate the list for directory completion
-_fzf_compgen_dir() {
-	fd --type d --hidden --follow --exclude ".git" . "$1"
-}
+if type fd &> /dev/null; then
+	_fzf_compgen_dir() {
+		fd --type d --hidden --follow --exclude ".git" . "$1"
+	}
+fi
 
 export KEYTIMEOUT=15
 
