@@ -35,7 +35,7 @@ fi
 
 glf() {
     git log --graph --exclude='save/*' --exclude='trash/*' --color=always \
-        --format="%C(auto)%h%d %s %C(black)%C(bold)%an, %cr" "$@" |
+        --format="%C(auto)%h%d %s %C(4)%C(bold)%an, %cr" "$@" |
     fzf --ansi --no-sort --reverse --preview  "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 | xargs -I % sh -c 'git show --color=always %'" \
         --bind "enter:execute:
                 (grep -o '[a-f0-9]\{7\}' | head -1 |
