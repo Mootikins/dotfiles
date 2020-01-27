@@ -8,6 +8,12 @@ if type bat &> /dev/null; then
 	export FZF_COMPLETION_OPTS="--preview 'bat --decorations=always --color=always --style=header,grid --line-range :50 {}'"
 fi
 
+if type exa &> /dev/null; then
+	alias ls=exa
+	alias la="exa -a"
+	alias ll="exa -l"
+fi
+
 # Use fd to generate the list for directory completion
 _fzf_compgen_dir() {
 	fd --type d --hidden --follow --exclude ".git" . "$1"
