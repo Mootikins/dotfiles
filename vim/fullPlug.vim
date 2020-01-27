@@ -16,36 +16,32 @@
 "===============================================================
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'junegunn/vim-plug'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+Plug 'sheerun/vim-polyglot'
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
 
-Plug 'rbong/vim-flog'
-Plug 'lambdalisue/gina.vim'
+Plug 'junegunn/vim-plug'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
-Plug 'psliwka/vim-smoothie'
-
-Plug 'vimwiki/vimwiki'
+Plug 'airblade/vim-gitgutter'
 
 Plug 'simnalamburt/vim-mundo'
 Plug 'majutsushi/tagbar'
 
 Plug 'mattn/emmet-vim'
 
-Plug 'sheerun/vim-polyglot'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 
 Plug 'wellle/targets.vim'
 Plug 'machakann/vim-sandwich'
+
+Plug 'preservim/nerdcommenter'
 
 Plug 'wincent/terminus'
 Plug 'tmux-plugins/vim-tmux'
@@ -57,11 +53,11 @@ Plug 'honza/vim-snippets'
 Plug 'jiangmiao/auto-pairs'
 Plug 'lervag/vimtex'
 Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'airblade/vim-gitgutter'
 Plug 'gko/vim-coloresque'
 
 Plug 'yggdroot/indentline'
@@ -72,13 +68,12 @@ Plug 'patstockwell/vim-monokai-tasty'
 Plug 'segeljakt/vim-silicon'
 Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 
-Plug 'omnisharp/omnisharp-vim'
-Plug 'valloric/youcompleteme'
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
-Plug 'w0rp/ale'
+Plug 'sbdchd/neoformat'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plug 'romainl/vim-devdocs'
 Plug 'kkoomen/vim-doge'
+
+Plug 'jpalardy/vim-slime'
 
 " Initialize plugin system
 call plug#end()
@@ -88,6 +83,102 @@ call plug#end()
 
 "===============================================================
 "{{{ PLUGIN SETTINGS
+"===============================================================
+
+"===============================================================
+"{{{ POLYGLOT
+"===============================================================
+let g:tex_flavor='latex'
+let g:vimtex_view_method='mupdf'
+let g:vimtex_quickfix_mode=0
+set conceallevel=2
+let g:tex_conceal='abdmg'
+
+augroup MarkdownTexConceal
+	" this one is which you're most likely to use?
+	autocmd!
+	autocmd Filetype markdown let g:tex_conceal=''
+	autocmd Filetype markdown setlocal conceallevel=1
+augroup end
+
+let g:polyglot_disabled = ['latex', 'markdown']
+"===============================================================
+"}}}
+"===============================================================
+
+"===============================================================
+"{{{ NERD-COMMENTER
+"===============================================================
+let g:NERDSpaceDelims = 1
+let g:NERDDefaultAlign = 'left'
+"===============================================================
+"}}}
+"===============================================================
+
+"===============================================================
+"{{{ VIM-SLIME
+"===============================================================
+let g:slime_target = "tmux"
+let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.2"}
+
+nmap <leader>s V<C-c><C-c>
+"===============================================================
+"}}}
+"===============================================================
+
+"===============================================================
+"{{{ NEOFORMAT
+"===============================================================
+augroup fmt
+	autocmd!
+	autocmd BufWritePre !*.md undojoin | Neoformat
+augroup END
+"===============================================================
+"}}}
+"===============================================================
+
+"===============================================================
+"{{{ COC.NVIM
+"===============================================================
+set hidden
+set shortmess+=c
+
+inoremap <silent><expr> <TAB>
+			\ pumvisible() ? "\<C-n>" :
+			\ <SID>check_back_space() ? "\<TAB>" :
+			\ coc#refresh()
+
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <c-space> coc#refresh()
+
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+function! s:show_documentation()
+	if (index(['vim','help'], &filetype) >= 0)
+		execute 'h '.expand('<cword>')
+	else
+		call CocAction('doHover')
+	endif
+endfunction
+
+nnoremap <silent> <leader>cK :call <SID>show_documentation()<CR>
+nnoremap <silent> <leader>cd <Plug>(coc-definition)
+nnoremap <silent> <leader>ct <Plug>(coc-type-definition)
+nnoremap <silent> <leader>ci <Plug>(coc-implementation)
+nnoremap <silent> <leader>cr <Plug>(coc-references)
+nnoremap <silent> <leader>crn <Plug>(coc-rename)
+"===============================================================
+"}}}
 "===============================================================
 
 "===============================================================
@@ -108,6 +199,7 @@ omap ac <Plug>(GitGutterTextObjectOuterPending)
 xmap ic <Plug>(GitGutterTextObjectInnerVisual)
 xmap ac <Plug>(GitGutterTextObjectOuterVisual)
 nnoremap <silent> <leader>hh :GitGutterLineHighlightsToggle<CR>
+nnoremap <silent> <leader>hs :GitGutterStageHunk<CR>
 
 set updatetime=500
 "===============================================================
@@ -117,86 +209,13 @@ set updatetime=500
 "===============================================================
 "{{{ INDENT LINE
 "===============================================================
-let g:indentLine_char='⎸'
-let g:indentLine_color_term=8
-let g:indentLine_bgcolor_term=0
+let g:indentLine_defaultGroup = 'Whitespace'
+let g:indentLine_char ='|' 
 let g:indentLine_fileTypeExclude = ['fzf']
 let g:indentLine_enabled = 0
-"===============================================================
-"}}}
-"===============================================================
+let g:indentLine_setColors = 0
 
-"===============================================================
-"{{{ VIM-DEVDOCS
-"===============================================================
-set keywordprg=:DD
-"===============================================================
-"}}}
-"===============================================================
-
-"===============================================================
-"{{{ ALE/SYNTASTIC CONFIG
-"===============================================================
-
-"===============================================================
-"{{{ ALE
-"===============================================================
-if has('nvim')
-	" ALE changes
-	let g:ale_linters = {
-				\'cpp': ['gcc'],
-				\'typescript': ['tsserver'],
-				\'rust': ['rls'],
-				\'php': ['phpcs'],
-				\'java': ['javac'],
-				\'cs': ['OmniSharp'],
-				\'python': ['pylint']
-				\}
-
-	let g:ale_fixers = {
-				\'javascript': 'prettier',
-				\'typescript': 'prettier',
-				\'rust': 'rustfmt',
-				\'cpp': 'clang-format',
-				\'python': 'black'
-				\}
-
-	let g:ale_fix_on_save = 1
-	let g:ale_rust_rls_toolchain = 'stable'
-	let g:ale_rust_rls_config = { 'rust': { 'clippy_preference': 'on' } }
-	let g:ale_pattern_options_enabled = 1
-	let g:ale_python_auto_pipenv = 1
-	let g:ale_c_clangformat_options = '-style=file'
-
-	let g:ale_c_parse_makefile = 1
-	"===============================================================
-	"}}}
-	"===============================================================
-
-	"===============================================================
-	"{{{ SYNTASTIC
-	"===============================================================
-else
-	" Syntastic changes
-	let g:syntastic_cpp_checkers = ['gcc']
-	let g:syntastic_cpp_compiler = 'gcc'
-	let g:syntastic_cpp_compiler_options = ' -std=c++11'
-	set statusline+=%#warningmsg#
-	set statusline+=%{SyntasticStatuslineFlag()}
-	set statusline+=%*
-	let g:syntastic_mode_map = {
-				\ "mode": "active",
-				\ "passive_filetypes": ["asm"] }
-
-	let g:syntastic_always_populate_loc_list = 1
-	let g:syntastic_auto_loc_list = 0
-	let g:syntastic_check_on_open = 1
-	let g:syntastic_check_on_wq = 0
-endif
-"===============================================================
-"}}}
-"===============================================================
-
+nnoremap <silent> <leader>i :IndentLinesToggle<CR>
 "===============================================================
 "}}}
 "===============================================================
@@ -215,23 +234,11 @@ let g:sandwich#recipes += [
 "===============================================================
 
 "===============================================================
-"{{{ POLYGLOT
-"===============================================================
-let g:tex_flavor='latex'
-let g:vimtex_view_method='mupdf'
-let g:vimtex_quickfix_mode=0
-set conceallevel=2
-let g:tex_conceal='abdmg'
-let g:polyglot_disabled = ['latex']
-"===============================================================
-"}}}
-"===============================================================
-
-"===============================================================
 "{{{ AIRLINE
 "===============================================================
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#whitespace#enabled = 0
 "===============================================================
 "}}}
 "===============================================================
@@ -250,41 +257,13 @@ let g:UltiSnipsEditSplit="vertical"
 "===============================================================
 
 "===============================================================
-"{{{ YOUCOMPLETEME
+"{{{ VIM-MARKDOWN
 "===============================================================
-" turn on completion in comments
-let g:ycm_complete_in_comments=1
-" load ycm conf by default
-let g:ycm_confirm_extra_conf=0
-" turn on tag completion
-let g:ycm_collect_identifiers_from_tags_files=1
-" start completion from the first character
-let g:ycm_min_num_of_chars_for_completion=1
-" close preview window after completion
-let g:ycm_autoclose_preview_window_after_completion=1
-" enable preview window
-let g:ycm_add_preview_to_completeopt = 1
-" Youcompleteme fix
-let g:ycm_global_ycm_extra_conf = '~/.local/share/nvim/plugged/youcompleteme/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-let g:ycm_python_binary_path = 'python'
-let g:python3_host_prog = '/usr/bin/python'
-"===============================================================
-"}}}
-"===============================================================
-
-"===============================================================
-"{{{ VIMWIKI
-"===============================================================
-let g:vimwiki_folding='expr'
-let g:vimwiki_list = [{ 'path': '~/SDSMT/', 'syntax': 'markdown', 'ext': '.md' }]
-"===============================================================
-"}}}
-"===============================================================
-
-"===============================================================
-"{{{ DOXYGEN TOOLKIT
-"===============================================================
-let g:DoxygenToolkit_authorName="Matthew Krohn"
+let g:vim_markdown_math = 1
+let g:vim_markdown_conceal_code_blocks = 0
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_fenced_languages = ['c++=cpp', 'viml=vim',
+			\'bash=sh', 'ini=dosini', 'r=r']
 "===============================================================
 "}}}
 "===============================================================
@@ -301,8 +280,8 @@ let g:silicon = {
 			\ 'pad-horiz':                 80,
 			\ 'pad-vert':                 100,
 			\ 'shadow-blur-radius':         5,
-			\ 'shadow-offset-x':           10,
-			\ 'shadow-offset-y':           10,
+			\ 'shadow-offset-x':            0,
+			\ 'shadow-offset-y':            0,
 			\ 'line-number':           v:true,
 			\ 'round-corner':          v:true,
 			\ 'window-controls':       v:true,
@@ -313,22 +292,41 @@ let g:silicon = {
 "===============================================================
 
 "===============================================================
-"}}}
-"===============================================================
-
-"===============================================================
-"{{{ PLUGIN BINDINGS
+"{{{ FZF
 "===============================================================
 autocmd! FileType fzf
 autocmd FileType fzf setlocal nonumber norelativenumber
-autocmd FileType fzf set laststatus=0 noruler
-			\| autocmd BufLeave <buffer> set laststatus=2 ruler
 
 command! -bang -nargs=* Rg
 			\ call fzf#vim#grep(
 			\   'rg --column --line-number --no-heading --color=never --smart-case '.shellescape(<q-args>), 1,
 			\   fzf#vim#with_preview(),
 			\   <bang>0)
+
+if has('nvim')
+	hi NormalFloat guibg=None
+	if exists('g:fzf_colors.bg')
+		call remove(g:fzf_colors, 'bg')
+	endif
+
+	if stridx($FZF_DEFAULT_OPTS, '--border') == -1
+		let $FZF_DEFAULT_OPTS .= ' --border'
+	endif
+
+	function! FloatingFZF()
+		let width = float2nr(&columns * 0.9)
+		let height = float2nr(&lines * 0.7)
+		let opts = { 'relative': 'editor',
+					\ 'row': (&lines - height) / 2,
+					\ 'col': (&columns - width) / 2,
+					\ 'width': width,
+					\ 'height': height }
+
+		call nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
+	endfunction
+
+	let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+endif
 
 command! -bang -nargs=* GGrep
 			\ call fzf#vim#grep(
@@ -358,15 +356,29 @@ nnoremap <silent> <leader>fb :Buffers<CR>
 nnoremap <silent> <leader>ft :Tags<CR>
 nnoremap <silent> <leader>fc :Commits<CR>
 nnoremap <silent> <leader>fhe :Helptags<CR>
+"===============================================================
+"}}}
+"===============================================================
 
+"===============================================================
+"{{{ MUNDO
+"===============================================================
 nnoremap <silent> <leader>u :MundoToggle<CR>
+"===============================================================
+"}}}
+"===============================================================
 
+"===============================================================
+"{{{ TAGBAR
+"===============================================================
 nnoremap <silent> <leader>t :TagbarToggle<CR>
+"===============================================================
+"}}}
+"===============================================================
 
-nnoremap <silent> <leader>] :YcmCompleter GoTo<CR>
-
-nnoremap <silent> <leader>i :IndentLinesToggle<CR>
-
+"===============================================================
+"{{{ FUGITIVE
+"===============================================================
 cnoreabbrev gp Gpush
 cnoreabbrev gl Gpull
 "===============================================================
@@ -374,11 +386,14 @@ cnoreabbrev gl Gpull
 "===============================================================
 
 "===============================================================
-"{{{ COLORSCHEME AND GENERAL THEMES
+"}}}
+"===============================================================
+
+"===============================================================
+"{{{ THEMING
 "===============================================================
 colorscheme wpgtkAlt
 let g:airline_theme = 'wpgtk'
-let g:airline#extensions#ale#enabled = 1
 "===============================================================
 "}}}
 "===============================================================
