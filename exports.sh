@@ -48,8 +48,6 @@ alias glotags="git log --graph --oneline --date=short \$(git describe --tags --c
 alias nv=$VISUAL
 export PATH="${PATH}:${HOME}/.local/bin/"
 export PATH="${PATH}:${HOME}/.local/share/nvim/plugged/vim-live-latex-preview/bin/"
-export PATH="${PATH}:${HOME}/.gem/ruby/2.5.0/bin/:/usr/lib/ruby/gems/2.5.0/b"
-export PATH="${PATH}:${HOME}/.gem/ruby/2.6.0/bin/:/usr/lib/ruby/gems/2.6.0/b"
 export PATH="${PATH}:${HOME}/go/bin"
 export PATH="${PATH}:${HOME}/dotfiles/scripts"
 export PATH="${PATH}:${HOME}/.cargo/bin/"
