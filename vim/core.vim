@@ -10,61 +10,36 @@
 "{{{ BASIC VARIABLE SETTINGS
 "====================================================
 set number relativenumber
-set tabstop=2 softtabstop=2 shiftwidth=2 shiftround noexpandtab
+set tabstop=3 softtabstop=3 shiftwidth=3 shiftround noexpandtab
 set showcmd mouse=a
 set ignorecase smartcase incsearch showmatch hlsearch
-set autoread virtualedit+=block lazyredraw
-set showmatch noshowmode
+set autoread virtualedit+=block
+set showmatch noshowmode lazyredraw
 set wildmenu wildmode=full
 set undofile
 set undodir=$HOME/.vim/undo
 set spelllang=en_us
-set signcolumn=yes
+set nowrap
+
+if has('nvim')
+	set signcolumn=yes:2
+else
+	set signcolumn=yes
+endif
 set splitright splitbelow
 set exrc
 
 filetype plugin indent on
+set smartindent
 syntax on
 
 " Turn On OmniComplete
 set omnifunc=syntaxcomplete#Complete
-let &showbreak='-> '
-"====================================================
-"}}}
-"====================================================
+set showbreak=->\ 
 
-"====================================================
-"{{{ FORMATTING
-"====================================================
-function! RemoveTrailingSpaces()
-	silent! execute '%s/\s\+$//ge'
-endfunction
-
-function! Format()
-	silent! execute 'norm! mz'
-
-	if &ft ==? 'c' || &ft ==? 'cpp' || &ft ==? 'php'
-		set formatprg=astyle\ --mode=c
-		silent! execute 'norm! gggqG'
-	elseif &ft ==? 'java'
-		set formatprg=astyle\ --mode=java
-		silent! execute 'norm! gggqG'
-	endif
-
-	silent! call RemoveTrailingSpaces()
-	silent! execute 'retab'
-	silent! execute 'gg=G'
-	silent! execute 'norm! `z'
-	set formatprg=
-endfunction
-
-nnoremap <silent> g= :call Format()<CR>
-
-autocmd BufWrite *.cpp :call RemoveTrailingSpaces()
-autocmd BufWrite *.h :call RemoveTrailingSpaces()
-autocmd BufWrite *.py :call RemoveTrailingSpaces()
-autocmd BufWrite *.sql :call RemoveTrailingSpaces()
-autocmd BufWrite *.txt :call RemoveTrailingSpaces()
+if &diff
+	set diffopt=algorithm:patience
+endif
 "====================================================
 "}}}
 "====================================================
@@ -73,6 +48,8 @@ autocmd BufWrite *.txt :call RemoveTrailingSpaces()
 "{{{ FOLD SETTINGS
 "====================================================
 set foldmethod=syntax
+" Gets toggled with zi
+set nofoldenable
 
 nnoremap za zA
 nnoremap zA za
@@ -88,22 +65,29 @@ nnoremap <silent> zH zC
 "====================================================
 "{{{ FILETYPE SPECIFIC SETTINGS
 "====================================================
+function OpenInZathura()
+	let b:pdf_filename = split(@%, '\.')[0].'.pdf'
+	execute "silent !zathura ".b:pdf_filename
+endfunction
+
 augroup FiletypeGroup
 	autocmd!
 	" .ts is a Typescript file
-	autocmd BufNewFile,BufRead *.ts set filetype=typescript
 	autocmd BufNewFile,BufRead *.rasi set filetype=css
 
 	autocmd Filetype asm setlocal shiftwidth=8 softtabstop=8
-	autocmd Filetype vim setlocal foldmethod=marker
-	autocmd Filetype tmux setlocal foldmethod=marker
+	autocmd Filetype vim setlocal foldmethod=marker foldenable
+	autocmd Filetype vim let b:autoformat_remove_trailing_spaces=0
+	autocmd Filetype tmux setlocal foldmethod=marker foldenable
 	autocmd Filetype xdefaults setlocal foldmethod=marker
 	autocmd Filetype python setlocal shiftwidth=4 softtabstop expandtab
-	autocmd Filetype markdown setlocal foldlevel=10 expandtab tabstop=2 softtabstop=2 textwidth=100
-	autocmd Filetype vim let b:autoformat_remove_trailing_spaces=0
-	autocmd Filetype typescript setlocal expandtab
-	autocmd Filetype javascript setlocal expandtab
-	"autocmd Filetype tex setlocal textwidth=80
+	autocmd Filetype markdown setlocal expandtab tabstop=2 softtabstop=2 textwidth=100 formatoptions+=t
+	autocmd Filetype help execute "wincmd L | vertical resize 85"
+	autocmd Filetype html nnoremap <buffer> <silent> <C-o> :silent !xdg-open %<CR>
+	autocmd Filetype pandoc setlocal expandtab textwidth=80 formatoptions+=t spell
+	autocmd Filetype pandoc nnoremap <buffer> <silent> <C-o> :call OpenInZathura()<CR>
+	autocmd Filetype rust setlocal tabstop=3 softtabstop=3 shiftwidth=3
+	autocmd Filetype vimwiki setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab filetype=pandoc.vimwiki
 augroup END
 "====================================================
 "}}}
@@ -120,14 +104,16 @@ vnoremap : ;
 xnoremap ; :
 xnoremap : ;
 
-nnoremap <silent> H ^
-nnoremap <silent> L g_
-vnoremap <silent> H ^
-vnoremap <silent> L g_
-xnoremap <silent> H ^
-xnoremap <silent> L g_
+noremap <silent> H ^
+noremap <silent> L g_
 
-nnoremap <silent> gC :tabnew<CR>
+nnoremap <silent> gT :tabnew<CR>
+
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [b :bprevious<CR>
+
+nnoremap <silent> ]t :tabnext<CR>
+nnoremap <silent> [t :tabprevious<CR>
 
 nnoremap <silent> g<CR> :noh<CR>
 
@@ -136,6 +122,8 @@ inoremap <silent> kj <Esc>
 " move visual selection up/down line at a time
 xnoremap <silent> K <Esc>'<kdd'>pgv
 xnoremap <silent> J <Esc>'>jdd'<Pgv
+
+inoremap <silent> <C-f> <C-g>u<Esc>[s1z=`]a<c-g>u
 
 " Show highlight group of character/word under cursor
 function! SynStack()
@@ -147,7 +135,7 @@ endfunc
 
 nnoremap <silent> <F10> :call SynStack()<CR>
 
-nnoremap <silent> <leader>pd "=strftime("%m-%d-%Y")<CR>p
+nnoremap Q @@
 "====================================================
 "}}}
 "====================================================
@@ -180,19 +168,48 @@ nnoremap <silent> <C-w><C-l> :vertical resize +5<CR>
 
 if has('nvim')
 	set inccommand=split
-	tnoremap <silent> <Esc> <C-\><C-n>
-endif
-"====================================================
-"}}}
-"====================================================
 
-"====================================================
-"{{{ VIM SPECIFIC
-"====================================================
-if has('vim')
-	set background=dark
+	augroup CleanTerm
+		autocmd!
+		autocmd TermOpen * setlocal nonumber norelativenumber signcolumn=no
+	augroup END
+
+	tnoremap <silent> <Esc> <C-\><C-n>
+else
 	colorscheme darkblue
+	set background=dark
+	highlight SignColumn ctermbg=0
+	highlight Folded ctermbg=0
 endif
+
+function! WinBufSwap()
+	let thiswin = winnr()
+	let thisbuf = bufnr("%")
+	let lastwin = winnr("#")
+	let lastbuf = winbufnr(lastwin)
+
+	exec  lastwin . " wincmd w" ."|".
+				\ "buffer ". thisbuf ."|".
+				\ thiswin ." wincmd w" ."|".
+				\ "buffer ". lastbuf
+endfunction
+
+nnoremap <C-w><C-r> :call WinBufSwap()<CR>
+
+function! DeleteEmptyBuffers()
+	let [i, n; empty] = [1, bufnr('$')]
+	while i <= n
+		if bufexists(i) && bufname(i) == ''
+			call add(empty, i)
+		endif
+		let i += 1
+	endwhile
+	if len(empty) > 0
+		exe 'bdelete' join(empty)
+	endif
+endfunction
+
+command! DeleteEmpty call DeleteEmptyBuffers()
 "====================================================
 "}}}
 "====================================================

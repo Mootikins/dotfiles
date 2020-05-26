@@ -78,14 +78,6 @@ tray-padding = 0
 tray-transparent = true
 tray-background = ${colors.xcolor12}
 
-;wm-restack = bspwm
-;wm-restack = i3
-
-;override-redirect = true
-
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
 ;scroll-up = i3wm-wsnext
 ;scroll-down = i3wm-wsprev
 
@@ -159,25 +151,6 @@ content = "%{T3}%{T-}"
 type = internal/xwindow
 label = %title:0:30:...%
 
-[module/bspwm]
-type = internal/bspwm
-
-label-focused = %icon%
-label-focused-background = ${colors.background-alt}
-;label-focused-underline= ${colors.primary}
-label-focused-padding = 2
-
-label-occupied = %icon%
-label-occupied-padding = 2
-
-label-urgent = %icon%!
-label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
-
-label-empty = %icon%
-label-empty-foreground = ${colors.foreground-alt}
-label-empty-padding = 2
-
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
@@ -187,40 +160,47 @@ wrapping-scroll = false
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
 
-label-mode-padding = 2
+label-mode-padding = 1
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
-; label-focused = %icon%
-label-focused = 
+label-focused = %{T3}%icon%
 label-focused-background = ${colors.background}
-label-focused-foreground = ${colors.xcolor13}
-; label-focused-underline = ${xrdb:color3}
-label-focused-padding = ${module/bspwm.label-focused-padding}
+label-focused-foreground = ${colors.xcolor15}
+label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
-; label-unfocused = %icon%
-label-unfocused = 
-label-unfocused-padding = ${module/bspwm.label-occupied-padding}
+label-unfocused = "%{T3} %{T0}%icon%%{T3} "
+label-unfocused-background = ${colors.background}
+label-unfocused-foreground = ${colors.xcolor15}
+label-unfocused-padding = 1
 
 ; visible = Active workspace on unfocused monitor
-; label-visible = %icon%
-label-visible = %icon%
-label-visible-background = ${self.label-focused-background}
-;label-visible-underline = ${xrdb:color1}
-label-visible-padding = ${self.label-focused-padding}
+label-visible = "%{T3} %{T0}%icon%%{T3} "
+label-visible-background = ${colors.background}
+label-visible-foreground = ${colors.xcolor15}
+label-visible-padding = 1
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %icon%
-label-urgent-background = ${module/bspwm.label-urgent-background}
-label-urgent-padding = ${module/bspwm.label-urgent-padding}
+label-urgent-background = ${colors.xcolor9}
+label-urgent-foreground = ${colors.xcolor0}
+label-urgent-padding = 1
 
-; ws-icon-0 = 1;
-; ws-icon-1 = 2;
-ws-icon-default = 
-ws-icon-unfocused = 
-ws-icon-focused = 
+; \ue174 - \ue17c
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+; ws-icon-default = 
+; ws-icon-unfocused = 
+; ws-icon-focused = 
 
 [module/mpd]
 type = internal/mpd
@@ -420,11 +400,12 @@ label-full = 100%
 label-full-foreground = ${colors.xcolor0}
 label-full-background = ${colors.xcolor10}
 
+
 format-full-prefix = " "
 format-full-prefix-foreground = ${colors.xcolor0}
 format-full-prefix-background = ${colors.xcolor10}
 
-animation-charging-framerate = 750
+animation-charging-framerate = 500
 animation-charging-padding = 0
 animation-charging-foreground = ${colors.xcolor0}
 animation-charging-background = ${colors.xcolor10}

@@ -5,6 +5,7 @@ Session.vim
 *.out
 *.o
 *.gch
+.nvimrc
 
 ##############################
 #    Untested but looks OK   #
@@ -97,3 +98,4 @@ Session.vim
 # # Building development folder
 # build
 # build/*
+.clangd

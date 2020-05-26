@@ -1,3 +1,7 @@
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -104,7 +108,14 @@ source $ZSH/oh-my-zsh.sh
 # Remove hostname@comp 
 # prompt_context() {}
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs virtualenv )
+POWERLEVEL9K_VI_INSERT_MODE_STRING="%BINSERT"
+POWERLEVEL9K_VI_COMMAND_MODE_STRING="%BNORMAL"
+
+POWERLEVEL9K_STATUS_OK_BACKGROUND='008'
+POWERLEVEL9K_STATUS_OK_FOREGROUND='040'
+POWERLEVEL9K_STATUS_ERROR_FOREGROUND='196'
+POWERLEVEL9K_STATUS_ERROR_BACKGROUND='008'
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs virtualenv)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vi_mode)
 
 POWERLEVEL9K_DIR_HOME_BACKGROUND='012'
@@ -120,8 +131,9 @@ POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND='010'
 POWERLEVEL9K_VI_MODE_INSERT_BACKGROUND='012'
 POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND='000'
 POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND='000'
+POWERLEVEL9K_SHORTEN_STRATEGY='truncate_to_unique'
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-POWERLEVEL9K_SHORTEN_DELIMITER='...'
+POWERLEVEL9K_SHORTEN_DELIMITER='..'
 
 bindkey kj vi-cmd-mode
 bindkey '^f' forward-word
@@ -146,8 +158,8 @@ source ~/dotfiles/exports.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# pyenv setup
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+source /home/moot/.config/broot/launcher/bash/br
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

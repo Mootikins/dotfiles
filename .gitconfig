@@ -8,7 +8,7 @@
 [core]
 	editor = nvim
 	excludesfile = ~/.gitignore
-	pager = /usr/share/git/diff-highlight/diff-highlight | less
+	pager = delta --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended'
 #[color]
 #	ui = always
 [color "diff"]
@@ -25,3 +25,14 @@
 	newHighlight = green bold 22
 [diff]
 	submodule = diff
+	tool = vimdiff
+[difftool]
+	prompt = false
+[merge]
+	tool = vimdiff
+[mergetool]
+	prompt = true
+[mergetool "vimdiff"]
+	cmd = nvim -d $LOCAL $MERGED $REMOTE
+[interactive]
+	diffFilter = delta --color-only
