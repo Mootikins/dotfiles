@@ -1,0 +1,247 @@
+" wpgtk.vim -- Vim color scheme.
+" Author:       Dylan Araps, modified by Matthew Krohn and DeviantFero
+" Webpage:      https://github.com/dylanaraps/wal
+" Description:  A colorscheme that uses your terminal colors, made to work with 'wpgtk'.
+
+highlight clear
+set background=dark
+
+if exists('syntax_on')
+    syntax reset
+endif
+
+" Colorscheme name
+let g:colors_name = 'wpgtkTrue'
+
+" set t_Co=16
+highlight Normal guibg=NONE guifg={color15}
+highlight NonText guibg=NONE guifg={color0}
+highlight Comment guibg=NONE guifg={color7} gui=italic
+highlight Constant guibg=NONE guifg={color11}
+highlight Error guibg={color9} guifg={color15}
+highlight Identifier guibg=NONE guifg={color9} gui=BOLD
+highlight Ignore guibg={color8} guifg={color0}
+highlight PreProc guibg=NONE guifg={color11}
+highlight Special guibg=NONE guifg={color14}
+highlight Statement guibg=NONE guifg={color9}
+highlight String guibg=NONE guifg={color10}
+highlight Number guibg=NONE guifg={color11}
+highlight Todo guibg={color10} guifg={color0}
+highlight Type guibg=NONE guifg={color11}
+highlight Underlined guibg=NONE guifg={color9} gui=underline
+highlight StatusLine guibg={color12} guifg={color0} gui=bold
+highlight StatusLineNC guibg={color4} guifg={color0} gui=bold
+highlight TabLine guibg=NONE guifg={color8}
+highlight TabLineFill guibg=NONE guifg={color8}
+highlight TabLineSel guibg={color12} guifg={color0}
+highlight TermCursorNC guibg={color11} guifg={color0}
+highlight VertSplit guibg={color8} guifg={color0}
+highlight Title guibg=NONE guifg={color12}
+highlight CursorLine guibg={color8} guifg=NONE
+highlight LineNr guibg=NONE guifg={color8}
+highlight CursorLineNr guibg=NONE guifg={color8}
+highlight helpLeadBlank guibg=NONE guifg={color15}
+highlight helpNormal guibg=NONE guifg={color15}
+highlight Visual guibg={color0} guifg={color15} gui=reverse term=reverse
+highlight VisualNOS guibg=NONE guifg={color9}
+highlight Pmenu guibg={color8} guifg={color15}
+highlight PmenuSbar guibg={color14} guifg={color15}
+highlight PmenuSel guibg={color12} guifg={color0}
+highlight PmenuThumb guibg={color8} guifg={color8}
+highlight FoldColumn guibg=NONE guifg={color15}
+highlight Folded guibg={color8} guifg={color7}
+highlight WildMenu guibg={color10} guifg={color0}
+highlight SpecialKey guibg=NONE guifg={color8}
+highlight DiffAdd guibg=NONE guifg={color10}
+highlight DiffChange guibg=NONE guifg={color8}
+highlight DiffDelete guibg=NONE guifg={color9}
+highlight DiffText guibg=NONE guifg={color12}
+highlight IncSearch guibg={color11} guifg={color0}
+highlight Search guibg={color11} guifg={color0}
+highlight Directory guibg=NONE guifg={color12}
+highlight MatchParen guibg={color8} guifg={color0}
+highlight ColorColumn guibg={color12} guifg={color0}
+highlight signColumn guibg=NONE guifg={color12}
+highlight ErrorMsg guibg=NONE guifg={color8}
+highlight ModeMsg guibg=NONE guifg={color10}
+highlight MoreMsg guibg=NONE guifg={color10}
+highlight Question guibg=NONE guifg={color12}
+highlight WarningMsg guibg={color9} guifg={color0}
+highlight Cursor guibg=NONE guifg={color8}
+highlight Structure guibg=NONE guifg={color13}
+highlight CursorColumn guibg={color8} guifg={color15}
+highlight ModeMsg guibg=NONE guifg={color15}
+highlight SpellBad guibg=NONE guifg={color9} gui=underline
+highlight SpellCap guibg=NONE guifg={color12} gui=underline
+highlight SpellLocal guibg=NONE guifg={color13} gui=underline
+highlight SpellRare guibg=NONE guifg={color14} gui=underline
+highlight Boolean guibg=NONE guifg={color13}
+highlight Character guibg=NONE guifg={color9}
+highlight Conditional guibg=NONE guifg={color13}
+highlight Define guibg=NONE guifg={color13}
+highlight Delimiter guibg=NONE guifg={color13}
+highlight Float guibg=NONE guifg={color13}
+highlight Include guibg=NONE guifg={color12}
+highlight Keyword guibg=NONE guifg={color13}
+highlight Label guibg=NONE guifg={color11}
+highlight Operator guibg=NONE guifg={color15}
+highlight Repeat guibg=NONE guifg={color11}
+highlight SpecialChar guibg=NONE guifg={color13}
+highlight Tag guibg=NONE guifg={color11}
+highlight Typedef guibg=NONE guifg={color11}
+highlight vimUserCommand guibg=NONE guifg={color9} gui=BOLD
+    highlight link vimMap vimUserCommand
+    highlight link vimLet vimUserCommand
+    highlight link vimCommand vimUserCommand
+    highlight link vimFTCmd vimUserCommand
+    highlight link vimAutoCmd vimUserCommand
+    highlight link vimNotFunc vimUserCommand
+highlight vimNotation guibg=NONE guifg={color12}
+highlight vimMapModKey guibg=NONE guifg={color12}
+highlight vimBracket guibg=NONE guifg={color15}
+highlight vimCommentString guibg=NONE guifg={color7}
+highlight htmlLink guibg=NONE guifg={color9} gui=underline
+highlight htmlBold guibg=NONE guifg={color11} gui=BOLD
+highlight htmlItalic guibg=NONE guifg={color13}
+highlight htmlEndTag guibg=NONE guifg={color15}
+highlight htmlTag guibg=NONE guifg={color15}
+highlight htmlTagName guibg=NONE guifg={color9} gui=BOLD
+highlight htmlH1 guibg=NONE guifg={color15}
+    highlight link htmlH2 htmlH1
+    highlight link htmlH3 htmlH1
+    highlight link htmlH4 htmlH1
+    highlight link htmlH5 htmlH1
+    highlight link htmlH6 htmlH1
+highlight cssMultiColumnAttr guibg=NONE guifg={color10}
+    highlight link cssFontAttr cssMultiColumnAttr
+    highlight link cssFlexibleBoxAttr cssMultiColumnAttr
+highlight cssBraces guibg=NONE guifg={color15}
+    highlight link cssAttrComma cssBraces
+highlight cssValueLength guibg=NONE guifg={color15}
+highlight cssUnitDecorators guibg=NONE guifg={color15}
+highlight cssValueNumber guibg=NONE guifg={color15}
+    highlight link cssValueLength cssValueNumber
+highlight cssNoise guibg=NONE guifg={color8}
+highlight cssTagName guibg=NONE guifg={color9}
+highlight cssFunctionName guibg=NONE guifg={color12}
+highlight scssSelectorChar guibg=NONE guifg={color15}
+highlight scssAttribute guibg=NONE guifg={color15}
+    highlight link scssDefinition cssNoise
+highlight sassidChar guibg=NONE guifg={color9}
+highlight sassClassChar guibg=NONE guifg={color13}
+highlight sassInclude guibg=NONE guifg={color13}
+highlight sassMixing guibg=NONE guifg={color13}
+highlight sassMixinName guibg=NONE guifg={color12}
+highlight javaScript guibg=NONE guifg={color15}
+highlight javaScriptBraces guibg=NONE guifg={color15}
+highlight javaScriptNumber guibg=NONE guifg={color13}
+highlight markdownH1 guibg=NONE guifg={color15}
+    highlight link markdownH2 markdownH1
+    highlight link markdownH3 markdownH1
+    highlight link markdownH4 markdownH1
+    highlight link markdownH5 markdownH1
+    highlight link markdownH6 markdownH1
+highlight markdownAutomaticLink guibg=NONE guifg={color10} gui=underline
+    highlight link markdownUrl markdownAutomaticLink
+highlight markdownError guibg=NONE guifg={color15}
+highlight markdownCode guibg=NONE guifg={color11}
+highlight markdownCodeBlock guibg=NONE guifg={color11}
+highlight markdownCodeDelimiter guibg=NONE guifg={color13}
+highlight markdownItalic gui=Italic
+highlight markdownBold gui=Bold
+highlight xdefaultsValue guibg=NONE guifg={color15}
+highlight rubyInclude guibg=NONE guifg={color12}
+highlight rubyDefine guibg=NONE guifg={color13}
+highlight rubyFunction guibg=NONE guifg={color12}
+highlight rubyStringDelimiter guibg=NONE guifg={color10}
+highlight rubyInteger guibg=NONE guifg={color11}
+highlight rubyAttribute guibg=NONE guifg={color12}
+highlight rubyConstant guibg=NONE guifg={color11}
+highlight rubyInterpolation guibg=NONE guifg={color10}
+highlight rubyInterpolationDelimiter guibg=NONE guifg={color11}
+highlight rubyRegexp guibg=NONE guifg={color14}
+highlight rubySymbol guibg=NONE guifg={color10}
+highlight rubyTodo guibg=NONE guifg={color8}
+highlight rubyRegexpAnchor guibg=NONE guifg={color15}
+    highlight link rubyRegexpQuantifier rubyRegexpAnchor
+highlight pythonOperator guibg=NONE guifg={color13}
+highlight pythonFunction guibg=NONE guifg={color12}
+highlight pythonRepeat guibg=NONE guifg={color13}
+highlight pythonStatement guibg=NONE guifg={color9} gui=Bold
+highlight pythonBuiltIn guibg=NONE guifg={color12}
+highlight phpMemberSelector guibg=NONE guifg={color15}
+highlight phpComparison guibg=NONE guifg={color15}
+highlight phpParent guibg=NONE guifg={color15}
+highlight cOperator guibg=NONE guifg={color14}
+highlight cPreCondit guibg=NONE guifg={color13}
+highlight SignifySignAdd guibg=NONE guifg={color10}
+highlight SignifySignChange guibg=NONE guifg={color12}
+highlight SignifySignDelete guibg=NONE guifg={color9}
+highlight NERDTreeDirSlash guibg=NONE guifg={color12}
+highlight NERDTreeExecFile guibg=NONE guifg={color15}
+highlight ALEErrorSign guibg=#FF0000 guifg=#FFFFFF
+highlight ALEWaringSign guibg=#FF7777 guifg=#FFFFFF
+
+let g:limelight_conceal_guifg = "{color8}"
+
+highlight VertSplit guibg={color0} guifg={color8} gui=NONE
+highlight MatchParen guifg={color12} guibg=NONE gui=reverse
+highlight Whitespace guifg={color8} gui=bold
+highlight NonText guifg={color7}
+highlight CursorLineNr guifg={color15} gui=bold
+highlight LineNr guifg={color4}
+highlight Folded gui=italic guibg={color0}
+highlight FoldColumn guibg={color0}
+highlight Conceal guifg={color15} guibg={color0}
+highlight ErrorMsg guifg={color9}
+highlight cssNoise guifg={color4}
+
+highlight htmlItalic gui=italic
+highlight mkdHeading guifg={color4}
+highlight htmlH1 gui=bold
+highlight htmlH2 gui=bold
+highlight htmlH3 gui=bold
+highlight htmlH4 gui=bold
+highlight htmlH5 gui=bold
+highlight htmlH6 gui=bold
+
+highlight CursorLine guibg={color8} gui=NONE
+
+highlight DiffAdd      guibg=green     guifg={color0}   gui=NONE
+highlight DiffText     guibg=blue      guifg={color0}   gui=NONE
+highlight DiffDelete   guibg=red       guifg={color0}   gui=NONE
+highlight DiffChange   guibg=NONE      guifg=NONE       gui=NONE
+
+highlight TagbarSignature guifg={color3}
+highlight GitGutterAddDefault guifg={color12}
+
+highlight GitGutterAdd            guifg=#01e45d   guibg=NONE
+highlight GitGutterDelete         guifg=#cc1c52   guibg=NONE
+highlight GitGutterChangeDelete   guifg=#01e45d   guibg=NONE
+
+highlight IncSearch guibg={color0} guifg={color14}
+highlight Search guibg={color5} guifg={color0}
+
+highlight CocFloating guibg={color8}
+highlight CocHighlightText gui=reverse
+
+highlight ColorColumn guifg=NONE guibg=NONE gui=underline,bold
+
+let g:terminal_color_0  = "{color0}"
+let g:terminal_color_1  = "{color1}"
+let g:terminal_color_2  = "{color2}"
+let g:terminal_color_3  = "{color3}"
+let g:terminal_color_4  = "{color4}"
+let g:terminal_color_5  = "{color5}"
+let g:terminal_color_6  = "{color6}"
+let g:terminal_color_7  = "{color7}"
+let g:terminal_color_8  = "{color8}"
+let g:terminal_color_9  = "{color9}"
+let g:terminal_color_10 = "{color10}"
+let g:terminal_color_11 = "{color11}"
+let g:terminal_color_12 = "{color12}"
+let g:terminal_color_13 = "{color13}"
+let g:terminal_color_14 = "{color14}"
+let g:terminal_color_15 = "{color15}"
+
+" vim:ft=vim:

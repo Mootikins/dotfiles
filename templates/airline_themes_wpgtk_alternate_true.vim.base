@@ -1,0 +1,86 @@
+" wpgtk alternate Airline Theme
+let g:airline#themes#wpgtk_alternate_true#palette = {{}}
+
+let s:color0  = "{color0}"
+let s:color1  = "{color1}"
+let s:color2  = "{color2}"
+let s:color3  = "{color3}"
+let s:color4  = "{color4}"
+let s:color5  = "{color5}"
+let s:color6  = "{color6}"
+let s:color7  = "{color7}"
+let s:color8  = "{color8}"
+let s:color9  = "{color9}"
+let s:color10 = "{color10}"
+let s:color11 = "{color11}"
+let s:color12 = "{color12}"
+let s:color13 = "{color13}"
+let s:color14 = "{color14}"
+let s:color15 = "{color15}"
+
+" Normal mode
+let s:N  = [ s:color0, s:color12, 'NONE', 'NONE', 'BOLD' ]
+let s:N2 = [ s:color0, s:color10, 'NONE', 'NONE', 'NONE' ]
+let s:N3 = [ s:color12, s:color8, 'NONE', 'NONE', 'NONE' ]
+
+" Insert mode
+let s:I  = [ s:color0, s:color13, 'NONE', 'NONE', 'BOLD' ]
+let s:I2 = [ s:color0, s:color10, 'NONE', 'NONE', 'NONE' ]
+let s:I3 = [ s:color13, s:color8, 'NONE', 'NONE', 'NONE' ]
+
+" Visual mode
+let s:V  = [ s:color0, s:color14, 'NONE', 'NONE', 'BOLD' ]
+let s:V2 = [ s:color0, s:color10, 'NONE', 'NONE', 'NONE' ]
+let s:V3 = [ s:color14, s:color8, 'NONE', 'NONE', 'NONE' ]
+
+" Replace mode
+let s:R  = [ s:color0, s:color9, 'NONE', 'NONE', 'BOLD' ]
+let s:R2 = [ s:color0, s:color10, 'NONE', 'NONE', 'NONE' ]
+let s:R3 = [ s:color9, s:color8, 'NONE', 'NONE', 'NONE' ]
+
+let g:airline#themes#wpgtk_alternate_true#palette.normal  = airline#themes#generate_color_map(s:N, s:N2, s:N3)
+let g:airline#themes#wpgtk_alternate_true#palette.insert  = airline#themes#generate_color_map(s:I, s:I2, s:I3)
+let g:airline#themes#wpgtk_alternate_true#palette.visual  = airline#themes#generate_color_map(s:V, s:V2, s:V3)
+let g:airline#themes#wpgtk_alternate_true#palette.replace = airline#themes#generate_color_map(s:R, s:R2, s:R3)
+
+let g:airline#themes#wpgtk_alternate_true#palette.accents = {{ 'red': [ s:color0, s:color2, 'NONE', 'NONE', 'BOLD' ] }}
+
+" Inactive mode
+let s:IN1 = [ s:color15, s:color8, 'NONE', 'NONE' ]
+let s:IN2 = [ s:color15, s:color8, 'NONE', 'NONE' ]
+let s:IN3 = [ s:color15, s:color8, 'NONE', 'NONE' ]
+
+let g:airline#themes#wpgtk_alternate_true#palette.inactive = airline#themes#generate_color_map(s:IN1, s:IN2, s:IN3)
+
+" Warnings
+let s:WI = [ s:color0, s:color7, 'NONE', 'NONE', 'BOLD' ]
+let g:airline#themes#wpgtk_alternate_true#palette.normal.airline_warning  = s:WI
+let g:airline#themes#wpgtk_alternate_true#palette.insert.airline_warning  = s:WI
+let g:airline#themes#wpgtk_alternate_true#palette.visual.airline_warning  = s:WI
+let g:airline#themes#wpgtk_alternate_true#palette.replace.airline_warning = s:WI
+
+let g:airline#themes#wpgtk_alternate_true#palette.normal.airline_error  = s:WI
+let g:airline#themes#wpgtk_alternate_true#palette.insert.airline_error  = s:WI
+let g:airline#themes#wpgtk_alternate_true#palette.visual.airline_error  = s:WI
+let g:airline#themes#wpgtk_alternate_true#palette.replace.airline_error = s:WI
+
+" Tabline
+let g:airline#themes#wpgtk_alternate_true#palette.tabline = {{
+			\ 'airline_tab':     [ s:color12, s:color8, 'NONE', 'NONE', 'NONE' ],
+			\ 'airline_tabsel':  [ s:color0, s:color12, 'NONE', 'NONE', 'BOLD' ],
+			\ 'airline_tabtype': [ s:color0, s:color12, 'NONE', 'NONE', 'NONE' ],
+			\ 'airline_tabfill': [ s:color12, s:color8, 'NONE', 'NONE', 'NONE' ],
+			\ 'airline_tabmod':  [ s:color0, s:color12, 'NONE', 'NONE', 'BOLD' ]
+			\ }}
+
+if !get(g:, 'loaded_ctrlp', 0)
+	finish
+endif
+
+let g:airline#themes#wpgtk_alternate_true#palette.ctrlp = airline#extensions#ctrlp#generate_color_map(
+			\ [ s:color0, s:color0, 'NONE', 'NONE', 'BOLD' ],
+			\ [ s:color0, s:color0, 'NONE', 'NONE', 'BOLD' ],
+			\ [ s:color0, s:color0, 'NONE', 'NONE', 'BOLD' ]
+			\ )
+
+" vim:ft=vim:

@@ -1,0 +1,1 @@
+/home/moot/.local/share/nvim/plugged/wpgtk.vim/colors/wpgtkTrue.vim
