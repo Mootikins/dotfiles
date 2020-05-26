@@ -594,7 +594,7 @@ let g:vimwiki_folding = 'list'
 "{{{ THEMING
 "===============================================================
 set termguicolors
-colorscheme wpgtkTrue
+colorscheme wpgtkAltTrue
 let g:airline_theme = 'wpgtk_alternate_true'
 "===============================================================
 "}}}
