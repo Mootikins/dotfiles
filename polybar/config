@@ -39,7 +39,7 @@ secondary = ${xrdb:color10}
 alert = ${xrdb:color6}
 
 [bar/example]
-monitor = eDP1
+monitor = HDMI-0
 width = 100%
 height = 18
 ;offset-x = 1%
@@ -65,7 +65,7 @@ module-margin-right = 0
 
 font-0 = scientifica:pixelsize=11;1
 font-1 = Siji:pixelsize=10;2
-font-2 = Tamzen for Powerline:style=Medium:pixelsize=20;2
+font-2 = Tamzen for Powerline:style=Medium:pixelsize=16;2
 
 modules-left = date left1 volume left2 mpd left3
 modules-center = i3
@@ -244,7 +244,7 @@ format-online =  <icon-prev> <toggle> <icon-next> <label-song>
 format-offline = <label-offline>
 format-playing = ${self.format-online}
 format-paused = ${self.format-online}
-format-stopped = No Media Playing
+format-stopped = " No Media Playing"
 format-online-padding = 1
 format-online-foreground = ${colors.xcolor0}
 format-online-background = ${colors.xcolor11}
@@ -252,7 +252,7 @@ format-offline-padding = 1
 format-offline-foreground = ${colors.xcolor0}
 format-offline-background = ${colors.xcolor11}
 
-label-offline = MPD Not Running
+label-offline = " MPD Not Running"
 
 label-song-start = %artist% - %title%
 label-song-maxlen = 75
@@ -325,7 +325,7 @@ format-background = ${colors.xcolor12}
 label = %date%
 
 [module/volume]
-type = internal/alsa
+type = internal/pulseaudio
 
 format-volume = <ramp-volume> <label-volume>
 format-volume-background = ${colors.xcolor10}
@@ -368,8 +368,8 @@ ramp-volume-4 = 
 
 [module/battery1]
 type = internal/battery
-battery = CMB1
-adapter = AC
+battery = BAT1
+adapter = ADP1
 full-at = 95
 
 label-charging = %percentage%%
