@@ -39,7 +39,7 @@ secondary = ${xrdb:color10}
 alert = ${xrdb:color6}
 
 [bar/example]
-monitor = HDMI-0
+monitor = ${env:MONITOR:}
 width = 100%
 height = 18
 ;offset-x = 1%
