@@ -1,0 +1,23 @@
+{
+	"clangd.arguments": ["--compile-commands-dir=build"],
+
+	"git.addedSign.hlGroup": "GitGutterAdd",
+	"git.changedSign.hlGroup": "GitGutterChange",
+	"git.removedSign.hlGroup": "GitGutterDelete",
+	"git.topRemovedSign.hlGroup": "GitGutterDelete",
+	"git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
+	"git.changeRemovedSign.text": "~",
+	"git.enableGutters": true,
+	"git.addGBlameToBufferVar": true,
+
+	"css.colorDecorators.enable": false,
+
+	"coc.preferences.colorSupport": false,
+
+	"snippets.priority": 50,
+	"snippets.extends": {
+		"pandoc": ["tex"],
+		"typescriptreact": ["javascript", "typescript", "javascriptreact"],
+		"javascriptreact": ["javascript"]
+	}
+}
