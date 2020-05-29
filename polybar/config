@@ -66,6 +66,7 @@ module-margin-right = 0
 font-0 = scientifica:pixelsize=11;1
 font-1 = Siji:pixelsize=10;2
 font-2 = Tamzen for Powerline:style=Medium:pixelsize=16;2
+font-3 = JackeyFont:size=9;2
 
 modules-left = date left1 volume left2 mpd left3
 modules-center = i3
