@@ -33,6 +33,7 @@ Plug 'tpope/vim-sleuth'
 Plug 'junegunn/vim-plug'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
 
 Plug 'mbbill/undotree'
 Plug 'majutsushi/tagbar'
@@ -63,7 +64,6 @@ Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 Plug 'yggdroot/indentline'
 
-Plug 'dylanaraps/wal.vim'
 Plug 'mootikins/wpgtk.vim'
 Plug 'patstockwell/vim-monokai-tasty'
 Plug 'segeljakt/vim-silicon'
