@@ -8,7 +8,7 @@
 [core]
 	editor = nvim
 	excludesfile = ~/.gitignore
-	pager = delta --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended'
+	pager = delta --dark --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended'
 #[color]
 #	ui = always
 [color "diff"]
@@ -25,14 +25,19 @@
 	newHighlight = green bold 22
 [diff]
 	submodule = diff
-	tool = vimdiff
+	tool = fugitive
 [difftool]
 	prompt = false
 [merge]
-	tool = vimdiff
+	tool = fugitive
+	conflictStyle = diff3
 [mergetool]
 	prompt = true
 [mergetool "vimdiff"]
 	cmd = nvim -d $LOCAL $MERGED $REMOTE
+[mergetool "fugitive"]
+	cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
 [interactive]
 	diffFilter = delta --color-only
+[pull]
+	rebase = false

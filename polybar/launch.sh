@@ -7,8 +7,16 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 # Launch any bars
 sleep 1
 
-for m in $(polybar --list-monitors | cut -d":" -f1); do
-    MONITOR=$m polybar --reload example &
-done
+# for m in $(polybar --list-monitors | cut -d":" -f1); do
+#     MONITOR=$m polybar --reload example &
+# done
+
+if polybar -m | grep -q HDMI ; then
+	MONITOR=$(polybar -m | grep HDMI | cut -d":" -f1) polybar --reload example &
+else
+	for m in $(polybar --list-monitors | cut -d":" -f1); do
+		MONITOR=$m polybar --reload example &
+	done
+fi
 
 echo "Bars launched..."
