@@ -6,9 +6,7 @@
 "        \____/\____/_/ |_/_____/
 "
 "
-"====================================================
-"{{{ BASIC VARIABLE SETTINGS
-"====================================================
+" BASIC VARIABLE SETTINGS =============================================== {{{
 set number relativenumber
 set tabstop=3 softtabstop=3 shiftwidth=3 shiftround noexpandtab
 set showcmd mouse=a
@@ -20,11 +18,13 @@ set undofile
 set undodir=$HOME/.vim/undo
 set spelllang=en_us
 set nowrap
+set title
+set titlestring=NeoVim\ -\ %f%(\ -\ %h%w%q%)
 
 if has('nvim')
-	set signcolumn=yes:2
+	set signcolumn=auto:3
 else
-	set signcolumn=yes
+	set signcolumn=auto
 endif
 set splitright splitbelow
 set exrc
@@ -37,16 +37,10 @@ syntax on
 set omnifunc=syntaxcomplete#Complete
 set showbreak=->\ 
 
-if &diff
-	set diffopt=algorithm:patience
-endif
-"====================================================
-"}}}
-"====================================================
+set diffopt+=algorithm:patience,vertical
+" ====================================================================== }}}
 
-"====================================================
-"{{{ FOLD SETTINGS
-"====================================================
+" FOLD SETTINGS ========================================================= {{{
 set foldmethod=syntax
 " Gets toggled with zi
 set nofoldenable
@@ -58,13 +52,9 @@ nnoremap <silent> zl zo
 nnoremap <silent> zh zc
 nnoremap <silent> zL zO
 nnoremap <silent> zH zC
-"====================================================
-"}}}
-"====================================================
+" ======================================================================= }}}
 
-"====================================================
-"{{{ FILETYPE SPECIFIC SETTINGS
-"====================================================
+" FILETYPE SPECIFIC SETTINGS ============================================ {{{
 function OpenInZathura()
 	let b:pdf_filename = split(@%, '\.')[0].'.pdf'
 	execute "silent !zathura ".b:pdf_filename
@@ -87,16 +77,12 @@ augroup FiletypeGroup
 	autocmd Filetype pandoc setlocal expandtab textwidth=80 formatoptions+=t spell
 	autocmd Filetype pandoc nnoremap <buffer> <silent> <C-o> :call OpenInZathura()<CR>
 	autocmd Filetype rust setlocal tabstop=3 softtabstop=3 shiftwidth=3
-	autocmd Filetype vimwiki setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab filetype=pandoc.vimwiki
+	autocmd Filetype vimwiki setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab filetype=vimwiki.pandoc
 augroup END
-"====================================================
-"}}}
-"====================================================
+" ======================================================================= }}}
 
-"====================================================
-"{{{ GENERAL RE-MAPS
-"====================================================
-let mapleader = " "
+" GENERAL RE-MAPS ======================================================= {{{
+let g:mapleader = "\<Space>"
 nnoremap ; :
 nnoremap : ;
 vnoremap ; :
@@ -136,28 +122,9 @@ endfunc
 nnoremap <silent> <F10> :call SynStack()<CR>
 
 nnoremap Q @@
-"====================================================
-"}}}
-"====================================================
+" ======================================================================= }}}
 
-"====================================================
-"{{{ SPLITS
-"====================================================
-nnoremap <silent> <leader>h <C-w>h
-nnoremap <silent> <leader>j <C-w>j
-nnoremap <silent> <leader>k <C-w>k
-nnoremap <silent> <leader>l <C-w>l
-
-nnoremap <silent> <leader>H <C-w>H
-nnoremap <silent> <leader>J <C-w>J
-nnoremap <silent> <leader>K <C-w>K
-nnoremap <silent> <leader>L <C-w>L
-
-nnoremap <silent> <leader><C-h> :vertical resize +5<CR>
-nnoremap <silent> <leader><C-j> :resize +5<CR>
-nnoremap <silent> <leader><C-k> :resize -5<CR>
-nnoremap <silent> <leader><C-l> :vertical resize -5<CR>
-
+" SPLITS ================================================================ {{{
 nnoremap <silent> <leader>\ :vnew<CR>
 nnoremap <silent> <leader>- :new<CR>
 
@@ -210,6 +177,4 @@ function! DeleteEmptyBuffers()
 endfunction
 
 command! DeleteEmpty call DeleteEmptyBuffers()
-"====================================================
-"}}}
-"====================================================
+" ======================================================================= }}}

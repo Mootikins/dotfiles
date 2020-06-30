@@ -41,6 +41,16 @@ set fillchars=vert:│
 " 
 " highlight ColorColumn ctermfg=none ctermbg=none cterm=underline,bold
 
+highlight whitespace gui=bold
+
+function! HLFlicker (blinktime)
+	set cursorline
+	redraw
+	exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
+	set nocursorline
+	redraw
+endfunction
+
 if !&diff
 	augroup CursorLine
 		autocmd!
@@ -53,6 +63,8 @@ if !&diff
 		autocmd FocusLost * setlocal nocursorline
 		autocmd CompleteChanged * setlocal cursorline
 		autocmd CompleteDone * setlocal cursorline
+		autocmd InsertEnter * setlocal nocursorline
+		autocmd InsertLeave * setlocal cursorline
 	augroup END
 else
 	set cursorline
