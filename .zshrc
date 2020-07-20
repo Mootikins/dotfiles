@@ -76,6 +76,7 @@ git-flow
 vi-mode
 history-substring-search
 zsh-autosuggestions
+zsh-interactive-cd
 )
 
 source $ZSH/oh-my-zsh.sh
