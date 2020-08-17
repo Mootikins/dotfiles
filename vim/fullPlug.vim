@@ -59,7 +59,7 @@ Plug 'mipmip/vim-scimark'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+Plug 'norcalli/nvim-colorizer.lua'
 
 Plug 'liuchengxu/vim-which-key'
 
@@ -85,8 +85,15 @@ call plug#end()
 
 " PLUGIN SETTINGS ========================================================== {{{
 
-" HEXOKINASE.VIM =========================================================== {{{
-let g:Hexokinase_highlighters = ['virtual']
+" COLORIZER.LUA ============================================================ {{{
+set termguicolors
+lua require'colorizer'.setup {
+	\ '*';
+	\ css = {
+		\ rgb_fn = true;
+		\ hsl_fn = true;
+	\ };
+	\ }
 " ========================================================================== }}}
 
 " LIVE-JOBS ================================================================ {{{
