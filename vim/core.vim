@@ -57,7 +57,7 @@ nnoremap <silent> zH zC
 " FILETYPE SPECIFIC SETTINGS ============================================ {{{
 function OpenInZathura()
 	let b:pdf_filename = split(@%, '\.')[0].'.pdf'
-	execute "silent !zathura ".b:pdf_filename
+	execute "silent !zathura " . fnameescape(b:pdf_filename)
 endfunction
 
 augroup FiletypeGroup
@@ -77,7 +77,9 @@ augroup FiletypeGroup
 	autocmd Filetype pandoc setlocal expandtab textwidth=80 formatoptions+=t spell
 	autocmd Filetype pandoc nnoremap <buffer> <silent> <C-o> :call OpenInZathura()<CR>
 	autocmd Filetype rust setlocal tabstop=3 softtabstop=3 shiftwidth=3
-	autocmd Filetype vimwiki setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab filetype=vimwiki.pandoc
+	autocmd Filetype vimwiki nnoremap <buffer> <silent> <C-o> :call OpenInZathura()<CR>
+	autocmd Filetype vimwiki setlocal tabstop=3 softtabstop=3 shiftwidth=3 expandtab textwidth=80 formatoptions+=t filetype=vimwiki.pandoc
+	autocmd Filetype vimwiki.pandoc setlocal nowrap textwidth=80 tabstop=3 softtabstop=3 shiftwidth=3 expandtab textwidth=80 formatoptions+=t
 augroup END
 " ======================================================================= }}}
 

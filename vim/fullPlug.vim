@@ -123,10 +123,10 @@ endfunction
 
 " PANDOC =================================================================== {{{
 function! EnablePandocLive()
-	let b:pdf_filename = split(@%, '\.')[0].'.pdf'
+	let b:pdf_filename = fnameescape(split(@%, '\.')[0]) . '.pdf'
 	augroup PandocLive
 		autocmd! * <buffer>
-		autocmd BufWritePost <buffer> silent call s:LiveCompile('pandoc -f markdown '.@%.' -o '.b:pdf_filename)
+		autocmd BufWritePost <buffer> silent call s:LiveCompile('pandoc -f markdown ' . fnameescape(@%) . ' -o ' . b:pdf_filename)
 	augroup END
 
 	command -buffer PandocLiveDisable call s:DisablePandocLive()
@@ -148,33 +148,6 @@ augroup PandocLive
 augroup END
 " ========================================================================== }}}
 
-" SCSS ===================================================================== {{{
-function! EnableSCSSLive()
-	let b:css_filename = split(@%, '\.')[0].'.css'
-	augroup SCSSLive
-		autocmd! * <buffer>
-		autocmd BufWritePost <buffer> silent call s:LiveCompile('sassc -a '.@%.' | prettier --stdin-filepath '.b:css_filename.' > '.b:css_filename.'&& touch '.b:css_filename)
-	augroup END
-
-	command SCSSLiveDisable call s:DisableSCSSLive()
-	delcommand SCSSLiveEnable
-endfunction
-
-function! s:DisableSCSSLive()
-	augroup SCSSLive
-		autocmd! * <buffer>
-	augroup END
-	augroup! SCSSLive
-	delcommand SCSSLiveDisable
-	command! SCSSLiveEnable call EnableSCSSLive()
-endfunction
-
-augroup SCSSLive
-	autocmd! * <buffer>
-	autocmd Filetype scss command SCSSLiveEnable call EnableSCSSLive()
-augroup END
-" ========================================================================== }}}
-
 " ========================================================================== }}}
 
 " POLYGLOT ================================================================= {{{
@@ -191,7 +164,7 @@ let g:polyglot_disabled = []
 " AUTO-PAIRS =============================================================== {{{
 augroup FiletypePairs
 	autocmd!
-	autocmd Filetype pandoc let b:AutoPairs = AutoPairsDefine({
+	autocmd Filetype vimwiki,pandoc,vimwiki.pandoc let b:AutoPairs = AutoPairsDefine({
 				\ '\left(': ' \right)//k)',
 				\ '$': '$',
 				\ '$$': '$$'
@@ -233,7 +206,7 @@ endfunction
 
 command! NeoformatEnable call s:EnableNeoformat()
 " ========================================================================== }}}
-"
+
 " EMMET ==================================================================== {{{
 let g:user_emmet_leader_key = '<C-e>'
 
@@ -254,18 +227,6 @@ let g:user_emmet_settings = {
 set hidden
 set shortmess+=c
 set updatetime=300
-
-inoremap <silent><expr> <TAB>
-			\ pumvisible() ? "\<C-n>" :
-			\ <SID>check_back_space() ? "\<TAB>" :
-			\ coc#refresh()
-
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
 
 inoremap <silent><expr> <c-space> coc#refresh()
 
@@ -427,15 +388,13 @@ if has('nvim')
 	hi NormalFloat guibg=None
 	if exists('g:fzf_colors.bg')
 		call remove(g:fzf_colors, 'bg')
-endif
-
+	endif
 	let g:fzf_layout = { 'window': { 
 				\'width': 0.75, 
 				\'height': 0.75, 
 				\'highlight': 'Special',
 				\'border': 'sharp'
 				\} }
-
 endif
 
 command! -bang -nargs=* GGrep
@@ -449,8 +408,8 @@ command! -bang -nargs=? -complete=dir Files
 command! -bang -nargs=? -complete=dir HFiles
 			\ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'source': 'fd --type file --hidden --no-ignore --exclude ".git/*"'}), <bang>0)
 
-autocmd Filetype fzf tmap <silent> <C-d> <Esc>;q<CR>
-autocmd Filetype fzf tmap <silent> <C-c> <Esc>;q<CR>
+autocmd Filetype fzf tmap <buffer><silent> <C-d> <Esc>;q<CR>
+autocmd Filetype fzf tmap <buffer><silent> <C-c> <Esc>;q<CR>
 
 nnoremap <silent> <leader>ff :Files<CR>
 nnoremap <silent> <leader>fho :Files ~/<CR>
@@ -553,6 +512,26 @@ let g:vimwiki_list = [{
 			\}]
 let g:vimwiki_dir_link = 'index'
 let g:vimwiki_folding = 'list'
+let g:vimwiki_table_mappings = 0
+function! VimwikiLinkHandler(link)
+	" Use Vim to open external files with the 'vfile:' scheme.  E.g.:
+	"   1) [[vfile:~/Code/PythonProject/abc123.py]]
+	"   2) [[vfile:./|Wiki Home]]
+	let link = a:link
+	if link =~# '^vfile:'
+		let link = link[1:]
+	else
+		return 0
+	endif
+	let link_infos = vimwiki#base#resolve_link(link)
+	if link_infos.filename == ''
+		echomsg 'Vimwiki Error: Unable to resolve link!'
+		return 0
+	else
+		exe 'e ' . fnameescape(link_infos.filename)
+		return 1
+	endif
+endfunction
 " ========================================================================== }}}
 
 " ========================================================================== }}}

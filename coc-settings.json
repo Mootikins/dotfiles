@@ -16,7 +16,8 @@
 
 	"snippets.priority": 50,
 	"snippets.extends": {
-		"pandoc": ["tex"],
+		"pandoc": ["tex", "latex"],
+		"vimwiki.pandoc": ["tex", "latex"],
 		"typescriptreact": ["javascript", "typescript", "javascriptreact"],
 		"javascriptreact": ["javascript"]
 	}
