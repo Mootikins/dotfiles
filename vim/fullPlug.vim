@@ -98,7 +98,7 @@ lua require'colorizer'.setup {
 " LIVE-JOBS ================================================================ {{{
 
 " FRAMEWORK ================================================================ {{{
-function! s:CompilationEvent(job_id, data, event) dict
+function! s:LiveEvent(job_id, data, event) dict
 	if a:event ==? 'stderr'
 		let str = 'Compile Error: '.join(a:data)
 	elseif a:event ==? 'stdout'
@@ -111,9 +111,9 @@ function! s:CompilationEvent(job_id, data, event) dict
 endfunction
 
 let s:callbacks = {
-			\ 'on_stdout': function('s:CompilationEvent'),
-			\ 'on_stderr': function('s:CompilationEvent'),
-			\ 'on_exit': function('s:CompilationEvent')
+			\ 'on_stdout': function('s:LiveEvent'),
+			\ 'on_stderr': function('s:LiveEvent'),
+			\ 'on_exit': function('s:LiveEvent')
 			\ }
 
 function! s:LiveCompile(command)
