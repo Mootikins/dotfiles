@@ -79,7 +79,7 @@ augroup FiletypeGroup
 	autocmd Filetype rust setlocal tabstop=3 softtabstop=3 shiftwidth=3
 	autocmd Filetype vimwiki nnoremap <buffer> <silent> <C-o> :call OpenInZathura()<CR>
 	autocmd Filetype vimwiki setlocal tabstop=3 softtabstop=3 shiftwidth=3 expandtab textwidth=80 formatoptions+=t filetype=vimwiki.pandoc
-	autocmd Filetype vimwiki.pandoc setlocal nowrap textwidth=80 tabstop=3 softtabstop=3 shiftwidth=3 expandtab textwidth=80 formatoptions+=t
+	autocmd Filetype vimwiki.pandoc setlocal nowrap textwidth=80 tabstop=3 softtabstop=3 shiftwidth=3 expandtab textwidth=80 formatoptions+=t foldenable
 augroup END
 " ======================================================================= }}}
 
