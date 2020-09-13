@@ -41,7 +41,7 @@ alert = ${xrdb:color6}
 [bar/example]
 monitor = ${env:MONITOR:}
 width = 100%
-height = 18
+height = 19
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0.0
@@ -63,10 +63,11 @@ padding-right = 0
 module-margin-left = 0
 module-margin-right = 0
 
-font-0 = scientifica:pixelsize=11;1
-font-1 = Siji:pixelsize=10;2
-font-2 = Tamzen for Powerline:style=Medium:pixelsize=16;2
+font-0 = scientifica:pixelsize=11;2
+font-1 = Siji:pixelsize=10;3
+font-2 = Tamzen for Powerline:style=Medium:pixelsize=18;2
 font-3 = JackeyFont:size=9;2
+font-4 = curie:weight=bold:pixelsize=11;2
 
 modules-left = date left1 volume left2 mpd left3
 modules-center = i3
@@ -161,33 +162,34 @@ wrapping-scroll = false
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
 
-label-mode-padding = 1
-label-mode-foreground = #000
-label-mode-background = ${colors.primary}
+label-mode = %{T3} %{T1}%mode%%{T3} %{R}
+label-mode-padding = 0
+label-mode-foreground = ${colors.background}
+label-mode-background = ${colors.xcolor13}
 
 ; focused = Active workspace on focused monitor
-label-focused = %{T3}%icon%
-label-focused-background = ${colors.background}
-label-focused-foreground = ${colors.xcolor15}
-label-focused-padding = 1
+label-focused = %{T3} %icon% %{R}
+label-focused-foreground = ${colors.background}
+label-focused-background = ${colors.xcolor12}
+label-focused-padding = 0
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = "%{T3} %{T0}%icon%%{T3} "
+label-unfocused = "   %icon%   "
 label-unfocused-background = ${colors.background}
-label-unfocused-foreground = ${colors.xcolor15}
-label-unfocused-padding = 1
+label-unfocused-foreground = ${colors.xcolor12}
+label-unfocused-padding = 0
 
 ; visible = Active workspace on unfocused monitor
-label-visible = "%{T3} %{T0}%icon%%{T3} "
+label-visible = "   %icon%   "
 label-visible-background = ${colors.background}
-label-visible-foreground = ${colors.xcolor15}
-label-visible-padding = 1
+label-visible-foreground = ${colors.xcolor12}
+label-visible-padding = 0
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %icon%
-label-urgent-background = ${colors.xcolor9}
-label-urgent-foreground = ${colors.xcolor0}
-label-urgent-padding = 1
+label-urgent = "   %icon%   "
+label-urgent-background = ${colors.background}
+label-urgent-foreground = ${colors.xcolor9}
+label-urgent-padding = 0
 
 ; \ue174 - \ue17c
 ws-icon-0 = 1;
@@ -313,9 +315,9 @@ type = internal/date
 interval = 1
 
 ; Time
-date = " %I:%M:%S"
+date = " %{T5}%I:%M:%S"
 ; Date
-date-alt = " %m-%d-%Y"
+date-alt = " %{T5}%m-%d-%Y"
 
 format-prefix = 
 format-padding = 1
@@ -369,9 +371,9 @@ ramp-volume-4 = 
 
 [module/battery1]
 type = internal/battery
-battery = BAT1
-adapter = ADP1
-full-at = 95
+battery = CMB1
+adapter = AC
+full-at = 90
 
 label-charging = %percentage%%
 label-charging-padding = 0
