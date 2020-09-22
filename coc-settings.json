@@ -20,5 +20,7 @@
 		"vimwiki.pandoc": ["tex", "latex"],
 		"typescriptreact": ["javascript", "typescript", "javascriptreact"],
 		"javascriptreact": ["javascript"]
-	}
+	},
+
+	"rust-analyzer.serverPath": "/usr/bin/rust-analyzer"
 }

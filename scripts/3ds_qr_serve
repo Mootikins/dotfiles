@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+if [[ "$#" -ne 1 ]]; then
+  echo "USAGE: $0 FILENAME"
+  exit 1
+fi
+
+if [[ ! -f $1 ]]; then
+  echo "'$1' does not exist"
+  exit 2
+fi
+
+FILENAME=$(echo $1 | sed 's/ /%20/g')
+
+GLOBAL_IP=$(curl ipv4.icanhazip.com)
+
+URL="$GLOBAL_IP:1723/$FILENAME"
+
+qrencode -t png -o output.png "$URL"
+
+xclip -selection clipboard -t image/png -i output.png
+
+echo "QR code for $URL has been copied to clipbard"
+echo "Use Ctrl-C to stop serving file"
+
+python3 -m http.server 1723

@@ -19,7 +19,7 @@ set undodir=$HOME/.vim/undo
 set spelllang=en_us
 set nowrap
 set title
-set titlestring=NeoVim\ -\ %f%(\ -\ %h%w%q%)
+set titlestring=Neovim\ -\ %f%(\ -\ %h%w%q%)
 
 if has('nvim')
 	set signcolumn=auto:3

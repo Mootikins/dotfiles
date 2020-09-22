@@ -25,28 +25,25 @@ bindsym $mod+y border pixel 5
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font xft:curie 10
+font xft:scientifica 8
 
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec st -f "curie:style=normal:pixelsize=11:antialias=false:autohint=true"
-bindsym $mod+Shift+Return exec st -c "life"
+bindsym $mod+Return exec alacritty --config-file ~/.config/wpg/templates/config_alacritty_alacritty_curie.yml
+bindsym $mod+Shift+Return exec alacritty --class "life" --dimensions 70 20 --config-file ~/.config/wpg/templates/config_alacritty_alacritty_curie.yml
 bindsym $mod+Ctrl+Return exec alacritty
-bindsym $mod+v exec st -c "life" -e nvim '+au BufWriteCmd vimclippy %y+ | set nomodified' '+set nonumber norelativenumber signcolumn=no laststatus=0 showtabline=0 noruler' vimclippy
-bindsym $mod+Shift+p exec st -c "life" -e 'ipython'
-
-#open current window in sticky float, 463 for bottom right
-bindsym $mod+o fullscreen disable
-bindsym $mod+Shift+o fullscreen disable; floating enable; resize set 400 300; sticky enable; move window to position 1510 18
+bindsym $mod+v exec alacritty --class "life" --dimensions 70 20 --config-file ~/.config/wpg/templates/config_alacritty_alacritty_curie.yml -e nvim '+au BufWriteCmd vimclippy %y+ | set nomodified' '+set nonumber norelativenumber signcolumn=no laststatus=0 showtabline=0 noruler' vimclippy
+bindsym $mod+Shift+p exec alacritty --class "life" --dimensions 70 20 --config-file ~/.config/wpg/templates/config_alacritty_alacritty_curie.yml -e 'ipython'
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+space exec rofi -show combi -opacity 95 -theme ~/.config/rofi/colors-rofi-dark.rasi -font "curie 10" -columns 3
-bindsym $mod+Shift+e exec rofi -show emoji -opacity 95 -theme ~/.config/rofi/colors-rofi-dark.rasi -font "curie 10" -columns 3
+bindsym $mod+space exec rofi -show combi -opacity 95 -theme ~/.config/rofi/colors-rofi-dark.rasi -font "curie 10" -columns 4
+bindsym $mod+Shift+e exec rofi -show emoji -opacity 95 -theme ~/.config/rofi/colors-rofi-dark.rasi -font "curie 10" -columns 4
+bindsym $mod+Shift+w exec ~/Utilities/networkmanager-dmenu/networkmanager_dmenu
 
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
@@ -81,8 +78,8 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 
 # Start Applications
 bindsym $mod+F1 exec chromium
-bindsym $mod+F2 exec st -e 'ranger'
-bindsym $mod+F3 exec st -c "life" -e 'ncmpcpp'
+bindsym $mod+F2 exec alacritty --class "life" --dimensions 70 20 --config-file ~/.config/wpg/templates/config_alacritty_alacritty_curie.yml -e 'ranger'
+bindsym $mod+F3 exec alacritty --class "life" --dimensions 70 20 --config-file ~/.config/wpg/templates/config_alacritty_alacritty_curie.yml -e 'ncmpcpp'
 bindsym $mod+F4 exec nautilus
 
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
@@ -131,6 +128,9 @@ bindsym $mod+q split toggle
 
 # toggle fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
+# open current window in sticky float
+bindsym $mod+Shift+f fullscreen disable; floating enable; resize set 400 300; sticky enable
+
 bindsym $mod+p exec "polybar-msg cmd toggle"
 
 # change container layout (stacked, tabbed, toggle split)
@@ -243,7 +243,7 @@ for_window [class="Xfburn"]                        floating enable
 for_window [class="krohn_matthew.Main"]            floating enable border none
 for_window [class="octopi"]                        floating enable
 for_window [class="qt5ct"]                         floating enable sticky enable
-for_window [class="st" class="life"]               floating enable move scratchpad scratchpad show move window to position 1430 18
+for_window [instance="life"]               floating enable move scratchpad scratchpad show
 for_window [title="About Pale Moon"]               floating enable
 for_window [title="File Transfer*"]                floating enable
 for_window [title="MuseScore: Play Panel"]         floating enable
@@ -256,6 +256,7 @@ for_window [window_role="task_dialog"]             floating enable
 for_window [window_type="dialog"]                  floating enable
 for_window [window_type="menu"]                    floating enable
 for_window [title="^Android Emulator*"]            floating enable border none
+for_window [Class="Steam"]                         border pixel 5
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -297,10 +298,10 @@ mode "resize" {
         bindsym j resize grow height 5 px
         bindsym k resize shrink height 5 px
         bindsym l resize grow width 5 px
-        bindsym Shift+h resize shrink width 30 px
-        bindsym Shift+j resize grow height 30 px
-        bindsym Shift+k resize shrink height 30 px
-        bindsym Shift+l resize grow width 30 px
+        bindsym Shift+h resize shrink width 75 px
+        bindsym Shift+j resize grow height 75 px
+        bindsym Shift+k resize shrink height 75 px
+        bindsym Shift+l resize grow width 75 px
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -393,7 +394,7 @@ gaps outer 0
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
+# smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace) 
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
@@ -444,5 +445,3 @@ mode "$mode_gaps_outer" {
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id mpd
 exec --no-startup-id redshift -t 6500:3000
-exec_always --no-startup-id ~/Utilities/feh-blur-wallpaper/feh-blur -s
-exec_always --no-startup-id ~/Utilities/feh-blur-wallpaper/feh-blur -b 4 --darken 4
