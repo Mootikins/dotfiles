@@ -14,8 +14,6 @@
 " PLUGINS ================================================================== {{{
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'ThePrimeagen/vim-apm'
-
 Plug 'sheerun/vim-polyglot'
 Plug 'Valloric/MatchTagAlways'
 
@@ -159,7 +157,7 @@ let g:vimtex_quickfix_mode=0
 set conceallevel=2
 let g:tex_conceal='abdmg'
 
-let g:polyglot_disabled = []
+" let g:polyglot_disabled = []
 " let g:polyglot_disabled = ['markdown', 'pandoc']
 " ========================================================================== }}}
 

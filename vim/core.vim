@@ -163,7 +163,7 @@ function! WinBufSwap()
 				\ "buffer ". lastbuf
 endfunction
 
-nnoremap <C-w><C-r> :call WinBufSwap()<CR>
+nnoremap <C-w><C-r> <silent> :call WinBufSwap()<CR>
 
 function! DeleteEmptyBuffers()
 	let [i, n; empty] = [1, bufnr('$')]
