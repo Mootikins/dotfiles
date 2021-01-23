@@ -43,6 +43,8 @@ set fillchars=vert:│
 
 highlight whitespace gui=bold
 
+highlight! link CocHintSign Comment
+
 function! HLFlicker (blinktime)
 	set cursorline
 	redraw

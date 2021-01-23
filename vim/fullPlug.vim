@@ -27,6 +27,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-dispatch'
 
 Plug 'junegunn/vim-plug'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -69,10 +70,9 @@ Plug 'patstockwell/vim-monokai-tasty'
 
 Plug 'segeljakt/vim-silicon'
 
-Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
-
 Plug 'sbdchd/neoformat'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
 
 Plug 'kkoomen/vim-doge'
 
@@ -83,6 +83,29 @@ call plug#end()
 " ========================================================================== }}}
 
 " PLUGIN SETTINGS ========================================================== {{{
+
+" TPOPE ==================================================================== {{{
+
+" FUGITIVE ================================================================= {{{
+cnoreabbrev gp Gpush
+cnoreabbrev gl Gpull
+" ========================================================================== }}}
+
+" DISPATCH ================================================================= {{{
+nnoremap <silent> <leader>d :Dispatch!<CR>
+nnoremap <silent> <leader>m :Make!<CR>
+
+augroup DispatchVariables
+	autocmd Filetype vimwiki,pandoc let &l:makeprg = 'pandoc -f markdown "%" -o "%:r.pdf"'
+augroup end
+" ========================================================================== }}}
+
+" VINEGAR ================================================================== {{{
+" Open NetRW in a split window
+nmap _ <C-w>v- 
+" ========================================================================== }}}
+
+" ========================================================================== }}}
 
 " COLORIZER.LUA ============================================================ {{{
 set termguicolors
@@ -96,8 +119,6 @@ lua require'colorizer'.setup {
 " ========================================================================== }}}
 
 " LIVE-JOBS ================================================================ {{{
-
-" FRAMEWORK ================================================================ {{{
 function! s:LiveEvent(job_id, data, event) dict
 	if a:event ==? 'stderr'
 		let str = 'Compile Error: '.join(a:data)
@@ -119,35 +140,6 @@ let s:callbacks = {
 function! s:LiveCompile(command)
 	let b:compile_job = jobstart(a:command, s:callbacks)
 endfunction
-" ========================================================================== }}}
-
-" PANDOC =================================================================== {{{
-function! EnablePandocLive()
-	let b:pdf_filename = fnameescape(split(@%, '\.')[0]) . '.pdf'
-	augroup PandocLive
-		autocmd! * <buffer>
-		autocmd BufWritePost <buffer> silent call s:LiveCompile('pandoc -f markdown ' . fnameescape(@%) . ' -o ' . b:pdf_filename)
-	augroup END
-
-	command -buffer PandocLiveDisable call s:DisablePandocLive()
-	delcommand PandocLiveEnable
-endfunction
-
-function! s:DisablePandocLive()
-	augroup PandocLive
-		autocmd! * <buffer>
-	augroup END
-	augroup! PandocLive
-	delcommand PandocLiveDisable
-	command! PandocLiveEnable call EnablePandocLive()
-endfunction
-
-augroup PandocLive
-	autocmd!
-	autocmd Filetype pandoc,vimwiki command! PandocLiveEnable call EnablePandocLive()
-augroup END
-" ========================================================================== }}}
-
 " ========================================================================== }}}
 
 " POLYGLOT ================================================================= {{{
@@ -237,6 +229,9 @@ inoremap <silent><expr> <TAB>
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
@@ -244,11 +239,9 @@ endfunction
 
 inoremap <silent><expr> <c-space> coc#refresh()
 
-inoremap <silent><expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" Use `[e` and `]e` to navigate errors
+nmap <silent> [e <Plug>(coc-diagnostic-prev)
+nmap <silent> ]e <Plug>(coc-diagnostic-next)
 
 function! s:show_documentation()
 	if (index(['vim','help'], &filetype) >= 0)
@@ -258,20 +251,25 @@ function! s:show_documentation()
 	endif
 endfunction
 
-imap <C-y> <Plug>(coc-snippets-expand)
+" imap <C-y> <Plug>(coc-snippets-expand)
 
 vmap <C-j> <Plug>(coc-snippets-select)
 
-let g:coc_snippet_next = '<c-j>'
+let g:coc_snippet_next = "<C-j>"
 
-let g:coc_snippet_prev = '<c-k>'
+let g:coc_snippet_prev = "<C-k>"
 
 nnoremap <silent> gK :call <SID>show_documentation()<CR>
+nmap <silent> <leader>ca <Plug>(coc-codeaction)
+xmap <silent> <leader>ca <Plug>(coc-codeaction-selected)
 nmap <silent> <leader>cd <Plug>(coc-definition)
-nmap <silent> <leader>ct <Plug>(coc-type-definition)
 nmap <silent> <leader>ci <Plug>(coc-implementation)
-nmap <silent> <leader>cr <Plug>(coc-references)
 nmap <silent> <leader>cn <Plug>(coc-rename)
+nmap <silent> <leader>cr <Plug>(coc-references)
+nmap <silent> <leader>ct <Plug>(coc-type-definition)
+nnoremap <silent> <leader>cl :CocFzfList<CR>
+nnoremap <silent> <leader>cc :CocFzfList commands<CR>
+nnoremap <silent> <leader>cI :CocCommand rust-analyzer.toggleInlayHints<CR>
 
 " navigate chunks of current buffer
 nmap [h <Plug>(coc-git-prevchunk)
@@ -340,15 +338,6 @@ let g:airline_extensions = [
 " let g:airline_left_alt_sep = ''
 " let g:airline_right_sep = ''
 " let g:airline_right_alt_sep = ''
-" ========================================================================== }}}
-
-" ULTISNIPS ================================================================ {{{
-" let g:UltiSnipsExpandTrigger="<C-y>"
-" let g:UltiSnipsJumpForwardTrigger="<C-j>"
-" let g:UltiSnipsJumpBackwardTrigger="<C-k>"
-
-" let g:UltiSnipsSnippetDirectories = [$HOME.'/dotfiles/snippets', 'Ultisnips']
-" let g:UltiSnipsEditSplit="vertical"
 " ========================================================================== }}}
 
 " PANDOC =================================================================== {{{
@@ -461,16 +450,17 @@ let g:which_key_map = {
 	\ '\' : '(backslash) Split Right',
 	\ 'c' : {
 		\ 'name' : '+COC-NVIM',
+		\ 'c' : 'Fuzzy Search CoC Commands',
 		\ 'd' : 'Go To Definition',
 		\ 'i' : 'Go To Implementation',
+		\ 'l' : 'Fuzzy Search all CoC lists',
 		\ 'n' : 'Rename Symbol',
 		\ 'r' : 'View References',
 		\ 't' : 'Go To Type Definition',
+		\ 'I' : 'Toggle Inlay Hints',
 	\ },
 	\ 'D' : 'Generate Documentation (DoGe)',
-	\ 'd' : {
-		\ 'name' : '+DEBUGGERS'
-	\ },
+	\ 'd' : 'Dispatch',
 	\ 'f' : {
 		\ 'name' : '+FIND',
 		\ 'a' : {
@@ -500,6 +490,7 @@ let g:which_key_map = {
 		\ 'i' : 'Git Hunk Info',
 	\ },
 	\ 'i' : 'Toggle Indent Lines',
+	\ 'o' : 'Open in Viewer',
 	\ 's' : 'Put Line in Tmux Pane',
 	\ 't' : 'Toggle Tag Bar',
 	\ 'u' : 'Toggle Undo Tree',
@@ -519,11 +510,6 @@ call which_key#register('<Space>', "g:which_key_map")
 nnoremap <silent> <leader>t :TagbarToggle<CR>
 " ========================================================================== }}}
 
-" FUGITIVE ================================================================= {{{
-cnoreabbrev gp Gpush
-cnoreabbrev gl Gpull
-" ========================================================================== }}}
-
 " VIMWIKI ================================================================== {{{
 let g:vimwiki_list = [{
 			\ 'path': '~/vimwiki/',
@@ -531,7 +517,7 @@ let g:vimwiki_list = [{
 			\}]
 let g:vimwiki_dir_link = 'index'
 let g:vimwiki_folding = 'list'
-let g:vimwiki_table_mappings = 0
+" let g:vimwiki_table_mappings = 0
 function! VimwikiLinkHandler(link)
 	" Use Vim to open external files with the 'vfile:' scheme.  E.g.:
 	"   1) [[vfile:~/Code/PythonProject/abc123.py]]

@@ -13,7 +13,7 @@ set showcmd mouse=a
 set ignorecase smartcase incsearch showmatch hlsearch
 set autoread virtualedit+=block
 set showmatch noshowmode lazyredraw
-set wildmenu wildmode=full
+set wildignorecase wildmenu wildmode=full
 set undofile
 set undodir=$HOME/.vim/undo
 set spelllang=en_us
@@ -22,7 +22,7 @@ set title
 set titlestring=Neovim\ -\ %f%(\ -\ %h%w%q%)
 
 if has('nvim')
-	set signcolumn=auto:3
+	set signcolumn=auto:4
 else
 	set signcolumn=auto
 endif
@@ -73,13 +73,12 @@ augroup FiletypeGroup
 	autocmd Filetype python setlocal shiftwidth=4 softtabstop expandtab
 	autocmd Filetype markdown setlocal expandtab tabstop=2 softtabstop=2 textwidth=100 formatoptions+=t
 	autocmd Filetype help execute "wincmd L | vertical resize 85"
-	autocmd Filetype html nnoremap <buffer> <silent> <C-o> :silent !xdg-open %<CR>
+	autocmd Filetype html nnoremap <buffer> <silent> <leader>o :silent !xdg-open %<CR>
 	autocmd Filetype pandoc setlocal expandtab textwidth=80 formatoptions+=t spell
-	autocmd Filetype pandoc nnoremap <buffer> <silent> <C-o> :call OpenInZathura()<CR>
-	autocmd Filetype rust setlocal tabstop=3 softtabstop=3 shiftwidth=3
-	autocmd Filetype vimwiki nnoremap <buffer> <silent> <C-o> :call OpenInZathura()<CR>
+	autocmd Filetype rust setlocal tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 	autocmd Filetype vimwiki setlocal tabstop=3 softtabstop=3 shiftwidth=3 expandtab textwidth=80 formatoptions+=t filetype=vimwiki.pandoc
 	autocmd Filetype vimwiki.pandoc setlocal nowrap textwidth=80 tabstop=3 softtabstop=3 shiftwidth=3 expandtab textwidth=80 formatoptions+=t foldenable
+	autocmd Filetype vimwiki.pandoc nnoremap <buffer> <silent> <leader>o :call OpenInZathura()<CR>
 augroup END
 " ======================================================================= }}}
 
@@ -151,19 +150,15 @@ else
 	highlight Folded ctermbg=0
 endif
 
-function! WinBufSwap()
-	let thiswin = winnr()
-	let thisbuf = bufnr("%")
-	let lastwin = winnr("#")
-	let lastbuf = winbufnr(lastwin)
-
-	exec  lastwin . " wincmd w" ."|".
-				\ "buffer ". thisbuf ."|".
-				\ thiswin ." wincmd w" ."|".
-				\ "buffer ". lastbuf
+function! SwitchWindow(count) abort
+    let l:current_buf = winbufnr(0)
+    exe "buffer" . winbufnr(a:count)
+    exe a:count . "wincmd w"
+    exe "buffer" . l:current_buf
+    wincmd p
 endfunction
 
-nnoremap <C-w><C-r> <silent> :call WinBufSwap()<CR>
+nnoremap <C-w><C-r> <silent> :call SwitchWindow(v:count1)<CR>
 
 function! DeleteEmptyBuffers()
 	let [i, n; empty] = [1, bufnr('$')]

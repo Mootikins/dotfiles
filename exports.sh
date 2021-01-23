@@ -10,14 +10,14 @@ export FZF_COMPLETION_TRIGGER='**'
 if type rg > /dev/null; then
   export FZF_DEFAULT_COMMAND='rg --files --no-hidden --follow --glob "!.git/*"'
 fi
-export FZF_DEFAULT_OPTS="-m --height 50% --layout=reverse --color fg:7,bg:0,hl:4,fg+:7,bg+:8,hl+:12 --color info:9,prompt:12,spinner:12,pointer:12,marker:10"
+export FZF_DEFAULT_OPTS="-m --height 50% --layout=reverse --color fg:7,bg:0,hl:4,fg+:7,bg+:8,hl+:12 --color info:9,prompt:12,spinner:12,pointer:12,marker:10 --bind alt-k:preview-half-page-up,alt-j:preview-half-page-down"
 
 if type bat &>/dev/null; then
-  export FZF_COMPLETION_OPTS="--preview 'bat --decorations=never --color=always --style=grid --line-range :50 {}'"
+  export FZF_COMPLETION_OPTS="--preview 'bat --decorations=never --color=always --style=grid {}'"
 
-  export FZF_CTRL_T_OPTS="--preview 'bat --decorations=never --color=always --style=grid --line-range :50 {}' --preview-window right:50% --bind '?:toggle-preview'"
+  export FZF_CTRL_T_OPTS="--preview 'bat --decorations=never --color=always --style=grid {}' --preview-window right:50% --bind '?:toggle-preview'"
 else
-  export FZF_COMPLETION_OPTS="--preview 'head -50 {}'"
+  export FZF_COMPLETION_OPTS="--preview 'bat --decorations=never --color=always --style=grid {}'"
 
   export FZF_CTRL_T_OPTS="--preview 'head -50 {}' --preview-window right:50% --bind '?:toggle-preview'"
 fi
@@ -27,10 +27,6 @@ if type exa &>/dev/null; then
   alias ls=exa
   alias la="exa -a"
   alias ll="exa -l"
-fi
-
-if type neomutt &>/dev/null; then
-  alias nm=neomutt
 fi
 
 # Use fd to generate the list for directory completion
@@ -52,6 +48,7 @@ fi
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 export KEYTIMEOUT=15
+export GOPATH=$(go env GOPATH)
 
 if type nvim &>/dev/null; then
   export VISUAL=nvim
