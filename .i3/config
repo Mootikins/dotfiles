@@ -11,17 +11,17 @@ set $mod Mod4
 title_align center
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-default_border pixel 5
-default_floating_border pixel 5
-new_window pixel 5
-new_float pixel 5
+default_border pixel 3
+default_floating_border pixel 3
+new_window pixel 3
+new_float pixel 3
 
 # Hide borders
 hide_edge_borders none
 
 # change borders    
 bindsym $mod+u border none
-bindsym $mod+y border pixel 5
+bindsym $mod+y border pixel 3
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -31,11 +31,11 @@ font xft:scientifica 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty --config-file ~/.config/wpg/templates/config_alacritty_alacritty_curie.yml
-bindsym $mod+Shift+Return exec alacritty --class "life" --dimensions 70 20 --config-file ~/.config/wpg/templates/config_alacritty_alacritty_curie.yml
+bindsym $mod+Return exec alacritty --config-file ~/dotfiles/templates/alacritty_curie.yml
+bindsym $mod+Shift+Return exec alacritty --class "life" --dimensions 70 20 --config-file ~/dotfiles/templates/alacritty_curie.yml
 bindsym $mod+Ctrl+Return exec alacritty
-bindsym $mod+v exec alacritty --class "life" --dimensions 70 20 --config-file ~/.config/wpg/templates/config_alacritty_alacritty_curie.yml -e nvim '+au BufWriteCmd vimclippy %y+ | set nomodified' '+set nonumber norelativenumber signcolumn=no laststatus=0 showtabline=0 noruler' vimclippy
-bindsym $mod+Shift+p exec alacritty --class "life" --dimensions 70 20 --config-file ~/.config/wpg/templates/config_alacritty_alacritty_curie.yml -e 'ipython'
+bindsym $mod+v exec alacritty --class "life" --dimensions 70 20 --config-file ~/dotfiles/templates/alacritty_curie.yml -e nvim '+au BufWriteCmd vimclippy %y+ | set nomodified' '+set nonumber norelativenumber signcolumn=no laststatus=0 showtabline=0 noruler' vimclippy
+bindsym $mod+Shift+p exec alacritty --class "life" --dimensions 70 20 --config-file ~/dotfiles/templates/alacritty_curie.yml -e 'ipython'
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -61,15 +61,16 @@ bindsym $mod+equal exec ~/dotfiles/scripts/swap_workspaces.py
 # Screen brightness controls
 # bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+
+# Media player controls: Media keys
+bindsym XF86AudioPlay exec /home/moot/dotfiles/scripts/media_controls.sh playpause
+bindsym XF86AudioNext exec /home/moot/dotfiles/scripts/media_controls.sh next
+bindsym XF86AudioPrev exec /home/moot/dotfiles/scripts/media_controls.sh prev
+
+# Media player controls: No media keys
 bindsym $mod+Ctrl+Right exec mpc next
 bindsym $mod+Ctrl+Left exec mpc prev
 bindsym $mod+Ctrl+Down exec mpc toggle
-bindsym $mod+Ctrl+Up exec mpc stop
-
-# Media player controls
-bindsym XF86AudioPlay exec mpc toggle
-bindsym XF86AudioNext exec mpc next
-bindsym XF86AudioPrev exec mpc prev
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
@@ -78,8 +79,8 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 
 # Start Applications
 bindsym $mod+F1 exec chromium
-bindsym $mod+F2 exec alacritty --class "life" --dimensions 70 20 --config-file ~/.config/wpg/templates/config_alacritty_alacritty_curie.yml -e 'ranger'
-bindsym $mod+F3 exec alacritty --class "life" --dimensions 70 20 --config-file ~/.config/wpg/templates/config_alacritty_alacritty_curie.yml -e 'ncmpcpp'
+bindsym $mod+F2 exec alacritty --class "life" --dimensions 150 50 --config-file ~/dotfiles/templates/alacritty_curie.yml -e 'ranger'
+bindsym $mod+F3 exec alacritty --class "life" --dimensions 150 50 --config-file ~/dotfiles/templates/alacritty_curie.yml -e 'ncmpcpp'
 bindsym $mod+F4 exec nautilus
 
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
@@ -229,7 +230,7 @@ for_window [class="Lightdm-gtk-greeter-settings"]  floating enable
 for_window [class="Lxappearance"]                  floating enable sticky enable
 for_window [class="Manjaro Settings Manager"]      floating enable
 for_window [class="Manjaro-hello"]                 floating enable
-for_window [class="Nautilus"]                      border pixel 5
+for_window [class="Nautilus"]                      border pixel 3
 for_window [class="Nitrogen"]                      floating enable sticky enable
 for_window [class="Oblogout"]                      fullscreen enable
 for_window [class="Pamac-manager"]                 floating enable
@@ -256,7 +257,10 @@ for_window [window_role="task_dialog"]             floating enable
 for_window [window_type="dialog"]                  floating enable
 for_window [window_type="menu"]                    floating enable
 for_window [title="^Android Emulator*"]            floating enable border none
-for_window [Class="Steam"]                         border pixel 5
+for_window [class="Steam"]                         border pixel 3
+for_window [class="matplotlib"]                    floating enable
+for_window [class="feh"]                           floating enable
+for_window [class="scrcpy"]                        floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -444,4 +448,5 @@ mode "$mode_gaps_outer" {
 
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id mpd
+exec --no-startup-id mpd-discord-rpc
 exec --no-startup-id redshift -t 6500:3000
