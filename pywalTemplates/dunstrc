@@ -34,7 +34,7 @@
     
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
-    alignment = left
+    alignment = center
     
     # The frequency with wich text that is longer than the notification
     # window allows bounces back and forth.
@@ -125,7 +125,7 @@
     padding = 8
     
     # Horizontal padding.
-    horizontal_padding = 10
+    horizontal_padding = 8
     
     # Define a color for the separator.
     # possible values are:

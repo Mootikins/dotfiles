@@ -75,7 +75,8 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(
   z
   git
-  git-flow
+  docker
+  docker-compose
   vi-mode
   history-substring-search
   zsh-autosuggestions

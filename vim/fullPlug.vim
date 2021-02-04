@@ -40,7 +40,6 @@ Plug 'majutsushi/tagbar'
 Plug 'mattn/emmet-vim'
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
-Plug 'jaxbot/browserlink.vim', { 'for': ['html'] }
 Plug 'wellle/targets.vim'
 Plug 'machakann/vim-sandwich'
 
@@ -54,7 +53,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'godlygeek/tabular'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'vimwiki/vimwiki'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -96,7 +94,7 @@ nnoremap <silent> <leader>d :Dispatch!<CR>
 nnoremap <silent> <leader>m :Make!<CR>
 
 augroup DispatchVariables
-	autocmd Filetype vimwiki,pandoc let &l:makeprg = 'pandoc -f markdown "%" -o "%:r.pdf"'
+	autocmd Filetype pandoc let &l:makeprg = 'pandoc -f markdown "%" -o "%:r.pdf"'
 augroup end
 " ========================================================================== }}}
 
@@ -156,7 +154,7 @@ let g:tex_conceal='abdmg'
 " AUTO-PAIRS =============================================================== {{{
 augroup FiletypePairs
 	autocmd!
-	autocmd Filetype vimwiki,pandoc,vimwiki.pandoc let b:AutoPairs = AutoPairsDefine({
+	autocmd Filetype pandoc let b:AutoPairs = AutoPairsDefine({
 				\ '\left(': ' \right)//k)',
 				\ '$': '$',
 				\ '$$': '$$'
@@ -219,6 +217,7 @@ let g:user_emmet_settings = {
 set hidden
 set shortmess+=c
 set updatetime=300
+let g:python3_host_prog = '/usr/bin/python'
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -308,6 +307,7 @@ nnoremap <silent> <leader>i :IndentLinesToggle<CR>
 " SANDWICH ================================================================= {{{
 let g:sandwich#recipes = g:sandwich#default_recipes
 let g:sandwich#recipes += [
+			\ {'buns': ["\\left( ", " \\right)"], 'nesting': 1, 'match_syntax': 1, 'input': ['l('] },
 			\ {'buns': ["( ", " )"], 'nesting': 1, 'match_syntax': 1, 'input': ['('] },
 			\ {'buns': ["[ ", " ]"], 'nesting': 1, 'match_syntax': 1, 'input': ['['] },
 			\ {'buns': ["{ ", " }"], 'nesting': 1, 'match_syntax': 1, 'input': ['{'] },
@@ -334,10 +334,10 @@ let g:airline_extensions = [
 			\'wordcount'
 			\]
 " 
-" let g:airline_left_sep = ''
-" let g:airline_left_alt_sep = ''
-" let g:airline_right_sep = ''
-" let g:airline_right_alt_sep = ''
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
 " ========================================================================== }}}
 
 " PANDOC =================================================================== {{{
@@ -363,7 +363,7 @@ let g:pandoc#modules#disabled = [
 " SILICON ================================================================== {{{
 let g:silicon = {
 			\ 'theme':     'Monokai Extended',
-			\ 'font':           'Victor Mono',
+			\ 'font':  'VictorMono Nerd Font',
 			\ 'background':         '#252525',
 			\ 'shadow-color':       '#000000',
 			\ 'line-pad':                   2,
@@ -398,11 +398,12 @@ if has('nvim')
 		call remove(g:fzf_colors, 'bg')
 	endif
 	let g:fzf_layout = { 'window': { 
-				\'width': 0.75, 
-				\'height': 0.75, 
-				\'highlight': 'Special',
-				\'border': 'sharp'
-				\} }
+				\   'width': 0.75, 
+				\   'height': 0.75, 
+				\   'highlight': 'Special',
+				\   'border': 'rounded'
+				\   }
+				\ }
 endif
 
 command! -bang -nargs=* GGrep
@@ -415,6 +416,12 @@ command! -bang -nargs=? -complete=dir Files
 
 command! -bang -nargs=? -complete=dir HFiles
 			\ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'source': 'fd --type file --hidden --no-ignore --exclude ".git/*"'}), <bang>0)
+
+command! -bang Commits
+			\ call fzf#vim#commits({'options': ['--preview-window', 'up']}, <bang>0)
+
+command! -bang BCommits
+			\ call fzf#vim#buffer_commits({'options': ['--preview-window', 'up']}, <bang>0)
 
 autocmd Filetype fzf tmap <buffer><silent> <C-d> <Esc>;q<CR>
 autocmd Filetype fzf tmap <buffer><silent> <C-c> <Esc>;q<CR>
@@ -494,13 +501,6 @@ let g:which_key_map = {
 	\ 's' : 'Put Line in Tmux Pane',
 	\ 't' : 'Toggle Tag Bar',
 	\ 'u' : 'Toggle Undo Tree',
-	\ 'w' : {
-		\ 'name' : '+VIMWIKI',
-		\ 'i' : 'View Diary Index',
-		\ 's' : 'Select VimWiki to Open',
-		\ 't' : 'Open Primary Wiki in New Tab',
-		\ 'w' : 'Open Primary Wiki',
-	\ }
 \ }
 
 call which_key#register('<Space>', "g:which_key_map")

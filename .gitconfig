@@ -42,7 +42,8 @@
 [pull]
 	rebase = false
 [delta]
+	syntax-theme = wpgtk
 	plus-color = "#012800"
 	minus-color = "#340001"
 	line-numbers = true
-	side-by-side = true
+	side-by-side = false

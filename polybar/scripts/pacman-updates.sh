@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-if yay -Qu &> /dev/null; then
-    yay -Qu | wc -l
+if paru -Qu &> /dev/null; then
+    paru -Qu | wc -l
 else
     echo "?"    
 fi

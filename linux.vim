@@ -6,10 +6,7 @@
 "              |  (__ /   (_/   '       
 "                            
 "
-if exists("g:gui_oni")
-	source ~/dotfiles/vim/core.vim
-	source ~/dotfiles/vim/highlights.vim
-elseif has('nvim')
+if has('nvim')
 	source ~/dotfiles/vim/core.vim
 	source ~/dotfiles/vim/fullPlug.vim
 	source ~/dotfiles/vim/highlights.vim

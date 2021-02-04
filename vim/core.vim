@@ -74,11 +74,9 @@ augroup FiletypeGroup
 	autocmd Filetype markdown setlocal expandtab tabstop=2 softtabstop=2 textwidth=100 formatoptions+=t
 	autocmd Filetype help execute "wincmd L | vertical resize 85"
 	autocmd Filetype html nnoremap <buffer> <silent> <leader>o :silent !xdg-open %<CR>
-	autocmd Filetype pandoc setlocal expandtab textwidth=80 formatoptions+=t spell
 	autocmd Filetype rust setlocal tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
-	autocmd Filetype vimwiki setlocal tabstop=3 softtabstop=3 shiftwidth=3 expandtab textwidth=80 formatoptions+=t filetype=vimwiki.pandoc
-	autocmd Filetype vimwiki.pandoc setlocal nowrap textwidth=80 tabstop=3 softtabstop=3 shiftwidth=3 expandtab textwidth=80 formatoptions+=t foldenable
-	autocmd Filetype vimwiki.pandoc nnoremap <buffer> <silent> <leader>o :call OpenInZathura()<CR>
+	autocmd Filetype pandoc setlocal nowrap textwidth=80 tabstop=3 softtabstop=3 shiftwidth=3 expandtab textwidth=80 formatoptions+=t nofoldenable spell
+	autocmd Filetype pandoc nnoremap <buffer> <silent> <leader>o :call OpenInZathura()<CR>
 augroup END
 " ======================================================================= }}}
 

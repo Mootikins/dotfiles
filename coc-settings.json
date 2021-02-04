@@ -17,10 +17,11 @@
 	"snippets.priority": 50,
 	"snippets.extends": {
 		"pandoc": ["tex", "latex"],
-		"vimwiki.pandoc": ["tex", "latex"],
 		"typescriptreact": ["javascript", "typescript", "javascriptreact"],
 		"javascriptreact": ["javascript"]
 	},
+	
+	"rust-analyzer.inlayHints.enable": false,
 
-	"rust-analyzer.serverPath": "/usr/bin/rust-analyzer"
+	"tailwindCSS.emmetCompletions": true,
 }
