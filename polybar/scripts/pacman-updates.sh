@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if paru -Qu &> /dev/null; then
-    paru -Qu | wc -l
+    echo paru -Qu | grep -v ignored | wc -l
 else
     echo "?"    
 fi

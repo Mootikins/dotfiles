@@ -102,7 +102,9 @@ nnoremap <silent> [t :tabprevious<CR>
 
 nnoremap <silent> g<CR> :noh<CR>
 
-inoremap <silent> kj <Esc>
+inoremap kj <Esc>
+
+nnoremap <leader>p "_ddP
 
 " move visual selection up/down line at a time
 xnoremap <silent> K <Esc>'<kdd'>pgv
