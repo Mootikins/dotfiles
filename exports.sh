@@ -5,7 +5,7 @@ export PATH="${PATH}:${HOME}/go/bin"
 export PATH="${PATH}:${HOME}/dotfiles/scripts"
 export PATH="${PATH}:${HOME}/.cargo/bin/"
 
-export FZF_COMPLETION_TRIGGER=';;'
+export FZF_COMPLETION_TRIGGER=',,'
 
 if type rg > /dev/null; then
   export FZF_DEFAULT_COMMAND='rg --files --no-hidden --follow --glob "!.git/*"'

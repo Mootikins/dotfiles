@@ -47,3 +47,5 @@
 	minus-color = "#340001"
 	line-numbers = true
 	side-by-side = false
+[init]
+	defaultBranch = master

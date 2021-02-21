@@ -39,7 +39,6 @@ Plug 'majutsushi/tagbar'
 
 Plug 'mattn/emmet-vim'
 
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 Plug 'wellle/targets.vim'
 Plug 'machakann/vim-sandwich'
 
@@ -81,12 +80,12 @@ call plug#end()
 " ========================================================================== }}}
 
 " PLUGIN SETTINGS ========================================================== {{{
-
+ 
 " TPOPE ==================================================================== {{{
 
 " FUGITIVE ================================================================= {{{
-cnoreabbrev gp Gpush
-cnoreabbrev gl Gpull
+cnoreabbrev gp Git push
+cnoreabbrev gl Git pull
 " ========================================================================== }}}
 
 " DISPATCH ================================================================= {{{
@@ -100,7 +99,7 @@ augroup end
 
 " VINEGAR ================================================================== {{{
 " Open NetRW in a split window
-nmap _ <C-w>v- 
+nmap _ <C-w>v-
 " ========================================================================== }}}
 
 " ========================================================================== }}}
@@ -508,35 +507,6 @@ call which_key#register('<Space>', "g:which_key_map")
 
 " TAGBAR =================================================================== {{{
 nnoremap <silent> <leader>t :TagbarToggle<CR>
-" ========================================================================== }}}
-
-" VIMWIKI ================================================================== {{{
-let g:vimwiki_list = [{
-			\ 'path': '~/vimwiki/',
-			\ 'syntax': 'markdown'
-			\}]
-let g:vimwiki_dir_link = 'index'
-let g:vimwiki_folding = 'list'
-" let g:vimwiki_table_mappings = 0
-function! VimwikiLinkHandler(link)
-	" Use Vim to open external files with the 'vfile:' scheme.  E.g.:
-	"   1) [[vfile:~/Code/PythonProject/abc123.py]]
-	"   2) [[vfile:./|Wiki Home]]
-	let link = a:link
-	if link =~# '^vfile:'
-		let link = link[1:]
-	else
-		return 0
-	endif
-	let link_infos = vimwiki#base#resolve_link(link)
-	if link_infos.filename == ''
-		echomsg 'Vimwiki Error: Unable to resolve link!'
-		return 0
-	else
-		exe 'e ' . fnameescape(link_infos.filename)
-		return 1
-	endif
-endfunction
 " ========================================================================== }}}
 
 " ========================================================================== }}}

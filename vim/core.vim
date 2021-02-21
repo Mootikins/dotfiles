@@ -17,7 +17,7 @@ set wildignorecase wildmenu wildmode=full
 set undofile
 set undodir=$HOME/.vim/undo
 set spelllang=en_us
-set nowrap
+set wrap
 set title
 set titlestring=Neovim\ -\ %f%(\ -\ %h%w%q%)
 
@@ -88,6 +88,8 @@ vnoremap ; :
 vnoremap : ;
 xnoremap ; :
 xnoremap : ;
+
+nnoremap <Tab> :bnext<CR>
 
 noremap <silent> H ^
 noremap <silent> L g_
