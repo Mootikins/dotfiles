@@ -67,9 +67,9 @@ bindsym $mod+Ctrl+Down exec mpc toggle
 bindsym $mod+Ctrl+Up exec mpc stop
 
 # Media player controls
-bindsym XF86AudioPlay exec mpc toggle
-bindsym XF86AudioNext exec mpc next
-bindsym XF86AudioPrev exec mpc prev
+bindsym XF86AudioPlay exec media_controls.sh playpause
+bindsym XF86AudioNext exec media_controls.sh next
+bindsym XF86AudioPrev exec media_controls.sh prev
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
@@ -257,6 +257,7 @@ for_window [window_type="dialog"]                  floating enable
 for_window [window_type="menu"]                    floating enable
 for_window [title="^Android Emulator*"]            floating enable border none
 for_window [Class="Steam"]                         border pixel 5
+for_window [Class="Google-chrome"]                 border pixel 5
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
