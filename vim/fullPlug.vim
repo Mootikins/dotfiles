@@ -71,7 +71,7 @@ Plug 'sbdchd/neoformat'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
 
-Plug 'kkoomen/vim-doge'
+Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 
 Plug 'jpalardy/vim-slime'
 
@@ -112,7 +112,11 @@ lua require'colorizer'.setup {
 		\ rgb_fn = true;
 		\ hsl_fn = true;
 	\ };
+	\ svelte = {
+		\ rgb_fn = true;
+		\ hsl_fn = true;
 	\ }
+\ }
 " ========================================================================== }}}
 
 " LIVE-JOBS ================================================================ {{{

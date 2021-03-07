@@ -89,7 +89,8 @@ vnoremap : ;
 xnoremap ; :
 xnoremap : ;
 
-nnoremap <Tab> :bnext<CR>
+nnoremap <silent> <Tab> :bnext<CR>
+nnoremap <silent> <S-Tab> :bprev<CR>
 
 noremap <silent> H ^
 noremap <silent> L g_
