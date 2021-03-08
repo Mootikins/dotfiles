@@ -53,7 +53,6 @@ fi
 
 case "${ORIENTATION}" in
 l | landscape)
-   echo "LANDSCAPE"
    NEW_WIDTH=$(echo "$HEIGHT / 9 * 16" | bc -l)
    NEW_WIDTH=$(echo "($NEW_WIDTH+0.5)/1" | bc)
    NEW_HEIGHT=$HEIGHT
