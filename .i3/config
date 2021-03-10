@@ -410,10 +410,10 @@ set $mode_gaps_vertical Vertical Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_horizontal Horizontal Gaps: +|-|0 (local), Shift + +|-|0 (global)
 bindsym $mod+g mode "$mode_gaps"
 
-bindsym $mod+bracketleft gaps inner local minus 5
-bindsym $mod+bracketright gaps inner local plus 5
-bindsym $mod+Shift+bracketleft gaps outer local minus 5
-bindsym $mod+Shift+bracketright gaps outer local plus 5
+bindsym $mod+bracketleft gaps inner current minus 5
+bindsym $mod+bracketright gaps inner current plus 5
+bindsym $mod+Shift+bracketleft gaps outer current minus 5
+bindsym $mod+Shift+bracketright gaps outer current plus 5
 
 mode "$mode_gaps" {
         bindsym o      mode "$mode_gaps_outer"
