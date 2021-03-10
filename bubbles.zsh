@@ -7,7 +7,7 @@ typeset -g POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR="%k%F{$POWERLEVEL9K_BACKGROUN
 # Separator between different-color segments on the left.
 typeset -g POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='\uE0B4'
 # Separator between different-color segments on the right.
-typeset -g POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR='\uE0B6'
+typeset -g POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=' \uE0B6'
 # The right end of left prompt.
 typeset -g POWERLEVEL9K_LEFT_PROMPT_LAST_SEGMENT_END_SYMBOL='\uE0B4'
 # The left end of right prompt.
