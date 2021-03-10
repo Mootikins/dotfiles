@@ -317,8 +317,9 @@ mode "resize" {
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+# exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 #exec --no-startup-id manjaro-hello
+exec --no-startup-id ~/.fehbg
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
@@ -402,10 +403,12 @@ gaps outer 0
 smart_borders no_gaps
 
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
-set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps Gaps: (o) outer, (i) inner, (v) vertical, (h) horizontal
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
+set $mode_gaps_vertical Vertical Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_horizontal Horizontal Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+g mode "$mode_gaps"
 
 bindsym $mod+bracketleft gaps inner all minus 5
 bindsym $mod+bracketright gaps inner all plus 5
@@ -415,9 +418,12 @@ bindsym $mod+Shift+bracketright gaps outer all plus 5
 mode "$mode_gaps" {
         bindsym o      mode "$mode_gaps_outer"
         bindsym i      mode "$mode_gaps_inner"
+        bindsym v      mode "$mode_gaps_vertical"
+        bindsym h      mode "$mode_gaps_horizontal"
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
 mode "$mode_gaps_inner" {
         bindsym plus  gaps inner current plus 5
         bindsym minus gaps inner current minus 5
@@ -430,6 +436,7 @@ mode "$mode_gaps_inner" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
 mode "$mode_gaps_outer" {
         bindsym plus  gaps outer current plus 5
         bindsym minus gaps outer current minus 5
@@ -438,6 +445,32 @@ mode "$mode_gaps_outer" {
         bindsym Shift+plus  gaps outer all plus 5
         bindsym Shift+minus gaps outer all minus 5
         bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_vertical" {
+        bindsym plus  gaps vertical current plus 10
+        bindsym minus gaps vertical current minus 10
+        bindsym 0     gaps vertical current set 0
+
+        bindsym Shift+plus  gaps vertical all plus 10
+        bindsym Shift+minus gaps vertical all minus 10
+        bindsym Shift+0     gaps vertical all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_horizontal" {
+        bindsym plus  gaps horizontal current plus 10
+        bindsym minus gaps horizontal current minus 10
+        bindsym 0     gaps horizontal current set 0
+
+        bindsym Shift+plus  gaps horizontal all plus 10
+        bindsym Shift+minus gaps horizontal all minus 10
+        bindsym Shift+0     gaps horizontal all set 0
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
