@@ -417,13 +417,13 @@ bindsym $mod+Shift+bracketright gaps outer current plus 5
 
 bindsym $mod+Up gaps vertical current plus 10
 bindsym $mod+Down gaps vertical current minus 10
-bindsym $mod+Left gaps horizontal current plus 10
-bindsym $mod+Right gaps horizontal current minus 10
+bindsym $mod+Right gaps horizontal current plus 10
+bindsym $mod+Left gaps horizontal current minus 10
 
 bindsym $mod+Shift+Up gaps vertical all plus 10
 bindsym $mod+Shift+Down gaps vertical all minus 10
-bindsym $mod+Shift+Left gaps horizontal all plus 10
-bindsym $mod+Shift+Right gaps horizontal all minus 10
+bindsym $mod+Shift+Right gaps horizontal all plus 10
+bindsym $mod+Shift+Left gaps horizontal all minus 10
 
 mode "$mode_gaps" {
         bindsym o      mode "$mode_gaps_outer"
