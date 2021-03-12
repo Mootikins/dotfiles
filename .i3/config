@@ -43,7 +43,7 @@ bindsym $mod+Shift+q kill
 # start program launcher
 bindsym $mod+space exec rofi -show combi -opacity 95 -theme ~/.config/rofi/colors-rofi-dark.rasi -font "curie 10" -columns 4
 bindsym $mod+Shift+e exec rofi -show emoji -opacity 95 -theme ~/.config/rofi/colors-rofi-dark.rasi -font "curie 10" -columns 4
-bindsym $mod+Shift+w exec ~/Utilities/networkmanager-dmenu/networkmanager_dmenu -theme ~/.config/rofi/colors-rofi-dark.rasi -font "curie 10" -columns 1
+bindsym $mod+Shift+w exec networkmanager_dmenu -theme ~/.config/rofi/colors-rofi-dark.rasi -font "curie 10" -columns 1
 
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
@@ -414,6 +414,16 @@ bindsym $mod+bracketleft gaps inner current minus 5
 bindsym $mod+bracketright gaps inner current plus 5
 bindsym $mod+Shift+bracketleft gaps outer current minus 5
 bindsym $mod+Shift+bracketright gaps outer current plus 5
+
+bindsym $mod+Up gaps vertical current plus 10
+bindsym $mod+Down gaps vertical current minus 10
+bindsym $mod+Left gaps horizontal current plus 10
+bindsym $mod+Right gaps horizontal current minus 10
+
+bindsym $mod+Shift+Up gaps vertical all plus 10
+bindsym $mod+Shift+Down gaps vertical all minus 10
+bindsym $mod+Shift+Left gaps horizontal all plus 10
+bindsym $mod+Shift+Right gaps horizontal all minus 10
 
 mode "$mode_gaps" {
         bindsym o      mode "$mode_gaps_outer"
