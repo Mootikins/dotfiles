@@ -43,8 +43,8 @@
 	rebase = false
 [delta]
 	syntax-theme = wpgtk
-	plus-color = "#012800"
-	minus-color = "#340001"
+	plus-color = syntax "#012800"
+	minus-color = normal "#340001"
 	line-numbers = true
 	side-by-side = false
 [init]
