@@ -178,3 +178,4 @@ endfunction
 
 command! DeleteEmpty call DeleteEmptyBuffers()
 " ======================================================================= }}}
+" vim: set foldmethod=marker foldmarker={{{,}}} :
