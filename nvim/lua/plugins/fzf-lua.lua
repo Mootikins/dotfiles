@@ -403,7 +403,7 @@ local opts = { noremap = true, silent = true }
 
 map('n', '<leader>ff', "<Cmd>lua require('fzf-lua').files()<CR>", opts)
 map('n', '<leader>fho', "<Cmd>lua require('fzf-lua').files({ cwd = '~/' })<CR>", opts)
-map('n', '<leader>gf', "<Cmd>lua require('fzf-lua').git_files()<CR>", opts)
+map('n', '<leader>fg', "<Cmd>lua require('fzf-lua').git_files()<CR>", opts)
 map('n', '<leader>fb', "<Cmd>lua require('fzf-lua').buffers()<CR>", opts)
 map('n', '<leader>fl', "<Cmd>lua require('fzf-lua').blines()<CR>", opts)
 map('n', '<leader>fal', "<Cmd>lua require('fzf-lua').lines()<CR>", opts)
