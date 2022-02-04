@@ -34,7 +34,7 @@ function packer_uses(use)
 		end
 	}
 	use { 'ibhagwan/fzf-lua',
-		requires = { 'kyazdani42/nvim-web-devicons' },
+		requires = { 'kyazdani42/nvim-web-devicons', opt = true },
 		config = function()
 			require('plugins.fzf-lua')
 		end
@@ -86,12 +86,18 @@ function packer_uses(use)
 	use { 'tpope/vim-obsession' }
 	use { 'tpope/vim-repeat' }
 	use { 'tpope/vim-sleuth' }
+	use { 'kergoth/vim-bitbake' }
+	use { 'nvim-lualine/lualine.nvim',
+		requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+		config = function()
+			require('plugins.lualine')
+		end
+	}
 	use { 'catppuccin/nvim',
 		as = 'catppuccin',
 		config = function()
-			require('plugins/catppuccin')
-		end
-	}
+			require('plugins.catppuccin')
+		end }
 
 	if packer_bootstrap then require('packer').sync() end
 end
