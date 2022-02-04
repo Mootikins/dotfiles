@@ -11,14 +11,14 @@ function packer_uses(use)
 	use { 'neovim/nvim-lspconfig',
 		wants = { 'nvim-lsp-installer' },
 		config = function()
-			require('plugins/lsp')
+			require('plugins.lsp')
 		end
 	}
 	use { 'williamboman/nvim-lsp-installer' }
 	use { 'nvim-treesitter/nvim-treesitter',
 		run = ':TSUpdate',
 		config = function()
-			require('plugins/treesitter')
+			require('plugins.treesitter')
 		end
 	}
 	use { 'hrsh7th/cmp-nvim-lsp' }
@@ -30,13 +30,13 @@ function packer_uses(use)
 	use { 'honza/vim-snippets' }
 	use { 'numToStr/Comment.nvim',
 		config = function()
-			require('plugins/comment')
+			require('plugins.comment')
 		end
 	}
 	use { 'ibhagwan/fzf-lua',
 		requires = { 'kyazdani42/nvim-web-devicons' },
 		config = function()
-			require('plugins/fzf-lua')
+			require('plugins.fzf-lua')
 		end
 	}
 	use { 'norcalli/nvim-colorizer.lua',
