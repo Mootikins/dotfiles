@@ -12,14 +12,16 @@ function packer_uses(use)
 		wants = { 'nvim-lsp-installer' },
 		config = function()
 			require('plugins.lsp')
-		end
+		end,
 	}
 	use { 'williamboman/nvim-lsp-installer' }
+	use { 'nvim-lua/lsp_extensions.nvim' }
+	use { 'glepnir/lspsaga.nvim' }
 	use { 'nvim-treesitter/nvim-treesitter',
 		run = ':TSUpdate',
 		config = function()
 			require('plugins.treesitter')
-		end
+		end,
 	}
 	use { 'hrsh7th/cmp-nvim-lsp' }
 	use { 'hrsh7th/cmp-buffer' }
@@ -39,43 +41,29 @@ function packer_uses(use)
 			require('plugins.fzf-lua')
 		end
 	}
+	use { 'sbdchd/neoformat' }
 	use { 'norcalli/nvim-colorizer.lua',
 		config = function()
 			require('colorizer').setup({
 				'*';
 				'!packer';
-			}) end
+			}) end,
 	}
 	use { 'lukas-reineke/indent-blankline.nvim',
 		config = function()
 			require('indent_blankline').setup({
 				show_current_context = true,
 				space_char_blankline = ' ',
-			}) end
+			}) end,
 	}
 	use { 'christoomey/vim-tmux-navigator' }
-	use { 'machakann/vim-sandwich' }
-	use { 'windwp/nvim-autopairs',
-		config = function()
-			require('nvim-autopairs').setup({
-				disable_in_visualblock = false,
-			})
-		end
-	}
-	use { 'mhartington/formatter.nvim',
-		config = function()
-			require('formatter').setup({
-				filetype = {
-					lua = { function()
-						return {
-							exe = "stylua",
-							args = { "-" },
-							stdin = true,
-						}
-					end }
-				}
-			})
-		end
+	use { 'cohama/lexima.vim' }
+	use { 'lewis6991/gitsigns.nvim',
+		requires = {
+			'nvim-lua/plenary.nvim'
+		},
+		tag = 'release',
+		config = function() require('plugins.gitsigns') end,
 	}
 	use { 'wincent/terminus' }
 	use { 'mbbill/undotree' }
@@ -86,12 +74,13 @@ function packer_uses(use)
 	use { 'tpope/vim-obsession' }
 	use { 'tpope/vim-repeat' }
 	use { 'tpope/vim-sleuth' }
+	use { 'tpope/vim-surround' }
 	use { 'kergoth/vim-bitbake' }
 	use { 'nvim-lualine/lualine.nvim',
 		requires = { 'kyazdani42/nvim-web-devicons', opt = true },
 		config = function()
 			require('plugins.lualine')
-		end
+		end,
 	}
 	use { 'catppuccin/nvim',
 		as = 'catppuccin',

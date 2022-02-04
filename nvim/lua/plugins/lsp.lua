@@ -1,8 +1,16 @@
+-- Change gutter symbols
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local map_opts = { noremap = true, silent = true }
 local map = vim.api.nvim_set_keymap
 
+-- TODO: Change bindings to lspsaga
 map('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', map_opts)
 map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', map_opts)
 map('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', map_opts)
@@ -62,8 +70,6 @@ require('snippy').setup({
 	}
 })
 
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '' }}))
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -87,6 +93,13 @@ local on_attach = function(_client, bufnr)
 	buf_map(bufnr, 'n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', map_opts)
 	buf_map(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', map_opts)
 	buf_map(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', map_opts)
+
+	vim.cmd [[
+		augroup LSPOnAttach
+			autocmd!
+			autocmd CursorHold,CursorHoldI *.rs :lua require('lsp_extensions').inlay_hints({ only_current_line = true, enabled = {"TypeHint", "ChainingHint", "ParameterHint"} })
+		augroup end
+	]]
 end
 
 local lsp_installer = require("nvim-lsp-installer")
