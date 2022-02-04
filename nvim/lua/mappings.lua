@@ -28,3 +28,9 @@ map('x', 'H', '^', opts)
 map('x', 'L', 'g_', opts)
 map('o', 'H', '^', opts)
 map('o', 'L', 'g_', opts)
+
+map('n', '[b', '<Cmd>:bprev<CR>', opts)
+map('n', ']b', '<Cmd>:bnext<CR>', opts)
+
+map('n', '[t', '<Cmd>:tabprev<CR>', opts)
+map('n', ']t', '<Cmd>:tabnext<CR>', opts)
