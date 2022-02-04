@@ -12,6 +12,7 @@ opt.relativenumber = true
 opt.hlsearch = true
 opt.incsearch = true
 opt.smartcase = true
+opt.ignorecase = true
 opt.splitbelow = true
 opt.splitright = true
 opt.wrap = false
