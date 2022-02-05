@@ -25,14 +25,14 @@ local colors = {
 
 local bubbles_theme = {
 	normal = {
-		a = { fg = colors.black, bg = colors.blue },
+		a = { fg = colors.black, bg = colors.blue, gui = 'bold' },
 		b = { fg = colors.black, bg = colors.green },
 		c = { fg = colors.white, bg = colors.grey },
 	},
 
-	insert = { a = { fg = colors.black, bg = colors.blue } },
-	visual = { a = { fg = colors.black, bg = colors.cyan } },
-	replace = { a = { fg = colors.black, bg = colors.red } },
+	insert = { a = { fg = colors.black, bg = colors.red, gui = 'bold' } },
+	visual = { a = { fg = colors.black, bg = colors.magenta, gui = 'bold' } },
+	replace = { a = { fg = colors.black, bg = colors.red, gui = 'bold' } },
 
 	inactive = {
 		a = { fg = colors.white, bg = colors.light_grey },
