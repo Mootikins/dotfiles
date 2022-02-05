@@ -1,14 +1,25 @@
 vim.cmd [[
 augroup BgHighlight
     autocmd!
-    autocmd WinEnter * set cul
-    autocmd WinLeave * set nocul
+    autocmd BufEnter * setlocal cursorline
+    autocmd BufLeave * setlocal nocursorline
+    autocmd FocusGained * setlocal cursorline
+    autocmd FocusLost * setlocal nocursorline
 augroup END
 ]] 
 
+function SetupHighlights()
+    vim.cmd [[
+    highlight DiffText guibg=#3333DD guifg=none
+    highlight DiffAdd guibg=#006600 guifg=#FFFFFF
+    highlight DiffDelete guibg=#BB0000 guifg=none
+    highlight DiffChange guibg=#000088 guifg=none
+    ]]
+end
+
 vim.cmd [[
-highlight DiffText guibg=#2222CC guifg=none
-highlight DiffAdd guibg=#009900 guifg=none
-highlight DiffDelete guibg=#DD0000 guifg=none
-highlight DiffChange guibg=#000044 guifg=none
-]]
+augroup BgHighlight
+    autocmd!
+    autocmd VimEnter * lua SetupHighlights()
+augroup END
+]] 
