@@ -1,13 +1,3 @@
-vim.cmd [[
-augroup BgHighlight
-    autocmd!
-    autocmd BufEnter * setlocal cursorline
-    autocmd BufLeave * setlocal nocursorline
-    autocmd FocusGained * setlocal cursorline
-    autocmd FocusLost * setlocal nocursorline
-augroup END
-]] 
-
 function SetupHighlights()
     vim.cmd [[
     highlight DiffText guibg=#3333DD guifg=none
@@ -18,8 +8,11 @@ function SetupHighlights()
 end
 
 vim.cmd [[
-augroup BgHighlight
+augroup CustomHighlights
     autocmd!
     autocmd VimEnter * lua SetupHighlights()
+
+    autocmd WinEnter * set cursorline
+    autocmd WinLeave * set nocursorline
 augroup END
-]] 
+]]
