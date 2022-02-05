@@ -4,14 +4,7 @@
 
 -- stylua: ignore
 local colors = {
-	-- black  = '#080808',
-	-- red    = '#ff5189',
-	-- blue   = '#80a0ff',
-	-- cyan   = '#79dac8',
-	-- white  = '#c6c6c6',
-	-- magenta = '#d183e8',
-	-- grey   = '#303030',
-	black   = '#1E1D2F',
+	black   = '#1E1E2E',
 	red     = '#F28FAD',
 	green   = '#ABE9B3',
 	yellow  = '#FAE3B0',
@@ -19,8 +12,7 @@ local colors = {
 	magenta = '#F5C2E7',
 	cyan    = '#89DCEB',
 	white   = '#D9E0EE',
-	grey    = '#3E3C4E',
-	light_grey = '#685B72',
+	grey    = '#302D41',
 }
 
 local bubbles_theme = {
@@ -35,8 +27,8 @@ local bubbles_theme = {
 	replace = { a = { fg = colors.black, bg = colors.red, gui = 'bold' } },
 
 	inactive = {
-		a = { fg = colors.white, bg = colors.light_grey },
-		b = { fg = colors.white, bg = colors.light_grey },
+		a = { fg = colors.white, bg = colors.grey },
+		b = { fg = colors.white, bg = colors.grey },
 		c = { fg = colors.white, bg = colors.grey },
 	},
 }
