@@ -1,8 +1,8 @@
 -- Change gutter symbols
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
 -- Mappings.
@@ -16,8 +16,35 @@ map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', map_opts)
 map('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', map_opts)
 map('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', map_opts)
 
+local cmp_kinds = {
+	Text = '  ',
+	Method = '  ',
+	Function = '  ',
+	Constructor = '  ',
+	Field = '  ',
+	Variable = '  ',
+	Class = '  ',
+	Interface = '  ',
+	Module = '  ',
+	Property = '  ',
+	Unit = '  ',
+	Value = '  ',
+	Enum = '  ',
+	Keyword = '  ',
+	Snippet = '  ',
+	Color = '  ',
+	File = '  ',
+	Reference = '  ',
+	Folder = '  ',
+	EnumMember = '  ',
+	Constant = '  ',
+	Struct = '  ',
+	Event = '  ',
+	Operator = '  ',
+	TypeParameter = '  ',
+}
+
 local cmp = require('cmp')
-local t = function(str) return vim.api.nvim_replace_termcodes(str, true, true, true) end
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -54,7 +81,13 @@ cmp.setup({
 		{ name = 'snippy' },
 	}, {
 		{ name = 'buffer' },
-	})
+	}),
+	formatting = {
+		format = function(_, vim_item)
+			vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. vim_item.kind
+			return vim_item
+		end,
+	},
 })
 
 require('snippy').setup({
@@ -69,7 +102,6 @@ require('snippy').setup({
 		}
 	}
 })
-
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
