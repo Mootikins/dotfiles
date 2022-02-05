@@ -40,7 +40,7 @@
 [interactive]
 	diffFilter = delta --color-only
 [pull]
-	rebase = false
+	rebase = true
 [delta]
 	syntax-theme = wpgtk
 	plus-color = syntax "#012800"
