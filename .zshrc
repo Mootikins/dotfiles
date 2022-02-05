@@ -165,7 +165,6 @@ fpath+=~/.zfunc
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source /home/moot/.config/broot/launcher/bash/br
 source ~/dotfiles/bubbles.zsh
 
 export NVM_DIR="$HOME/.nvm"
