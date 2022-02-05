@@ -10,7 +10,7 @@ export FZF_COMPLETION_TRIGGER=',,'
 if type rg >/dev/null; then
   export FZF_DEFAULT_COMMAND='rg --files --no-hidden --follow --glob "!.git/*"'
 fi
-export FZF_DEFAULT_OPTS="-m --height 50% --layout=reverse --color fg:7,bg:0,hl:4,fg+:7,bg+:8,hl+:12 --color info:9,prompt:12,spinner:12,pointer:12,marker:10 --bind alt-k:preview-half-page-up,alt-j:preview-half-page-down"
+export FZF_DEFAULT_OPTS="-m --height 50% --layout=reverse --color fg:7,hl:4,fg+:7,bg+:8,hl+:12 --color info:9,prompt:12,spinner:12,pointer:12,marker:10 --bind alt-k:preview-half-page-up,alt-j:preview-half-page-down"
 
 if type bat &>/dev/null; then
   export FZF_COMPLETION_OPTS="--preview 'bat --decorations=never --color=always --style=grid {}'"
