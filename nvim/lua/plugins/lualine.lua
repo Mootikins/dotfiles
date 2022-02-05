@@ -51,14 +51,25 @@ require('lualine').setup {
 		lualine_a = {
 			{ 'mode', separator = { left = '', right = '' }, right_padding = 2 },
 		},
-		lualine_b = { 'branch' },
-		lualine_c = { 
+		lualine_b = {
+			{
+				'diff',
+				colored = false,
+				source = vim.b.gitsigns_status,
+				separator = { right = '' }
+			},
+			'branch',
+		},
+		lualine_c = {
 			{ 'filename', path = 1 }
 		},
 		lualine_x = { 'filetype' },
-		lualine_y = { 'progress' },
+		lualine_y = {
+			{ 'fileformat', separator = { left = '', right = '' }, right_padding = 1 },
+			{ 'encoding', right_padding = 1 },
+		},
 		lualine_z = {
-			{ 'location', separator = { left = '', right = '' }, left_padding = 2 },
+			{ 'location', separator = { left = '', right = '' }, padding = 1 },
 		},
 	},
 	inactive_sections = {
