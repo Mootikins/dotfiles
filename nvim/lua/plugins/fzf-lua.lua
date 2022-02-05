@@ -119,21 +119,21 @@ require'fzf-lua'.setup({
 		['--layout']      = 'reverse',
 	},
 	-- fzf '--color=' options (optional)
-	--[[ fzf_colors = {
-		["fg"]          = { "fg", "CursorLine" },
-		["bg"]          = { "bg", "Normal" },
-		["hl"]          = { "fg", "Comment" },
-		["fg+"]         = { "fg", "Normal" },
-		["bg+"]         = { "bg", "TermCursor" },
-		["hl+"]         = { "fg", "Statement" },
-		["info"]        = { "fg", "PreProc" },
-		["prompt"]      = { "fg", "Conditional" },
-		["pointer"]     = { "fg", "Exception" },
-		["marker"]      = { "fg", "Keyword" },
-		["spinner"]     = { "fg", "Label" },
-		["header"]      = { "fg", "Comment" },
-		["gutter"]      = { "bg", "Normal" },
-	}, ]]
+	fzf_colors = {
+		-- ["fg"]          = { "fg", "CursorLine" },
+		-- ["bg"]          = { "bg", "Normal" },
+		-- ["hl"]          = { "fg", "Comment" },
+		-- ["fg+"]         = { "fg", "Normal" },
+		["bg+"]         = { "bg", "illuminatedWord" },
+		-- ["hl+"]         = { "fg", "Statement" },
+		-- ["info"]        = { "fg", "PreProc" },
+		-- ["prompt"]      = { "fg", "Conditional" },
+		-- ["pointer"]     = { "fg", "Exception" },
+		-- ["marker"]      = { "fg", "Keyword" },
+		-- ["spinner"]     = { "fg", "Label" },
+		-- ["header"]      = { "fg", "Comment" },
+		-- ["gutter"]      = { "bg", "Normal" },
+	},
 	previewers = {
 		cat = {
 			cmd  = "cat",
