@@ -44,8 +44,8 @@ local bubbles_theme = {
 require('lualine').setup {
 	options = {
 		theme = bubbles_theme,
-		component_separators = { left = '', right = '' },
 		section_separators = { left = '', right = '' },
+		component_separators = { left = '', right = '' },
 	},
 	sections = {
 		lualine_a = {
@@ -56,7 +56,6 @@ require('lualine').setup {
 				'diff',
 				colored = false,
 				source = vim.b.gitsigns_status,
-				separator = { right = '' }
 			},
 			'branch',
 		},
@@ -84,6 +83,14 @@ require('lualine').setup {
 			{ 'location', separator = { left = '', right = '' }, left_padding = 2 },
 		},
 	},
-	tabline = {},
+	tabline = {
+		lualine_a = {
+			{ 'buffers', separator = { left = '', right = '' }, left_padding = 2 },
+		},
+		lualine_y = {
+			{ 'tabs',
+			separator = { left = '', right = '' }, left_padding = 2 },
+		},
+	},
 	extensions = {},
 }
