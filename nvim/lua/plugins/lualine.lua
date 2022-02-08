@@ -45,7 +45,7 @@ require('lualine').setup {
 			{ 'mode', separator = { left = '', right = '' }, right_padding = 2 },
 		},
 		lualine_b = {
-			{ 'diff', colored = false, source = vim.b.gitsigns_status },
+			{ 'diff', colored = false, source = vim.b.gitsigns_status, separator = '' },
 			'branch',
 		},
 		lualine_c = {
