@@ -147,21 +147,25 @@ local servers = {
 	'vimls',
 }
 
+local lsp_installer_servers = require('nvim-lsp-installer.servers')
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 for _, lsp in pairs(servers) do
-	lsp_installer.on_server_ready(function(server)
-		local opts = {
-			on_attach = on_attach,
-		}
+	local server_available, server = lsp_installer_servers.get_server(lsp)
+	if server_available then
+		server:on_ready(function ()
+			local opts = { on_attach = on_attach }
+			-- (optional) Customize the options passed to the server
+			-- if server.name == "tsserver" then
+			--     opts.root_dir = function() ... end
+			-- end
 
-		-- (optional) Customize the options passed to the server
-		-- if server.name == "tsserver" then
-		--     opts.root_dir = function() ... end
-		-- end
-
-		-- This setup() function will take the provided server configuration and decorate it with the necessary properties
-		-- before passing it onwards to lspconfig.
-		-- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-		server:setup(opts)
-	end)
+			-- This setup() function will take the provided server configuration and decorate it with the necessary properties
+			-- before passing it onwards to lspconfig.
+			-- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+			server:setup(opts)
+		end)
+		if not server:is_installed() then
+			server:install()
+		end
+	end
 end
