@@ -27,7 +27,6 @@ opt.list = true
 opt.listchars = 'nbsp:·,trail:·,tab:  '
 
 opt.title = true
-opt.titlestring = '%<%F%=%l/%L'
 opt.titlelen = 35
 
 opt.shiftwidth = 4
