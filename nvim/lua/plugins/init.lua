@@ -65,7 +65,6 @@ function packer_uses(use)
 		tag = 'release',
 		config = function() require('plugins.gitsigns') end,
 	}
-	-- Lua
 	use { "folke/which-key.nvim",
 		config = function()
 			require("which-key").setup()
