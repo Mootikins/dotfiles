@@ -70,6 +70,12 @@ function packer_uses(use)
 			require("which-key").setup()
 		end
 	}
+	use { 'kyazdani42/nvim-tree.lua',
+		requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+		config = function()
+			require('nvim-tree').setup()
+		end,
+	}
 	use { 'wincent/terminus' }
 	use { 'mbbill/undotree' }
 	use { 'wellle/targets.vim' }
