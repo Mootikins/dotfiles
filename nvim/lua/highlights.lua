@@ -14,5 +14,6 @@ augroup CustomHighlights
 
     autocmd WinEnter * set cursorline
     autocmd WinLeave * set nocursorline
+    autocmd BufEnter,BufRead * setlocal formatoptions-=o
 augroup END
 ]]
