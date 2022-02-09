@@ -22,6 +22,8 @@ opt.showmode = false
 opt.virtualedit = 'block'
 opt.completeopt = 'menu,menuone,noselect'
 opt.updatetime = 500
+-- default formatoptions is 'jcroql'
+opt.formatoptions = 'jcrql'
 
 opt.list = true
 opt.listchars = 'nbsp:·,trail:·,tab:  '
