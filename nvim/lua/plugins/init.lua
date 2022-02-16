@@ -58,6 +58,7 @@ function packer_uses(use)
 	}
 	use { 'christoomey/vim-tmux-navigator' }
 	use { 'cohama/lexima.vim' }
+	use { 'ggandor/lightspeed.nvim' }
 	use { 'lewis6991/gitsigns.nvim',
 		requires = {
 			'nvim-lua/plenary.nvim'
