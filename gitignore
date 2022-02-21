@@ -6,6 +6,11 @@ Session.vim
 *.o
 *.gch
 .nvimrc
+.DS_Store
+.DS_Store?
+.Spotlight-V100
+.Trashes
+Thumbs.db
 
 ##############################
 #    Untested but looks OK   #
