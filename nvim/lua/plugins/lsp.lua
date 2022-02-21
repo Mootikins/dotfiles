@@ -45,6 +45,8 @@ local cmp_kinds = {
 }
 
 local cmp = require('cmp')
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -55,8 +57,8 @@ cmp.setup({
 		['<A-k>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
 		['<A-j>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
 		['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-		['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-		['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+		['<C-y>'] = cmp.config.disable,
+		['<CR>'] = cmp.mapping.confirm({ select = false }),
 		['<C-e>'] = cmp.mapping({
 			i = cmp.mapping.abort(),
 			c = cmp.mapping.close(),
@@ -80,6 +82,8 @@ cmp.setup({
 		{ name = 'nvim_lsp' },
 		{ name = 'snippy' },
 	}, {
+		{ name = 'path' },
+		{ name = 'omni' },
 		{ name = 'buffer' },
 	}),
 	formatting = {

@@ -58,7 +58,10 @@ function packer_uses(use)
 			}) end,
 	}
 	use { 'christoomey/vim-tmux-navigator' }
-	use { 'cohama/lexima.vim' }
+	use { 'windwp/nvim-autopairs',
+		config = function()
+			require('nvim-autopairs').setup()
+		end }
 	use { 'ggandor/lightspeed.nvim' }
 	use { 'lewis6991/gitsigns.nvim',
 		requires = {
