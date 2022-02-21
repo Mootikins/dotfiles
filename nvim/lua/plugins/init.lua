@@ -26,6 +26,7 @@ function packer_uses(use)
 	use { 'hrsh7th/cmp-nvim-lsp' }
 	use { 'hrsh7th/cmp-buffer' }
 	use { 'hrsh7th/cmp-path' }
+	use { 'hrsh7th/cmp-omni' }
 	use { 'hrsh7th/nvim-cmp' }
 	use { 'dcampos/nvim-snippy' }
 	use { 'dcampos/cmp-snippy' }
