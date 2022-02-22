@@ -16,9 +16,9 @@ function packer_uses(use)
 	}
 	use { 'williamboman/nvim-lsp-installer' }
 	use { 'nvim-lua/lsp_extensions.nvim' }
-	use { 'glepnir/lspsaga.nvim' }
 	use { "folke/trouble.nvim",
 		requires = "kyazdani42/nvim-web-devicons",
+	use { 'tami5/lspsaga.nvim' }
 		config = function()
 			require("trouble").setup({
 				mode = 'document_diagnostics',
