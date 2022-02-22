@@ -11,10 +11,10 @@ local map_opts = { noremap = true, silent = true }
 local map = vim.api.nvim_set_keymap
 
 -- TODO: Change bindings to lspsaga
-map('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', map_opts)
-map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', map_opts)
-map('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', map_opts)
-map('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', map_opts)
+map('n', '<leader>e', '<cmd>lua require("lspsaga.diagnostic").show_line_diagnostics()<CR>', map_opts)
+map('n', '[d', '<cmd>lua require("lspsaga.diagnostic").lsp_jump_diagnostic_prev()<CR>', map_opts)
+map('n', ']d', '<cmd>lua require("lspsaga.diagnostic").lsp_jump_diagnostic_next()<CR>', map_opts)
+map('n', '<leader>q', '<cmd>TroubleToggle<CR>', map_opts)
 
 local cmp_kinds = {
 	Text = '  ',
@@ -116,19 +116,19 @@ local on_attach = function(_client, bufnr)
 
 	-- Mappings.
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
-	buf_map(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', map_opts)
-	buf_map(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', map_opts)
-	buf_map(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', map_opts)
+	buf_map(bufnr, 'n', 'gd', '<cmd>lua require("lspsaga.provider").lsp_finder()<CR>', map_opts)
+	buf_map(bufnr, 'n', 'gD', '<cmd>lua require("lspsaga.provider").preview_definition()<CR>', map_opts)
+	buf_map(bufnr, 'n', 'K', '<cmd>lua require("lspsaga.hover").render_hover_doc()<CR>', map_opts)
 	buf_map(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', map_opts)
-	buf_map(bufnr, 'n', '<C-S-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', map_opts)
-	buf_map(bufnr, 'n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', map_opts)
-	buf_map(bufnr, 'n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', map_opts)
-	buf_map(bufnr, 'n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', map_opts)
-	buf_map(bufnr, 'n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', map_opts)
-	buf_map(bufnr, 'n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', map_opts)
-	buf_map(bufnr, 'n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', map_opts)
+	buf_map(bufnr, 'n', '<C-S-k>', '<cmd>lua require("lspsaga.signaturehelp").signature_help()<CR>', map_opts)
+	buf_map(bufnr, 'n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', map_opts)
+	buf_map(bufnr, 'n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', map_opts)
+	buf_map(bufnr, 'n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', map_opts)
+	buf_map(bufnr, 'n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', map_opts)
+	buf_map(bufnr, 'n', '<leader>rn', '<cmd>lua require("lspsaga.rename").rename()<CR>', map_opts)
+	buf_map(bufnr, 'n', '<leader>ca', '<cmd>lua require("lspsaga.codeaction").code_action()<CR>', map_opts)
 	buf_map(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', map_opts)
-	buf_map(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', map_opts)
+	buf_map(bufnr, 'n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', map_opts)
 
 	vim.cmd [[
 		augroup LSPOnAttach

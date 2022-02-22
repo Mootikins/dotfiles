@@ -17,6 +17,14 @@ function packer_uses(use)
 	use { 'williamboman/nvim-lsp-installer' }
 	use { 'nvim-lua/lsp_extensions.nvim' }
 	use { 'glepnir/lspsaga.nvim' }
+	use { "folke/trouble.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
+		config = function()
+			require("trouble").setup({
+				mode = 'document_diagnostics',
+			})
+		end,
+	}
 	use { 'nvim-treesitter/nvim-treesitter',
 		run = ':TSUpdate',
 		config = function()
@@ -34,7 +42,7 @@ function packer_uses(use)
 	use { 'numToStr/Comment.nvim',
 		config = function()
 			require('plugins.comment')
-		end
+		end,
 	}
 	use { 'ibhagwan/fzf-lua',
 		requires = { 'kyazdani42/nvim-web-devicons', opt = true },
