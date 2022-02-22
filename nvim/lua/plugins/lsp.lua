@@ -11,10 +11,11 @@ local map_opts = { noremap = true, silent = true }
 local map = vim.api.nvim_set_keymap
 
 -- TODO: Change bindings to lspsaga
-map('n', '<leader>e', '<cmd>lua require("lspsaga.diagnostic").show_line_diagnostics()<CR>', map_opts)
-map('n', '[d', '<cmd>lua require("lspsaga.diagnostic").lsp_jump_diagnostic_prev()<CR>', map_opts)
-map('n', ']d', '<cmd>lua require("lspsaga.diagnostic").lsp_jump_diagnostic_next()<CR>', map_opts)
-map('n', '<leader>q', '<cmd>TroubleToggle<CR>', map_opts)
+map('n', '<leader>e', '<cmd>Lspsaga show_line_diagnostics<CR>', map_opts)
+map('n', '[d', '<cmd>Lspsaga diagnostic_jump_prev<CR>', map_opts)
+map('n', ']d', '<cmd>Lspsaga diagnostic_jump_next<CR>', map_opts)
+map('n', '<leader>q', '<cmd>TroubleToggle document_diagnostics<CR>', map_opts)
+map('n', '<leader>Q', '<cmd>TroubleToggle workspace_diagnostics<CR>', map_opts)
 
 local cmp_kinds = {
 	Text = '  ',
