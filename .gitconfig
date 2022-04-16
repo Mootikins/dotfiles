@@ -32,7 +32,7 @@
 	tool = fugitive
 	conflictStyle = diff3
 [mergetool]
-	prompt = true
+	prompt = false
 [mergetool "vimdiff"]
 	cmd = nvim -d $LOCAL $MERGED $REMOTE
 [mergetool "fugitive"]
