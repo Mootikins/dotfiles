@@ -46,3 +46,8 @@ map('n', '<C-w>v', '<Cmd>vnew<CR>', opts)
 map('n', 'Q', '@@', opts)
 
 map('n', 'g<CR>', '<Cmd>nohl<CR>', opts)
+
+-- start plugin mappings
+map('n', '<leader>u', '<Cmd>UndotreeToggle<CR>', opts)
+
+map('v', '<leader>V', '<Cmd>VBox<CR>', opts)

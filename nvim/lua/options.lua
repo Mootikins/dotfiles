@@ -22,6 +22,7 @@ opt.showmode = false
 opt.virtualedit = 'block'
 opt.completeopt = 'menu,menuone,noselect'
 opt.updatetime = 500
+opt.formatoptions:append('cr')
 
 opt.list = true
 opt.listchars = 'nbsp:·,trail:·,tab:  '
@@ -46,7 +47,10 @@ opt.showbreak = '-> '
 opt.foldenable = false
 opt.foldmethod = 'marker'
 
+opt.diffopt:append('iwhite')
+opt.diffopt:append('indent-heuristic')
 opt.diffopt:append('algorithm:patience,vertical')
+opt.diffopt:append('algorithm:histogram')
 
 opt.termguicolors = true
 opt.cursorline = true

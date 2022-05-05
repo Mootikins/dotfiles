@@ -72,7 +72,10 @@ function packer_uses(use)
 		config = function()
 			require('nvim-autopairs').setup()
 		end }
-	use { 'ggandor/lightspeed.nvim' }
+	use { 'ggandor/leap.nvim',
+		config = function()
+			require('leap').set_default_keymaps()
+		end }
 	use { 'lewis6991/gitsigns.nvim',
 		requires = {
 			'nvim-lua/plenary.nvim'
