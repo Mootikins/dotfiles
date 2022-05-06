@@ -6,7 +6,7 @@ end
 
 vim.cmd [[ packadd packer.nvim ]]
 
-function packer_uses(use)
+local function packer_uses(use)
 	use { 'wbthomason/packer.nvim' }
 	use { 'neovim/nvim-lspconfig',
 		wants = { 'nvim-lsp-installer' },
@@ -18,7 +18,7 @@ function packer_uses(use)
 	use { 'nvim-lua/lsp_extensions.nvim' }
 	use { 'tami5/lspsaga.nvim' }
 	use { 'folke/trouble.nvim',
-		requires = 'kyazdani42/nvim-web-devicons',
+		requires = { 'kyazdani42/nvim-web-devicons' },
 		config = function()
 			require('trouble').setup({
 				padding = false,
@@ -58,39 +58,45 @@ function packer_uses(use)
 			require('colorizer').setup({
 				'*';
 				'!packer';
-			}) end,
+			})
+		end,
 	}
 	use { 'lukas-reineke/indent-blankline.nvim',
 		config = function()
 			require('indent_blankline').setup({
 				show_current_context = true,
 				space_char_blankline = ' ',
-			}) end,
+			})
+		end,
 	}
 	use { 'christoomey/vim-tmux-navigator' }
 	use { 'windwp/nvim-autopairs',
 		config = function()
 			require('nvim-autopairs').setup()
-		end }
+		end,
+	}
 	use { 'ggandor/leap.nvim',
 		config = function()
 			require('leap').set_default_keymaps()
-		end }
+		end,
+	}
 	use { 'lewis6991/gitsigns.nvim',
-		requires = {
-			'nvim-lua/plenary.nvim'
-		},
+		requires = { 'nvim-lua/plenary.nvim' },
 		tag = 'release',
-		config = function() require('plugins.gitsigns') end,
+		config = function()
+			require('plugins.gitsigns')
+		end,
 	}
 	use { "folke/which-key.nvim",
 		config = function()
 			require("which-key").setup()
-		end
+		end,
 	}
 	use { 'kyazdani42/nvim-tree.lua',
 		requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-		config = function() require('plugins.nvim-tree') end,
+		config = function()
+			require('plugins.nvim-tree')
+		end,
 	}
 	use { 'wincent/terminus' }
 	use { 'mbbill/undotree' }
@@ -113,7 +119,8 @@ function packer_uses(use)
 		as = 'catppuccin',
 		config = function()
 			require('plugins.catppuccin')
-		end }
+		end,
+	}
 
 	if packer_bootstrap then require('packer').sync() end
 end
