@@ -2,14 +2,21 @@ vim.opt.termguicolors = true
 vim.cmd [[ colorscheme catppuccin ]] 
 
 require("catppuccin").setup({
-	transparent_background = true,
-	term_colors = false,
+	transparent_background = false,
+	term_colors = true,
 	styles = {
 		comments = "italic",
 		functions = "italic",
 		keywords = "italic",
+		conditionals = "italic",
+		loops = "NONE",
 		strings = "NONE",
 		variables = "italic",
+		numbers = "NONE",
+		booleans = "NONE",
+		properties = "NONE",
+		types = "NONE",
+		operators = "NONE",
 	},
 	integrations = {
 		treesitter = true,
@@ -39,6 +46,11 @@ require("catppuccin").setup({
 			show_root = false,
 			transparent_panel = false,
 		},
+		neotree = {
+			enabled = false,
+			show_root = false,
+			transparent_panel = false,
+		},
 		which_key = false,
 		indent_blankline = {
 			enabled = true,
@@ -56,6 +68,7 @@ require("catppuccin").setup({
 		hop = false,
 		notify = true,
 		telekasten = true,
+		symbols_outline = true,
 	}
 })
 
