@@ -5,8 +5,6 @@ map('', '<Space>', '<Nop>', opts)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = '\\'
 
-map('i', 'kj', '<ESC>', opts)
-
 map('n', 'za', 'zA', opts)
 map('n', 'zl', 'zo', opts)
 map('n', 'zh', 'zc', opts)
