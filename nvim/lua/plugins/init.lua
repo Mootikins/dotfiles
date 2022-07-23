@@ -7,7 +7,7 @@ end
 
 vim.cmd [[ packadd packer.nvim ]]
 
-local function packer_uses(use)
+return require('packer').startup(function(use)
     use {'wbthomason/packer.nvim'}
     use {
         'neovim/nvim-lspconfig',
@@ -50,7 +50,6 @@ local function packer_uses(use)
         requires = {'kyazdani42/nvim-web-devicons', opt = true},
         config = function() require('plugins.fzf-lua') end
     }
-    use {'sbdchd/neoformat'}
     use {
         'norcalli/nvim-colorizer.lua',
         config = function() require('colorizer').setup({'*', '!packer'}) end
@@ -70,8 +69,8 @@ local function packer_uses(use)
         config = function() require('nvim-autopairs').setup() end
     }
     use {
-        'ggandor/leap.nvim',
-        config = function() require('leap').set_default_keymaps() end
+        'mhartington/formatter.nvim',
+        config = function() require("plugins.formatter-nvim") end
     }
     use {
         'lewis6991/gitsigns.nvim',
@@ -104,7 +103,11 @@ local function packer_uses(use)
     use {'tpope/vim-sleuth'}
     use {
         "kylechui/nvim-surround",
-        config = function() require("nvim-surround").setup() end
+        config = function()
+            require("nvim-surround").setup({
+                delimiters = {separators = {[" "] = {" ", " "}}}
+            })
+        end
     }
     use {'kergoth/vim-bitbake'}
     use {
@@ -118,6 +121,4 @@ local function packer_uses(use)
     }
 
     if packer_bootstrap then require('packer').sync() end
-end
-
-return require('packer').startup(packer_uses)
+end)
