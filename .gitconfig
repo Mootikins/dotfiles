@@ -2,13 +2,19 @@
 	email = matthew.d.krohn@gmail.com
 	name = Matthew Krohn
 [rerere]
-	enabled=true
+	enabled = true
+[fetch]
+	prune = true
 [push]
 	default = simple
+	autoSetupRemote = true
 [core]
 	editor = nvim
 	excludesfile = ~/.gitignore
 	pager = delta
+[pager]
+	diff = delta
+	show = delta
 #[color]
 #	ui = always
 [color "diff"]
@@ -30,7 +36,7 @@
 	prompt = false
 [merge]
 	tool = fugitive
-	conflictStyle = diff3
+	conflictStyle = zdiff3
 [mergetool]
 	prompt = false
 [mergetool "vimdiff"]
@@ -42,10 +48,11 @@
 [pull]
 	rebase = true
 [delta]
-	syntax-theme = wpgtk
+	syntax-theme = ansi
 	plus-color = syntax "#012800"
 	minus-color = normal "#340001"
 	line-numbers = true
-	side-by-side = false
 [init]
 	defaultBranch = master
+[color]
+	ui = auto

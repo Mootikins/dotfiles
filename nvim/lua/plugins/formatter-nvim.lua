@@ -1,9 +1,8 @@
--- Utilities for creating configurations
-local util = require("formatter.util")
-
 require("formatter").setup({
     filetype = {
-        lua = {function() return {exe = "lua-format", stdin = true} end},
-        fennel = {function() return {exe = "fnlfmt"} end}
+        fennel = { function() return { exe = "fnlfmt" } end },
+        lua = { function() return { exe = "stylua --search-parent-directories" } end },
+        python = { function() return { exe = "black" } end },
+        sh = { function() return { exe = "shfmt", stdin = true } end },
     }
 })

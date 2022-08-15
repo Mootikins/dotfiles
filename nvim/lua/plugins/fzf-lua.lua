@@ -1,6 +1,6 @@
 local actions = require('fzf-lua.actions')
 require'fzf-lua'.setup({
-	global_resume      = true,
+	global_resume       = true,
 	global_resume_query = true,           -- include typed query in `resume`?
 	winopts = {
 		-- Only valid when using a float window
@@ -17,7 +17,7 @@ require'fzf-lua'.setup({
 		fullscreen       = false,           -- start fullscreen?
 		hl = {
 			normal         = 'Pmenu',        -- window normal color (fg+bg)
-			border         = 'Pmenu',        -- border color (try 'FloatBorder')
+			border         = 'FloatBorder',        -- border color (try 'FloatBorder')
 			-- Only valid with the builtin previewer:
 			cursor         = 'Cursor',        -- cursor highlight (grep/LSP matches)
 			cursorline     = 'Visual',    -- cursor line
@@ -140,14 +140,14 @@ require'fzf-lua'.setup({
 			args = "--number",
 		},
 		bat = {
-			cmd             = "bat",
-			args            = "--style=numbers,changes --color always",
-			theme           = 'Coldark-Dark', -- bat preview theme (bat --list-themes)
-			config          = nil,            -- nil uses $BAT_CONFIG_PATH
+			cmd    = "bat",
+			args   = "--style=numbers,changes --color always",
+			theme  = 'Coldark-Dark', -- bat preview theme (bat --list-themes)
+			config = nil,            -- nil uses $BAT_CONFIG_PATH
 		},
 		head = {
-			cmd             = "head",
-			args            = nil,
+			cmd  = "head",
+			args = nil,
 		},
 		git_diff = {
 			cmd_deleted     = "git diff --color HEAD --",
@@ -166,19 +166,19 @@ require'fzf-lua'.setup({
 		-- previewer      = "bat",          -- uncomment to override previewer
 		-- (name from 'previewers' table)
 		-- set to 'false' to disable
-		prompt            = 'Files❯ ',
-		multiprocess      = true,           -- run command in a separate process
-		git_icons         = true,           -- show git icons?
-		file_icons        = true,           -- show file icons?
-		color_icons       = true,           -- colorize file|git icons
+		prompt       = 'Files❯ ',
+		multiprocess = true,           -- run command in a separate process
+		git_icons    = true,           -- show git icons?
+		file_icons   = true,           -- show file icons?
+		color_icons  = true,           -- colorize file|git icons
 		-- executed command priority is 'cmd' (if exists)
 		-- otherwise auto-detect prioritizes `fd`:`rg`:`find`
 		-- default options are controlled by 'fd|rg|find|_opts'
 		-- NOTE: 'find -printf' requires GNU find
 		-- cmd            = "find . -type f -printf '%P\n'",
-		find_opts         = [[-type f -not -path '*/\.git/*' -printf '%P\n']],
-		rg_opts           = "--color=never --files --follow -g '!.git'",
-		fd_opts           = "--color=never --type f --follow --exclude .git",
+		find_opts = [[-type f -not -path '*/\.git/*' -printf '%P\n']],
+		rg_opts   = "--color=never --files --follow -g '!.git'",
+		fd_opts   = "--color=never --type f --follow --exclude .git",
 		actions = {
 			-- set bind to 'false' to disable an action
 			-- default action opens a single selection
@@ -228,6 +228,7 @@ require'fzf-lua'.setup({
 			prompt          = 'Commits❯ ',
 			cmd             = "git log --pretty=oneline --abbrev-commit --color",
 			preview         = "git show --pretty='%Cred%H%n%Cblue%an%n%Cgreen%s' --color {1}",
+			previewer       = "git_diff",
 			actions = {
 				["default"] = actions.git_checkout,
 			},
