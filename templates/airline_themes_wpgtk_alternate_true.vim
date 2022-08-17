@@ -1,1 +1,0 @@
-/home/moot/.local/share/nvim/plugged/wpgtk.vim/autoload/airline/themes/wpgtk_alternate_true.vim

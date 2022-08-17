@@ -10,10 +10,22 @@ return require("packer").startup(function(use)
 	use { "wbthomason/packer.nvim" }
 	use { "williamboman/mason.nvim" }
 	use { "williamboman/mason-lspconfig.nvim" }
-	use { "neovim/nvim-lspconfig",
+	use {
+		"neovim/nvim-lspconfig",
 		config = function()
 			require("mason").setup()
-			require("mason-lspconfig").setup()
+			require("mason-lspconfig").setup {
+				ensure_installed = {
+					"bashls",
+					"dockerls",
+					"efm",
+					"pyright",
+					"rust_analyzer",
+					"sumneko_lua",
+					"tsserver",
+					"vimls",
+				},
+			}
 			require("plugins/lsp")
 		end,
 	}
