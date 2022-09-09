@@ -119,9 +119,9 @@ bindsym $mod+r mode "resize"
 ######################################
 
 # start a terminal
-bindsym $mod+Return exec alacritty
-bindsym $mod+Ctrl+Return exec alacritty --config-file ~/.config/alacritty/bitmap.yml
-bindsym $mod+Shift+Return exec alacritty --class "life" --config-file ~/.config/alacritty/bitmap.yml
+bindsym $mod+Return exec wezterm
+bindsym $mod+Ctrl+Return exec wezterm --config 'font=wezterm.font("scientifica")'
+bindsym $mod+Shift+Return exec wezterm --config 'font=wezterm.font("scientifica")' start --class "life"
 
 # kill focused window
 bindsym $mod+q kill
@@ -526,6 +526,7 @@ bar {
 bindsym $mod+space exec "rofi -show combi -config ~/.config/rofi/rofidmenu.rasi"
 bindsym $mod+Shift+e exec rofi -show emoji -opacity 95 -font "Iosevka Aile 12" -columns 4 -config ~/.config/rofi/rofidmenu.rasi
 bindsym $mod+Shift+w exec networkmanager_dmenu
+bindsym $mod+Shift+s exec ~/dotfiles/scripts/rofi-snippets.sh
 
 #bindsym F9 exec rofi -modi drun -show drun -config ~/.config/rofi/rofidmenu.rasi
 
