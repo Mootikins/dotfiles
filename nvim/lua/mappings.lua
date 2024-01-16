@@ -33,6 +33,9 @@ map('n', ']b', '<Cmd>bnext<CR>', opts)
 map('n', '[t', '<Cmd>tabprev<CR>', opts)
 map('n', ']t', '<Cmd>tabnext<CR>', opts)
 
+map('n', '[c', '<Cmd>cprev<CR>', opts)
+map('n', ']c', '<Cmd>cnext<CR>', opts)
+
 map('n', '<C-w><C-h>', '<Cmd>vertical resize -5<CR>', opts)
 map('n', '<C-w><C-l>', '<Cmd>vertical resize +5<CR>', opts)
 map('n', '<C-w><C-j>', '<Cmd>resize -5<CR>', opts)

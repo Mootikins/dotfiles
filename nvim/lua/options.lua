@@ -4,6 +4,8 @@ local fn = vim.fn
 local g = vim.g
 local opt = vim.opt
 
+opt.laststatus = 3
+opt.cmdheight = 1
 opt.mouse = 'a'
 opt.swapfile = false
 opt.compatible = false
@@ -25,7 +27,7 @@ opt.updatetime = 500
 opt.formatoptions:append('cr')
 
 opt.list = true
-opt.listchars = 'nbsp:·,trail:·,tab:  '
+opt.listchars = 'nbsp:·,trail:·,tab:▏ '
 
 opt.title = true
 opt.titlelen = 35
@@ -37,7 +39,6 @@ opt.softtabstop = 4
 opt.smartindent = true
 
 opt.hidden = false
-opt.lazyredraw = true
 opt.synmaxcol = 240
 
 opt.undofile = true

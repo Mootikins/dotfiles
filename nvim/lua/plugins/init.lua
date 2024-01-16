@@ -7,45 +7,47 @@ end
 vim.cmd([[ packadd packer.nvim ]])
 
 return require("packer").startup(function(use)
-	use { "wbthomason/packer.nvim" }
-	use { "williamboman/mason.nvim" }
-	use { "williamboman/mason-lspconfig.nvim" }
-	use {
+	use({ "wbthomason/packer.nvim" })
+	use({ "williamboman/mason.nvim" })
+	use({ "williamboman/mason-lspconfig.nvim" })
+	use({
 		"neovim/nvim-lspconfig",
 		config = function()
 			require("mason").setup()
-			require("mason-lspconfig").setup {
+			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"bashls",
+					"clangd",
 					"dockerls",
 					"efm",
+					"lua_ls",
 					"pyright",
 					"rust_analyzer",
-					"sumneko_lua",
 					"tsserver",
 					"vimls",
 				},
-			}
+			})
 			require("plugins/lsp")
 		end,
-	}
-	use { "nvim-lua/lsp_extensions.nvim" }
-	use { "tami5/lspsaga.nvim" }
-	use {
+		run = ":MasonUpdate",
+	})
+	use({ "nvim-lua/lsp_extensions.nvim" })
+	use({ "tami5/lspsaga.nvim" })
+	use({
 		"folke/trouble.nvim",
 		requires = { "kyazdani42/nvim-web-devicons" },
 		config = function()
-			require("trouble").setup { padding = false, auto_preview = true, auto_fold = true }
+			require("trouble").setup({ padding = false, auto_preview = true, auto_fold = true })
 		end,
-	}
-	use {
+	})
+	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 		config = function()
 			require("plugins.treesitter")
 		end,
-	}
-	use {
+	})
+	use({
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
@@ -54,102 +56,106 @@ return require("packer").startup(function(use)
 		"dcampos/nvim-snippy",
 		"dcampos/cmp-snippy",
 		"honza/vim-snippets",
-	}
-	use {
+	})
+	use({
 		"numToStr/Comment.nvim",
 		config = function()
 			require("plugins.comment")
 		end,
-	}
-	use {
+	})
+	use({
 		"ibhagwan/fzf-lua",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 		config = function()
 			require("plugins.fzf-lua")
 		end,
-	}
-	use {
+	})
+	use({
 		"norcalli/nvim-colorizer.lua",
 		config = function()
-			require("colorizer").setup { "*", "!packer" }
+			require("colorizer").setup({ "*", "!packer" })
 		end,
-	}
-	use {
+	})
+	use({
 		"lukas-reineke/indent-blankline.nvim",
 		config = function()
-			require("indent_blankline").setup { show_current_context = true, space_char_blankline = " " }
+			require("ibl").setup({
+				indent = { char = "▏" },
+				scope = { show_start = false, show_end = false },
+			})
 		end,
-	}
-	use { "christoomey/vim-tmux-navigator" }
-	use {
+	})
+	use({ "christoomey/vim-tmux-navigator" })
+	use({
 		"windwp/nvim-autopairs",
 		config = function()
 			require("nvim-autopairs").setup()
 		end,
-	}
-	use {
+	})
+	use({
 		"mhartington/formatter.nvim",
 		config = function()
 			require("plugins.formatter-nvim")
 		end,
-	}
-	use {
+	})
+	use({
 		"lewis6991/gitsigns.nvim",
 		requires = { "nvim-lua/plenary.nvim" },
-		tag = "release",
+		tag = "v0.6",
 		config = function()
 			require("plugins.gitsigns")
 		end,
-	}
-	use {
+	})
+	use({
 		"folke/which-key.nvim",
 		config = function()
 			require("which-key").setup()
 		end,
-	}
-	use {
-		"kyazdani42/nvim-tree.lua",
+	})
+	use({
+		"nvim-tree/nvim-tree.lua",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+		tag = "nightly",
 		config = function()
 			require("plugins.nvim-tree")
 		end,
-	}
-	use {
+	})
+	use({
 		"ziontee113/color-picker.nvim",
 		config = function()
 			require("color-picker")
 		end,
-	}
-	use { "godlygeek/tabular" }
-	use { "wincent/terminus" }
-	use { "mbbill/undotree" }
-	use { "wellle/targets.vim" }
-	use { "rcarriga/nvim-notify" }
-	use { "tpope/vim-eunuch" }
-	use { "tpope/vim-fugitive" }
-	use { "tpope/vim-obsession" }
-	use { "tpope/vim-repeat" }
-	use { "tpope/vim-sleuth" }
-	use {
+	})
+	use({ "godlygeek/tabular" })
+	use({ "wincent/terminus" })
+	use({ "mbbill/undotree" })
+	use({ "wellle/targets.vim" })
+	use({ "rcarriga/nvim-notify" })
+	use({ "tpope/vim-eunuch" })
+	use({ "tpope/vim-fugitive" })
+	use({ "tpope/vim-obsession" })
+	use({ "tpope/vim-repeat" })
+	use({ "tpope/vim-sleuth" })
+	use({
 		"kylechui/nvim-surround",
 		config = function()
-			require("nvim-surround").setup { surrounds = { [" "] = { add = { " ", " " } } } }
+			require("nvim-surround").setup({ surrounds = { [" "] = { add = { " ", " " } } } })
 		end,
-	}
-	use { "kergoth/vim-bitbake" }
-	use {
+	})
+	use({ "kergoth/vim-bitbake" })
+	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 		config = function()
 			require("plugins.lualine")
 		end,
-	}
-	use {
+	})
+	use({
 		"folke/tokyonight.nvim",
 		config = function()
 			require("plugins.tokyonight")
 		end,
-	}
+	})
 
 	if packer_bootstrap then
 		require("packer").sync()

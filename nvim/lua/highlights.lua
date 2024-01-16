@@ -4,6 +4,7 @@ function SetupHighlights()
     highlight DiffAdd guibg=#006600 guifg=#FFFFFF
     highlight DiffDelete guibg=#BB0000 guifg=none
     highlight DiffChange guibg=#000088 guifg=none
+    highlight WinSeparator guifg=#3d59a1
     ]]
 end
 

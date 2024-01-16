@@ -1,5 +1,0 @@
-### Goal
-
-### Details
-
-### Acceptance Criteria
