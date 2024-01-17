@@ -1,0 +1,64 @@
+[user]
+	email = matthew.d.krohn@gmail.com
+	name = Matthew Krohn
+[rerere]
+	enabled = true
+[fetch]
+	prune = true
+[push]
+	default = simple
+	autoSetupRemote = true
+[core]
+	editor = nvim
+	excludesfile = ~/.gitignore
+	pager = delta
+[pager]
+	diff = delta
+	show = delta
+[color]
+	ui = always
+[color "diff"]
+	commit = green
+	meta = yellow
+	frag = cyan
+	old = red
+	new = green
+	whitespace = red reverse
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[diff]
+	submodule = diff
+	tool = fugitive
+[difftool]
+	prompt = false
+[merge]
+	tool = fugitive
+	conflictStyle = zdiff3
+[mergetool]
+	prompt = false
+[mergetool "vimdiff"]
+	cmd = nvim -d $LOCAL $MERGED $REMOTE
+[mergetool "fugitive"]
+	cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
+[interactive]
+	diffFilter = delta --color-only
+[pull]
+	rebase = true
+[delta]
+	syntax-theme = ansi
+	plus-color = syntax "#012800"
+	minus-color = normal "#340001"
+	line-numbers = true
+	navigate = true
+[init]
+	defaultBranch = master
+[color]
+	ui = auto
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

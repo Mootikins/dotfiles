@@ -1,5 +1,0 @@
-require('options')
-require('plugins')
-require('mappings')
-require('highlights')
-require('ftcmds')

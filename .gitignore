@@ -1,1 +1,4 @@
 nvim/plugin/packer_compiled.lua
+conf/my.conf
+build/conf/my.conf
+Session.vim
