@@ -1,0 +1,49 @@
+#!/usr/bin/env python3
+import argparse
+from urllib import request
+import json
+
+BASE_URL = "https://pokeapi.co/api/v2/{}/"
+LIST_ENTRY_EXTENSION = "?limit=10000"
+
+parser = argparse.ArgumentParser()
+
+parser.add_argument(
+    "endpoint",
+    choices=[
+        "generation",
+        "contest-effect",
+        "contests",
+        "encounters",
+        "items",
+        "language",
+        "learn-method",
+        "location",
+        "location-area",
+        "machines",
+        "move",
+        "move-ailment",
+        "move-category",
+        "move-target",
+        "pokemon",
+        "pokemon-species",
+        "super-contest-effect",
+        "type",
+        "version",
+        "version",
+        "version",
+        "version-group",
+    ],
+)
+
+parser.add_argument("resource_id", nargs="?")
+
+args = parser.parse_args()
+
+full_url = BASE_URL.format(args.endpoint) + (
+    args.resource_id if args.resource_id else ""
+)
+req = request.Request(full_url)
+req.add_header("User-Agent", "pikachu!")
+data = json.loads(request.urlopen(req).read())
+print(json.dumps(data, indent=2, ensure_ascii=False))
