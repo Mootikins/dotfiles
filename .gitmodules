@@ -1,9 +1,9 @@
-[submodule "zshCustom/plugins/zsh-autosuggestions"]
+[submodule "zsh/.oh-my-zsh/custom/plugins/zsh-autosuggestions"]
 	path = zshCustom/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
-[submodule "zshCustom/themes/powerlevel10k"]
+[submodule "zsh/.oh-my-zsh/custom/themes/powerlevel10k"]
 	path = zshCustom/themes/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k
-[submodule "zshCustom/plugins/zsh-interactive-cd"]
+[submodule "zsh/.oh-my-zsh/custom/plugins/zsh-interactive-cd"]
 	path = zshCustom/plugins/zsh-interactive-cd
 	url = https://github.com/changyuheng/zsh-interactive-cd
