@@ -15,4 +15,5 @@ return {
   "tpope/vim-repeat",
   "tpope/vim-sleuth",
   "kergoth/vim-bitbake",
+  "norcalli/nvim-colorizer.lua",
 }

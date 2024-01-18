@@ -48,7 +48,8 @@ opt.wrap = true
 opt.showbreak = "-> "
 
 opt.foldenable = false
-opt.foldmethod = "marker"
+opt.foldlevelstart = 0
+opt.modeline = true
 
 opt.diffopt:append("iwhite")
 opt.diffopt:append("indent-heuristic")

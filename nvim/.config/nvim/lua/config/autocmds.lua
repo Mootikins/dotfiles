@@ -16,3 +16,8 @@ api.nvim_create_autocmd({ "BufEnter", "BufNew" }, {
   pattern = "*.conf",
   command = "set filetype=bitbake",
 })
+
+api.nvim_create_autocmd({ "BufEnter", "BufNew" }, {
+  pattern = "*tmux.conf",
+  command = "set filetype=tmux",
+})
