@@ -135,6 +135,7 @@ bindsym $mod+Ctrl+Return exec wezterm --config 'font=wezterm.font("scientifica")
 bindsym $mod+Shift+Return exec wezterm --config 'font=wezterm.font("scientifica") font_size=4' start --class "life"
 
 bindsym $mod+Ctrl+l exec wezterm --config 'font=wezterm.font("scientifica") font_size=4' start --class "life" -e ~/obsidian-log.sh
+bindsym $mod+Ctrl+t exec wezterm --config 'font=wezterm.font("scientifica") font_size=4' start --class "life" -e ~/obsidian-log.sh task
 bindsym $mod+v exec wezterm --config 'font=wezterm.font("scientifica") font_size=4' start --class "life" -e nvim '+au BufWriteCmd vimclippy :%y+ | set nomodified' '+set nonumber norelativenumber signcolumn=no laststatus=0 showtabline=0 noruler filetype=vimclippy' vimclippy
 
 # kill focused window
