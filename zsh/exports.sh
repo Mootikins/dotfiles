@@ -62,10 +62,6 @@ else
 	export VISUAL=vim
 fi
 
-if type hub &>/dev/null; then
-	eval "$(hub alias -s)"
-fi
-
 is_in_git_repo() {
 	git rev-parse HEAD >/dev/null 2>&1
 }
@@ -107,15 +103,15 @@ if type fzf &>/dev/null; then
 				--no-sort \
 				--reverse \
 				--preview "echo {} | \
-    grep -o '[a-f0-9]\{7\}' | \
-    head -1 | \
-    xargs -I % sh -c 'git show --color=always %'" \
+                grep -o '[a-f0-9]\{7\}' | \
+                head -1 | \
+                xargs -I % sh -c 'git show --color=always %'" \
 				--bind "enter:execute:( \
-    grep -o '[a-f0-9]\{7\}' \
-    | head -1 \
-    | xargs -I % sh -c 'git show --color=always % \
-    | less -R' \
-    ) << 'FZF-EOF' {} FZF-EOF"
+                grep -o '[a-f0-9]\{7\}' \
+                | head -1 \
+                | xargs -I % sh -c 'git show --color=always % \
+                | less -R' \
+                ) << 'FZF-EOF' {} FZF-EOF"
 		# Do not register a user exit of fzf as an error.
 		if [ $? -eq 130 ]; then
 			true
