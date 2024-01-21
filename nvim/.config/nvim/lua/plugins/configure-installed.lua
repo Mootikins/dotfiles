@@ -18,6 +18,7 @@ return {
     },
     keys = {
       { "<leader>fhe", "<cmd>Telescope help_tags<cr>", desc = "Find help pages" },
+      { "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Find keymaps" },
     },
   },
 
