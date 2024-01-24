@@ -1,7 +1,4 @@
-local cmd = vim.cmd
-local exec = vim.api.nvim_exec
 local fn = vim.fn
-local g = vim.g
 local opt = vim.opt
 
 opt.laststatus = 3
@@ -24,7 +21,9 @@ opt.showmode = false
 opt.virtualedit = "block"
 opt.completeopt = "menu,menuone,noselect"
 opt.updatetime = 500
-opt.formatoptions:append("cr")
+opt.formatoptions = "tcrqn2lj"
+opt.textwidth = 100
+opt.scrolloff = 0
 
 opt.list = true
 opt.listchars = "nbsp:·,trail:·,tab:▏ "
