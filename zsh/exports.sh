@@ -139,5 +139,6 @@ alias tmat="tmux attach -t"
 alias glotags="git log --graph --oneline --date=short \$(git describe --tags --candidates=1 | cut -d'-' -f1)..HEAD"
 alias nv=$EDITOR
 alias bbd=bitbake-docker
+typeset -g POWERLEVEL9K_INSTANT_PROMPT='quiet'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

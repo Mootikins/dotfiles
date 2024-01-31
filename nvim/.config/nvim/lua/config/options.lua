@@ -1,6 +1,8 @@
 local fn = vim.fn
 local opt = vim.opt
 
+vim.o.guifont = "SpaceMono Nerd Font:h6:#h-normal"
+
 opt.laststatus = 3
 opt.cmdheight = 1
 opt.mouse = "a"
