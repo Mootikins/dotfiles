@@ -157,8 +157,8 @@ bindsym F1 exec ~/.config/i3/scripts/keyhint-2
 # bindsym $mod+F1 exec xed ~/.config/i3/keybindings
 
 # Backlight control
-bindsym XF86MonBrightnessUp exec xbacklight +5 && notify-send "Brightness - $(xbacklight -get | cut -c1-2)%"
-bindsym XF86MonBrightnessDown exec xbacklight -5 && notify-send "Brightness - $(xbacklight -get | cut -c1-2)%"
+bindsym XF86MonBrightnessUp exec brightnessctl -c backlight set +5% && notify-send "Brightness - $(xbacklight -get | cut -c1-2)%"
+bindsym XF86MonBrightnessDown exec brightnessctl -c backlight set -5% && notify-send "Brightness - $(xbacklight -get | cut -c1-2)%"
 
 # change focus
 bindsym $mod+h focus left
@@ -543,7 +543,7 @@ bar {
 
 ## rofi bindings fancy application menu ($mod+d /F9 optional disabled)
 
-bindsym $mod+space exec "rofi -show combi -config ~/.config/rofi/rofidmenu.rasi"
+bindsym $mod+space exec "rofi -show combi -combi-modes drun,window -config ~/.config/rofi/rofidmenu.rasi"
 bindsym $mod+Shift+e exec rofi -show emoji -opacity 95 -font "Iosevka Aile 12" -columns 4 -config ~/.config/rofi/rofidmenu.rasi
 bindsym $mod+Shift+w exec networkmanager_dmenu
 bindsym $mod+Shift+s exec ~/dotfiles/scripts/rofi-snippets.sh
