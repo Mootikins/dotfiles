@@ -451,24 +451,24 @@ for_window [class="urxvt"] border pixel 1
 ######################################
 
 # Define colors variables:
-set $darkbluetrans	#08052be6
-set $darkblue		#08052b
-set $lightblue		#5294e2
-set $urgentred		#e53935
-set $white		#ffffff
-set $black		#000000
-set $purple		#e345ff
-set $darkgrey		#383c4a
-set $grey		#b0b5bd
-set $mediumgrey		#8b8b8b
-set $yellowbrown	#e1b700
+set $darkbluetrans   #08052be6
+set $darkblue        #08052b
+set $lightblue       #5294e2
+set $urgentred       #e53935
+set $white           #ffffff
+set $black           #000000
+set $purple          #e345ff
+set $darkgrey        #383c4a
+set $grey            #b0b5bd
+set $mediumgrey      #8b8b8b
+set $yellowbrown     #e1b700
 
 # define colors for windows:
-#class		        	border		bground		text		indicator	child_border
-client.focused		    $lightblue	$darkblue	$white		$purple		$mediumgrey
-client.unfocused	    $darkblue	$darkblue	$grey		$purple		$darkgrey
-client.focused_inactive	$darkblue	$darkblue	$grey		$purple		$black
-client.urgent		    $urgentred	$urgentred	$white		$purple		$yellowbrown
+# class                   border       bground      text     indicator   child_border
+client.focused            $lightblue   $darkblue    $white   $purple     $mediumgrey
+client.unfocused          $darkblue    $darkblue    $grey    $purple     $darkgrey
+client.focused_inactive   $darkblue    $darkblue    $grey    $purple     $black
+client.urgent             $urgentred   $urgentred   $white   $purple     $yellowbrown
 
 ############################################
 # bar settings (input comes from i3blocks) #
@@ -498,44 +498,13 @@ bar {
         separator          $purple
             background         $darkgrey
             statusline         $white
-#                          		border 		        bg		txt		indicator
-            focused_workspace	$mediumgrey	   	$grey		$darkgrey	$purple
-            active_workspace	$lightblue      	$mediumgrey	$darkgrey	$purple
-            inactive_workspace	$darkgrey   		$darkgrey	$grey		$purple
-            urgent_workspace	$urgentred	    	$urgentred	$white		$purple
+            #                   border       bg           txt        indicator
+            focused_workspace   $mediumgrey  $grey        $darkgrey  $purple
+            active_workspace    $lightblue   $mediumgrey  $darkgrey  $purple
+            inactive_workspace  $darkgrey    $darkgrey    $grey      $purple
+            urgent_workspace    $urgentred   $urgentred   $white     $purple
     }
 }
-
-# you can add different bars for multidisplay setups on each display:
-# set output HDMI-0 to the display you want the bar, --transparency can be set.
-# Transparency needs rgba color codes to be used where the last two letters are the transparency factor see here:
-# https://gist.github.com/lopspower/03fb1cc0ac9f32ef38f4
-# #08052be6 --> e6=90%
-
-# bar {
-#	font pango: Noto Sans Regular 10
-#	status_command i3blocks -c ~/.config/i3/i3blocks-2.conf
-#	i3bar_command i3bar --transparency
-#	output HDMI-0
-#	position bottom
-#
-# When strip_workspace_numbers is set to yes,
-# any workspace that has a name of the form
-# “[n][:][NAME]” will display only the name.
-# strip_workspace_numbers yes
-# strip_workspace_name no
-#
-#	colors {
-#		separator          $purple
-#		background         $darkbluetrans
-#        	statusline         $white
-#					border		bg		txt		indicator
-#		focused_workspace	$lighterblue	$lighterblue	$darkblue	$purple
-#		active_workspace	$lightdblue	$lightdblue	$darkblue	$purple
-#		inactive_workspace	$darkblue	$darkblue	$lightdblue	$purple
-#		urgent_workspace	$urgentred	$urgentred	$white		$purple
-#	}
-#}
 
 #####################################
 # Application menu handled by rofi: #
