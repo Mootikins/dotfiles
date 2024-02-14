@@ -303,7 +303,7 @@ for_window [Class="Steam"]                         border pixel 5
 for_window [Class="Google-chrome"]                 border pixel 5
 for_window [Class="microsoft teams - preview"]     border pixel 5
 for_window [Class="Microsoft Teams - Preview"]     border pixel 5
-for_window [Class="Obsidian"]                      border pixel 5
+for_window [Class="obsidian"]                      border pixel 5
 
 bindsym $mod+y border pixel 5
 bindsym $mod+u border pixel 0
