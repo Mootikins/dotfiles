@@ -2,7 +2,7 @@
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango: scientifica 8
+font pango: scientifica 6
 
 # set the mod key to the winkey:
 set $mod Mod4
@@ -131,12 +131,12 @@ bindsym $mod+r mode "resize"
 
 # start a terminal
 bindsym $mod+Return exec wezterm
-bindsym $mod+Ctrl+Return exec wezterm --config 'font=wezterm.font("scientifica") font_size=4'
-bindsym $mod+Shift+Return exec wezterm --config 'font=wezterm.font("scientifica") font_size=4' start --class "life"
+bindsym $mod+Ctrl+Return exec wezterm --config 'font=wezterm.font("scientifica") font_size=2'
+bindsym $mod+Shift+Return exec wezterm --config 'font=wezterm.font("scientifica") font_size=2' start --class "life"
 
-bindsym $mod+Ctrl+l exec wezterm --config 'font=wezterm.font("scientifica") font_size=4' start --class "life" -e ~/obsidian-log.sh
-bindsym $mod+Ctrl+t exec wezterm --config 'font=wezterm.font("scientifica") font_size=4' start --class "life" -e ~/obsidian-log.sh task
-bindsym $mod+v exec wezterm --config 'font=wezterm.font("scientifica") font_size=4' start --class "life" -e nvim '+au BufWriteCmd vimclippy :%y+ | set nomodified' '+set nonumber norelativenumber signcolumn=no laststatus=0 showtabline=0 noruler filetype=vimclippy' vimclippy
+bindsym $mod+Ctrl+l exec wezterm --config 'font=wezterm.font("scientifica") font_size=2' start --class "life" -e ~/obsidian-log.sh
+bindsym $mod+Ctrl+t exec wezterm --config 'font=wezterm.font("scientifica") font_size=2' start --class "life" -e ~/obsidian-log.sh task
+bindsym $mod+v exec wezterm --config 'font=wezterm.font("scientifica") font_size=2' start --class "life" -e nvim '+au BufWriteCmd vimclippy :%y+ | set nomodified' '+set nonumber norelativenumber signcolumn=no laststatus=0 showtabline=0 noruler filetype=vimclippy' vimclippy
 
 # kill focused window
 bindsym $mod+q kill
@@ -157,8 +157,8 @@ bindsym F1 exec ~/.config/i3/scripts/keyhint-2
 # bindsym $mod+F1 exec xed ~/.config/i3/keybindings
 
 # Backlight control
-bindsym XF86MonBrightnessUp exec brightnessctl -c backlight set +5% && notify-send "Brightness - $(xbacklight -get | cut -c1-2)%"
-bindsym XF86MonBrightnessDown exec brightnessctl -c backlight set -5% && notify-send "Brightness - $(xbacklight -get | cut -c1-2)%"
+bindsym XF86MonBrightnessUp exec brightnessctl -c backlight set +5% && notify-send "Brightness - $(xbacklight -get | cut -c1-3)%"
+bindsym XF86MonBrightnessDown exec brightnessctl -c backlight set 5%- && notify-send "Brightness - $(xbacklight -get | cut -c1-3)%"
 
 # change focus
 bindsym $mod+h focus left
