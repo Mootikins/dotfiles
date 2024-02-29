@@ -2,8 +2,8 @@ local wezterm = require("wezterm")
 
 return {
 	color_scheme = "tokyonight_night",
-	font = wezterm.font("SpaceMono Nerd Font"),
-	font_size = 10,
+	font = wezterm.font("Terminess Nerd Font Mono"),
+	font_size = 9,
 	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
 	warn_about_missing_glyphs = false,
 	enable_tab_bar = false,
