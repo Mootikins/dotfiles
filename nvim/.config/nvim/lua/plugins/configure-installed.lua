@@ -51,11 +51,7 @@ return {
         require("telescope").load_extension("fzf")
       end,
     },
-    keys = {
-      { "<leader>fhe", "<cmd>Telescope help_tags<cr>", desc = "Find help pages" },
-      { "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Find keymaps" },
-      { "<leader>fc", "<cmd>Telescope commands<cr>", desc = "Find commands" },
-    },
+    keys = {},
   },
 
   -- add jsonls and schemastore packages, and setup treesitter for json, json5 and jsonc
