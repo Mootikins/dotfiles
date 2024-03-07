@@ -41,6 +41,13 @@ return {
     end,
   },
 
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      autoformat = false,
+    },
+  },
+
   -- add telescope-fzf-native
   {
     "telescope.nvim",
