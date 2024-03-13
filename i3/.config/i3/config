@@ -2,7 +2,7 @@
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango: scientifica 6
+font pango: Terminess Nerd Font Mono 6
 
 # set the mod key to the winkey:
 set $mod Mod4
@@ -131,12 +131,12 @@ bindsym $mod+r mode "resize"
 
 # start a terminal
 bindsym $mod+Return exec wezterm
-bindsym $mod+Ctrl+Return exec wezterm --config 'font=wezterm.font("scientifica") font_size=2'
-bindsym $mod+Shift+Return exec wezterm --config 'font=wezterm.font("scientifica") font_size=2' start --class "life"
+bindsym $mod+Ctrl+Return exec wezterm --config 'font=wezterm.font("Terminess Nerd Font Mono")'
+bindsym $mod+Shift+Return exec wezterm --config 'font=wezterm.font("Terminess Nerd Font Mono")' start --class "life"
 
-bindsym $mod+Ctrl+l exec wezterm --config 'font=wezterm.font("scientifica") font_size=2' start --class "life" -e ~/obsidian-log.sh
-bindsym $mod+Ctrl+t exec wezterm --config 'font=wezterm.font("scientifica") font_size=2' start --class "life" -e ~/obsidian-log.sh task
-bindsym $mod+v exec wezterm --config 'font=wezterm.font("scientifica") font_size=2' start --class "life" -e nvim '+au BufWriteCmd vimclippy :%y+ | set nomodified' '+set nonumber norelativenumber signcolumn=no laststatus=0 showtabline=0 noruler filetype=vimclippy' vimclippy
+bindsym $mod+Ctrl+l exec wezterm --config 'font=wezterm.font("Terminess Nerd Font Mono")' start --class "life" -e ~/obsidian-log.sh
+bindsym $mod+Ctrl+t exec wezterm --config 'font=wezterm.font("Terminess Nerd Font Mono")' start --class "life" -e ~/obsidian-log.sh task
+bindsym $mod+v exec wezterm --config 'font=wezterm.font("Terminess Nerd Font Mono")' start --class "life" -e nvim '+au BufWriteCmd vimclippy :%y+ | set nomodified' '+set nonumber norelativenumber signcolumn=no laststatus=0 showtabline=0 noruler filetype=vimclippy' vimclippy
 
 # kill focused window
 bindsym $mod+q kill
@@ -358,36 +358,19 @@ exec --no-startup-id xmodmap ~/.xmodmap
 # start welcome app
 #exec --no-startup-id sh /usr/share/endeavouros/scripts/welcome --startdelay=3 
 
-# num lock activated
-#exec --no-startup-id numlockx on
-
 # configure multiple keyboard layouts and hotkey to switch (Alt+CAPSLOCK in this example)
 #exec --no-startup-id setxkbmap -layout 'us,sk' -variant altgr-intl,qwerty -option 'grp:alt_caps_toggle'
 
 # start conky:
 #exec_always --no-startup-id conky
 
-# start a script to setup displays
-# uncomment the next line, use arandr to setup displays and save the file as monitor:
-exec --no-startup-id ~/.screenlayout/monitor.sh
-
 # set wallpaper
-exec --no-startup-id ~/.fehbg
-
-# set powersavings for display:
-exec --no-startup-id xset s 3600 dpms 600 600 600
-
-# disable power saving (for example if using xscreensaver)
-#exec --no-startup-id xset -dpms
+exec --no-startup-id nitrogen --restore
 
 # use xautolock to use autosuspend rules for mobile devices
 # https://wiki.archlinux.org/title/Session_lock#xautolock
-#exec --no-startup-id xautolock -time 60 -locker "systemctl suspend"
+exec --no-startup-id xautolock -time 60 -locker "systemctl suspend"
 
-
-# xscreensaver
-# https://www.jwz.org/xscreensaver
-#exec --no-startup-id xscreensaver --no-splash
 
 # Desktop notifications
 exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
@@ -400,8 +383,8 @@ exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
 #exec_always --no-startup-id autotiling
 
 # Autostart apps as you like
-#exec --no-startup-id sleep 2 && xfce4-terminal
-#exec --no-startup-id sleep 3 && thunar
+exec --no-startup-id sleep 2 && teams-for-linux
+exec --no-startup-id sleep 3 && firefox
 
 ###############
 # system tray #
