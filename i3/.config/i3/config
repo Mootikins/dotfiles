@@ -2,7 +2,7 @@
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango: Terminess Nerd Font Mono 6
+font pango: Terminess Nerd Font Mono 9
 
 # set the mod key to the winkey:
 set $mod Mod4
