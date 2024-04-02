@@ -23,10 +23,10 @@ return {
       local animate = require("mini.animate")
       return {
         resize = {
-          timing = animate.gen_timing.exponential({ easing = "in-out", duration = 75, unit = "total" }),
+          timing = animate.gen_timing.exponential({ easing = "in-out", duration = 50, unit = "total" }),
         },
         scroll = {
-          timing = animate.gen_timing.exponential({ easing = "in-out", duration = 75, unit = "total" }),
+          timing = animate.gen_timing.exponential({ easing = "in-out", duration = 50, unit = "total" }),
           subscroll = animate.gen_subscroll.equal({
             predicate = function(total_scroll)
               if mouse_scrolled then
@@ -53,9 +53,6 @@ return {
     },
     keys = {},
   },
-
-  -- add jsonls and schemastore packages, and setup treesitter for json, json5 and jsonc
-  { import = "lazyvim.plugins.extras.lang.json" },
 
   -- add any tools you want to have installed below
   {
