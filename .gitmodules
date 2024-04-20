@@ -1,0 +1,12 @@
+[submodule "zsh/.oh-my-zsh/custom/plugins/zsh-autosuggestions"]
+	path = zsh/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions.git
+	branch = master
+[submodule "zsh/.oh-my-zsh/custom/plugins/zsh-interactive-cd"]
+	path = zsh/.oh-my-zsh/custom/plugins/zsh-interactive-cd
+	url = https://github.com/mrjohannchang/zsh-interactive-cd.git
+	branch = master
+[submodule "zsh/.oh-my-zsh/custom/themes/powerlevel10k"]
+	path = zsh/.oh-my-zsh/custom/themes/powerlevel10k
+	url = https://github.com/romkatv/powerlevel10k.git
+	branch = master
