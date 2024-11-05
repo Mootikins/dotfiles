@@ -6,16 +6,19 @@ import argparse
 def parse_args():
     parser = argparse.ArgumentParser()
 
-    parser.add_argument("text", nargs="+")
+    parser.add_argument("text", nargs="*")
     return parser.parse_args()
 
 
 def main():
     args = parse_args()
-    text = " ".join(args.text).lower()
+    if not args.text:
+        text = input("Input text: ")
+    else:
+        text = " ".join(args.text).lower()
 
     new_text = "".join(
-        map(lambda d: d[1].upper() if d[0] % 2 == 0 else d[1], enumerate(text))
+        map(lambda d: d[1].upper() if d[0] % 2 == 0 else d[1].lower(), enumerate(text))
     )
     print(new_text)
 
