@@ -140,5 +140,6 @@ alias glotags="git log --graph --oneline --date=short \$(git describe --tags --c
 alias nv=$EDITOR
 alias bbd=bitbake-docker
 typeset -g POWERLEVEL9K_INSTANT_PROMPT='quiet'
+setopt transient_rprompt
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
