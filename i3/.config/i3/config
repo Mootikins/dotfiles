@@ -384,7 +384,6 @@ exec --no-startup-id dbus-launch dunst --config ~/.config/dunst/dunstrc
 
 # Autostart apps as you like
 exec --no-startup-id sleep 2 && teams-for-linux
-exec --no-startup-id sleep 3 && firefox
 
 ###############
 # system tray #
