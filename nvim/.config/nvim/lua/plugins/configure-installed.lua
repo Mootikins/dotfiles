@@ -5,11 +5,17 @@ return {
     -- opts will be merged with the parent spec
     opts = { use_diagnostic_signs = true },
   },
-
+  {
+    "snacks.nvim",
+    opts = {
+      scroll = { enabled = false },
+    },
+  },
   {
     "echasnovski/mini.animate",
     event = "VeryLazy",
-    opts = function()
+    cond = vim.g.neovide == nil,
+    opts = function(_, opts)
       -- don't use animate when scrolling with the mouse
       local mouse_scrolled = false
       for _, scroll in ipairs({ "Up", "Down" }) do
@@ -20,13 +26,30 @@ return {
         end, { expr = true })
       end
 
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "grug-far",
+        callback = function()
+          vim.b.minianimate_disable = true
+        end,
+      })
+
+      Snacks.toggle({
+        name = "Mini Animate",
+        get = function()
+          return not vim.g.minianimate_disable
+        end,
+        set = function(state)
+          vim.g.minianimate_disable = not state
+        end,
+      }):map("<leader>ua")
+
       local animate = require("mini.animate")
-      return {
+      return vim.tbl_deep_extend("force", opts, {
         resize = {
-          timing = animate.gen_timing.exponential({ easing = "in-out", duration = 50, unit = "total" }),
+          timing = animate.gen_timing.linear({ duration = 50, unit = "total" }),
         },
         scroll = {
-          timing = animate.gen_timing.exponential({ easing = "in-out", duration = 50, unit = "total" }),
+          timing = animate.gen_timing.linear({ duration = 150, unit = "total" }),
           subscroll = animate.gen_subscroll.equal({
             predicate = function(total_scroll)
               if mouse_scrolled then
@@ -37,10 +60,9 @@ return {
             end,
           }),
         },
-      }
+      })
     end,
   },
-
   -- add telescope-fzf-native
   {
     "telescope.nvim",
@@ -181,7 +203,7 @@ return {
             {
               require("lazy.status").updates,
               cond = require("lazy.status").has_updates,
-              color = { fg = Snacks.util.color("Special") }
+              color = { fg = Snacks.util.color("Special") },
             },
             {
               "diff",
