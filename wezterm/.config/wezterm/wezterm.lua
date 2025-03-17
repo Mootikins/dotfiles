@@ -6,6 +6,7 @@ return {
 	font_size = 9,
 	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
 	warn_about_missing_glyphs = false,
+	adjust_window_size_when_changing_font_size = false,
 	enable_tab_bar = false,
 	window_padding = {
 		left = "15px",
