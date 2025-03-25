@@ -224,7 +224,7 @@ bindsym $mod+m exec pavucontrol
 
 ## App shortcuts
 bindsym Print exec --no-startup-id flameshot screen
-bindsym $mod+Ctrl+s exec --no-startup-id flameshot gui
+bindsym $mod+Shift+s exec --no-startup-id flameshot gui
 
 # Power Profiles menu switcher (rofi)
 bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
@@ -497,7 +497,6 @@ bar {
 bindsym $mod+space exec "rofi -show combi -combi-modes drun,window -config ~/.config/rofi/rofidmenu.rasi"
 bindsym $mod+Shift+e exec rofi -show emoji -opacity 95 -font "Iosevka Aile 12" -columns 4 -config ~/.config/rofi/rofidmenu.rasi
 bindsym $mod+Shift+w exec networkmanager_dmenu
-bindsym $mod+Shift+s exec ~/dotfiles/scripts/rofi-snippets.sh
 
 #bindsym F9 exec rofi -modi drun -show drun -config ~/.config/rofi/rofidmenu.rasi
 
