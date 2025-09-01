@@ -8,7 +8,7 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-export ZSH_DISABLE_COMPFIX="true"
+# export ZSH_DISABLE_COMPFIX="true"
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
@@ -65,9 +65,6 @@ COMPLETION_WAITING_DOTS="true"
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # HIST_STAMPS="mm/dd/yyyy"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
 POWERLEVEL9K_VI_INSERT_MODE_STRING="%BINSERT"
 POWERLEVEL9K_VI_COMMAND_MODE_STRING="%BNORMAL"
 
@@ -93,7 +90,7 @@ POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND='000'
 POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND='000'
 POWERLEVEL9K_SHORTEN_STRATEGY='truncate_to_unique'
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
-POWERLEVEL9K_SHORTEN_DELIMITER=''
+POWERLEVEL9K_hSHORTEN_DELIMITER=''
 ZLE_RPROMPT_INDENT=0
 
 fpath+=~/.zfunc
@@ -113,6 +110,10 @@ plugins=(
   zsh-autosuggestions
   zsh-interactive-cd
 )
+
+# load completions
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
 
@@ -155,3 +156,16 @@ bindkey -M viins '^n' history-substring-search-down
 
 source ~/dotfiles/zsh/exports.sh
 
+
+# The following lines were added by compinstall
+
+zstyle ':completion:*' completer _complete _ignored _correct _approximate
+zstyle ':completion:*' menu select=2
+zstyle ':completion:*' original true
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' use-compctl true
+zstyle :compinstall filename '/home/moot/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
