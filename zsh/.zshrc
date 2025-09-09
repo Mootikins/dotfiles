@@ -47,10 +47,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -65,35 +65,36 @@ COMPLETION_WAITING_DOTS="true"
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # HIST_STAMPS="mm/dd/yyyy"
 
-POWERLEVEL9K_VI_INSERT_MODE_STRING="%BINSERT"
-POWERLEVEL9K_VI_COMMAND_MODE_STRING="%BNORMAL"
+typeset POWERLEVEL9K_VI_INSERT_MODE_STRING="%BINSERT"
+typeset POWERLEVEL9K_VI_COMMAND_MODE_STRING="%BNORMAL"
 
-POWERLEVEL9K_STATUS_OK_BACKGROUND='008'
-POWERLEVEL9K_STATUS_OK_FOREGROUND='040'
-POWERLEVEL9K_STATUS_ERROR_FOREGROUND='196'
-POWERLEVEL9K_STATUS_ERROR_BACKGROUND='008'
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs virtualenv)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vi_mode)
+typeset POWERLEVEL9K_STATUS_OK_BACKGROUND='008'
+typeset POWERLEVEL9K_STATUS_OK_FOREGROUND='040'
+typeset POWERLEVEL9K_STATUS_ERROR_FOREGROUND='196'
+typeset POWERLEVEL9K_STATUS_ERROR_BACKGROUND='008'
+typeset POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs virtualenv)
+typeset POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vi_mode)
 
-POWERLEVEL9K_DIR_HOME_BACKGROUND='012'
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='012'
-POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='012'
-POWERLEVEL10K_DIR_ETC_BACKGROUND='012'
+typeset POWERLEVEL9K_DIR_HOME_BACKGROUND='012'
+typeset POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='012'
+typeset POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='012'
+typeset POWERLEVEL10K_DIR_ETC_BACKGROUND='012'
 
-POWERLEVEL9K_VCS_CLEAN_BACKGROUND='010'
-POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='010'
-POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='010'
+typeset POWERLEVEL9K_VCS_CLEAN_BACKGROUND='010'
+typeset POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='010'
+typeset POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='010'
 
-POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND='010'
-POWERLEVEL9K_VI_MODE_INSERT_BACKGROUND='012'
-POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND='000'
-POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND='000'
-POWERLEVEL9K_SHORTEN_STRATEGY='truncate_to_unique'
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
-POWERLEVEL9K_hSHORTEN_DELIMITER=''
-ZLE_RPROMPT_INDENT=0
+typeset POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND='010'
+typeset POWERLEVEL9K_VI_MODE_INSERT_BACKGROUND='012'
+typeset POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND='000'
+typeset POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND='000'
+typeset POWERLEVEL9K_SHORTEN_STRATEGY='truncate_to_unique'
+typeset POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+typeset POWERLEVEL9K_SHORTEN_DELIMITER=''
+typeset ZLE_RPROMPT_INDENT=0
 
 fpath+=~/.zfunc
+fpath+=~/.local/share/zsh/site-functions/
 
 source ~/dotfiles/zsh/bubbles.zsh
 
@@ -155,17 +156,3 @@ bindkey -M viins '^n' history-substring-search-down
 # prompt_context() {}
 
 source ~/dotfiles/zsh/exports.sh
-
-
-# The following lines were added by compinstall
-
-zstyle ':completion:*' completer _complete _ignored _correct _approximate
-zstyle ':completion:*' menu select=2
-zstyle ':completion:*' original true
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle ':completion:*' use-compctl true
-zstyle :compinstall filename '/home/moot/.zshrc'
-
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall

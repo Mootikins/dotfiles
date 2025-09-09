@@ -133,13 +133,31 @@ precmd() {
 	__delta_side_by_side_width
 }
 
+# The following lines were added by compinstall
+
+zstyle ':completion:*' completer _expand _complete _ignored _match _approximate _prefix
+zstyle ':completion:*' completions 1
+zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}' '' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' max-errors 1
+zstyle :compinstall filename '/home/moot/dotfiles/zsh/exports.sh'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
 export EDITOR=$VISUAL
 alias tma="tmux attach"
 alias tmat="tmux attach -t"
 alias glotags="git log --graph --oneline --date=short \$(git describe --tags --candidates=1 | cut -d'-' -f1)..HEAD"
-alias nv=$EDITOR
+alias nv="\$EDITOR"
 alias bbd=bitbake-docker
-typeset -g POWERLEVEL9K_INSTANT_PROMPT='quiet'
 setopt transient_rprompt
+
+# opencode
+export PATH=/home/moot/.opencode/bin:$PATH
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
