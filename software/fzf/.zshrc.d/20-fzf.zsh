@@ -85,7 +85,10 @@ if type fzf &>/dev/null; then
 	}
 fi
 
-# Source fzf keybindings and completions
+# Source fzf completion before key-bindings
+if [ -f /usr/share/fzf/shell/completion.zsh ]; then
+  source /usr/share/fzf/shell/completion.zsh
+fi
 if [ -f /usr/share/fzf/shell/key-bindings.zsh ]; then
   source /usr/share/fzf/shell/key-bindings.zsh
 fi
