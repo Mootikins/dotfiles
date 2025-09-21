@@ -85,5 +85,10 @@ if type fzf &>/dev/null; then
 	}
 fi
 
-# Source fzf completions if they exist
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Source fzf keybindings and completions
+if [ -f /usr/share/fzf/shell/key-bindings.zsh ]; then
+  source /usr/share/fzf/shell/key-bindings.zsh
+fi
+if [ -f /usr/share/zsh/site-functions/_fzf ]; then
+  fpath+=/usr/share/zsh/site-functions
+fi
