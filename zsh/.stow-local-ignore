@@ -1,0 +1,2 @@
+# Don't symlink oh-my-zsh itself, just its contents
+^oh-my-zsh/$

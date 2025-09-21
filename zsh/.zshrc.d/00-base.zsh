@@ -1,0 +1,41 @@
+# Powerlevel10k configuration
+typeset POWERLEVEL9K_VI_INSERT_MODE_STRING="%BINSERT"
+typeset POWERLEVEL9K_VI_COMMAND_MODE_STRING="%BNORMAL"
+
+typeset POWERLEVEL9K_STATUS_OK_BACKGROUND='008'
+typeset POWERLEVEL9K_STATUS_OK_FOREGROUND='040'
+typeset POWERLEVEL9K_STATUS_ERROR_FOREGROUND='196'
+typeset POWERLEVEL9K_STATUS_ERROR_BACKGROUND='008'
+typeset POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs virtualenv)
+typeset POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vi_mode)
+
+typeset POWERLEVEL9K_DIR_HOME_BACKGROUND='012'
+typeset POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='012'
+typeset POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='012'
+typeset POWERLEVEL10K_DIR_ETC_BACKGROUND='012'
+
+typeset POWERLEVEL9K_VCS_CLEAN_BACKGROUND='010'
+typeset POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='010'
+typeset POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='010'
+
+typeset POWERLEVEL9K_VI_MODE_NORMAL_BACKGROUND='010'
+typeset POWERLEVEL9K_VI_MODE_INSERT_BACKGROUND='012'
+typeset POWERLEVEL9K_VI_MODE_NORMAL_FOREGROUND='000'
+typeset POWERLEVEL9K_VI_MODE_INSERT_FOREGROUND='000'
+typeset POWERLEVEL9K_SHORTEN_STRATEGY='truncate_to_unique'
+typeset POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+typeset POWERLEVEL9K_SHORTEN_DELIMITER=''
+typeset ZLE_RPROMPT_INDENT=0
+
+# Function path
+fpath+=~/.zfunc
+fpath+=~/.local/share/zsh/site-functions/
+
+# Key bindings
+bindkey kj vi-cmd-mode
+bindkey '^f' forward-word
+bindkey '^g' autosuggest-accept
+bindkey '^b' backward-delete-word
+bindkey '^e' edit-command-line
+bindkey -M viins '^p' history-substring-search-up
+bindkey -M viins '^n' history-substring-search-down

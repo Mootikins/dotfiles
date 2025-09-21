@@ -1,0 +1,1 @@
+../software/nvm/.zshrc.d/40-nvm.zsh

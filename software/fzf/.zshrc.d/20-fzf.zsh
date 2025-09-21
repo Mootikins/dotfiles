@@ -1,0 +1,89 @@
+# FZF configuration
+export FZF_COMPLETION_TRIGGER=',,'
+
+if type rg >/dev/null; then
+	export FZF_DEFAULT_COMMAND='rg --files --no-hidden --follow --glob "!.git/*"'
+fi
+export FZF_DEFAULT_OPTS="-m --height 50% --layout=reverse --color fg:7,hl:4,fg+:7,bg+:8,hl+:12 --color info:9,prompt:12,spinner:12,pointer:12,marker:10 --bind alt-k:preview-half-page-up,alt-j:preview-half-page-down"
+
+if type bat &>/dev/null; then
+	export FZF_COMPLETION_OPTS="--preview 'bat --decorations=never --color=always --style=grid {}'"
+	export FZF_CTRL_T_OPTS="--preview 'bat --decorations=never --color=always --style=grid {}' --preview-window right:50% --bind '?:toggle-preview'"
+else
+	export FZF_COMPLETION_OPTS="--preview 'bat --decorations=never --color=always --style=grid {}'"
+	export FZF_CTRL_T_OPTS="--preview 'head -50 {}' --preview-window right:50% --bind '?:toggle-preview'"
+fi
+export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
+
+# Use fd to generate the list for directory completion
+if type fd &>/dev/null; then
+	_fzf_compgen_path() {
+		fd --follow --exclude ".git" --exclude "Music" . "$1"
+	}
+
+	_fzf_compgen_dir() {
+		fd --type d --follow --exclude ".git" --exclude "Music" . "$1"
+	}
+	export FZF_DEFAULT_COMMAND='fd --exclude "Music" --exclude "Deezloader Music" .'
+fi
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# Git functions with fzf
+if type fzf &>/dev/null; then
+	is_in_git_repo() {
+		git rev-parse HEAD >/dev/null 2>&1
+	}
+
+	gcobf-list() {
+		is_in_git_repo || return
+		git branch -a --color=always | grep -v '/HEAD\s' | sort |
+			fzf --ansi --multi --tac --preview-window right:70% \
+				--preview 'git log --oneline --graph --date=short --color=always --pretty="format:%C(auto)%cd %h%d %s" $(sed s/^..// <<< {} | cut -d" " -f1) | head -'$LINES |
+			sed 's/^..//' | cut -d' ' -f1 |
+			sed 's#^remotes/##'
+	}
+
+	gcohf-list() {
+		is_in_git_repo || return
+		git log --date=short --format="%C(green)%C(bold)%cd %C(auto)%h%d %s (%an)" --color=always |
+			fzf --ansi --no-sort --reverse --multi --bind 'ctrl-s:toggle-sort' \
+				--header 'Press CTRL-S to toggle sort' \
+				--preview 'grep -o "[a-f0-9]\{7,\}" <<< {} | xargs git show --color=always | head -'$LINES |
+			grep -o "[a-f0-9]\{7,\}"
+		if [ $? -eq 130 ]; then
+			true
+		fi
+	}
+
+	alias gcobf='git checkout `gcobf-list`'
+	alias gcohf='git checkout `gcohf-list`'
+
+	glf() {
+		git log \
+			--graph \
+			--exclude='save/*' \
+			--exclude='trash/*' \
+			--color=always \
+			--format="%C(auto)%h%d %s %C(4)%C(bold)%an, %cr" "$@" |
+			fzf \
+				--ansi \
+				--no-sort \
+				--reverse \
+				--preview "echo {} | \
+                grep -o '[a-f0-9]\{7\}' | \
+                head -1 | \
+                xargs -I % sh -c 'git show --color=always %'" \
+				--bind "enter:execute:( \
+                grep -o '[a-f0-9]\{7\}' \
+                | head -1 \
+                | xargs -I % sh -c 'git show --color=always % \
+                | less -R' \
+                ) << 'FZF-EOF' {} FZF-EOF"
+		if [ $? -eq 130 ]; then
+			true
+		fi
+	}
+fi
+
+# Source fzf completions if they exist
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
