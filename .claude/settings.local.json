@@ -5,7 +5,10 @@
       "Bash(git reset:*)",
       "Bash(stow:*)",
       "WebFetch(domain:github.com)",
-      "WebFetch(domain:wezterm.org)"
+      "WebFetch(domain:wezterm.org)",
+      "Bash(tree:*)",
+      "Bash(mv:*)",
+      "Read(//home/moot/**)"
     ],
     "deny": [],
     "ask": []

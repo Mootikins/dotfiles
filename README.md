@@ -6,14 +6,16 @@ This repository uses GNU Stow to manage dotfiles across multiple platforms with 
 
 ```
 dotfiles/
-├── zsh/              # Base zsh configuration
-├── nvim/             # Neovim configuration
-├── tmux/             # Tmux configuration
-├── git/              # Git configuration
-├── software/         # Optional software packages
-│   ├── nvm/          # NVM configuration
-│   ├── fzf/          # FZF configuration
-│   └── docker/       # Docker configuration
+├── software/         # All software packages
+│   ├── git/          # Git configuration (home directory files)
+│   ├── zsh/          # Zsh configuration (home directory files)
+│   ├── nvim/         # Neovim configuration
+│   ├── tmux/         # Tmux configuration
+│   ├── nvm/          # NVM configuration (shell integration)
+│   ├── fzf/          # FZF configuration (shell integration)
+│   ├── docker/       # Docker configuration (shell integration)
+│   ├── bat/          # Bat configuration
+│   └── wezterm/      # Wezterm configuration
 ├── platforms/        # Platform-specific configurations
 │   ├── linux/        # Linux-specific settings
 │   └── darwin/       # macOS-specific settings
@@ -21,24 +23,30 @@ dotfiles/
     └── hostname/     # Create directory with your hostname
 ```
 
+## Package Organization
+
+Packages are organized in two ways:
+
+1. **Home directory packages** (git, zsh): Store files directly in `~/` (e.g., `~/.gitconfig`, `~/.zshrc`)
+2. **Config directory packages** (nvim, tmux, bat, wezterm): Use `.config/` structure (e.g., `~/.config/nvim/`)
+3. **Shell integration packages** (nvm, fzf, docker): Minimal `.zshrc.d/` files for shell setup
+
 ## Installation
 
 ### Base Setup
 ```bash
 # Install basic configurations
-stow zsh nvim tmux git
+cd software && stow zsh nvim tmux git
 ```
 
 ### Optional Software
 ```bash
-# Add FZF support
-stow software/fzf
-
-# Add NVM support
-stow software/nvm
-
-# Add Docker support
-stow software/docker
+# Install additional packages
+cd software && stow bat      # Cat clone with syntax highlighting
+cd software && stow wezterm  # Terminal emulator configuration
+cd software && stow fzf      # Fuzzy finder
+cd software && stow nvm      # Node version manager
+cd software && stow docker   # Docker aliases and functions
 ```
 
 ### Platform-Specific
