@@ -16,18 +16,3 @@
 [submodule "zsh/.oh-my-zsh/custom/plugins/zsh-completions"]
 	path = zsh/.oh-my-zsh/custom/plugins/zsh-completions
 	url = git@github.com:zsh-users/zsh-completions.git
-[submodule "software/tmux/.config/tmux/plugins/tmux-continuum"]
-	path = software/tmux/.config/tmux/plugins/tmux-continuum
-	url = https://github.com/tmux-plugins/tmux-continuum
-[submodule "software/tmux/.config/tmux/plugins/tmux-fingers"]
-	path = software/tmux/.config/tmux/plugins/tmux-fingers
-	url = https://github.com/Morantron/tmux-fingers
-[submodule "software/tmux/.config/tmux/plugins/tmux-sessionist"]
-	path = software/tmux/.config/tmux/plugins/tmux-sessionist
-	url = https://github.com/tmux-plugins/tmux-sessionist
-[submodule "software/tmux/.config/tmux/plugins/vim-tmux-navigator"]
-	path = software/tmux/.config/tmux/plugins/vim-tmux-navigator
-	url = https://github.com/christoomey/vim-tmux-navigator
-[submodule "software/tmux/.config/tmux/plugins/tmux-yank"]
-	path = software/tmux/.config/tmux/plugins/tmux-yank
-	url = https://github.com/tmux-plugins/tmux-yank
