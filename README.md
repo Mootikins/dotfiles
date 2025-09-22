@@ -1,6 +1,6 @@
 # Cross-Platform Dotfiles
 
-This repository uses GNU Stow to manage dotfiles across multiple platforms with a modular approach.
+This repository uses GNU Stow to manage dotfiles across multiple platforms with a modular approach. Each directory (software, platforms, hosts) contains a `.stowrc` file that sets the target directory to `$HOME`.
 
 ## Directory Structure
 
@@ -36,32 +36,32 @@ Packages are organized in two ways:
 ### Base Setup
 ```bash
 # Install basic configurations
-cd software && stow zsh nvim tmux git
+cd software && stow --dotfiles zsh nvim tmux git
 ```
 
 ### Optional Software
 ```bash
 # Install additional packages
-cd software && stow bat      # Cat clone with syntax highlighting
-cd software && stow wezterm  # Terminal emulator configuration
-cd software && stow fzf      # Fuzzy finder
-cd software && stow nvm      # Node version manager
-cd software && stow docker   # Docker aliases and functions
+cd software && stow --dotfiles bat      # Cat clone with syntax highlighting
+cd software && stow --dotfiles wezterm  # Terminal emulator configuration
+cd software && stow --dotfiles fzf      # Fuzzy finder
+cd software && stow --dotfiles nvm      # Node version manager
+cd software && stow --dotfiles docker   # Docker aliases and functions
 ```
 
 ### Platform-Specific
 ```bash
 # Linux
-stow platforms/linux
+cd platforms && stow --dotfiles linux
 
 # macOS
-stow platforms/darwin
+cd platforms && stow --dotfiles darwin
 ```
 
 ### Host-Specific
 ```bash
 # Replace 'hostname' with your actual hostname
-stow hosts/hostname
+cd hosts && stow --dotfiles hostname
 ```
 
 ## ZSH Modular Configuration
