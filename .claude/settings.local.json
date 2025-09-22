@@ -3,7 +3,9 @@
     "allow": [
       "Bash(git submodule add:*)",
       "Bash(git reset:*)",
-      "Bash(stow:*)"
+      "Bash(stow:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:wezterm.org)"
     ],
     "deny": [],
     "ask": []

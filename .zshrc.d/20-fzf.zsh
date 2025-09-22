@@ -1,1 +1,0 @@
-../software/fzf/.zshrc.d/20-fzf.zsh

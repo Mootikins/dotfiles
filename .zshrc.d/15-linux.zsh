@@ -1,1 +1,0 @@
-../platforms/linux/.zshrc.d/15-linux.zsh
