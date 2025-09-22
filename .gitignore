@@ -1,0 +1,7 @@
+# TPM-managed tmux plugins (let TPM handle these, not git)
+software/tmux/.config/tmux/plugins/tmux-continuum/
+software/tmux/.config/tmux/plugins/tmux-fingers/
+software/tmux/.config/tmux/plugins/tmux-resurrect/
+software/tmux/.config/tmux/plugins/tmux-sessionist/
+software/tmux/.config/tmux/plugins/tmux-yank/
+software/tmux/.config/tmux/plugins/vim-tmux-navigator/

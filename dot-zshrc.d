@@ -1,1 +1,0 @@
-software/zsh/dot-zshrc.d
