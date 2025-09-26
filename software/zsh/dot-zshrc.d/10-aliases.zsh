@@ -14,12 +14,5 @@ alias nv="$EDITOR"
 alias bbd=bitbake-docker
 setopt transient_rprompt
 
-
-# Editor aliases
-if type nvim &>/dev/null; then
-	alias vimdiff="nvim -d"
-	alias fug='nvim +G "+wincmd k" +bd'
-fi
-
 # Claude aliases
 alias claude-glm='ANTHROPIC_BASE_URL=https://api.z.ai/api/anthropic ANTHROPIC_AUTH_TOKEN=$GLM_AUTH_TOKEN claude'
