@@ -1,9 +1,9 @@
 # First Prime Command
 
-Quick project discovery and structure analysis.
+Quick project discovery and structure analysis for the current workspace.
 
 ## Usage
-`/first-prime [deep]`
+`/first-prime [deep] [--dir path]`
 
 ## Actions
 
@@ -21,10 +21,16 @@ Quick project discovery and structure analysis.
 - Git repository status
 - Security-related files
 
+## Context Priority
+1. **Current working directory** (default)
+2. Specific directory (only if explicitly requested with --dir)
+3. Parent git repository if cwd is a subdirectory
+
 ## Examples
 ```
-/first-prime     # Quick scan
-/first-prime deep # Deep analysis
+/first-prime     # Quick scan of current directory
+/first-prime deep # Deep analysis of current directory
+/first-prime --dir /path/to/project # Scan specific directory
 ```
 
-Read-only analysis, makes no changes.
+Read-only analysis of the current workspace, makes no changes.

@@ -1,15 +1,15 @@
 # Prime Command
 
-Crucible project overview and context for efficient development.
+Current project/workspace overview and context for efficient development.
 
 ## Usage
-`/prime [focus]`
+`/prime [focus] [--dir path]`
 
 ## Actions
 
 ### Overview (default)
-- **Core architecture**: Agent system, workflow engine, tools
-- **Key directories**: src/, agents/, docs/, specs/
+- **Core architecture**: Main components, systems, and tools
+- **Key directories**: Project structure and organization
 - **Development workflow**: Git flow, testing, deployment
 - **Current status**: Branches, recent changes, blocking issues
 
@@ -26,17 +26,23 @@ Crucible project overview and context for efficient development.
 - **Testing requirements**: What needs coverage
 
 ### Code Quality
-- **Style guide**: Crucible conventions
-- **Type safety**: TypeScript patterns
-- **Error handling**: Rust patterns and Result types
+- **Style guide**: Project conventions and patterns
+- **Type safety**: Language-specific type patterns
+- **Error handling**: Project error patterns and practices
 - **Performance**: Hotspots and monitoring
+
+## Context Priority
+1. **Current working directory** (default)
+2. Additional workspace directories (only if explicitly requested with --dir)
+3. Parent git repository if cwd is a subdirectory
 
 ## Examples
 ```
-/prime            # Project overview
-/prime debug      # Debug workflow
+/prime            # Analyze current directory
+/prime debug      # Debug workflow for current project
 /prime feature    # Feature integration guide
 /prime quality    # Code quality standards
+/prime --dir /path/to/other  # Analyze specific directory
 ```
 
-Leverages Crucible-specific knowledge for efficient development decisions.
+Analyzes the current workspace to provide project-specific context and guidance.
