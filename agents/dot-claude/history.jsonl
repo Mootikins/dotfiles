@@ -1,0 +1,11 @@
+{"display":"/prime ","pastedContents":{},"timestamp":1758994828908,"project":"/home/moot/crucible"}
+{"display":"/prime ","pastedContents":{},"timestamp":1758994828914,"project":"/home/moot/crucible"}
+{"display":"/agents ","pastedContents":{},"timestamp":1758995137456,"project":"/home/moot/crucible"}
+{"display":"/agents ","pastedContents":{},"timestamp":1758995137462,"project":"/home/moot/crucible"}
+{"display":"/agents ","pastedContents":{},"timestamp":1758995137463,"project":"/home/moot/crucible"}
+{"display":"/first-prime ","pastedContents":{},"timestamp":1758995564755,"project":"/home/moot/dotfiles/agents/dot-agents"}
+{"display":"/first-prime ","pastedContents":{},"timestamp":1758995564761,"project":"/home/moot/dotfiles/agents/dot-agents"}
+{"display":"!pwd","pastedContents":{},"timestamp":1758995618621,"project":"/home/moot/dotfiles/agents/dot-agents"}
+{"display":"!pwd","pastedContents":{},"timestamp":1758995618627,"project":"/home/moot/dotfiles/agents/dot-agents"}
+{"display":"!pwd","pastedContents":{},"timestamp":1758995618628,"project":"/home/moot/dotfiles/agents/dot-agents"}
+{"display":"the symlinks to claude/cursor/crush should not be here. there should be `~/.{{agent_name}}` symlinks to ~/dotfiles/agents/dot-{{agent}}/` for each. They should also be relative symlinks. Draw me a diagram to guarantee you have the right symlink pathing. ","pastedContents":{},"timestamp":1758995884374,"project":"/home/moot/dotfiles/agents/dot-agents"}

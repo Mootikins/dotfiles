@@ -1,0 +1,17 @@
+[
+  {
+    "content": "Remove incorrect symlinks from /home/moot/.agents/",
+    "status": "completed",
+    "activeForm": "Removing incorrect symlinks from ~/.agents"
+  },
+  {
+    "content": "Fix home directory symlinks with relative paths",
+    "status": "in_progress",
+    "activeForm": "Fixing home directory symlinks"
+  },
+  {
+    "content": "Verify and fix agent directory internal symlinks",
+    "status": "pending",
+    "activeForm": "Verifying agent directory symlinks"
+  }
+]
