@@ -1,0 +1,74 @@
+{
+  "agents": [
+    {
+      "name": "code_generator",
+      "description": "Generates code following project patterns",
+      "commands": ["generate", "refactor"],
+      "hooks": ["on-file-create", "on-file-update"],
+      "tools": ["analysis", "docs"],
+      "capabilities": [
+        "rust_code_generation",
+        "typescript_code_generation",
+        "svelte_component_generation",
+        "test_generation",
+        "documentation_generation"
+      ]
+    },
+    {
+      "name": "test_automation",
+      "description": "Automates test generation and maintenance",
+      "commands": ["test", "analyze"],
+      "hooks": ["on-commit", "on-file-update"],
+      "tools": ["testing", "analysis"],
+      "capabilities": [
+        "unit_test_generation",
+        "integration_test_generation",
+        "test_coverage_analysis",
+        "test_optimization",
+        "test_maintenance"
+      ]
+    },
+    {
+      "name": "documentation_bot",
+      "description": "Maintains and updates documentation",
+      "commands": ["docs", "update"],
+      "hooks": ["on-file-create", "on-commit"],
+      "tools": ["docs", "analysis"],
+      "capabilities": [
+        "api_documentation",
+        "architecture_documentation",
+        "user_guides",
+        "code_comments",
+        "documentation_validation"
+      ]
+    },
+    {
+      "name": "architecture_analyzer",
+      "description": "Analyzes and optimizes project architecture",
+      "commands": ["analyze", "optimize"],
+      "hooks": ["on-major-change"],
+      "tools": ["analysis", "architecture"],
+      "capabilities": [
+        "dependency_analysis",
+        "performance_analysis",
+        "security_analysis",
+        "architecture_recommendations",
+        "refactoring_suggestions"
+      ]
+    },
+    {
+      "name": "quality_assurance",
+      "description": "Ensures code quality and standards",
+      "commands": ["lint", "format", "check"],
+      "hooks": ["on-file-save", "on-commit"],
+      "tools": ["linting", "formatting", "analysis"],
+      "capabilities": [
+        "code_linting",
+        "formatting_enforcement",
+        "style_guidelines",
+        "error_detection",
+        "quality_metrics"
+      ]
+    }
+  ]
+}
