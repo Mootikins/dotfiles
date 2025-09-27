@@ -5,3 +5,23 @@ software/tmux/.config/tmux/plugins/tmux-resurrect/
 software/tmux/.config/tmux/plugins/tmux-sessionist/
 software/tmux/.config/tmux/plugins/tmux-yank/
 software/tmux/.config/tmux/plugins/vim-tmux-navigator/
+# =============================================================================
+# Closed-Config Agents - Prevent symlinks from being committed
+# =============================================================================
+# These agents use symlinks to project-specific configurations
+# Only commit actual files, not symlinks that cross repository boundaries
+
+# Agent-specific symlinks that point to external projects
+agents/dot-*/rules
+agents/dot-*/.cursor
+agents/dot-*/.claude  
+agents/dot-*/.crush
+
+# Prevent any symlinks in agent directories from being committed
+# (these should be created by the setup script, not committed)
+agents/dot-*/*/.*
+agents/dot-*/*/commands
+agents/dot-*/*/config
+agents/dot-*/*/contexts
+agents/dot-*/*/tools
+agents/dot-*/*/workflows
