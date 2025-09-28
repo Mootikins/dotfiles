@@ -25,3 +25,5 @@ agents/dot-*/*/config
 agents/dot-*/*/contexts
 agents/dot-*/*/tools
 agents/dot-*/*/workflows
+.claude
+.qwen/
