@@ -15,4 +15,4 @@
 	url = https://github.com/tmux-plugins/tpm.git
 [submodule "zsh/.oh-my-zsh/custom/plugins/zsh-completions"]
 	path = zsh/.oh-my-zsh/custom/plugins/zsh-completions
-	url = git@github.com:zsh-users/zsh-completions.git
+	url = https://github.com/zsh-users/zsh-completions.git
