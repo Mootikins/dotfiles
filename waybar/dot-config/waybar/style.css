@@ -1,0 +1,51 @@
+/* Omarchy-derived waybar style. Once the Omarchy templating pipeline is in
+ * place, replace the fallback palette below with:
+ *     @import "../omarchy/current/theme/waybar.css";
+ */
+@define-color background #1a1b26;
+@define-color foreground #c0caf5;
+
+* {
+  background-color: @background;
+  color: @foreground;
+
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  font-family: 'JetBrainsMono Nerd Font';
+  font-size: 12px;
+}
+
+.modules-left  { margin-left:  8px; }
+.modules-right { margin-right: 8px; }
+
+#workspaces button {
+  all: initial;
+  padding: 0 6px;
+  margin: 0 1.5px;
+  min-width: 9px;
+  color: @foreground;
+}
+#workspaces button.empty  { opacity: 0.5; }
+#workspaces button.active { color: #7aa2f7; }
+
+#cpu, #battery, #pulseaudio { min-width: 12px; margin: 0 7.5px; }
+
+#tray             { margin-right: 16px; }
+#bluetooth        { margin-right: 17px; }
+#network          { margin-right: 13px; }
+#custom-expand-icon { margin-right: 18px; }
+
+tooltip { padding: 2px; }
+
+#clock { margin-left: 8.75px; }
+
+#submap {
+  color: @background;
+  background-color: #7aa2f7;
+  padding: 0 8px;
+  margin: 0 6px;
+  border-radius: 4px;
+}
+
+.hidden { opacity: 0; }
