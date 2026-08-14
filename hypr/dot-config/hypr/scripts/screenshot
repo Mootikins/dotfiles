@@ -1,0 +1,55 @@
+#!/usr/bin/env sh
+# Capture -> annotate -> clipboard + disk. Driven by the keybinds in hyprland.lua.
+#
+# Usage: screenshot [region|window|output|all] [--raw]
+#
+#   region   drag a rectangle (default)
+#   window   click a window
+#   output   the whole monitor under the cursor
+#   all      every monitor, composited into one image
+#
+# Without --raw the shot opens in satty for annotation; Enter (or Ctrl+S) copies
+# it to the clipboard and writes the .png. With --raw it skips satty entirely and
+# goes straight to clipboard + disk.
+#
+# Requires: hyprshot grim satty hyprpicker (freeze) wl-clipboard libnotify
+
+set -eu
+
+mode="${1:-region}"
+case "$mode" in
+    region | window | output | all) ;;
+    *)
+        echo "screenshot: unknown mode '$mode' (want region|window|output|all)" >&2
+        exit 1
+        ;;
+esac
+
+dir="${XDG_PICTURES_DIR:-$HOME/Pictures}/Screenshots"
+mkdir -p "$dir"
+file="$dir/$(date +%Y-%m-%d_%H-%M-%S).png"
+
+capture() {
+    if [ "$mode" = "all" ]; then
+        # hyprshot has no all-outputs mode. grim with no -o grabs the entire
+        # output layout as one image; nothing to freeze since there's no drag.
+        grim -
+    else
+        # --freeze pauses compositing so the selection lines up with what you
+        # saw, and keeps hover effects from shifting under the cursor mid-drag.
+        hyprshot --freeze --silent --mode "$mode" --raw
+    fi
+}
+
+if [ "${2:-}" = "--raw" ]; then
+    capture | tee "$file" | wl-copy --type image/png
+    notify-send -i "$file" -a screenshot "Screenshot copied" "$file"
+else
+    capture | satty \
+        --filename - \
+        --output-filename "$file" \
+        --early-exit \
+        --save-after-copy \
+        --actions-on-enter save-to-clipboard \
+        --copy-command wl-copy
+fi

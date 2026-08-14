@@ -122,6 +122,14 @@ hl.bind(mod .. " + mouse_up",    hl.dsp.focus({ workspace = "e-1" }))
 hl.bind(mod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
 hl.bind(mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
+-- Screenshots (hyprshot captures, satty annotates; see scripts/screenshot)
+local screenshot = "$HOME/.config/hypr/scripts/screenshot"
+hl.bind(mod .. " + SHIFT + S",        hl.dsp.exec_cmd(screenshot .. " region"))
+hl.bind("Print",                      hl.dsp.exec_cmd(screenshot .. " all"))
+hl.bind(mod .. " + Print",            hl.dsp.exec_cmd(screenshot .. " window"))
+-- Skip the annotation step — region straight to clipboard.
+hl.bind(mod .. " + SHIFT + CTRL + S", hl.dsp.exec_cmd(screenshot .. " region --raw"))
+
 -- Media keys
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),      { locked = true, repeating = true })
