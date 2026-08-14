@@ -1,6 +1,7 @@
 local wezterm = require("wezterm")
 
 return {
+	enable_wayland = false,
 	color_scheme = "tokyonight_night",
 	font = wezterm.font("Terminess Nerd Font Mono"),
 	font_size = 9,
