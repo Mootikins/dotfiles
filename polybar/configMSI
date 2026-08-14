@@ -303,7 +303,7 @@ interval = 2
 format-foreground = ${colors.xcolor0}
 format-background = ${colors.xcolor11}
 format-padding = 0
-label = %{A1:st -c "life" -e /home/moot/.cargo/bin/ytop -m:}   %percentage:02%% %{A}
+label = %{A1:st -c "life" -e ~/.cargo/bin/ytop -m:}   %percentage:02%% %{A}
 
 [module/temp]
 type = internal/temperature
@@ -313,7 +313,7 @@ format-background = ${colors.xcolor11}
 format-padding = 0
 base-temperature = 20
 thermal-zone = 3
-label = %{A1:st -c "life" -e /home/moot/.cargo/bin/ytop -m:}  %temperature-c:2%  %{A}
+label = %{A1:st -c "life" -e ~/.cargo/bin/ytop -m:}  %temperature-c:2%  %{A}
 
 [module/pub-ip]
 ;https://linuxconfig.org/polybar-a-better-wm-panel-for-your-linux-system
@@ -330,7 +330,7 @@ format-prefix-foreground = ${colors.xcolor0}
 
 [module/pacman-updates]
 type = custom/script
-exec = /home/moot/dotfiles/polybar/scripts/pacman-updates.sh
+exec = ~/dotfiles/polybar/scripts/pacman-updates.sh
 interval = 5000
 ; Open st running yay on left click
 label = %{A1:st -c "life" -e yay:}   %output%   %{A}
