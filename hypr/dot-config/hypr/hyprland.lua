@@ -75,11 +75,15 @@ hl.bind(mod .. " + J", hl.dsp.focus({ direction = "down" }))
 hl.bind(mod .. " + K", hl.dsp.focus({ direction = "up" }))
 hl.bind(mod .. " + L", hl.dsp.focus({ direction = "right" }))
 
--- Move window (Shift + hjkl)
-hl.bind(mod .. " + SHIFT + H", hl.dsp.exec_cmd("hyprctl dispatch swapwindow l"))
-hl.bind(mod .. " + SHIFT + J", hl.dsp.exec_cmd("hyprctl dispatch swapwindow d"))
-hl.bind(mod .. " + SHIFT + K", hl.dsp.exec_cmd("hyprctl dispatch swapwindow u"))
-hl.bind(mod .. " + SHIFT + L", hl.dsp.exec_cmd("hyprctl dispatch swapwindow r"))
+-- Move window (Shift + hjkl).
+-- Native dispatcher, not `exec_cmd("hyprctl dispatch swapwindow l")`: since the
+-- config moved to Lua, hyprctl evaluates its argument as a Lua expression, so
+-- the old bare-string form died with `')' expected near 'l'` and these four
+-- binds silently did nothing.
+hl.bind(mod .. " + SHIFT + H", hl.dsp.window.swap({ direction = "left" }))
+hl.bind(mod .. " + SHIFT + J", hl.dsp.window.swap({ direction = "down" }))
+hl.bind(mod .. " + SHIFT + K", hl.dsp.window.swap({ direction = "up" }))
+hl.bind(mod .. " + SHIFT + L", hl.dsp.window.swap({ direction = "right" }))
 
 -- Resize mode (Super + R enters; hjkl resize, Shift+hjkl bigger steps, Esc exits)
 hl.bind(mod .. " + R", hl.dsp.submap("resize"))
