@@ -2,7 +2,8 @@
 -- Omarchy-flavored defaults, with focus movement remapped to hjkl.
 
 local terminal = "wezterm"
-local menu     = "wofi --show drun"
+-- The Quickshell launcher replaces wofi; it is toggled over Quickshell's IPC.
+local menu     = "qs ipc call launcher toggle"
 
 ----------------------------------------------------------------------
 -- Monitors. Auto-detect; override per host once outputs are known.
@@ -60,7 +61,7 @@ local mod = "SUPER"
 
 -- Apps
 hl.bind(mod .. " + Return",         hl.dsp.exec_cmd(terminal))
-hl.bind(mod .. " + D",              hl.dsp.exec_cmd(menu))
+hl.bind(mod .. " + SPACE",          hl.dsp.exec_cmd(menu))
 hl.bind(mod .. " + Q",              hl.dsp.window.close())
 hl.bind(mod .. " + SHIFT + Escape", hl.dsp.exec_cmd("hyprlock"))
 
@@ -131,14 +132,19 @@ hl.bind(mod .. " + Print",            hl.dsp.exec_cmd(screenshot .. " window"))
 hl.bind(mod .. " + SHIFT + CTRL + S", hl.dsp.exec_cmd(screenshot .. " region --raw"))
 
 -- Media keys
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),      { locked = true, repeating = true })
-hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),     { locked = true })
-hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"),                  { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"),                  { locked = true, repeating = true })
-hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
-hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"),       { locked = true })
-hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
+hl.bind("XF86AudioRaiseVolume",   hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
+hl.bind("XF86AudioLowerVolume",   hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),      { locked = true, repeating = true })
+hl.bind("XF86AudioMute",          hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),     { locked = true })
+-- Brightness goes through Quickshell, which drives logind's SetBrightness over
+-- D-Bus. `brightnessctl set` cannot work here: the Arch package ships no udev
+-- rule and is not setuid, and /sys/class/backlight/*/brightness is root:root
+-- 0644, so it fails with "Operation not permitted". logind grants brightness
+-- control to the active seat session instead, needing no root.
+hl.bind("XF86MonBrightnessUp",    hl.dsp.exec_cmd("qs ipc call brightness up"),                      { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown",  hl.dsp.exec_cmd("qs ipc call brightness down"),                    { locked = true, repeating = true })
+hl.bind("XF86AudioPlay",          hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind("XF86AudioNext",          hl.dsp.exec_cmd("playerctl next"),       { locked = true })
+hl.bind("XF86AudioPrev",          hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
 
 ----------------------------------------------------------------------
 -- Environment + autostart.
@@ -147,9 +153,15 @@ hl.env("XCURSOR_SIZE",    "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 
 hl.on("hyprland.start", function()
-    hl.exec_cmd("waybar")
-    hl.exec_cmd("mako")
+    -- Quickshell replaces both waybar (bar) and mako (notifications), and also
+    -- provides the app launcher and the volume/brightness OSD.
+    -- Config lives in ~/.config/quickshell.
+    hl.exec_cmd("qs -d -n")
     hl.exec_cmd("hypridle")
-    hl.exec_cmd("hyprpaper")
+    -- Wallpaper. awww (formerly swww) caches the last image and redisplays it
+    -- when the daemon starts, so no restore call is needed here. Set one with
+    -- `awww img <file>`; shuffle with
+    --   awww img "$(find ~/Pictures/wallpapers -type f | shuf -n1)"
+    hl.exec_cmd("awww-daemon")
     hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
 end)
