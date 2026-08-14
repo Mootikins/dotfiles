@@ -114,8 +114,11 @@ plugins=(
 
 # load completions
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
-autoload -U compinit && compinit
+autoload -Uz compinit
 
+# Don't call compinit here: oh-my-zsh.sh runs it itself, after every fpath+=
+# above and before it loads plugins that call compdef. A second compinit
+# anywhere else just pays for another full compdump (~350ms).
 source $ZSH/oh-my-zsh.sh
 
 bindkey kj vi-cmd-mode

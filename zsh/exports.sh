@@ -120,9 +120,12 @@ if type fzf &>/dev/null; then
 fi
 
 __delta_side_by_side_width() {
-	local columns=$(tput cols)
+	# $COLUMNS is maintained by zsh and updated on SIGWINCH; `tput cols` here
+	# meant a fork on every single prompt. It is 0 when there is no tty, which
+	# correctly falls through to the no-side-by-side branch.
+	local columns=${COLUMNS:-0}
 	# Enough room for two side-by-side 80-char diffs with some room for line numbers to spare
-	if [ $columns -ge 170 ]; then
+	if (( columns >= 170 )); then
 		export DELTA_FEATURES="+side-by-side"
 	else
 		export DELTA_FEATURES=""
@@ -140,9 +143,8 @@ zstyle ':completion:*' completions 1
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}' '' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' max-errors 1
 zstyle :compinstall filename '/home/moot/dotfiles/zsh/exports.sh'
-
-autoload -Uz compinit
-compinit
+# compinit intentionally omitted: oh-my-zsh already ran it before this file is
+# sourced. These zstyles are read at completion time, so they still apply.
 # End of lines added by compinstall
 
 export EDITOR=$VISUAL
@@ -157,7 +159,14 @@ setopt transient_rprompt
 export PATH=/home/moot/.opencode/bin:$PATH
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# --no-use skips nvm's implicit `nvm use <default>`, which costs ~600ms in
+# subshells. `nvm` stays available as a function; put the default version's bin
+# on PATH ourselves (highest numeric match for the `default` alias).
+if [ -s "$NVM_DIR/nvm.sh" ]; then
+	\. "$NVM_DIR/nvm.sh" --no-use
+	_nvm_default=$NVM_DIR/versions/node/v${$(<$NVM_DIR/alias/default)}*(/Nn[-1])
+	[ -n "$_nvm_default" ] && export PATH="$_nvm_default/bin:$PATH"
+	unset _nvm_default
+fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
