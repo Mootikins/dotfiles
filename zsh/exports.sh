@@ -31,6 +31,10 @@ if type eza &>/dev/null; then
 	alias ll="eza -l"
 fi
 
+if type zellij &>/dev/null; then
+	alias za="zellij attach"
+fi
+
 # Use fd to generate the list for directory completion
 if type fd &>/dev/null; then
 	# Use fd (https://github.com/sharkdp/fd) instead of the default find
