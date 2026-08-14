@@ -104,3 +104,5 @@ Thumbs.db
 # build
 # build/*
 .clangd
+
+**/.claude/settings.local.json
