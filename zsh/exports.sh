@@ -146,7 +146,7 @@ zstyle ':completion:*' completer _expand _complete _ignored _match _approximate 
 zstyle ':completion:*' completions 1
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}' '' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' max-errors 1
-zstyle :compinstall filename '/home/moot/dotfiles/zsh/exports.sh'
+zstyle :compinstall filename "$HOME/dotfiles/zsh/exports.sh"
 # compinit intentionally omitted: oh-my-zsh already ran it before this file is
 # sourced. These zstyles are read at completion time, so they still apply.
 # End of lines added by compinstall
@@ -160,7 +160,7 @@ alias bbd=bitbake-docker
 setopt transient_rprompt
 
 # opencode
-export PATH=/home/moot/.opencode/bin:$PATH
+export PATH="$HOME/.opencode/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 # --no-use skips nvm's implicit `nvm use <default>`, which costs ~600ms in
