@@ -17,16 +17,15 @@ hl.config({
     general = {
         gaps_in     = 5,
         gaps_out    = 10,
-        border_size = 2,
-        col = {
-            active_border   = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 },
-            inactive_border = "rgba(595959aa)",
-        },
+        border_size = 0,
         layout = "dwindle",
     },
     decoration = {
-        rounding = 0,
+        rounding = 15,
+        rounding_power = 4.0,
         blur = { enabled = true, size = 2, passes = 2 },
+        inactive_opacity = 0.8,
+        shadow = { enabled = false },
     },
     dwindle = { preserve_split = true, force_split = 2 },
     misc = {
