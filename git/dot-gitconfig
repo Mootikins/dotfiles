@@ -63,5 +63,5 @@
 	process = git-lfs filter-process
 	required = true
 
-[includeIf "gitdir:/home/mkrohn/"]
+[includeIf "gitdir:~/"]
 	path = ~/.gitconfig-cnh
