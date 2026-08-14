@@ -169,4 +169,4 @@ if [ -s "$NVM_DIR/nvm.sh" ]; then
 	unset _nvm_default
 fi
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh || echo "Failed to source ~/.fzf.zsh"
